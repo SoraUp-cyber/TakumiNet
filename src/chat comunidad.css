@@ -1,0 +1,1379 @@
+/* Forum Container */
+.foro-container {
+  background-color: #2d2d2d;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 24px;
+  margin: 20px auto;         /* Centrado horizontal */
+  border: 1px solid #3a3a3a;
+
+  width: 100%;
+  max-width: 1440px; /* Más ancho aún */
+
+}
+
+/* Header Section */
+.foro-header {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+  align-items: flex-start;
+}
+
+.foro-img {
+  width: 280px;        /* Más ancho */
+  height: 160px;       /* Un poco menos alto */
+  object-fit: cover;
+  border-radius: 8px;  /* Un poco más suave */
+  border: 1px solid #4a4a4a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.foro-title-area {
+  flex: 1;
+}
+
+.foro-title {
+  color: #4CAF50;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+
+.foro-meta {
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.foro-meta strong {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Description Section */
+.foro-description {
+  color: #f0f0f0;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  border-top: 1px solid #3a3a3a;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+/* Tags Section */
+.foro-etiquetas {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.foro-etiquetas strong {
+  color: #4CAF50;
+  font-weight: 500;
+}
+
+#foroEtiquetas {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#foroEtiquetas span {
+  background-color: #3a3a3a;
+  color: #e0e0e0;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  border: 1px solid #4a4a4a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .foro-header {
+    flex-direction: column;
+  }
+  
+  .foro-img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+  }
+  
+  .foro-title {
+    font-size: 1.5rem;
+  }
+}
+
+
+
+
+/* Tab Bar Container */
+.tab-bar {
+  display: flex;
+  background-color: #2a2a2a; /* Dark gray background */
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  margin: 20px auto;              /* Centrado horizontal */
+  border-bottom: 1px solid #3a3a3a;
+  max-width: 1480px;              /* Ancho amplio */
+  width: 100%; 
+}
+
+/* Tab Buttons */
+.tab-btn {
+  flex: 1;
+  padding: 14px 16px;
+  background-color: #2a2a2a;
+  color: #b0b0b0; /* Light gray text */
+  border: none;
+  border-right: 1px solid #3a3a3a;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  position: relative;
+  outline: none;
+}
+
+/* Remove right border from last button */
+.tab-btn:last-child {
+  border-right: none;
+}
+
+/* Hover State */
+.tab-btn:hover {
+  color: #ffffff;
+  background-color: #333333;
+}
+
+/* Active State */
+.tab-btn.active {
+  background-color: #333333;
+  color: #4CAF50; /* Green text for active tab */
+  border-bottom: 2px solid #4CAF50; /* Green bottom border */
+}
+
+/* Active Tab Indicator */
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #4CAF50; /* Green underline */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tab-bar {
+    flex-wrap: wrap;
+  }
+  
+  .tab-btn {
+    flex: 1 0 calc(50% - 1px);
+    padding: 12px 8px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #3a3a3a;
+  }
+  
+  .tab-btn:nth-child(2n) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-btn {
+    flex: 1 0 100%;
+    border-right: none;
+    border-bottom: 1px solid #3a3a3a;
+  }
+  
+  .tab-btn:last-child {
+    border-bottom: none;
+  }
+}
+
+
+
+
+
+
+
+/* Main Sections Container - Enhanced Professional Design */
+.secciones {
+  background-color: #252525;
+  border-radius: 0 0 14px 14px;
+  padding: 2.5rem;
+  border: none;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    
+  width: 100%;
+  max-width: 1560px;   /* Ancho profesional amplio */
+  margin: 0 auto 3rem auto; /* Centrado y espacio inferior */
+
+}
+
+/* Individual Section - Smooth Transitions */
+.seccion {
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 
+    opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.seccion.activa {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Professional Form Styling */
+#formCaptura,
+#formChat,
+#formVideo,
+#formGuia,
+#formResena {
+  background: linear-gradient(145deg, #2e2e2e, #262626);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2.5rem;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  border: 1px solid #383838;
+}
+
+/* Premium Input Fields */
+#inputImagen,
+#chatUsuario,
+#chatMensaje,
+#urlVideo,
+#tituloGuia,
+#contenidoGuia,
+#usuarioResena,
+#textoResena,
+#calificacionResena {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.2rem;
+  background-color: #1f1f1f;
+  border: 1px solid #3d3d3d;
+  border-radius: 6px;
+  color: #f0f0f0;
+  font-size: 1rem;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  transition: 
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Focus States with Glow Effect */
+#inputImagen:focus,
+#chatUsuario:focus,
+#chatMensaje:focus,
+#urlVideo:focus,
+#tituloGuia:focus,
+#contenidoGuia:focus,
+#usuarioResena:focus,
+#textoResena:focus,
+#calificacionResena:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 
+    0 0 0 2px rgba(76, 175, 80, 0.2),
+    0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced Textareas */
+#contenidoGuia,
+#textoResena {
+  min-height: 150px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* Premium Buttons */
+#formCaptura button[type="submit"],
+#formChat button[type="submit"], 
+#formVideo button[type="submit"],
+#formGuia button[type="submit"],
+#formResena button[type="submit"] {
+  background: linear-gradient(145deg, #4CAF50, #3d8b40);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.95rem;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Hover Effects */
+#formCaptura button[type="submit"]:hover,
+#formChat button[type="submit"]:hover, 
+#formVideo button[type="submit"]:hover,
+#formGuia button[type="submit"]:hover,
+#formResena button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Content Containers - Modern Layout */
+#galeriaCapturas,
+#mensajesChat,
+#listaVideos,
+#listaGuias,
+#listaResenas {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Gallery Items - Card Design */
+#galeriaCapturas .gallery-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+#galeriaCapturas .gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Chat Messages - Bubble Design */
+#mensajesChat .chat-message {
+  background: linear-gradient(145deg, #2e2e2e, #262626);
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  border-left: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+#mensajesChat .chat-message::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid #2e2e2e;
+}
+
+/* Video Items - Premium Embed */
+#listaVideos .video-item {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: #000;
+}
+
+/* Guide Items - Card Design */
+#listaGuias .guide-item {
+  background: linear-gradient(145deg, #2e2e2e, #262626);
+  padding: 1.8rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border: 1px solid #383838;
+}
+
+/* Review Items - Premium Card */
+#listaResenas .review-item {
+  background: linear-gradient(145deg, #2e2e2e, #262626);
+  padding: 1.8rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border: 1px solid #383838;
+}
+
+/* Rating Stars - Enhanced */
+.rating {
+  color: #FFD700;
+  margin-left: 0.5rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-size: 1.1rem;
+}
+
+/* Responsive Design - Refined */
+@media (max-width: 768px) {
+  .secciones {
+    padding: 1.5rem;
+    border-radius: 0 0 8px 8px;
+  }
+  
+  #formCaptura,
+  #formChat,
+  #formVideo,
+  #formGuia,
+  #formResena {
+    padding: 1.5rem;
+  }
+  
+  #formCaptura button[type="submit"],
+  #formChat button[type="submit"], 
+  #formVideo button[type="submit"],
+  #formGuia button[type="submit"],
+  #formResena button[type="submit"] {
+    padding: 1rem;
+  }
+}
+
+/* Micro-interactions */
+button, input[type="file"], select {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* File Input Customization */
+#inputImagen {
+  padding: 0.8rem;
+  background-color: #2a2a2a;
+}
+
+#inputImagen::-webkit-file-upload-button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  margin-right: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#inputImagen::-webkit-file-upload-button:hover {
+  background: #43A047;
+}
+
+/* Add these transitions to your existing .seccion class */
+.seccion {
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 
+    opacity 0.3s ease-out,
+    transform 0.3s ease-out;
+}
+
+.seccion.activa {
+  display: block;
+}
+
+
+/* Estilos para las tarjetas de guías */
+.guia-card {
+  background: #424242; /* Gris oscuro */
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  color: #ffffff; /* Texto blanco */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border-left: 4px solid #4CAF50; /* Borde izquierdo verde */
+}
+
+.guia-card h3 {
+  color: #4CAF50; /* Verde para el título */
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.contenido-guia {
+  line-height: 1.6;
+  margin: 15px 0;
+  color: #e0e0e0; /* Gris muy claro para el contenido */
+}
+
+.guia-meta {
+  font-size: 0.85em;
+  color: #bdbdbd; /* Gris claro para metadatos */
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid #616161; /* Línea divisoria gris */
+}
+
+/* Alertas (opcional) */
+.alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  color: white;
+  z-index: 1000;
+  background: #4CAF50; /* Verde para alertas */
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+  animation: slideIn 0.3s forwards;
+}
+
+/* Animaciones */
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Estado cuando no hay guías */
+.no-guias {
+  color: #9e9e9e;
+  text-align: center;
+  padding: 30px 0;
+  font-style: italic;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ===== REVIEW AVERAGE STYLES ===== */
+.promedio-resenas {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #2c502f 0%, #1a1a1a 100%);
+  color: white;
+  border: 2px solid #27ae60;
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  margin: 20px 0;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: float 6s ease-in-out infinite;
+}
+
+.promedio-resenas h3 {
+  margin: 0 0 12px 0;
+  font-size: 22px;
+  color: white;
+  font-weight: 600;
+}
+
+.promedio-resenas h3 span {
+  color: #27ae60;
+  text-shadow: 0 0 8px rgba(39, 174, 96, 0.5);
+}
+
+.promedio-resenas p {
+  margin: 0;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* ===== REVIEW GALLERY ===== */
+.galeria-resenas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== REVIEW CARD ===== */
+.resena-card {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(145deg, #333 0%, #2a2a2a 100%);
+  color: white;
+  border: 2px solid #27ae60;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  animation: cardEntrance 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  opacity: 0;
+}
+
+.resena-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== REVIEW HEADER ===== */
+.resena-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.resena-calificacion {
+  color: #FFD700;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.resena-fecha {
+  color: #aaa;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* ===== REVIEW CONTENT ===== */
+.resena-contenido {
+  margin: 15px 0;
+  line-height: 1.6;
+  flex-grow: 1;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== REVIEW FOOTER ===== */
+.resena-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #27ae60;
+  padding-top: 15px;
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.resena-usuario {
+  font-weight: bold;
+  color: #27ae60;
+  font-size: 15px;
+}
+
+/* ===== LIKE BUTTON ===== */
+.like-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  padding: 8px 15px;
+  border-radius: 25px;
+  position: relative;
+  z-index: 2;
+}
+
+.like-btn:hover:not(:disabled) {
+  transform: scale(1.1);
+  background-color: rgba(39, 174, 96, 0.2);
+}
+
+.like-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.like-btn.liked {
+  color: #ff4d4d;
+  animation: heartBeat 0.8s ease;
+}
+
+.like-count {
+  color: inherit;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px) rotate(2deg);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.3); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes likeExplosion {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.like-btn.liked .like-count {
+  animation: likeExplosion 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  color: #ff4d4d;
+  font-weight: bold;
+}
+
+/* ===== NOTIFICATIONS ===== */
+.notificacion {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  z-index: 1000;
+  transform: translateX(0);
+  transition: all 0.3s ease;
+}
+
+.notificacion-success {
+  background-color: #0af529;
+}
+
+.notificacion-error {
+  background-color: #e74c3c;
+}
+
+.notificacion-info {
+  background-color: #0af529;
+}
+
+.notificacion-salir {
+  transform: translateX(150%);
+  opacity: 0;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .galeria-resenas {
+    grid-template-columns: 1fr;
+    padding: 15px;
+    gap: 20px;
+  }
+  
+  .resena-card {
+    padding: 18px;
+  }
+  
+  .resena-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .promedio-resenas {
+    padding: 15px;
+  }
+  
+  .promedio-resenas h3 {
+    font-size: 18px;
+  }
+}
+
+/* ===== STAGGERED ANIMATION DELAYS ===== */
+.resena-card:nth-child(1) { animation-delay: 0.1s; }
+.resena-card:nth-child(2) { animation-delay: 0.2s; }
+.resena-card:nth-child(3) { animation-delay: 0.3s; }
+.resena-card:nth-child(4) { animation-delay: 0.4s; }
+.resena-card:nth-child(5) { animation-delay: 0.5s; }
+.resena-card:nth-child(n+6) { animation-delay: 0.6s; }
+
+
+
+
+
+
+
+
+
+/* Estilos generales para la galería de capturas */
+#galeriaCapturas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: #ff000000; /* Fondo oscuro */
+  border-radius: 12px;
+  margin-top: 20px;
+  border: 1px solid #33333300;
+}
+
+/* Estilo para cada mensaje-captura */
+.mensaje-captura {
+  background-color: #2d2d2d; /* Tarjeta gris oscuro */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #3d3d3d;
+}
+
+.mensaje-captura:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  border-color: #555;
+}
+
+/* Estilos para la información del usuario */
+.usuario-info {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  background-color: #252525; /* Fondo más oscuro para la cabecera */
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.usuario-icono {
+  margin-right: 10px;
+  color: #a0a0a0;
+  background-color: #333;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.usuario-captura {
+  font-weight: 600;
+  color: #f0f0f0; /* Texto blanco */
+}
+
+.badge-premium {
+  margin-left: 10px;
+  padding: 3px 8px;
+  background-color: #3a2e05;
+  color: #ffc107; /* Amarillo premium */
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border: 1px solid #ffc107;
+}
+
+/* Estilos para la imagen */
+.img-captura {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 1px solid #3a3a3a;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  background-color: #252525;
+}
+
+/* Estilos para la fecha */
+.fecha-captura {
+  padding: 8px 15px;
+  font-size: 0.85rem;
+  color: #a0a0a0; /* Texto gris claro */
+  display: flex;
+  align-items: center;
+}
+
+.fecha-captura i {
+  margin-right: 5px;
+  color: #666;
+}
+
+/* Estilos para la sección de interacción */
+.interaccion {
+  display: flex;
+  padding: 10px 15px;
+  border-top: 1px solid #3a3a3a;
+  background-color: #252525;
+}
+
+.interaccion button {
+  border: none;
+  background: #333;
+  cursor: pointer;
+  padding: 8px 12px;
+  margin-right: 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  color: #d0d0d0;
+}
+
+.interaccion button:hover {
+  background-color: #3d3d3d;
+}
+
+.interaccion button i {
+  margin-right: 5px;
+}
+
+/* Estilos específicos para los botones de like/dislike/award */
+.btn-like {
+  color: #a0a0a0;
+}
+
+.btn-like.active {
+  color: white;
+  background-color: #27ae60; /* Verde para like activo */
+}
+
+.btn-like:hover {
+  color: white;
+  background-color: #2ecc71;
+}
+
+.btn-dislike {
+  color: #a0a0a0;
+}
+
+.btn-dislike.active {
+  color: white;
+  background-color: #e74c3c; /* Rojo para dislike activo */
+}
+
+.btn-dislike:hover {
+  color: white;
+  background-color: #c0392b;
+}
+
+.btn-award {
+  color: #a0a0a0;
+  background-color: #333;
+}
+
+.btn-award:hover {
+  color: #333;
+  background-color: #f1c40f; /* Amarillo al hover */
+}
+
+.btn-award.awarded {
+  color: #333;
+  background-color: #f1c40f; /* Amarillo cuando está premiado */
+  font-weight: bold;
+}
+
+.contador {
+  margin-left: 3px;
+  font-weight: 500;
+}
+
+/* Estilos para el botón premium */
+#btnPremium {
+  padding: 10px 20px;
+  background-color: #252525;
+  border: 1px solid #ffc107;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  color: #ffc107;
+}
+
+#btnPremium i {
+  margin-right: 8px;
+}
+
+#btnPremium:hover {
+  background-color: #3a2e05;
+}
+
+#btnPremium.active {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #1a1a1a;
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  #galeriaCapturas {
+    grid-template-columns: 1fr;
+  }
+  
+  .interaccion {
+    justify-content: space-around;
+  }
+  
+  .interaccion button {
+    margin-right: 0;
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+
+
+/* Estilos para el chat mejorado */
+.mensaje-chat {
+  background-color: #2d2d2d;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #3d3d3d;
+  position: relative;
+}
+
+.usuario-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.usuario-icono {
+  margin-right: 10px;
+  color: #a0a0a0;
+  background-color: #333;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.usuario-chat {
+  font-weight: 600;
+  color: #f0f0f0;
+}
+
+.badge-premium {
+  margin-left: 10px;
+  padding: 3px 8px;
+  background-color: #3a2e05;
+  color: #ffc107;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border: 1px solid #ffc107;
+}
+
+.mensaje-contenido {
+  color: #e0e0e0;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.chat-fecha {
+  font-size: 0.8rem;
+  color: #a0a0a0;
+  margin-bottom: 10px;
+}
+
+.interaccion {
+  display: flex;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #3a3a3a;
+}
+
+.btn-like, .btn-dislike, .btn-award {
+  background: #333;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 12px;
+  color: #d0d0d0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-like.active {
+  background: #27ae60;
+  color: white;
+}
+
+.btn-dislike.active {
+  background: #e74c3c;
+  color: white;
+}
+
+.btn-award.awarded {
+  background: #f1c40f;
+  color: #1e1e1e;
+  font-weight: bold;
+}
+
+.contador {
+  font-size: 0.9rem;
+}
+
+
+
+
+
+
+.video-chat {
+  background-color: #1e1e1e;
+  color: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border: 1px solid #2d2d2d;
+  transition: transform 0.3s ease;
+}
+.video-embed {
+  position: relative;
+  padding-bottom: 56.25%; /* Proporción 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 1rem;
+
+}
+
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 1rem;
+}
+.fecha-captura {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.fecha-captura i {
+  color: #70ffb0;
+  font-size: 0.9rem;
+}
+
+
+
+
+
+
+.guia-chat {
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #2a2a2a;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  transition: transform 0.3s ease;
+}
+
+.guia-chat:hover {
+  transform: scale(1.01);
+
+}
+
+.usuario-captura {
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+}
+.guia-titulo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+  line-height: 1.3;
+  letter-spacing: 0.3px;
+  font-family: ' Georgia, 'Times New Roman', Times, serif;
+}
+.guia-fecha {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 0.5rem;
+}
+
+.guia-fecha i {
+  color: #70ffb0;
+  font-size: 0.9rem;
+}
+
+.guia-contenido {
+  font-size: 0.95rem;
+  color: #e0e0e0;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+  word-break: break-word;
+
+}
+
+
+
+
+
+
+
+
+
+
+#promedioVotos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #2a2a2a;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  max-width: 300px;
+  margin: 1.5rem auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.resena-item{
+    background-color: #2d2d2d;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #3d3d3d;
+  position: relative;
+}
+
+
+.resena-estrellas {
+  font-size: 1.6rem;
+  letter-spacing: 3px;
+  color: #ccc; /* color por defecto (gris para ☆) */
+}
+
+/* Para mostrar las estrellas llenas (★) en blanco */
+.resena-estrellas::first-letter {
+  color: #fff;
+}
+
+
+.resena-texto {
+  font-size: 1rem;
+  color: #e0e0e0;
+  line-height: 1.6;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-top: 0.5rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+
+
+
+.interaccion {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.interaccion button {
+  background-color: #2c2c2c;
+  color: #ccc;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.interaccion button:hover {
+  background-color: #3a3a3a;
+  color: #fff;
+}
+
+.interaccion .btn-like i {
+  color: #4caf50;
+}
+
+.interaccion .btn-dislike i {
+  color: #f44336;
+}
+
+.contador {
+  font-weight: 500;
+}
+
+
+
+
+
+.chat-fecha {
+  font-size: 0.85rem;
+  color: #aaa; /* gris para la hora */
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.chat-fecha i {
+  color: #4caf50; /* verde para el ícono */
+}

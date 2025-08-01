@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Jams</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../src/footer.css">
+    <link rel="stylesheet" href="../src/index.css">
+    <link rel="stylesheet" href="../src/nav.css">
+    <style>
+
+/* Sección promocional */
+.crear-jam-banner {
+  background-color: #1f1f1f;
+  color: #ffffff;
+  padding: 2rem 2rem;
+  border-radius: 1px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* Contenido centrado */
+.promo-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Título */
+.promo-content h1 {
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+/* Descripción */
+.promo-content p {
+  font-size: 1.05rem;
+  color: #cccccc;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Botón */
+.promo-btn {
+  display: inline-block;
+  background-color: #2ecc71;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.85rem 1.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+}
+
+.promo-btn:hover {
+  background-color: #27ae60;
+  transform: translateY(-2px);
+}
+
+
+
+
+
+
+
+
+
+/* Contenedor general de sección */
+.game-jams-section {
+  padding: 2rem 1rem;
+  max-width: 100%; /* ← Evita centrado automático */
+  margin: 0;       /* ← Elimina centrado horizontal */
+}
+
+/* Scroll horizontal con grid alineado a la izquierda */
+.jams-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(300px, 350px);
+  gap: 1.5rem;
+  padding: 0 0.5rem 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 1rem;
+  -webkit-overflow-scrolling: touch;
+  justify-content: start; /* ← Fuerza alineación a la izquierda */
+  align-items: start;
+}
+
+.jams-grid::-webkit-scrollbar {
+  height: 8px;
+}
+.jams-grid::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+
+/* Tarjeta individual */
+.jam-card {
+  scroll-snap-align: start;
+  background-color: #1c1c1c;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 100%;
+}
+
+.jam-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 255, 120, 0.15);
+}
+
+/* Encabezado con imagen */
+.jam-card-header {
+  position: relative;
+}
+
+.jam-card-header img.jam-cover {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.jam-card-header h3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Cuerpo de contenido */
+.jam-card-body {
+  padding: 1rem;
+  color: #ccc;
+  font-size: 0.9rem;
+  flex-grow: 1;
+}
+
+.jam-card-body p {
+  margin: 0.4rem 0;
+  line-height: 1.4;
+}
+
+.jam-card-body a {
+  color: #00ffcc;
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+/* Precio o info destacada */
+.jam-card-body p strong {
+  color: #eee;
+}
+
+.jam-card-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Etiquetas */
+.jam-flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.flag {
+  background-color: #333;
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.flag.comunidad { background-color: #008fdd; }
+.flag.bloqueada { background-color: #ff4444; }
+.flag.resultados-ocultos { background-color: #ffaa00; }
+.flag.submisiones-ocultas { background-color: #666; }
+
+/* Footer */
+.jam-card-footer {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #2a2a2a;
+  font-size: 0.75rem;
+  color: #aaa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Botón */
+.view-jam-btn {
+  background-color: #00ff99;
+  color: #000;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.view-jam-btn:hover {
+  background-color: #00cc77;
+}
+
+
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <!-- Sección Izquierda: Logo -->
+    <div class="navbar-logo">
+        <img src="../assets/img/logo.png" alt="Logo de TakumiNet">
+    </div>
+
+    <!-- Sección Central: Enlaces de navegación -->
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" aria-current="page"><i class="fas fa-home"></i> <span data-i18n="inicio">Inicio</span></a></li>
+      <li><a href="marketplace.html"><i class="fas fa-store"></i> <span data-i18n="tienda">Tienda</span></a></li>
+      <li><a href="game jam.html"><i class="fas fa-calendar-alt"></i> <span data-i18n="game_jams">Game Jams</span></a></li>
+      <li><a href="centro-aprendiz.html"><i class="fas fa-graduation-cap"></i> <span data-i18n="tutoriales">Tutoriales</span></a></li>
+      <li><a href="ranking.html"><i class="fas fa-newspaper"></i> <span data-i18n="Noticias">Noticias</span></a></li>
+      <li><a href="comunidad.html"><i class="fas fa-users"></i> <span data-i18n="comunidad">Comunidad</span></a></li>
+    </ul>
+
+    <!-- Sección Derecha: Elementos interactivos -->
+    <div class="nav-right">
+      <!-- Búsqueda -->
+      <form class="search-box" role="search">
+        <input type="search" class="search-input" placeholder="Buscar juegos, usuarios..." aria-label="Buscar en el sitio" data-i18n="buscar" data-i18n-type="placeholder">
+        <button type="submit" class="search-btn" aria-label="Ejecutar búsqueda">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+
+      <!-- Iconos de notificaciones -->
+      <div class="nav-icons">
+        <div class="notification-wrapper">
+          <button class="icon-btn notification-btn" onclick="toggleNotifications()" aria-haspopup="true" aria-expanded="false" aria-label="Notificaciones">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge" id="notificationBadge" aria-live="polite">0</span>
+          </button>
+
+          <!-- Menú desplegable de notificaciones -->
+          <div class="dropdown-menu notification-dropdown" id="notificationDropdown" role="menu" aria-hidden="true" style="display:none;">
+            <div class="dropdown-header">
+              <h4 class="dropdown-title" data-i18n="notificaciones">Notificaciones</h4>
+              <button class="mark-read" id="markReadBtn" data-i18n="ver_todas">Marcar todas como leídas</button>
+            </div>
+
+            <div class="notifications-list" id="notificationsList">
+              <!-- Aquí se insertarán las notificaciones dinámicamente -->
+            </div>
+            <div class="dropdown-footer">
+              <a href="/notificaciones" class="view-all" data-i18n="ver_todas">Ver todas</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carrito de compras -->
+        <div class="icon-btn cart-btn" aria-label="Carrito de compras" role="button" tabindex="0" onclick="toggleCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge" aria-live="polite">5</span>
+        </div>
+
+        <!-- Menú de usuario -->
+        <div class="user-menu">
+          <button class="user-profile" aria-haspopup="true" aria-expanded="false" onclick="toggleUserMenu()">
+            <div class="avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <span class="username" id="mostrarNombre">Invitado</span>
+          </button>
+
+          <!-- Menú desplegable de usuario -->
+          <div class="user-dropdown" id="userDropdown" role="menu" aria-hidden="true">
+            <div class="dropdown-group">
+              <a href="perfil del usuario.html" class="menu-item"><i class="fas fa-user"></i><span data-i18n="perfil">Perfil</span></a>
+              <a href="mis juegos.html" class="menu-item"><i class="fas fa-gamepad"></i><span data-i18n="mis_juegos">Mis Juegos</span></a>
+              <a href="juegos favoritos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="favoritos">Favoritos</span></a>
+              <a href="Creator Dashboard.html" class="menu-item"><i class="fas fa-tachometer-alt"></i><span data-i18n="dashboard">Dashboard</span></a>
+              <a href="subir_juegos.html" class="menu-item"><i class="fas fa-upload"></i><span data-i18n="subir_juego">Subir Juego</span></a>
+            </div>
+            <div class="dropdown-group">
+              <a href="biblioteca.html" class="menu-item"><i class="fas fa-book"></i><span data-i18n="biblioteca">Biblioteca</span></a>
+              <a href="descarga.html" class="menu-item"><i class="fas fa-download"></i><span data-i18n="descargas">Descargas</span></a>
+            </div>
+            <hr class="divider">
+            <div class="dropdown-group">
+              <a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i><span data-i18n="configuracion">Configuración</span></a>
+              <a href="perfil-editar.html" class="menu-item"><i class="fas fa-user-edit"></i><span data-i18n="editar_usuario">Editar Usuario</span></a>
+              <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-star"></i><span data-i18n="suscripcion">Suscripción</span></a>
+              <a href="seguidos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="seguidos">Seguidos</span></a>
+            </div>
+            <hr class="divider">
+            <div class="dropdown-group">
+              <button class="menu-item logout"><i class="fas fa-sign-out-alt"></i><span data-i18n="cerrar_sesion">Cerrar Sesión</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</nav>
+
+<section class="large_promo_section crear-jam-banner">
+  <div class="promo-content">
+    <h1 data-i18n="jamBanner.title">¡Organiza tu propia Game Jam!</h1>
+    <p data-i18n="jamBanner.description">Inspira a la comunidad creando eventos únicos, define las reglas y deja que la creatividad fluya.</p>
+    <a href="Crear Game Jam.html" class="promo-btn" data-i18n="jamBanner.createBtn">Crear Nueva Jam</a>
+  </div>
+</section>
+
+<section class="game-jams-section">
+  <div id="jamsContainer" class="jams-grid">
+    <!-- Aquí se insertarán las jam-cards con JS -->
+  </div>
+</section>
+
+
+  <!-- Scripts -->
+  <script src="../js/notificacion.js"></script>
+  <script src="../js/carrito.js"></script>
+  <script src="../js/user.js"></script>
+  <script src="../js/desplegar.js"></script>
+  <script src="../js/cerrar sesion.js"></script>
+  <script src="../cookies.js"></script>
+<script src="../js/i18n.js"></script>
+  <script src="../js/usario.js"></script>
+  <script src="../autoSync.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  initApp();
+});
+
+function initApp() {
+  loadGameJams();
+  loadCommunityTopics();
+}
+
+function loadGameJams() {
+  const jamsContainer = document.getElementById('jamsContainer');
+  const jamsData = localStorage.getItem('jams');
+
+  if (!jamsData) {
+    jamsContainer.innerHTML = '<p class="no-jams-message">No se encontraron Game Jams. ¡Publica una jam para empezar!</p>';
+    return;
+  }
+
+  try {
+    const jams = JSON.parse(jamsData);
+    renderGameJams(jams, jamsContainer);
+  } catch (error) {
+    console.error('Error al parsear los datos de jams:', error);
+    jamsContainer.innerHTML = '<p>Error al cargar las Game Jams</p>';
+  }
+}
+
+function renderGameJams(jams, container) {
+  container.innerHTML = '';
+
+  jams.forEach(jam => {
+    const jamCard = createJamCard(jam);
+    container.appendChild(jamCard);
+  });
+
+  setupJamEventListeners(); // Esta función configura los listeners para los botones
+}
+
+function createJamCard(jam) {
+  const jamCard = document.createElement('div');
+  jamCard.className = 'jam-card';
+
+  // Asegúrate de que jam.id existe, si no, usa un valor por defecto
+  const jamId = jam.id || 'default-id';
+
+  jamCard.innerHTML = `
+    <div class="jam-card-header">
+  ${jam.imagenPortada ? `<img src="${jam.imagenPortada}" alt="Portada ${jam.titulo}" class="jam-cover">` : ''}
+  <h3>${jam.titulo || '<span data-i18n="jam.noTitle">Game Jam sin título</span>'}</h3>
+</div>
+
+<div class="jam-card-body">
+  <p><strong data-i18n="jam.description">Descripción:</strong> ${jam.descripcionCorta || '<span data-i18n="jam.noDescription">Sin descripción</span>'}</p>
+  <p><strong data-i18n="jam.type">Tipo:</strong> ${jam.tipoJam || '<span data-i18n="jam.notSpecified">No especificado</span>'}</p>
+  <p><strong data-i18n="jam.dates">Fechas:</strong> ${formatDate(jam.fechaInicio)} - ${formatDate(jam.fechaFin)}</p>
+  <p><strong data-i18n="jam.voting">Votación:</strong> ${jam.quienVota || '<span data-i18n="jam.notSpecified">No especificado</span>'} (${formatDate(jam.fechaVotacion)})</p>
+  <p><strong data-i18n="jam.visibility">Visibilidad:</strong> ${jam.visibilidad || '<span data-i18n="jam.public">Pública</span>'}</p>
+
+  ${jam.url ? `<p><strong data-i18n="jam.url">URL:</strong> <a href="${jam.url}" target="_blank">${jam.url}</a></p>` : ''}
+  ${jam.hashtag ? `<p><strong data-i18n="jam.hashtag">Hashtag:</strong> #${jam.hashtag}</p>` : ''}
+
+  <div class="jam-flags">
+    ${jam.comunidad ? '<span class="flag comunidad" data-i18n="jam.community">Comunidad</span>' : ''}
+    ${jam.bloquearSubidas ? '<span class="flag bloqueada" data-i18n="jam.uploadBlocked">Subidas bloqueadas</span>' : ''}
+    ${jam.ocultarResultados ? '<span class="flag resultados-ocultos" data-i18n="jam.resultsHidden">Resultados ocultos</span>' : ''}
+    ${jam.ocultarSubmisiones ? '<span class="flag submisiones-ocultas" data-i18n="jam.submissionsHidden">Submisiones ocultas</span>' : ''}
+  </div>
+</div>
+
+<div class="jam-card-footer">
+  <small><span data-i18n="jam.createdOn">Creada el:</span> ${formatDate(jam.fechaCreacion)}</small>
+  <button class="view-jam-btn" data-jamid="${jamId}" data-i18n="jam.viewDetails">Ver detalles</button>
+</div>
+  `;
+
+  return jamCard;
+}
+
+function setupJamEventListeners() {
+  const botones = document.querySelectorAll('.view-jam-btn');
+
+  botones.forEach(boton => {
+    boton.addEventListener('click', (event) => {
+      event.stopPropagation(); // Evita eventos duplicados
+      const jamId = boton.getAttribute('data-jamid');
+      if (jamId) {
+        window.location.href = `jams.html?id=${jamId}`;
+      } else {
+        console.error('No se encontró el ID de la jam');
+      }
+    });
+  });
+}
+
+function loadCommunityTopics() {
+  const temasContainer = document.getElementById('temasContainer');
+  const temasData = localStorage.getItem('temas');
+
+  if (!temasData) {
+    temasContainer.innerHTML = '<p>No hay temas de discusión disponibles</p>';
+    return;
+  }
+
+  try {
+    const temas = JSON.parse(temasData);
+    renderCommunityTopics(temas, temasContainer);
+  } catch (error) {
+    console.error('Error al parsear los datos de foros:', error);
+    temasContainer.innerHTML = '<p>Error al cargar los temas de discusión</p>';
+  }
+}
+
+// Función auxiliar para formatear fechas (asegúrate de que existe)
+function formatDate(dateString) {
+  if (!dateString) return 'No especificada';
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString('es-ES', options);
+}
+
+</script>
+

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - TakumiNet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #27ae60;
+      --secondary-color: #1abc9c;
+      --dark-bg: #1c1c1c;
+      --darker-bg: #121212;
+      --light-text: #ffffff;
+      --dark-text: #333333;
+      --light-bg: #f5f5f5;
+      --container-bg: #2d2d2d;
+      --border-color: #444444;
+    }
+
+    /* Base styles */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--light-text);
+      background-color: var(--dark-bg);
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation bar */
+    .config-navbar {
+      background-color: var(--darker-bg);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .back-btn {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 1.2em;
+      margin-right: 15px;
+      display: flex;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      color: var(--secondary-color);
+    }
+
+    .config-title {
+      margin: 0;
+      color: var(--light-text);
+      font-size: 1.2em;
+      font-weight: 500;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--darker-bg);
+      padding: 2rem 1rem;
+      text-align: center;
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    header h1 {
+      color: var(--primary-color);
+      margin: 0 0 0.5rem 0;
+      font-size: 2.2em;
+    }
+
+    header p {
+      color: var(--light-text);
+      margin: 0;
+      font-size: 1.1em;
+    }
+
+    /* Main content */
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+
+    article {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    article h2 {
+      color: var(--primary-color);
+      margin: 0 0 0.5rem 0;
+      font-size: 1.5em;
+    }
+
+    .date {
+      color: #aaa;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: var(--darker-bg);
+      color: #777;
+      margin-top: 3rem;
+      border-top: 2px solid var(--primary-color);
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header {
+        padding: 1.5rem 1rem;
+      }
+      
+      header h1 {
+        font-size: 1.8em;
+      }
+      
+      main {
+        padding: 0 15px;
+      }
+      
+      article {
+        margin-bottom: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav class="config-navbar" aria-label="Navegación principal">
+    <a href="../pages/index.html" class="back-btn" title="Volver al Inicio" data-i18n-title="config.backToHome">
+      <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      <span class="sr-only">Volver</span>
+    </a>
+    <h1 class="config-title" data-i18n="config.return">Volver</h1>
+  </nav>
+
+  <header>
+    <h1>Blog de TakumiNet</h1>
+    <p>Noticias, actualizaciones y más sobre nuestra comunidad</p>
+  </header>
+
+  <main>
+    <article>
+      <h2>Lanzamiento oficial de TakumiNet</h2>
+      <span class="date">29 de julio de 2025</span>
+      <p>Hoy damos inicio a la aventura con TakumiNet, una plataforma para desarrolladores y jugadores indie. Explora, comparte y crea con nosotros en este nuevo espacio diseñado para la comunidad de videojuegos independientes.</p>
+    </article>
+
+    <article>
+      <h2>Próxima Game Jam: Prepara tus ideas</h2>
+      <span class="date">26 de julio de 2025</span>
+      <p>Se acerca nuestra primera Game Jam oficial. Será una oportunidad única para demostrar tu talento, colaborar con otros desarrolladores y ganar premios exclusivos. Mantente atento a las bases del concurso que publicaremos próximamente.</p>
+    </article>
+
+    <article>
+      <h2>Nuevas funciones en desarrollo</h2>
+      <span class="date">22 de julio de 2025</span>
+      <p>Estamos trabajando en importantes mejoras para la plataforma, incluyendo perfiles más completos, un sistema de recompensas por participación y más herramientas de interacción social. Agradecemos todas las sugerencias que nos han enviado.</p>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 TakumiNet - <a href="acerca.html">Acerca de</a> - <a href="faq.html">Preguntas frecuentes</a> - <a href="contacto.html">Contacto</a></p>
+  </footer>
+</body>
+</html>

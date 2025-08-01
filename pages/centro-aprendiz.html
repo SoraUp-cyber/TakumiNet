@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutoriales</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../src/footer.css">
+    <link rel="stylesheet" href="../src/index.css">
+    <link rel="stylesheet" href="../src/nav.css">
+
+    <style>
+
+/* ===== ESTILOS BASE ===== */
+.takumi-container {
+  max-width: 1600px; /* Antes: 1400px */
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #121212;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* ===== ESTRUCTURA DE SECCIONES ===== */
+.sections-takuminet {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* ===== TARJETAS ===== */
+.takumi-card {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid #2e7d32;
+  margin-bottom: 2rem;
+}
+
+.takumi-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(46, 125, 50, 0.25);
+}
+
+/* ===== CABECERAS DE TARJETA ===== */
+.takumi-card-header {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #2d2d2d 0%, #1e1e1e 100%);
+  border-bottom: 2px solid #4caf50;
+}
+
+.card-icon {
+  margin-right: 1.2rem;
+  color: #69f0ae;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+}
+
+.takumi-card-header h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* ===== LISTA DE GUÍAS ===== */
+.takumi-guide-list {
+  list-style: none;
+  padding: 1.5rem;
+}
+
+/* ===== TARJETAS DE DESCARGA ===== */
+.takumi-download-card {
+  display: flex;
+  align-items: center;
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+  background-color: rgba(46, 125, 50, 0.08);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(46, 125, 50, 0.2);
+}
+
+.takumi-download-card:hover {
+  background-color: rgba(46, 125, 50, 0.15);
+  transform: translateX(8px);
+  border-color: rgba(46, 125, 50, 0.4);
+}
+
+.takumi-download-card i {
+  margin-right: 1rem;
+  color: #4caf50;
+  font-size: 1.4rem;
+  min-width: 24px;
+}
+
+.takumi-download-info {
+  flex-grow: 1;
+}
+
+.takumi-download-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  color: white;
+}
+
+.takumi-download-size {
+  font-size: 0.9rem;
+  color: #bdbdbd;
+}
+
+/* ===== BOTONES DE DESCARGA ===== */
+.takumi-download-btn {
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 1.2rem;
+  background-color: #2e7d32;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.takumi-download-btn:hover {
+  background-color: #1b5e20;
+  box-shadow: 0 0 15px rgba(46, 125, 50, 0.5);
+}
+
+.takumi-download-btn i {
+  margin-right: 0.5rem;
+  color: white;
+}
+
+/* ===== EDITOR DE CÓDIGO ===== */
+.takumi-code-editor {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1.5rem;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+  border: 1px solid #2e7d32;
+}
+
+.takumi-editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 1.2rem;
+  background-color: #2d2d2d;
+  border-bottom: 1px solid #2e7d32;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+}
+
+.takumi-editor-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.editor-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.editor-dot.red {
+  background-color: #ff5f56;
+}
+
+.editor-dot.yellow {
+  background-color: #ffbd2e;
+}
+
+.editor-dot.green {
+  background-color: #27c93f;
+}
+
+.takumi-code-editor pre {
+  margin: 0;
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+.takumi-code-editor code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95rem;
+  color: #f8f8f2;
+  line-height: 1.5;
+  display: block;
+}
+
+/* ===== SECCIÓN DE MÚSICA ===== */
+.takumi-music-section {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.takumi-credit {
+  font-size: 0.85rem;
+  color: #bdbdbd;
+  margin-bottom: 1.5rem;
+  padding: 0 0.5rem;
+  line-height: 1.6;
+}
+
+.takumi-credit a {
+  color: #69f0ae;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.takumi-credit a:hover {
+  color: #4caf50;
+  text-decoration: underline;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.takumi-card:hover .card-icon {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.takumi-download-btn:hover i {
+  animation: float 1s infinite;
+}
+
+/* ===== EFECTO DE LUZ ===== */
+.takumi-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.takumi-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #69f0ae, transparent);
+  transition: left 0.6s ease;
+}
+
+.takumi-card:hover::after {
+  left: 100%;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .takumi-container {
+    padding: 1rem;
+  }
+  
+  .sections-takuminet {
+    grid-template-columns: 1fr;
+  }
+  
+  .takumi-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .takumi-code-editor {
+    margin: 1rem;
+  }
+  
+  .takumi-code-editor pre {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .takumi-download-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .takumi-download-card i {
+    margin-right: 0;
+    margin-bottom: 0.8rem;
+  }
+  
+  .takumi-download-btn {
+    margin-top: 0.8rem;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .takumi-card-header {
+    padding: 1.2rem;
+  }
+  
+  .takumi-card-header h2 {
+    font-size: 1.4rem;
+  }
+}
+
+
+
+
+.takumi-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #1f1f1f;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.takumi-copy-btn i {
+  font-size: 1rem;
+}
+
+.takumi-copy-btn:hover {
+  background-color: #292929;
+  border-color: #3a3a3a;
+}
+
+.takumi-copy-btn:active {
+  transform: scale(0.96);
+}
+
+.takumi-copy-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 255, 150, 0.4);
+}
+
+  </style>
+
+</head>
+<body>
+  <nav class="navbar">
+    <!-- Sección Izquierda: Logo -->
+    <div class="navbar-logo">
+        <img src="../assets/img/logo.png" alt="Logo de TakumiNet">
+    </div>
+
+    <!-- Sección Central: Enlaces de navegación -->
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" aria-current="page"><i class="fas fa-home"></i> <span data-i18n="inicio">Inicio</span></a></li>
+      <li><a href="marketplace.html"><i class="fas fa-store"></i> <span data-i18n="tienda">Tienda</span></a></li>
+      <li><a href="game jam.html"><i class="fas fa-calendar-alt"></i> <span data-i18n="game_jams">Game Jams</span></a></li>
+      <li><a href="centro-aprendiz.html"><i class="fas fa-graduation-cap"></i> <span data-i18n="tutoriales">Tutoriales</span></a></li>
+      <li><a href="ranking.html"><i class="fas fa-newspaper"></i> <span data-i18n="Noticias">Noticias</span></a></li>
+      <li><a href="comunidad.html"><i class="fas fa-users"></i> <span data-i18n="comunidad">Comunidad</span></a></li>
+    </ul>
+
+    <!-- Sección Derecha: Elementos interactivos -->
+    <div class="nav-right">
+      <!-- Búsqueda -->
+      <form class="search-box" role="search">
+        <input type="search" class="search-input" placeholder="Buscar juegos, usuarios..." aria-label="Buscar en el sitio" data-i18n="buscar" data-i18n-type="placeholder">
+        <button type="submit" class="search-btn" aria-label="Ejecutar búsqueda">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+
+      <!-- Iconos de notificaciones -->
+      <div class="nav-icons">
+        <div class="notification-wrapper">
+          <button class="icon-btn notification-btn" onclick="toggleNotifications()" aria-haspopup="true" aria-expanded="false" aria-label="Notificaciones">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge" id="notificationBadge" aria-live="polite">0</span>
+          </button>
+
+          <!-- Menú desplegable de notificaciones -->
+          <div class="dropdown-menu notification-dropdown" id="notificationDropdown" role="menu" aria-hidden="true" style="display:none;">
+            <div class="dropdown-header">
+              <h4 class="dropdown-title" data-i18n="notificaciones">Notificaciones</h4>
+              <button class="mark-read" id="markReadBtn" data-i18n="ver_todas">Marcar todas como leídas</button>
+            </div>
+
+            <div class="notifications-list" id="notificationsList">
+              <!-- Aquí se insertarán las notificaciones dinámicamente -->
+            </div>
+            <div class="dropdown-footer">
+              <a href="/notificaciones" class="view-all" data-i18n="ver_todas">Ver todas</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carrito de compras -->
+        <div class="icon-btn cart-btn" aria-label="Carrito de compras" role="button" tabindex="0" onclick="toggleCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge" aria-live="polite">5</span>
+        </div>
+
+        <!-- Menú de usuario -->
+        <div class="user-menu">
+          <button class="user-profile" aria-haspopup="true" aria-expanded="false" onclick="toggleUserMenu()">
+            <div class="avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <span class="username" id="mostrarNombre">Invitado</span>
+          </button>
+
+          <!-- Menú desplegable de usuario -->
+          <div class="user-dropdown" id="userDropdown" role="menu" aria-hidden="true">
+            <div class="dropdown-group">
+              <a href="perfil del usuario.html" class="menu-item"><i class="fas fa-user"></i><span data-i18n="perfil">Perfil</span></a>
+              <a href="mis juegos.html" class="menu-item"><i class="fas fa-gamepad"></i><span data-i18n="mis_juegos">Mis Juegos</span></a>
+              <a href="juegos favoritos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="favoritos">Favoritos</span></a>
+              <a href="Creator Dashboard.html" class="menu-item"><i class="fas fa-tachometer-alt"></i><span data-i18n="dashboard">Dashboard</span></a>
+              <a href="subir_juegos.html" class="menu-item"><i class="fas fa-upload"></i><span data-i18n="subir_juego">Subir Juego</span></a>
+            </div>
+            <div class="dropdown-group">
+              <a href="biblioteca.html" class="menu-item"><i class="fas fa-book"></i><span data-i18n="biblioteca">Biblioteca</span></a>
+              <a href="descarga.html" class="menu-item"><i class="fas fa-download"></i><span data-i18n="descargas">Descargas</span></a>
+            </div>
+            <hr class="divider">
+            <div class="dropdown-group">
+              <a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i><span data-i18n="configuracion">Configuración</span></a>
+              <a href="perfil-editar.html" class="menu-item"><i class="fas fa-user-edit"></i><span data-i18n="editar_usuario">Editar Usuario</span></a>
+              <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-star"></i><span data-i18n="suscripcion">Suscripción</span></a>
+              <a href="seguidos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="seguidos">Seguidos</span></a>
+            </div>
+            <hr class="divider">
+            <div class="dropdown-group">
+              <button class="menu-item logout"><i class="fas fa-sign-out-alt"></i><span data-i18n="cerrar_sesion">Cerrar Sesión</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</nav>
+
+<div class="takumi-container">
+
+  <div class="sections-takuminet">
+
+    <!-- Sección: Guías Rápidas -->
+    <section class="takumi-card">
+      <!-- Encabezado de la tarjeta -->
+      <header class="takumi-card-header">
+        <div class="card-icon">
+          <i class="fas fa-rocket" aria-hidden="true"></i>
+        </div>
+        <h2 data-i18n="guias_rapidas">Guías Rápidas</h2>
+      </header>
+
+      <!-- Lista de guías -->
+      <ul class="takumi-guide-list">
+        <!-- Tarjeta individual de guía -->
+        <li class="takumi-download-card">
+          <i class="fas fa-upload" aria-hidden="true"></i>
+
+          <div class="takumi-download-info">
+            <h3 class="takumi-download-title" data-i18n="subir_juego">Subir Juego</h3>
+            <p class="takumi-download-size" data-i18n="guia_paso_paso">Guía paso a paso</p>
+          </div>
+
+          <!-- Botón para ver la guía -->
+          <a href="subir juegos.html" class="takumi-download-btn" aria-label="Ver guía paso a paso">
+            <i class="fas fa-external-link-alt" aria-hidden="true"></i> <span data-i18n="ver">Ver</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Code Snippets -->
+  <section class="takumi-card">
+    <header class="takumi-card-header">
+      <div class="card-icon"><i class="fas fa-code"></i></div>
+      <h2 data-i18n="code_snippets">Code Snippets</h2>
+    </header>
+    <div class="takumi-code-editor">
+      <div class="takumi-editor-header">
+        <span>PlayerController.cs</span>
+        <div class="takumi-editor-actions">
+          <span class="editor-dot red"></span>
+          <span class="editor-dot yellow"></span>
+          <span class="editor-dot green"></span>
+        </div>
+      </div>
+      <pre><code>public class PlayerController : MonoBehaviour {
+    public float speed = 5.0f;
+    public float jumpForce = 10.0f;
+
+    private Rigidbody rb;
+    private bool isGrounded = false;
+
+    void Start() {
+        rb = GetComponent<Rigidbody>(); // Obtiene el componente Rigidbody del objeto
+    }
+
+    void Update() {
+        // Movimiento
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        Vector3 movement = new Vector3(horizontalInput, 0, verticalInput);
+        movement = movement.normalized * speed * Time.deltaTime;
+        rb.MovePosition(transform.position + movement);
+
+        // Salto
+        if (Input.GetButtonDown("Jump") && isGrounded) {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false; // El personaje ya no está en el suelo
+        }
+
+        // Detectar si el personaje está en el suelo
+        if (rb.GetComponent&lt;Collider&gt;().bounds.Intersects(new Bounds(Vector3.zero, new Vector3(1f, 0.1f, 1f)))) {
+            isGrounded = true;
+        }
+    }
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- Asset Packs -->
+  <section class="takumi-card">
+    <header class="takumi-card-header">
+      <div class="card-icon"><i class="fas fa-music"></i></div>
+      <h2 data-i18n="resources.audioArt">Recursos de Audio y Arte</h2>
+    </header>
+    <div class="content">
+
+      <section class="takumi-music-section">
+        <!-- Tarjeta 1: Local Forecast – Elevator -->
+        <div class="takumi-download-card">
+          <i class="fas fa-music"></i>
+          <div class="takumi-download-info">
+            <h3 class="takumi-download-title" data-i18n="music.elevatorTitle">Elevator Music (Kevin MacLeod)</h3>
+            <p class="takumi-download-size" data-i18n="music.elevatorSize">4.33 MB • MP3</p>
+          </div>
+          <a href="../music/Elevator-music(chosic.com).mp3"
+             class="takumi-download-btn"
+             download
+             aria-label="Descargar Elevator Music"
+             data-i18n="buttons.download">
+            <i class="fas fa-download"></i>
+          </a>
+        </div>
+        <p class="takumi-credit" data-i18n="music.elevatorCredit">
+          Música: "Local Forecast – Elevator" de <a href="https://incompetech.com/" target="_blank">Kevin MacLeod</a><br>
+          Promocionada por <a href="https://www.chosic.com/free-music/all/" target="_blank">Chosic</a><br>
+          Licencia: <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>
+        </p>
+
+        <!-- Tarjeta 2: The Visitor -->
+        <div class="takumi-download-card">
+          <i class="fas fa-music"></i>
+          <div class="takumi-download-info">
+            <h3 class="takumi-download-title" data-i18n="music.visitorTitle">The Visitor (Shane Ivers)</h3>
+            <p class="takumi-download-size" data-i18n="music.visitorSize">8.31 MB • MP3</p>
+          </div>
+          <a href="../music/the-visitor(chosic.com).mp3"
+             class="takumi-download-btn"
+             download
+             aria-label="Descargar The Visitor"
+             data-i18n="buttons.download">
+            <i class="fas fa-download"></i>
+          </a>
+        </div>
+        <p class="takumi-credit" data-i18n="music.visitorCredit">
+          Música: "The Visitor" de <a href="https://www.silvermansound.com" target="_blank">Shane Ivers</a><br>
+          Promocionada por <a href="https://www.chosic.com/free-music/all/" target="_blank">Chosic</a><br>
+          Licencia: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons CC BY 4.0</a>
+        </p>
+
+        <!-- Tarjeta 3: Morning Routine -->
+        <div class="takumi-download-card">
+          <i class="fas fa-music"></i>
+          <div class="takumi-download-info">
+            <h3 class="takumi-download-title" data-i18n="music.morningTitle">Morning Routine (Ghostrifter)</h3>
+            <p class="takumi-download-size" data-i18n="music.morningSize">1.83 MB • MP3</p>
+          </div>
+          <a href="../music/Morning-Routine-Lofi-Study-Music(chosic.com).mp3"
+             class="takumi-download-btn"
+             download
+             aria-label="Descargar Morning Routine"
+             data-i18n="buttons.download">
+            <i class="fas fa-download"></i>
+          </a>
+        </div>
+        <p class="takumi-credit" data-i18n="music.morningCredit">
+          Música: "Morning Routine" de <a href="https://soundcloud.com/ghostrifter-official" target="_blank">Ghostrifter Official</a><br>
+          Promocionada por <a href="https://www.chosic.com/free-music/all/" target="_blank">Chosic</a><br>
+          Licencia: <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank">Creative Commons CC BY-SA 3.0</a>
+        </p>
+
+        <!-- Tarjeta 4: Fallen Leaves Pack -->
+        <div class="takumi-download-card">
+          <i class="fas fa-music"></i>
+          <div class="takumi-download-info">
+            <h3 class="takumi-download-title" data-i18n="music.fallenTitle">Fallen Leaves – Suspense Pack</h3>
+            <p class="takumi-download-size" data-i18n="music.fallenSize">78.2 MB • 12 pistas MP3</p>
+          </div>
+          <a href="../music/HinaCC0_011_Fallen_leaves(chosic.com).mp3"
+             class="takumi-download-btn"
+             download
+             aria-label="Descargar Fallen Leaves Pack"
+             data-i18n="buttons.download">
+            <i class="fas fa-download"></i>
+          </a>
+        </div>
+        <p class="takumi-credit" data-i18n="music.fallenCredit">
+          Música de suspenso disponible en <a href="https://www.chosic.com/free-music/all/" target="_blank">Chosic</a><br>
+          Usado sin necesidad de atribución (licencia gratuita para uso comercial).<br>
+          <a href="https://www.chosic.com/free-music/all/" target="_blank">Escuchar música en Chosic</a>
+        </p>
+
+        <!-- Tarjeta 5: Poupi’s Theme -->
+        <div class="takumi-download-card">
+          <i class="fas fa-music"></i>
+          <div class="takumi-download-info">
+            <h3 class="takumi-download-title" data-i18n="music.poupiTitle">Poupi’s Theme</h3>
+            <p class="takumi-download-size" data-i18n="music.poupiSize">2.09 MB • MP3</p>
+          </div>
+          <a href="../music/Komiku_-_02_-_Poupis_Theme(chosic.com).mp3"
+             class="takumi-download-btn"
+             download
+             aria-label="Descargar Poupi’s Theme"
+             data-i18n="buttons.download">
+            <i class="fas fa-download"></i>
+          </a>
+        </div>
+        <p class="takumi-credit" data-i18n="music.poupiCredit">
+          Música gratuita para proyectos comerciales y personales, disponible en <a href="https://www.chosic.com/free-music/all/" target="_blank">Chosic</a><br>
+          Música sin derechos de autor para uso libre.
+        </p>
+
+      </section>
+    </div>
+  </section>
+
+</div>
+
+
+
+<script src="../js/notificacion.js"></script>
+<script src="../js/carrito.js"></script>
+<script src="../js/user.js"></script>
+<script src="../js/usario.js"></script>
+<script src="../js/desplegar.js"></script>
+<script src="../js/cerrar sesion.js"></script>
+<script src="../cookies.js"></script>
+<script src="../autoSync.js"></script>
+<script src="../script.js"></script>
+<script src="../js/i18n.js"></script>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Crear botón de copiar
+    const codeEditor = document.querySelector('.takumi-code-editor');
+    if (codeEditor) {
+        const copyButton = document.createElement('button');
+        copyButton.className = 'takumi-copy-btn';
+        copyButton.innerHTML = '<i class="far fa-copy"></i> Copiar';
+        copyButton.setAttribute('aria-label', 'Copiar código al portapapeles');
+        
+        // Insertar el botón en el editor
+        const editorHeader = codeEditor.querySelector('.takumi-editor-header');
+        if (editorHeader) {
+            editorHeader.appendChild(copyButton);
+            
+            // Añadir funcionalidad de copiado
+            copyButton.addEventListener('click', function() {
+                const codeElement = codeEditor.querySelector('code');
+                if (codeElement) {
+                    const codeText = codeElement.innerText;
+                    
+                    // Usar la API del portapapeles
+                    navigator.clipboard.writeText(codeText)
+                        .then(() => {
+                            // Feedback visual
+                            copyButton.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                            copyButton.classList.add('copied');
+                            
+                            // Restaurar después de 2 segundos
+                            setTimeout(() => {
+                                copyButton.innerHTML = '<i class="far fa-copy"></i> Copiar';
+                                copyButton.classList.remove('copied');
+                            }, 2000);
+                        })
+                        .catch(err => {
+                            console.error('Error al copiar: ', err);
+                            copyButton.innerHTML = '<i class="fas fa-times"></i> Error';
+                            setTimeout(() => {
+                                copyButton.innerHTML = '<i class="far fa-copy"></i> Copiar';
+                            }, 2000);
+                        });
+                }
+            });
+        }
+    }
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Configuración de descargas
+    const downloadLinks = [
+        {
+            element: document.querySelector('a[aria-label="Descargar Elevator Music"]'),
+            filename: 'Elevator-music.mp3',
+            url: '../music/Elevator-music(chosic.com).mp3'
+        },
+        {
+            element: document.querySelector('a[aria-label="Descargar The Visitor"]'),
+            filename: 'The-Visitor.mp3',
+            url: '../music/the-visitor(chosic.com).mp3'
+        },
+        {
+            element: document.querySelector('a[aria-label="Descargar Morning Routine"]'),
+            filename: 'Morning-Routine.mp3',
+            url: '../music/Morning-Routine-Lofi-Study-Music(chosic.com).mp3'
+        },
+        {
+            element: document.querySelector('a[aria-label="Descargar Fallen Leaves Pack"]'),
+            filename: 'Fallen-Leaves-Pack.mp3',
+            url: '../music/HinaCC0_011_Fallen_leaves(chosic.com).mp3'
+        },
+        {
+            element: document.querySelector('a[aria-label="Descargar Poupi\'s Theme"]'),
+            filename: 'Poupis-Theme.mp3',
+            url: '../music/Komiku_-_02_-_Poupis_Theme(chosic.com).mp3'
+        }
+    ];
+
+    // Función para manejar la descarga
+    async function handleDownload(event, url, filename) {
+        event.preventDefault();
+        
+        try {
+            // Mostrar feedback visual
+            const downloadIcon = event.currentTarget.querySelector('i');
+            if (downloadIcon) {
+                downloadIcon.className = 'fas fa-spinner fa-spin';
+            }
+
+            // Hacer la petición fetch
+            const response = await fetch(url);
+            
+            if (!response.ok) {
+                throw new Error(`Error HTTP: ${response.status}`);
+            }
+
+            // Convertir a blob
+            const blob = await response.blob();
+            const blobUrl = window.URL.createObjectURL(blob);
+            
+            // Crear enlace temporal
+            const a = document.createElement('a');
+            a.href = blobUrl;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            
+            // Limpiar
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(blobUrl);
+            
+            // Restaurar icono
+            if (downloadIcon) {
+                downloadIcon.className = 'fas fa-download';
+            }
+            
+        } catch (error) {
+            console.error('Error en la descarga:', error);
+            
+            // Mostrar error
+            const downloadIcon = event.currentTarget.querySelector('i');
+            if (downloadIcon) {
+                downloadIcon.className = 'fas fa-exclamation-circle';
+                setTimeout(() => {
+                    downloadIcon.className = 'fas fa-download';
+                }, 2000);
+            }
+            
+            alert('Error al descargar el archivo. Por favor intenta nuevamente.');
+        }
+    }
+
+    // Asignar eventos a cada enlace de descarga
+    downloadLinks.forEach(link => {
+        if (link.element) {
+            link.element.addEventListener('click', (e) => {
+                handleDownload(e, link.url, link.filename);
+            });
+        }
+    });
+
+    // Opcional: Verificación de enlaces no encontrados
+    downloadLinks.forEach(link => {
+        if (!link.element) {
+            console.warn(`No se encontró el enlace para: ${link.filename}`);
+        }
+    });
+});
+  </script>
+  <script src="../js/traductor.js"></script>
+</body>
+</html>

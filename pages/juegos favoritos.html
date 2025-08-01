@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>favorite-games</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../src/nav.css">
+  <link rel="stylesheet" href="../src/index.css">
+  <link rel="stylesheet" href="../src/footer.css">
+  <style>
+ .favorite-games {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .favorite-games h2 {
+    color: #09f815; /* verde profesional */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+  }
+
+  .game-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .game-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.2s ease;
+  }
+
+  .game-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .game-card img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+
+  .game-card h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 8px;
+  }
+
+  .game-card p {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0;
+  }
+
+  #noFavoritesMessage {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    grid-column: 1 / -1;
+  }
+
+
+
+
+
+
+
+
+
+
+.favorite-games {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 1400px; /* Aumentamos el límite */
+    margin: 0 auto; /* Centrar en pantallas grandes */
+    padding: 40px 20px; /* Más espacio interno */
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    box-sizing: border-box;
+}
+
+
+.favorite-games h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #00ff99;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* ===== Contenedor de Galería ===== */
+.game-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+/* Mensaje cuando no hay favoritos */
+#noFavoritesMessage {
+    text-align: center;
+    font-size: 16px;
+    color: #aaa;
+    margin-top: 15px;
+}
+
+/* ===== Lista de juegos favoritos ===== */
+#favoritesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ===== Tarjeta estilo lista ===== */
+.favorite-card {
+    display: flex;
+    align-items: center;
+    background: #1f1f1f;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.favorite-card:hover {
+    background: #292929;
+    transform: scale(1.02);
+}
+
+/* Imagen del juego */
+.favorite-img {
+    width: 260px;         /* Mucho más ancha */
+    height: 160px;        /* Más alta */
+    object-fit: cover;    /* Mantener proporción */
+    border-radius: 12px;  /* Bordes suaves */
+    margin-right: 25px;   /* Espacio con texto */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45); /* Sombra más profunda */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Información del juego */
+.favorite-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.favorite-info h3 {
+    font-size: 18px;
+    margin: 0;
+    color: #fff;
+}
+
+.categoria {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.precio {
+    font-size: 15px;
+    font-weight: bold;
+    color: #00ff99;
+}
+
+/* ===== Botones ===== */
+.acciones {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.acciones button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+/* Botón Instalar */
+.btn-instalar {
+    background: #00cc88;
+    color: #fff;
+}
+.btn-instalar:hover {
+    background: #00ff99;
+}
+
+/* Botón Comprar */
+.btn-comprar {
+    background: #0077ff;
+    color: #fff;
+}
+.btn-comprar:hover {
+    background: #3399ff;
+}
+
+/* Botón Eliminar */
+.btn-eliminar {
+    background: #e74c3c;
+    color: #fff;
+}
+.btn-eliminar:hover {
+    background: #ff6b6b;
+}
+
+
+
+
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <!-- Sección Izquierda: Logo -->
+    <div class="navbar-logo">
+        <img src="../assets/img/logo.png" alt="Logo de TakumiNet">
+    </div>
+
+    <!-- Sección Central: Enlaces de navegación -->
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" aria-current="page"><i class="fas fa-home"></i> <span data-i18n="inicio">Inicio</span></a></li>
+      <li><a href="marketplace.html"><i class="fas fa-store"></i> <span data-i18n="tienda">Tienda</span></a></li>
+      <li><a href="game jam.html"><i class="fas fa-calendar-alt"></i> <span data-i18n="game_jams">Game Jams</span></a></li>
+      <li><a href="centro-aprendiz.html"><i class="fas fa-graduation-cap"></i> <span data-i18n="tutoriales">Tutoriales</span></a></li>
+      <li><a href="ranking.html"><i class="fas fa-newspaper"></i> <span data-i18n="Noticias">Noticias</span></a></li>
+      <li><a href="comunidad.html"><i class="fas fa-users"></i> <span data-i18n="comunidad">Comunidad</span></a></li>
+    </ul>
+
+    <!-- Sección Derecha: Elementos interactivos -->
+    <div class="nav-right">
+      <!-- Búsqueda -->
+      <form class="search-box" role="search">
+        <input type="search" class="search-input" placeholder="Buscar juegos, usuarios..." aria-label="Buscar en el sitio" data-i18n="buscar" data-i18n-type="placeholder">
+        <button type="submit" class="search-btn" aria-label="Ejecutar búsqueda">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+
+      <!-- Iconos de notificaciones -->
+      <div class="nav-icons">
+        <div class="notification-wrapper">
+          <button class="icon-btn notification-btn" onclick="toggleNotifications()" aria-haspopup="true" aria-expanded="false" aria-label="Notificaciones">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge" id="notificationBadge" aria-live="polite">0</span>
+          </button>
+
+          <!-- Menú desplegable de notificaciones -->
+          <div class="dropdown-menu notification-dropdown" id="notificationDropdown" role="menu" aria-hidden="true" style="display:none;">
+            <div class="dropdown-header">
+              <h4 class="dropdown-title" data-i18n="notificaciones">Notificaciones</h4>
+              <button class="mark-read" id="markReadBtn" data-i18n="ver_todas">Marcar todas como leídas</button>
+            </div>
+
+            <div class="notifications-list" id="notificationsList">
+              <!-- Aquí se insertarán las notificaciones dinámicamente -->
+            </div>
+            <div class="dropdown-footer">
+              <a href="/notificaciones" class="view-all" data-i18n="ver_todas">Ver todas</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carrito de compras -->
+        <div class="icon-btn cart-btn" aria-label="Carrito de compras" role="button" tabindex="0" onclick="toggleCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge" aria-live="polite">5</span>
+        </div>
+
+        <!-- Menú de usuario -->
+        <div class="user-menu">
+          <button class="user-profile" aria-haspopup="true" aria-expanded="false" onclick="toggleUserMenu()">
+            <div class="avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <span class="username" id="mostrarNombre">Invitado</span>
+          </button>
+
+          <!-- Menú desplegable de usuario -->
+          <div class="user-dropdown" id="userDropdown" role="menu" aria-hidden="true">
+            <div class="dropdown-group">
+              <a href="perfil del usuario.html" class="menu-item"><i class="fas fa-user"></i><span data-i18n="perfil">Perfil</span></a>
+              <a href="mis juegos.html" class="menu-item"><i class="fas fa-gamepad"></i><span data-i18n="mis_juegos">Mis Juegos</span></a>
+              <a href="juegos favoritos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="favoritos">Favoritos</span></a>
+              <a href="Creator Dashboard.html" class="menu-item"><i class="fas fa-tachometer-alt"></i><span data-i18n="dashboard">Dashboard</span></a>
+              <a href="subir_juegos.html" class="menu-item"><i class="fas fa-upload"></i><span data-i18n="subir_juego">Subir Juego</span></a>
+            </div>
+            <div class="dropdown-group">
+              <a href="biblioteca.html" class="menu-item"><i class="fas fa-book"></i><span data-i18n="biblioteca">Biblioteca</span></a>
+              <a href="descarga.html" class="menu-item"><i class="fas fa-download"></i><span data-i18n="descargas">Descargas</span></a>
+            </div>
+            <hr class="divider">
+            <div class="dropdown-group">
+              <a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i><span data-i18n="configuracion">Configuración</span></a>
+              <a href="perfil-editar.html" class="menu-item"><i class="fas fa-user-edit"></i><span data-i18n="editar_usuario">Editar Usuario</span></a>
+              <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-star"></i><span data-i18n="suscripcion">Suscripción</span></a>
+              <a href="seguidos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="seguidos">Seguidos</span></a>
+            </div>
+            <hr class="divider">
+            <div class="dropdown-group">
+              <button class="menu-item logout"><i class="fas fa-sign-out-alt"></i><span data-i18n="cerrar_sesion">Cerrar Sesión</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</nav>
+
+
+
+<!-- Galería de Juegos Favoritos -->
+<section class="favorite-games">
+  <h2 data-i18n="favorites.title">Juegos Favoritos</h2>
+  <div class="game-gallery" id="favoriteGames">
+    <p id="noFavoritesMessage" data-i18n="favorites.noFavorites">Aún no has agregado juegos a favoritos. ¡Explora y añade tus favoritos!</p>
+    
+    <!-- Aquí se agregarán los juegos favoritos dinámicamente -->
+    <div id="favoritesContainer" data-i18n="favorites.container">
+      <!-- Juegos favoritos se insertarán aquí con JavaScript -->
+    </div>
+
+  </div>
+</section>
+
+<script src="../js/notificacion.js"></script>
+<script src="../js/carrito.js"></script>
+<script src="../js/user.js"></script>
+<script src="../js/usario.js"></script>
+<script src="../js/desplegar.js"></script>
+<script src="../js/cerrar sesion.js"></script>
+<script src="../cookies.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../autoSync.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const favoritesContainer = document.getElementById('favoritesContainer');
+    const noFavoritesMessage = document.getElementById('noFavoritesMessage');
+
+    // 1️⃣ Obtener IDs favoritos desde localStorage
+    const favoritos = JSON.parse(localStorage.getItem('biblioteca')) || [];
+
+    if (favoritos.length === 0) {
+        noFavoritesMessage.style.display = 'block';
+        return;
+    } else {
+        noFavoritesMessage.style.display = 'none';
+    }
+
+    // 2️⃣ Abrir IndexedDB
+    const request = indexedDB.open('GamesDB', 1);
+
+    request.onerror = (event) => {
+        console.error('❌ Error al abrir la base de datos:', event.target.error);
+    };
+
+    request.onsuccess = (event) => {
+        const db = event.target.result;
+        mostrarFavoritos(db);
+    };
+
+    /**
+     * ✅ Mostrar los juegos favoritos
+     */
+    function mostrarFavoritos(db) {
+        const transaction = db.transaction(['games', 'gameImages'], 'readonly');
+        const gamesStore = transaction.objectStore('games');
+        const imagesStore = transaction.objectStore('gameImages');
+
+        favoritos.forEach((id) => {
+            const gameRequest = gamesStore.get(id);
+
+            gameRequest.onsuccess = (e) => {
+                const game = e.target.result;
+                if (!game) return;
+
+                // ✅ Obtener portada
+                const imgRequest = imagesStore.get(game.id);
+                imgRequest.onsuccess = () => {
+                    const imgData = imgRequest.result;
+                    const portada = imgData?.cover?.base64 || 'https://via.placeholder.com/315x250?text=Sin+portada';
+
+                    // ✅ Determinar botón dinámico
+                    let actionButton = '';
+                    if (game.pricing === 'gratis') {
+                        actionButton = `<button class="btn-instalar" data-id="${game.id}">⬇ Instalar</button>`;
+                    } else {
+                        actionButton = `<button class="btn-comprar" data-id="${game.id}">💲 Comprar $${game.price.toFixed(2)}</button>`;
+                    }
+
+                    // ✅ Crear tarjeta del juego
+                    const gameCard = document.createElement('div');
+                    gameCard.className = 'favorite-card';
+                    gameCard.dataset.id = game.id;
+
+                    gameCard.innerHTML = `
+                        <img src="${portada}" alt="${game.title}" class="favorite-img">
+                        <div class="favorite-info">
+                            <h3>${game.title}</h3>
+                            <p class="categoria">${game.category || 'Sin categoría'}</p>
+                            <p class="precio">${game.pricing === 'gratis' ? 'Gratis' : `$${game.price.toFixed(2)}`}</p>
+                            <div class="acciones">
+                                ${actionButton}
+                                <button class="btn-eliminar" data-id="${game.id}">🗑 Eliminar</button>
+                            </div>
+                        </div>
+                    `;
+
+                    favoritesContainer.appendChild(gameCard);
+                };
+            };
+        });
+    }
+
+    /**
+     * ✅ Acciones: Instalar, Comprar o Eliminar
+     */
+    document.addEventListener('click', (e) => {
+        const id = e.target.getAttribute('data-id');
+
+        // 🕹 Instalar (gratis)
+        if (e.target.classList.contains('btn-instalar')) {
+            alert(`Descargando e instalando el juego con ID: ${id}`);
+            // Aquí podrías agregar la lógica real para descargar el juego
+        }
+
+        // 💲 Comprar (pago)
+        if (e.target.classList.contains('btn-comprar')) {
+            alert(`Redirigiendo a la pasarela de pago para el juego con ID: ${id}`);
+            // Aquí puedes integrar PayPal o Stripe
+        }
+
+        // ❌ Eliminar de favoritos
+        if (e.target.classList.contains('btn-eliminar')) {
+            let biblioteca = JSON.parse(localStorage.getItem('biblioteca')) || [];
+            biblioteca = biblioteca.filter(gameId => gameId !== id);
+            localStorage.setItem('biblioteca', JSON.stringify(biblioteca));
+            e.target.closest('.favorite-card').remove();
+
+            if (biblioteca.length === 0) {
+                noFavoritesMessage.style.display = 'block';
+            }
+        }
+    });
+});
+
+</script>

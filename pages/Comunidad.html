@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../src/footer.css">
+  <link rel="stylesheet" href="../src/index.css">
+  <link rel="stylesheet" href="../src/nav.css">
+  <link rel="stylesheet" href="../src/comunidad.css">
+  <title>Comunidad de Desarrolladores</title>
+  <style>
+
+  </style>
+</head>
+<body>
+ <nav class="navbar">
+    <!-- Sección Izquierda: Logo -->
+    <div class="navbar-logo">
+        <img src="../assets/img/logo.png" alt="Logo de TakumiNet">
+    </div>
+
+    <!-- Sección Central: Enlaces de navegación -->
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" aria-current="page"><i class="fas fa-home"></i> <span data-i18n="inicio">Inicio</span></a></li>
+      <li><a href="marketplace.html"><i class="fas fa-store"></i> <span data-i18n="tienda">Tienda</span></a></li>
+      <li><a href="game jam.html"><i class="fas fa-calendar-alt"></i> <span data-i18n="game_jams">Game Jams</span></a></li>
+      <li><a href="centro-aprendiz.html"><i class="fas fa-graduation-cap"></i> <span data-i18n="tutoriales">Tutoriales</span></a></li>
+      <li><a href="ranking.html"><i class="fas fa-newspaper"></i> <span data-i18n="Noticias">Noticias</span></a></li>
+      <li><a href="comunidad.html"><i class="fas fa-users"></i> <span data-i18n="comunidad">Comunidad</span></a></li>
+    </ul>
+
+    <!-- Sección Derecha: Elementos interactivos -->
+    <div class="nav-right">
+      <!-- Búsqueda -->
+      <form class="search-box" role="search">
+        <input type="search" class="search-input" placeholder="Buscar juegos, usuarios..." aria-label="Buscar en el sitio" data-i18n="buscar" data-i18n-type="placeholder">
+        <button type="submit" class="search-btn" aria-label="Ejecutar búsqueda">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+
+      <!-- Iconos de notificaciones -->
+      <div class="nav-icons">
+        <div class="notification-wrapper">
+          <button class="icon-btn notification-btn" onclick="toggleNotifications()" aria-haspopup="true" aria-expanded="false" aria-label="Notificaciones">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge" id="notificationBadge" aria-live="polite">0</span>
+          </button>
+
+          <!-- Menú desplegable de notificaciones -->
+          <div class="dropdown-menu notification-dropdown" id="notificationDropdown" role="menu" aria-hidden="true" style="display:none;">
+            <div class="dropdown-header">
+              <h4 class="dropdown-title" data-i18n="notificaciones">Notificaciones</h4>
+              <button class="mark-read" id="markReadBtn" data-i18n="ver_todas">Marcar todas como leídas</button>
+            </div>
+
+            <div class="notifications-list" id="notificationsList">
+              <!-- Aquí se insertarán las notificaciones dinámicamente -->
+            </div>
+            <div class="dropdown-footer">
+              <a href="/notificaciones" class="view-all" data-i18n="ver_todas">Ver todas</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carrito de compras -->
+        <div class="icon-btn cart-btn" aria-label="Carrito de compras" role="button" tabindex="0" onclick="toggleCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge" aria-live="polite">5</span>
+        </div>
+
+        <!-- Menú de usuario -->
+        <div class="user-menu">
+          <button class="user-profile" aria-haspopup="true" aria-expanded="false" onclick="toggleUserMenu()">
+            <div class="avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <span class="username" id="mostrarNombre">Invitado</span>
+          </button>
+
+          <!-- Menú desplegable de usuario -->
+          <div class="user-dropdown" id="userDropdown" role="menu" aria-hidden="true">
+            <div class="dropdown-group">
+              <a href="perfil del usuario.html" class="menu-item"><i class="fas fa-user"></i><span data-i18n="perfil">Perfil</span></a>
+              <a href="mis juegos.html" class="menu-item"><i class="fas fa-gamepad"></i><span data-i18n="mis_juegos">Mis Juegos</span></a>
+              <a href="juegos favoritos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="favoritos">Favoritos</span></a>
+              <a href="Creator Dashboard.html" class="menu-item"><i class="fas fa-tachometer-alt"></i><span data-i18n="dashboard">Dashboard</span></a>
+              <a href="subir_juegos.html" class="menu-item"><i class="fas fa-upload"></i><span data-i18n="subir_juego">Subir Juego</span></a>
+            </div>
+            <div class="dropdown-group">
+              <a href="biblioteca.html" class="menu-item"><i class="fas fa-book"></i><span data-i18n="biblioteca">Biblioteca</span></a>
+              <a href="descarga.html" class="menu-item"><i class="fas fa-download"></i><span data-i18n="descargas">Descargas</span></a>
+            </div>
+            <hr class="divider">
+            <div class="dropdown-group">
+              <a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i><span data-i18n="configuracion">Configuración</span></a>
+              <a href="perfil-editar.html" class="menu-item"><i class="fas fa-user-edit"></i><span data-i18n="editar_usuario">Editar Usuario</span></a>
+              <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-star"></i><span data-i18n="suscripcion">Suscripción</span></a>
+              <a href="seguidos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="seguidos">Seguidos</span></a>
+            </div>
+            <hr class="divider">
+            <div class="dropdown-group">
+              <button class="menu-item logout"><i class="fas fa-sign-out-alt"></i><span data-i18n="cerrar_sesion">Cerrar Sesión</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</nav>
+
+<header class="community-header">
+  <h1 data-i18n="community.title">Comunidad de Desarrolladores - TakumiNet</h1>
+  <p data-i18n="community.subtitle">¡Bienvenido a la comunidad! Comparte, aprende y conecta con otros desarrolladores.</p>
+</header>
+
+<!-- Caja de reglas -->
+<section class="foro-rules-box">
+  <button id="toggle-rules" class="toggle-rules-btn" data-i18n="forum.showRules">
+    Mostrar reglas para crear un foro
+  </button>
+
+  <div id="rules-content" class="foro-rules-content" style="display: none;">
+    <ul class="foro-rules-list">
+      <li><strong data-i18n="forum.rules.clearTitle">Sé claro y específico:</strong>
+        <span data-i18n="forum.rules.clearDesc">Usa un título que resuma el tema de forma directa.</span>
+      </li>
+      <li><strong data-i18n="forum.rules.noSpam">Evita el spam:</strong>
+        <span data-i18n="forum.rules.noSpamDesc">No publiques enlaces irrelevantes o contenido promocional.</span>
+      </li>
+      <li><strong data-i18n="forum.rules.category">Categoriza correctamente:</strong>
+        <span data-i18n="forum.rules.categoryDesc">Selecciona la categoría que mejor se ajuste al tema.</span>
+      </li>
+      <li><strong data-i18n="forum.rules.respect">Respeta a los demás:</strong>
+        <span data-i18n="forum.rules.respectDesc">No se toleran insultos, lenguaje ofensivo o contenido discriminatorio.</span>
+      </li>
+      <li><strong data-i18n="forum.rules.value">Comparte con valor:</strong>
+        <span data-i18n="forum.rules.valueDesc">Intenta que tu descripción aporte algo útil a la comunidad.</span>
+      </li>
+      <li><strong data-i18n="forum.rules.tags">Usa etiquetas:</strong>
+        <span data-i18n="forum.rules.tagsDesc">Añade etiquetas clave para facilitar la búsqueda de tu tema.</span>
+      </li>
+      <li><strong data-i18n="forum.rules.noRepeat">No repitas temas:</strong>
+        <span data-i18n="forum.rules.noRepeatDesc">Antes de crear, revisa si ya existe un foro similar.</span>
+      </li>
+    </ul>
+    <p class="foro-rules-footer" data-i18n="forum.rules.footer">
+      Cumplir estas reglas ayuda a mantener un espacio sano y útil para todos.
+    </p>
+  </div>
+</section>
+
+<!-- Sección de foros -->
+<section class="forum-section">
+  <h2 data-i18n="forum.discussionTitle">Foros de Discusión</h2>
+
+  <!-- Botón para crear nuevo tema -->
+  <a href="crear-foro.html" class="promo-btn" data-i18n="forum.createTopic">Crear nuevo tema</a>
+
+  <!-- Contenedor dinámico de foros cargados por JavaScript -->
+  <div class="forum-topic-container">
+    <!-- Se rellena con foros dinámicamente desde localStorage -->
+  </div>
+</section>
+
+
+<script src="../js/notificacion.js"></script>
+<script src="../js/carrito.js"></script>
+<script src="../js/user.js"></script>
+<script src="../js/desplegar.js"></script>
+<script src="../js/cerrar sesion.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/usario.js"></script>
+<script src="../autoSync.js"></script>
+<script src="../script.js"></script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.forum-topic-container');
+  const paginationContainer = document.createElement('div');
+  paginationContainer.classList.add('pagination');
+
+  // Añadir paginación después del contenedor del foro
+  container.insertAdjacentElement('afterend', paginationContainer);
+
+  const forosGuardados = cargarForosDesdeLocalStorage();
+  const forosPorPagina = 25;
+  let paginaActual = 1;
+
+  mostrarForos(paginaActual);
+
+  // Mostrar u ocultar reglas del foro si existe el botón
+  const toggleBtn = document.getElementById('toggle-rules');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const content = document.getElementById('rules-content');
+      if (content) {
+        content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+      }
+    });
+  }
+
+  // 🔄 Cargar foros desde localStorage de forma segura
+  function cargarForosDesdeLocalStorage() {
+    try {
+      const data = JSON.parse(localStorage.getItem('foros')) || [];
+      return Array.isArray(data) ? data : [];
+    } catch (error) {
+      console.error('Error al leer foros:', error);
+      return [];
+    }
+  }
+
+  // 📄 Mostrar los foros en la página actual
+  function mostrarForos(pagina) {
+    container.innerHTML = '';
+    paginationContainer.innerHTML = '';
+
+    // Ordenar por fecha descendente
+    const forosOrdenados = [...forosGuardados].sort(
+      (a, b) => new Date(b.fechaCreacion) - new Date(a.fechaCreacion)
+    );
+
+    const inicio = (pagina - 1) * forosPorPagina;
+    const fin = inicio + forosPorPagina;
+    const forosPagina = forosOrdenados.slice(inicio, fin);
+
+    forosPagina.forEach(foro => {
+      const temaDiv = document.createElement('div');
+      temaDiv.classList.add('forum-topic');
+
+      temaDiv.innerHTML = `
+        <div class="topic-header">
+          ${foro.imagen ? `
+            <div class="topic-image-container">
+              <img src="${foro.imagen}" alt="${foro.titulo}" class="topic-image">` : `
+            <div class="topic-image-placeholder">
+              <i class="fas fa-comments"></i>`}
+            </div>
+
+          <div class="topic-info">
+            <h3>${foro.titulo}</h3>
+            <div class="topic-meta">
+              <span class="topic-category">${foro.categoria || 'General'}</span>
+              <span class="topic-date">${formatDate(foro.fechaCreacion)}</span>
+              <span class="topic-author">${foro.autor || 'Anónimo'}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-content">
+          <p>${foro.descripcion || ''}</p>
+          ${foro.etiquetas?.length ? `
+            <div class="topic-tags">
+              ${foro.etiquetas.map(tag => `<span class="tag">${tag}</span>`).join('')}
+            </div>` : ''}
+        </div>
+
+        <div class="topic-footer">
+          <button class="btn-view-topic" data-i18n="forum.viewTopic">Ver tema</button>
+          <div class="topic-stats">
+            <span><i class="far fa-comment"></i> 0</span>
+            <span><i class="far fa-eye"></i> 0</span>
+          </div>
+        </div>`;
+
+      temaDiv.querySelector('.btn-view-topic').addEventListener('click', () => {
+        window.location.href = `chat comunidad.html?id=${foro.id}`;
+      });
+
+      container.appendChild(temaDiv);
+    });
+
+    crearControlesDePaginacion(pagina, Math.ceil(forosGuardados.length / forosPorPagina));
+  }
+
+  // 🔢 Controles de paginación
+  function crearControlesDePaginacion(pagina, totalPaginas) {
+    if (pagina > 1) {
+      const btnAnterior = crearBotonPaginacion('⟵ Página anterior', () => mostrarForos(pagina - 1));
+      paginationContainer.appendChild(btnAnterior);
+    }
+
+    const indicador = document.createElement('span');
+    indicador.className = 'pagina-actual';
+    indicador.textContent = `Página ${pagina} de ${totalPaginas}`;
+    paginationContainer.appendChild(indicador);
+
+    if (pagina < totalPaginas) {
+      const btnSiguiente = crearBotonPaginacion('Página siguiente ⟶', () => mostrarForos(pagina + 1));
+      paginationContainer.appendChild(btnSiguiente);
+    }
+  }
+
+  // 🧱 Botón de paginación
+  function crearBotonPaginacion(texto, onClick) {
+    const btn = document.createElement('button');
+    btn.textContent = texto;
+    btn.classList.add('pagination-btn');
+    btn.addEventListener('click', onClick);
+    return btn;
+  }
+
+  // 🗓️ Formatear fecha
+  function formatDate(fechaStr) {
+    const date = new Date(fechaStr);
+    return isNaN(date) ? 'Fecha inválida' : date.toLocaleDateString('es-ES', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+  }
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleBtn = document.getElementById('toggle-rules');
+  const rulesContent = document.getElementById('rules-content');
+  
+  if(toggleBtn && rulesContent) {
+    toggleBtn.addEventListener('click', function() {
+      rulesContent.classList.toggle('active');
+      document.querySelector('.foro-rules-box').classList.toggle('active');
+      
+      // Cambiar el texto del botón
+      if(rulesContent.classList.contains('active')) {
+        this.textContent = 'Ocultar reglas del foro';
+      } else {
+        this.textContent = 'Mostrar reglas del foro';
+      }
+    });
+  }
+});
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TakumiNet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../src/footer.css">
+    <link rel="stylesheet" href="../src/index.css">
+    <link rel="stylesheet" href="../src/nav.css">
+    <style>
+
+/* Estilos para el contenedor principal */
+.auth-container {
+  width: 150%;
+  max-width: 480px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #2e2e2e;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para el logo */
+.logo {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.logo img {
+  max-width: 140px;
+  height: auto;
+}
+
+/* Estilos para los grupos de entrada */
+.input-group {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.input-group i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7a7a7a;
+  font-size: 16px;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 14px 15px 14px 45px;
+  background-color: #3a3a3a;
+  border: 1px solid #444;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 15px;
+  transition: all 0.25s ease;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+/* Estilos para mensajes de error */
+.error-message {
+  color: #ff4d4d;
+  font-size: 13px;
+  margin-top: 5px;
+  display: none;
+}
+
+/* Estilos para secciones de preferencias */
+.user-preferences,
+.newsletter-option {
+  margin: 20px 0;
+}
+
+.user-preferences label,
+.newsletter-option label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #d1d1d1;
+  font-size: 14px;
+  line-height: 1.5;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.user-preferences strong {
+  color: #4CAF50;
+  font-weight: 500;
+}
+
+.note {
+  font-size: 12px;
+  color: #8a8a8a;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+/* Estilos para términos y condiciones */
+.terms-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 22px 0;
+}
+
+.terms-checkbox {
+  min-width: 18px;
+  min-height: 18px;
+  accent-color: #4CAF50;
+  margin-top: 2px;
+}
+
+.terms-text {
+  font-size: 14px;
+  color: #d1d1d1;
+  line-height: 1.5;
+}
+
+.terms-text a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Estilos para botones */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.auth-button {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.auth-button:hover {
+  background-color: #3e9942;
+  transform: translateY(-1px);
+}
+
+.auth-button i {
+  font-size: 16px;
+}
+
+.github-button {
+  background-color: #333;
+}
+
+.github-button:hover {
+  background-color: #444;
+}
+
+/* Estilo para enlace de login */
+.login-link {
+  text-align: center;
+  color: #9a9a9a;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.login-link a:hover {
+  color: #3e9942;
+}
+
+/* Estilos para checkboxes */
+input[type="checkbox"] {
+  min-width: 18px;
+  min-height: 18px;
+  accent-color: #4CAF50;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-20px);}
+    60% {transform: translateY(-10px);}
+}
+
+.auth-animation-content {
+    text-align: center;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+
+
+
+.discord-button {
+    background: #5865F2;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.discord-button:hover {
+    background: #4752C4;
+}
+
+
+
+
+.alerta {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 9999;
+}
+
+.alerta-info {
+  background-color: #2196F3;
+}
+
+.alerta-success {
+  background-color: #4CAF50;
+}
+
+.alerta-error {
+  background-color: #F44336;
+}
+
+.alerta.desaparecer {
+  opacity: 0 !important;
+}
+
+
+    </style>
+</head>
+<body>
+
+<div class="auth-container">
+    <!-- Logo -->
+    <div class="logo">
+            <img src="../assets/img/logo.png" alt="Logo de TakumiNet">
+        </div>
+<!-- Formulario de Registro -->
+    <form class="register-form" id="registerForm">
+        <!-- Nombre de Usuario -->
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" class="auth-input" placeholder="Nombre de usuario" id="username" required>
+            <div class="error-message" id="usernameError"></div>
+        </div>
+
+    
+        <!-- Correo Electrónico -->
+        <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" class="auth-input" placeholder="Correo electrónico" id="email" required>
+            <div class="error-message" id="emailError"></div>
+        </div>
+
+        <!-- Contraseña -->
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" class="auth-input" placeholder="Contraseña" id="password" required>
+            <div class="error-message" id="passwordError"></div>
+        </div>
+
+        <!-- Confirmar Contraseña -->
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" class="auth-input" placeholder="Confirmar contraseña" id="confirmPassword" required>
+            <div class="error-message" id="confirmError"></div>
+        </div>
+
+        <!-- Preferencias del Usuario -->
+        <div class="user-preferences">
+            <label>
+                <input type="checkbox" id="playGames">
+                Estoy interesado en <strong>jugar o descargar videojuegos</strong> en TakumiNet.
+            </label><br>
+
+            <label>
+                <input type="checkbox" id="distributeContent">
+                Estoy interesado en <strong>subir y distribuir mi contenido</strong> en TakumiNet.
+            </label>
+            <p class="note">*Puedes cambiar estas opciones más adelante. Nos ayudan a mostrarte lo que más te interesa.</p>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="newsletter-option">
+            <label>
+                <input type="checkbox" id="newsletter">
+                Deseo recibir el boletín informativo de TakumiNet cada dos semanas.
+            </label>
+        </div>
+
+        <!-- Términos y Condiciones -->
+        <div class="terms-group">
+            <input type="checkbox" class="terms-checkbox" id="terms" required>
+            <label class="terms-text" for="terms">
+                Acepto los <a href="#">Términos de Servicio</a> y la 
+                <a href="#">Política de Privacidad</a>.
+            </label>
+        </div>
+
+        <!-- Botones de Registro -->
+        <div class="button-group">
+            <button type="submit" class="auth-button">
+                <i class="fas fa-user-plus"></i> Cuenta Nueva
+            </button>
+            <button type="button" id="discordBtn" class="auth-button discord-button">
+            <i class="fab fa-discord"></i> Continuar con Discord
+           </button>
+        </div>
+
+        <!-- Enlace a Login -->
+        <div class="login-link">
+            ¿Ya tienes cuenta? <a href="login.html">Inicia Sesión</a>
+        </div>
+    </form>
+</div>
+<script src="../data/usuarios.js" ></script>
+<script src="../cookies.js"></script>
+<script src="../js/discord.js"></script>
+<script src="../autoSync.js"></script>
+<script src="../js/i18n.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const registerForm = document.getElementById('registerForm');
+  const usernameInput = document.getElementById('username');
+  const usernameError = document.getElementById('usernameError');
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const confirmPasswordInput = document.getElementById('confirmPassword');
+  const playGamesCheckbox = document.getElementById('playGames');
+  const distributeContentCheckbox = document.getElementById('distributeContent');
+  const newsletterCheckbox = document.getElementById('newsletter');
+  const termsCheckbox = document.getElementById('terms');
+  const discordBtn = document.getElementById('discordBtn');
+
+  // Clave única para almacenar todos los usuarios
+  const STORAGE_KEY = 'takumi_login_system';
+  
+  // Contenedor para mensajes
+  const feedbackContainer = document.createElement('div');
+  feedbackContainer.id = 'feedback';
+  document.body.appendChild(feedbackContainer);
+
+  // Estilos CSS integrados
+  const style = document.createElement('style');
+  style.textContent = `
+    #feedback {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      width: 90%;
+      max-width: 400px;
+    }
+    
+    .alert {
+      padding: 12px 20px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: translateY(-20px);
+    }
+    
+    .alert.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .alert-success {
+      background-color: #d4edda;
+      color: #155724;
+      border-left: 4px solid #28a745;
+    }
+    
+    .alert-error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border-left: 4px solid #dc3545;
+    }
+    
+    .alert-info {
+      background-color: #d1ecf1;
+      color: #0c5460;
+      border-left: 4px solid #17a2b8;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top-color: #09f;
+      animation: spin 1s ease-in-out infinite;
+      margin: 0 auto 10px;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .form-disabled {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    
+    .auth-button.disabled {
+      background-color: #cccccc !important;
+    }
+    
+    .error-message {
+      color: #dc3545;
+      font-size: 12px;
+      margin-top: 5px;
+      display: none;
+    }
+    
+    .input-group.error input {
+      border-color: #dc3545;
+    }
+    
+    /* Estilo específico para el mensaje de 8 caracteres */
+    .username-length-error {
+      color: #dc3545;
+      font-size: 12px;
+      margin-top: 5px;
+      display: none;
+    }
+    
+    .input-group.error .auth-input {
+      border-color: #dc3545 !important;
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Mostrar alerta con animación
+  function showAlert(message, type = 'info', duration = 4000) {
+    const alert = document.createElement('div');
+    alert.className = `alert alert-${type}`;
+    alert.textContent = message;
+    feedbackContainer.appendChild(alert);
+    
+    setTimeout(() => alert.classList.add('show'), 10);
+    
+    setTimeout(() => {
+      alert.classList.remove('show');
+      setTimeout(() => alert.remove(), 300);
+    }, duration - 300);
+  }
+
+  // Mostrar carga
+  function showLoading(message) {
+    feedbackContainer.innerHTML = `
+      <div class="spinner"></div>
+      <div class="alert alert-info show">${message}</div>
+    `;
+  }
+
+  // Deshabilitar formulario
+  function toggleForm(disabled) {
+    if (disabled) {
+      registerForm.classList.add('form-disabled');
+      registerForm.querySelectorAll('input, button').forEach(el => {
+        el.setAttribute('disabled', 'true');
+      });
+    } else {
+      registerForm.classList.remove('form-disabled');
+      registerForm.querySelectorAll('input, button').forEach(el => {
+        el.removeAttribute('disabled');
+      });
+    }
+  }
+
+  // Mostrar error en un campo
+  function showError(input, message) {
+    const inputGroup = input.closest('.input-group');
+    const errorElement = inputGroup.querySelector('.error-message');
+    
+    inputGroup.classList.add('error');
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+  }
+
+  // Ocultar error en un campo
+  function hideError(input) {
+    const inputGroup = input.closest('.input-group');
+    const errorElement = inputGroup.querySelector('.error-message');
+    
+    inputGroup.classList.remove('error');
+    errorElement.style.display = 'none';
+  }
+
+  // Validar nombre de usuario (ahora con 8 caracteres mínimo)
+  function validateUsername(username) {
+    if (!username) {
+      return 'El nombre de usuario es requerido';
+    }
+    
+    if (username.length < 8) {
+      return 'El nombre debe tener al menos 8 caracteres';
+    }
+    
+    if (username.length > 20) {
+      return 'El nombre no puede exceder los 20 caracteres';
+    }
+    
+    if (!/^[a-zA-Z0-9_]+$/.test(username)) {
+      return 'Solo se permiten letras, números y guiones bajos';
+    }
+    
+    return null;
+  }
+
+  // Validar email
+  function validateEmail(email) {
+    if (!email) {
+      return 'El correo electrónico es requerido';
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return 'Por favor ingresa un correo electrónico válido';
+    }
+    
+    return null;
+  }
+
+  // Validar contraseña
+  function validatePassword(password) {
+    if (!password) {
+      return 'La contraseña es requerida';
+    }
+    
+    if (password.length < 6) {
+      return 'La contraseña debe tener al menos 6 caracteres';
+    }
+    
+    return null;
+  }
+
+  // Validar confirmación de contraseña
+  function validateConfirmPassword(password, confirmPassword) {
+    if (!confirmPassword) {
+      return 'Por favor confirma tu contraseña';
+    }
+    
+    if (password !== confirmPassword) {
+      return 'Las contraseñas no coinciden';
+    }
+    
+    return null;
+  }
+
+  // Validar términos
+  function validateTerms(accepted) {
+    if (!accepted) {
+      return 'Debes aceptar los términos y condiciones';
+    }
+    return null;
+  }
+
+  // Obtener todos los datos
+  function getAppData() {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { users: {}, sessions: {} };
+  }
+
+  // Guardar todos los datos
+  function saveAppData(data) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }
+
+  // Verificar si el usuario ya existe
+  function userExists(username, email) {
+    const appData = getAppData();
+    const userKey = username.toLowerCase();
+    
+    if (appData.users[userKey]) {
+      return { exists: true, field: 'username' };
+    }
+    
+    for (const key in appData.users) {
+      if (appData.users[key].email.toLowerCase() === email.toLowerCase()) {
+        return { exists: true, field: 'email' };
+      }
+    }
+    
+    return { exists: false };
+  }
+
+  // Generar un ID único para el usuario
+  function generateUserId() {
+    return 'user_' + Date.now().toString(36) + Math.random().toString(36).substr(2, 9);
+  }
+
+  // Registrar nuevo usuario
+  async function registerUser(userData) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const { username, email, password, preferences } = userData;
+        
+        const existsCheck = userExists(username, email);
+        if (existsCheck.exists) {
+          const field = existsCheck.field;
+          const message = field === 'username' 
+            ? 'El nombre de usuario ya está en uso' 
+            : 'El correo electrónico ya está registrado';
+          reject(new Error(message));
+          return;
+        }
+        
+        const appData = getAppData();
+        const userKey = username.toLowerCase();
+        const userId = generateUserId();
+        
+        appData.users[userKey] = {
+          id: userId,
+          username,
+          email,
+          password,
+          preferences: preferences || {},
+          created: new Date().toISOString()
+        };
+        
+        saveAppData(appData);
+        
+        resolve({
+          success: true,
+          user: {
+            id: userId,
+            username,
+            email,
+            preferences
+          }
+        });
+      }, 1000);
+    });
+  }
+
+  // Validación en tiempo real del nombre de usuario (con mensaje de 8 caracteres)
+  usernameInput.addEventListener('input', function() {
+    const username = this.value.trim();
+    const inputGroup = this.closest('.input-group');
+    
+    if (username.length > 0 && username.length < 8) {
+      inputGroup.classList.add('error');
+      usernameError.textContent = 'El nombre de usuario debe tener al menos 8 caracteres';
+      usernameError.style.display = 'block';
+    } else {
+      inputGroup.classList.remove('error');
+      usernameError.style.display = 'none';
+      
+      // Validación adicional de otros requisitos
+      const error = validateUsername(username);
+      if (error) showError(usernameInput, error);
+      else hideError(usernameInput);
+    }
+  });
+
+  // Manejar submit del formulario de registro
+  registerForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    
+    const username = usernameInput.value.trim();
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+    const playGames = playGamesCheckbox.checked;
+    const distributeContent = distributeContentCheckbox.checked;
+    const newsletter = newsletterCheckbox.checked;
+    const termsAccepted = termsCheckbox.checked;
+    
+    // Validar campos
+    const usernameError = validateUsername(username);
+    const emailError = validateEmail(email);
+    const passwordError = validatePassword(password);
+    const confirmError = validateConfirmPassword(password, confirmPassword);
+    const termsError = validateTerms(termsAccepted);
+    
+    // Mostrar errores
+    if (usernameError) showError(usernameInput, usernameError);
+    if (emailError) showError(emailInput, emailError);
+    if (passwordError) showError(passwordInput, passwordError);
+    if (confirmError) showError(confirmPasswordInput, confirmError);
+    
+    if (termsError) {
+      showAlert(termsError, 'error');
+      return;
+    }
+    
+    if (usernameError || emailError || passwordError || confirmError) {
+      return;
+    }
+    
+    try {
+      toggleForm(true);
+      showLoading('Registrando tu cuenta...');
+      
+      const preferences = {
+        juega: playGames,
+        distribuye: distributeContent,
+        boletin: newsletter
+      };
+      
+      const { user } = await registerUser({
+        username,
+        email,
+        password,
+        preferences
+      });
+      
+      showAlert(`¡Registro exitoso, ${user.username}! Redirigiendo...`, 'success');
+      
+      // Iniciar sesión automáticamente
+      const token = 'token-' + Math.random().toString(36).substr(2, 9);
+      const appData = getAppData();
+      appData.sessions[token] = {
+        username: username.toLowerCase(),
+        userId: user.id,
+        createdAt: new Date().toISOString()
+      };
+      saveAppData(appData);
+      sessionStorage.setItem('current_token', token);
+      
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 1500);
+      
+    } catch (error) {
+      showAlert(error.message, 'error');
+      
+      if (error.message.includes('nombre de usuario')) {
+        showError(usernameInput, error.message);
+      } else if (error.message.includes('correo electrónico')) {
+        showError(emailInput, error.message);
+      }
+      
+      toggleForm(false);
+    }
+  });
+
+  // Validación en tiempo real para otros campos
+  emailInput.addEventListener('input', () => {
+    const error = validateEmail(emailInput.value.trim());
+    if (error) showError(emailInput, error);
+    else hideError(emailInput);
+  });
+  
+  passwordInput.addEventListener('input', () => {
+    const error = validatePassword(passwordInput.value);
+    if (error) showError(passwordInput, error);
+    else hideError(passwordInput);
+  });
+  
+  confirmPasswordInput.addEventListener('input', () => {
+    const error = validateConfirmPassword(passwordInput.value, confirmPasswordInput.value);
+    if (error) showError(confirmPasswordInput, error);
+    else hideError(confirmPasswordInput);
+  });
+
+  // Botón de Discord
+  discordBtn?.addEventListener('click', e => {
+    e.preventDefault();
+    showAlert('Redirigiendo a Discord para autenticación...', 'info');
+  });
+});
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

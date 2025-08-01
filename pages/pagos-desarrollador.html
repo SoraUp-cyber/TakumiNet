@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../src/footer.css">
+    <link rel="stylesheet" href="../src/index.css">
+    <link rel="stylesheet" href="../src/nav.css"> 
+  <title>Formulario de Pago</title>
+  
+  <style>
+
+
+/* Configuración de la barra de navegación */
+.config-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 1rem 2rem;
+    background-color: #1B1B1B; /* Fondo oscuro profesional */
+    color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    gap: 1rem;
+    border-bottom: 2px solid #00ff0d; /* Línea morada decorativa */
+}
+
+.back-btn {
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+    color: #17ff02; /* Morado hover */
+}
+
+.config-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+    color: #f3f4f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+
+
+
+/* Fondo general y tipografía */
+.container_pagos {
+  background-color: #2e2e2e; /* gris oscuro */
+  color: #ffffff; /* letras blancas */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+}
+
+/* Enlaces */
+.link_config,
+.link_externo {
+  color: #4caf50; /* verde brillante */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.link_config:hover,
+.link_externo:hover {
+  color: #81c784; /* verde claro */
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Párrafos */
+.intro_text,
+.texto_saldo,
+.texto_destino,
+.descripcion_metodo,
+.texto_conexion {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Nota de advertencia */
+.nota_advertencia {
+  background-color: #3b3b3b;
+  border-left: 5px solid #4caf50;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+/* Títulos */
+.titulo_seccion {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 8px;
+}
+
+.subtitulo_metodo {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Secciones destino pago */
+.opciones_destino_pago {
+  margin-top: 40px;
+}
+
+/* Grupos */
+.grupo_destino {
+  margin-bottom: 35px;
+  padding: 20px;
+  background-color: #3a3a3a;
+  border-radius: 8px;
+  box-shadow: inset 0 0 8px rgba(76,175,80,0.15);
+}
+
+/* Botones */
+.btn_paypal_desconectar,
+.btn_conectar_revolut,
+.btn_conectar_stripe {
+  background-color: transparent;
+  border: 2px solid #4caf50;
+  color: #4caf50;
+  padding: 10px 25px;
+  font-size: 1rem;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn_paypal_desconectar:hover,
+.btn_conectar_revolut:hover,
+.btn_conectar_stripe:hover {
+  background-color: #4caf50;
+  color: #222;
+  box-shadow: 0 4px 12px rgba(76,175,80,0.6);
+}
+
+.btn_paypal_desconectar:disabled,
+.btn_conectar_revolut:disabled,
+.btn_conectar_stripe:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Form styling */
+.form_paypal,
+.form_revolut,
+.form_stripe {
+  margin-top: 15px;
+}
+
+/* Suave animación para el botón al hacer clic */
+button:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container_pagos {
+    padding: 20px 25px;
+    margin: 20px 15px;
+  }
+
+  .titulo_seccion {
+    font-size: 1.5rem;
+  }
+
+  .subtitulo_metodo {
+    font-size: 1.2rem;
+  }
+}
+
+
+.btn_stripe_conectar {
+  background: linear-gradient(
+    270deg,
+    rgba(0, 105, 9, 0.7),
+    rgba(50, 150, 50, 0.9),
+    rgba(0, 105, 9, 0.7)
+  );
+  background-size: 600% 600%;
+  color: #e6f4ea; /* texto verde muy claro */
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: box-shadow 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
+  animation: gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* Contenedor general de la sección */
+/* Contenedor general de la sección */
+.paypal_section {
+  background-color: #2e2e2e; /* Gris oscuro */
+  border: 1px solid #28a745; /* Verde profesional */
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3); /* sombra verde suave */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Título de la sección */
+.paypal_section .subtitulo_metodo {
+  color: #ffffff; /* Blanco */
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Contenedor del widget */
+.widget_paypal {
+  text-align: center;
+}
+
+/* Texto de estado de conexión */
+.texto_conexion {
+  color: #cccccc; /* Gris claro para el texto */
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Botón de conexión */
+.btn_paypal_conectar {
+  background-color: #28a745; /* Verde profesional */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 6px rgba(40, 167, 69, 0.6);
+  user-select: none;
+}
+
+.btn_paypal_conectar:hover {
+  background-color: #1e7e34; /* Verde más oscuro al pasar el mouse */
+}
+
+/* Estilos input ocultos (por si quieres mostrar errores o validaciones) */
+input[type="hidden"] {
+  display: none;
+}
+
+
+  </style>
+</head>
+<body>
+<nav class="config-navbar">
+    <!-- Botón Volver -->
+    <a href="Creator Dashboard.html" class="back-btn" title="Pagos" data-i18n-title="config.payments">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- Título -->
+    <h1 class="config-title" data-i18n="config.payments">Pagos desarrollador</h1>
+</nav>
+
+
+<div class="container_pagos">
+  <p class="intro_text" data-i18n="payments.introText">
+    En esta página puedes solicitar un pago por cualquier dinero que tu cuenta tenga disponible si estás usando <strong>TakumiNet</strong> para gestionar tus ganancias. Puedes configurar cómo recibes tus pagos en
+    <a href="/user/settings/seller" class="link_config" data-i18n="payments.sellerSettingsLink">Configuración de Vendedor</a>.
+  </p>
+  
+  <p class="nota_advertencia" data-i18n="payments.warningNote">
+    <strong>Nota: </strong>Tu cuenta está configurada actualmente para pagos <strong>directos a ti</strong>. Las compras individuales van directamente a tu cuenta bancaria y no están disponibles a través de nuestro sistema de pagos de <strong>TakumiNet</strong>. Puedes cambiar esta configuración en
+    <a href="/user/settings/seller" class="link_config" data-i18n="payments.sellerSettingsLink">Configuración de Vendedor</a>.
+  </p>
+  
+  <section class="area_saldo">
+    <h2 class="titulo_seccion" data-i18n="payments.accountBalanceTitle">Saldo de la Cuenta</h2>
+    <p class="texto_saldo" data-i18n="payments.accountBalanceText">Tu cuenta no tiene saldo pendiente. Cuando tengas saldo disponible, podrás solicitar un pago aquí en <strong>TakumiNet</strong>.</p>
+  </section>
+  <p class="texto_destino" data-i18n="payments.profitDistribution">
+    <strong>Distribución de ganancias:</strong> Por cada venta realizada, recibirás el <strong>70%</strong> del total como desarrollador. El <strong>30%</strong> restante corresponde a la comisión de <strong>TakumiNet</strong> por el uso de la plataforma.
+  </p>
+  
+<section class="grupo_destino paypal_section">
+  <h3 class="subtitulo_metodo" data-i18n="payments.paypalConnectTitle">
+    <i class="fab fa-paypal" style="margin-right: 8px;"></i> PayPal Connect
+  </h3>
+  <div class="widget_paypal">
+    <p class="texto_conexion" id="textoConexionPayPal" data-i18n="payments.paypalNotConnected">
+      <i class="fas fa-unlink" style="margin-right: 5px;"></i> Actualmente no estás conectado con PayPal
+    </p>
+    <form class="form_paypal" id="formPayPal" action="/api/paypal/create-connect-link" method="POST">
+      <!-- ID del usuario -->
+      <input type="hidden" value="123456" name="user_id" id="user_id_paypal">
+      <!-- Token CSRF -->
+      <input type="hidden" value="CSRF_TOKEN_AQUI" name="csrf_token" id="csrf_token_paypal">
+      <p>
+        <button type="submit" class="btn_paypal_conectar" id="btnConectarPayPal" data-i18n="payments.connectWithPayPal">
+          <i class="fas fa-plug" style="margin-right: 5px;"></i> Conectar con PayPal
+        </button>
+      </p>
+    </form>
+  </div>
+</section>
+
+
+<script src="../js/notificacion.js"></script>
+<script src="../js/carrito.js"></script>
+<script src="../js/user.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/desplegar.js"></script>
+<script src="../js/cerrar sesion.js"></script>
+<script src="../cookies.js"></script>
+<script src="../js/usario.js"></script>
+<script src="../autoSync.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="../script.js"></script>
+
+</body>
+</html>
+
+</body>
+</html>

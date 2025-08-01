@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Juegos y Estadísticas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../src/nav.css">
+  <link rel="stylesheet" href="../src/index.css">
+  <link rel="stylesheet" href="../src/footer.css">
+  <link rel="stylesheet" href="../src/mis juegos.css">
+  <style>
+
+
+  </style>
+</head>
+<body>
+ <nav class="navbar">
+    <!-- Sección Izquierda: Logo -->
+    <div class="navbar-logo">
+        <img src="../assets/img/logo.png" alt="Logo de TakumiNet">
+    </div>
+
+    <!-- Sección Central: Enlaces de navegación -->
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" aria-current="page"><i class="fas fa-home"></i> <span data-i18n="inicio">Inicio</span></a></li>
+      <li><a href="marketplace.html"><i class="fas fa-store"></i> <span data-i18n="tienda">Tienda</span></a></li>
+      <li><a href="game jam.html"><i class="fas fa-calendar-alt"></i> <span data-i18n="game_jams">Game Jams</span></a></li>
+      <li><a href="centro-aprendiz.html"><i class="fas fa-graduation-cap"></i> <span data-i18n="tutoriales">Tutoriales</span></a></li>
+      <li><a href="ranking.html"><i class="fas fa-newspaper"></i> <span data-i18n="Noticias">Noticias</span></a></li>
+      <li><a href="comunidad.html"><i class="fas fa-users"></i> <span data-i18n="comunidad">Comunidad</span></a></li>
+    </ul>
+
+    <!-- Sección Derecha: Elementos interactivos -->
+    <div class="nav-right">
+      <!-- Búsqueda -->
+      <form class="search-box" role="search">
+        <input type="search" class="search-input" placeholder="Buscar juegos, usuarios..." aria-label="Buscar en el sitio" data-i18n="buscar" data-i18n-type="placeholder">
+        <button type="submit" class="search-btn" aria-label="Ejecutar búsqueda">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+
+      <!-- Iconos de notificaciones -->
+      <div class="nav-icons">
+        <div class="notification-wrapper">
+          <button class="icon-btn notification-btn" onclick="toggleNotifications()" aria-haspopup="true" aria-expanded="false" aria-label="Notificaciones">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge" id="notificationBadge" aria-live="polite">0</span>
+          </button>
+
+          <!-- Menú desplegable de notificaciones -->
+          <div class="dropdown-menu notification-dropdown" id="notificationDropdown" role="menu" aria-hidden="true" style="display:none;">
+            <div class="dropdown-header">
+              <h4 class="dropdown-title" data-i18n="notificaciones">Notificaciones</h4>
+              <button class="mark-read" id="markReadBtn" data-i18n="ver_todas">Marcar todas como leídas</button>
+            </div>
+
+            <div class="notifications-list" id="notificationsList">
+              <!-- Aquí se insertarán las notificaciones dinámicamente -->
+            </div>
+            <div class="dropdown-footer">
+              <a href="/notificaciones" class="view-all" data-i18n="ver_todas">Ver todas</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carrito de compras -->
+        <div class="icon-btn cart-btn" aria-label="Carrito de compras" role="button" tabindex="0" onclick="toggleCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge" aria-live="polite">5</span>
+        </div>
+
+        <!-- Menú de usuario -->
+        <div class="user-menu">
+          <button class="user-profile" aria-haspopup="true" aria-expanded="false" onclick="toggleUserMenu()">
+            <div class="avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <span class="username" id="mostrarNombre">Invitado</span>
+          </button>
+
+          <!-- Menú desplegable de usuario -->
+          <div class="user-dropdown" id="userDropdown" role="menu" aria-hidden="true">
+            <div class="dropdown-group">
+              <a href="perfil del usuario.html" class="menu-item"><i class="fas fa-user"></i><span data-i18n="perfil">Perfil</span></a>
+              <a href="mis juegos.html" class="menu-item"><i class="fas fa-gamepad"></i><span data-i18n="mis_juegos">Mis Juegos</span></a>
+              <a href="juegos favoritos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="favoritos">Favoritos</span></a>
+              <a href="Creator Dashboard.html" class="menu-item"><i class="fas fa-tachometer-alt"></i><span data-i18n="dashboard">Dashboard</span></a>
+              <a href="subir_juegos.html" class="menu-item"><i class="fas fa-upload"></i><span data-i18n="subir_juego">Subir Juego</span></a>
+            </div>
+            <div class="dropdown-group">
+              <a href="biblioteca.html" class="menu-item"><i class="fas fa-book"></i><span data-i18n="biblioteca">Biblioteca</span></a>
+              <a href="descarga.html" class="menu-item"><i class="fas fa-download"></i><span data-i18n="descargas">Descargas</span></a>
+            </div>
+            <hr class="divider">
+            <div class="dropdown-group">
+              <a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i><span data-i18n="configuracion">Configuración</span></a>
+              <a href="perfil-editar.html" class="menu-item"><i class="fas fa-user-edit"></i><span data-i18n="editar_usuario">Editar Usuario</span></a>
+              <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-star"></i><span data-i18n="suscripcion">Suscripción</span></a>
+              <a href="seguidos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="seguidos">Seguidos</span></a>
+            </div>
+            <hr class="divider">
+            <div class="dropdown-group">
+              <button class="menu-item logout"><i class="fas fa-sign-out-alt"></i><span data-i18n="cerrar_sesion">Cerrar Sesión</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</nav>
+
+<div class="games-section">
+    <section id="gamesContainer" class="games-grid">
+        <!-- Aquí van las tarjetas de juegos -->
+    </section>
+</div>
+
+
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <!-- Redes sociales -->
+    <div class="footer-social">
+      <a href="https://twitter.com/takuminet" target="_blank" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://facebook.com/takuminet" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://instagram.com/takuminet" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+
+  <!-- Enlaces principales -->
+<nav class="footer-links">
+  <a href="../footer pages.html/acerca.html" data-i18n="acerca">Acerca de</a>
+  <a href="../footer pages.html/faq.html" data-i18n="faq">FAQ</a>
+  <a href="/blog.html" data-i18n="blog">Blog</a>
+  <a href="/contact.html" data-i18n="contacto">Contacto</a>
+</nav>
+
+<!-- Información legal -->
+<div class="footer-legal">
+  <span>© 2025 TakumiNet</span>
+  <a href="../footer pages.html/Términos.html" data-i18n="terminos">Términos</a>
+  <a href="../footer pages.html/privacidad.html" data-i18n="privacidad">Privacidad</a>
+  <a href="../footer pages.html/Cookies.html" data-i18n="cookies">Cookies</a>
+</div>
+
+</footer>
+<script src="../js/notificacion.js"></script>
+<script src="../js/carrito.js"></script>
+<script src="../js/user.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/desplegar.js"></script>
+<script src="../js/cerrar sesion.js"></script>
+<script src="../cookies.js"></script>
+<script src="../js/usario.js"></script>
+<script src="../autoSync.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const gamesContainer = document.getElementById('gamesContainer');
+
+    // ✅ Obtener sesión activa
+    const loginData = JSON.parse(localStorage.getItem('takumi_login_system'));
+    let userId = null;
+    let username = null;
+
+    if (loginData && loginData.sessions) {
+        const tokens = Object.keys(loginData.sessions);
+        if (tokens.length > 0) {
+            const lastToken = tokens[tokens.length - 1];
+            const activeSession = loginData.sessions[lastToken];
+
+            username = activeSession.username;
+            userId = activeSession.userId || (loginData.users[username]?.id || null);
+        }
+    }
+
+    if (!userId) {
+        gamesContainer.innerHTML = `<p style="color:#fff;text-align:center;font-size:18px;">⚠ Debes iniciar sesión para ver tus juegos.</p>`;
+        return;
+    }
+
+    console.log("✅ Usuario activo:", username, userId);
+
+    // ✅ Abrir IndexedDB
+    const request = indexedDB.open('GamesDB', 1);
+
+    request.onerror = () => {
+        gamesContainer.innerHTML = `<p style="color:#fff;text-align:center;">❌ Error al abrir la base de datos.</p>`;
+    };
+
+    request.onsuccess = (event) => {
+        const db = event.target.result;
+        mostrarJuegosPrivados(db, userId);
+    };
+
+    /**
+     * ✅ Mostrar solo los juegos del usuario actual (privados)
+     */
+    function mostrarJuegosPrivados(db, userId) {
+        const tx = db.transaction(['games', 'gameImages'], 'readonly');
+        const gamesStore = tx.objectStore('games');
+        const imagesStore = tx.objectStore('gameImages');
+
+        const cursor = gamesStore.openCursor();
+        let count = 0;
+
+        cursor.onsuccess = (e) => {
+            const item = e.target.result;
+
+            if (item) {
+                const game = item.value;
+
+                // ✅ Filtrar solo juegos del usuario actual
+                if (game.ownerId === userId) {
+                    count++;
+
+                    const imgReq = imagesStore.get(game.id);
+                    imgReq.onsuccess = () => {
+                        const imgData = imgReq.result;
+                        const portada = imgData?.cover?.base64 || 'https://via.placeholder.com/400x250?text=Sin+Portada';
+
+                        const card = document.createElement('div');
+                        card.className = 'game-card';
+                        card.style.cssText = `
+                            background:#1f1f1f; color:#fff; padding:15px; border-radius:12px;
+                            box-shadow:0 4px 12px rgba(0,0,0,0.4); text-align:center;
+                            width:260px; margin:10px; display:inline-block;
+                        `;
+
+                        card.innerHTML = `
+                            <img src="${portada}" alt="${game.title}" style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+                            <h3 style="margin:10px 0;font-size:18px;">${game.title}</h3>
+                            <p style="font-size:14px;color:#bbb;">${game.category || 'Sin categoría'}</p>
+                            <p style="font-size:14px;">${game.description.substring(0,60)}...</p>
+                            <p style="color:#2ecc71;font-weight:bold;margin:8px 0;">
+                                ${game.pricing === 'gratis' ? 'Gratis' : `$${game.price.toFixed(2)}`}
+                            </p>
+                            <button class="btn-editar" data-id="${game.id}" style="margin:5px;background:#f39c12;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;">✏ Editar</button>
+                            <button class="btn-eliminar" data-id="${game.id}" style="margin:5px;background:#e74c3c;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;">🗑 Eliminar</button>
+                        `;
+
+                        gamesContainer.appendChild(card);
+                    };
+                }
+
+                item.continue();
+            } else {
+                if (count === 0) {
+                    gamesContainer.innerHTML = `<p style="color:#fff;text-align:center;font-size:18px;">📭 No has subido ningún juego privado.</p>`;
+                }
+            }
+        };
+    }
+
+    /**
+     * ✅ Acciones de botones
+     */
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('btn-editar')) {
+            const id = e.target.dataset.id;
+            alert(`Editar juego: ${id}`);
+        }
+
+        if (e.target.classList.contains('btn-eliminar')) {
+            const id = e.target.dataset.id;
+            if (confirm("¿Eliminar este juego?")) {
+                eliminarJuego(id);
+            }
+        }
+    });
+
+    /**
+     * ✅ Eliminar juego del usuario
+     */
+    function eliminarJuego(id) {
+        const request = indexedDB.open('GamesDB', 1);
+        request.onsuccess = (event) => {
+            const db = event.target.result;
+            const tx = db.transaction(['games', 'gameImages'], 'readwrite');
+            tx.objectStore('games').delete(id);
+            tx.objectStore('gameImages').delete(id);
+            tx.oncomplete = () => {
+                alert("Juego eliminado con éxito.");
+                location.reload();
+            };
+        };
+    }
+}); 
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+</html>

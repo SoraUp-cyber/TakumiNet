@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto - TakumiNet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #27ae60;
+      --secondary-color: #1abc9c;
+      --dark-bg: #1c1c1c;
+      --darker-bg: #121212;
+      --light-text: #ffffff;
+      --dark-text: #333333;
+      --light-bg: #f5f5f5;
+      --container-bg: #2d2d2d;
+      --border-color: #444444;
+    }
+
+    /* Base styles */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--light-text);
+      background-color: var(--dark-bg);
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation bar */
+    .config-navbar {
+      background-color: var(--darker-bg);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .back-btn {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 1.2em;
+      margin-right: 15px;
+      display: flex;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      color: var(--secondary-color);
+    }
+
+    .config-title {
+      margin: 0;
+      color: var(--light-text);
+      font-size: 1.2em;
+      font-weight: 500;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--darker-bg);
+      padding: 2rem 1rem;
+      text-align: center;
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    header h1 {
+      color: var(--primary-color);
+      margin: 0 0 0.5rem 0;
+      font-size: 2.2em;
+    }
+
+    header p {
+      color: var(--light-text);
+      margin: 0;
+      font-size: 1.1em;
+    }
+
+    /* Main content */
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+
+    article {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    article h2 {
+      color: var(--primary-color);
+      margin: 0 0 0.5rem 0;
+      font-size: 1.5em;
+    }
+
+    .date {
+      color: #aaa;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: var(--darker-bg);
+      color: #777;
+      margin-top: 3rem;
+      border-top: 2px solid var(--primary-color);
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+
+    /* Form styles */
+    .form-container {
+      background-color: var(--container-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+      border: 1px solid var(--border-color);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--light-text);
+      font-weight: 500;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid var(--border-color);
+      background-color: var(--darker-bg);
+      color: var(--light-text);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    button {
+      background-color: var(--primary-color);
+      color: var(--dark-text);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--secondary-color);
+    }
+
+    .disclaimer {
+      background-color: var(--darker-bg);
+      padding: 1.5rem;
+      border-left: 4px solid var(--primary-color);
+      margin-bottom: 2rem;
+      border-radius: 4px;
+    }
+
+    .disclaimer h3 {
+      color: var(--primary-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .disclaimer p {
+      margin-bottom: 1rem;
+    }
+
+    .disclaimer p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header {
+        padding: 1.5rem 1rem;
+      }
+      
+      header h1 {
+        font-size: 1.8em;
+      }
+      
+      main {
+        padding: 0 15px;
+      }
+      
+      .form-container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav class="config-navbar" aria-label="Navegación principal">
+    <a href="../pages/index.html" class="back-btn" title="Volver al Inicio" data-i18n-title="config.backToHome">
+      <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      <span class="sr-only">Volver</span>
+    </a>
+    <h1 class="config-title" data-i18n="config.return">Volver</h1>
+  </nav>
+  
+  <header>
+    <h1>Contáctanos</h1>
+    <p>¿Tienes dudas, sugerencias o quieres colaborar? Escríbenos.</p>
+  </header>
+
+  <main>
+    <div class="disclaimer">
+      <h3>Información importante</h3>
+      <p><strong>Este formulario no brinda soporte para juegos individuales.</strong> TakumiNet no desarrolla los juegos publicados en la plataforma. Si necesitas ayuda con un juego específico, por favor visita su página dentro del marketplace o la página de descarga para encontrar información de contacto del desarrollador.</p>
+      
+      <p><strong>¿Buscas el archivo descargable, clave de activación u otro contenido relacionado con tu compra?</strong> Te recomendamos leer nuestra <a href="#">guía de ayuda</a> antes de comunicarte con nosotros.</p>
+      
+      <p><strong>¿Tienes problemas con tu cuenta?</strong> Contáctanos utilizando el correo electrónico vinculado a tu cuenta. Por seguridad, no podremos ayudarte si escribes desde una dirección no registrada.</p>
+    </div>
+
+    <div class="disclaimer">
+      <h3>Errores y solicitudes de funciones</h3>
+      <p>Para reportar errores o sugerir nuevas funciones:</p>
+      <p>- Visita nuestra <a href="#">comunidad pública</a> en la sección Ideas y Sugerencias</p>
+      <p>- Revisa nuestro <a href="#">repositorio en GitHub</a> para reportes técnicos</p>
+      <p>⚠️ <strong>Importante:</strong> No compartas información privada de tu cuenta en nuestro repositorio público de GitHub.</p>
+    </div>
+
+    <div class="form-container">
+      <h2>Formulario de Contacto</h2>
+      <form id="formContacto">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Correo Electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="asunto">Asunto</label>
+          <select id="asunto" name="asunto" required>
+            <option value="">Selecciona un asunto</option>
+            <option value="soporte">Soporte técnico</option>
+            <option value="cuenta">Problemas con mi cuenta</option>
+            <option value="compra">Problemas con una compra</option>
+            <option value="sugerencia">Sugerencia</option>
+            <option value="colaboracion">Colaboración</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        </div>
+        
+        <button type="submit">Enviar Mensaje</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 TakumiNet · <a href="acerca.html">Acerca de</a> · <a href="faq.html">FAQ</a> · <a href="blog.html">Blog</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('formContacto').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Gracias por tu mensaje. Te responderemos pronto.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

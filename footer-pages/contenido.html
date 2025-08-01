@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Contenido - TakumiNet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #27ae60;
+      --secondary-color: #1abc9c;
+      --dark-bg: #1c1c1c;
+      --darker-bg: #121212;
+      --light-text: #ffffff;
+      --dark-text: #333333;
+      --light-bg: #f5f5f5;
+      --container-bg: #ffffff;
+      --border-color: #eeeeee;
+      --warning-color: #e74c3c;
+    }
+
+    /* Base styles */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation bar */
+    .config-navbar {
+      background-color: var(--darker-bg);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .back-btn {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 1.2em;
+      margin-right: 15px;
+      display: flex;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      color: var(--secondary-color);
+    }
+
+    .config-title {
+      margin: 0;
+      color: var(--light-text);
+      font-size: 1.2em;
+      font-weight: 500;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Main content */
+    main {
+      padding: 20px 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: var(--container-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: var(--primary-color);
+      margin-top: 0;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--border-color);
+      font-size: 2em;
+    }
+
+    h2 {
+      color: var(--primary-color);
+      margin-top: 25px;
+      font-size: 1.5em;
+    }
+
+    p, li {
+      font-size: 1.05em;
+    }
+
+    ul {
+      padding-left: 25px;
+    }
+
+    li {
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    li:before {
+      content: "•";
+      color: var(--secondary-color);
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+
+    strong {
+      color: var(--primary-color);
+    }
+
+    .warning {
+      color: var(--warning-color);
+      font-weight: bold;
+    }
+
+    a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+
+    address {
+      font-style: normal;
+      margin-top: 10px;
+    }
+
+    .intro {
+      font-size: 1.1em;
+      margin-bottom: 30px;
+    }
+
+    .content-rules {
+      background-color: rgba(231, 76, 60, 0.05);
+      border-left: 4px solid var(--warning-color);
+      padding: 15px;
+      margin: 20px 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        margin: 15px;
+        padding: 20px;
+        border-radius: 0;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+    }
+
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: var(--dark-bg);
+        color: var(--light-text);
+      }
+      
+      .container {
+        background-color: #2d2d2d;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        --border-color: #444444;
+      }
+      
+      h1, h2 {
+        color: #2ecc71;
+      }
+
+      strong {
+        color: #2ecc71;
+      }
+
+      li:before {
+        color: #2ecc71;
+      }
+      
+      .content-rules {
+        background-color: rgba(231, 76, 60, 0.1);
+        border-left-color: var(--warning-color);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav class="config-navbar" aria-label="Navegación principal">
+    <a href="../pages/index.html" class="back-btn" title="Volver al Inicio" data-i18n-title="config.backToHome">
+      <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      <span class="sr-only">Volver</span>
+    </a>
+    <h1 class="config-title" data-i18n="config.return">Volver</h1>
+  </nav>
+
+  <main>
+    <div class="container">
+      <h1>Política de Contenido de TakumiNet</h1>
+      
+      <p class="intro">TakumiNet es una plataforma que valora la creatividad y el respeto. Esta política establece las normas sobre el contenido permitido en nuestra plataforma.</p>
+      
+      <div class="content-rules">
+        <p class="warning">TakumiNet prohíbe estrictamente contenido ilegal, ofensivo, plagios o que viole derechos de autor. El incumplimiento puede resultar en la eliminación del contenido y suspensión de la cuenta.</p>
+      </div>
+      
+      <section aria-labelledby="allowed-content">
+        <h2 id="allowed-content">1. Contenido Permitido</h2>
+        <p>En TakumiNet puedes compartir:</p>
+        <ul>
+          <li>Contenido original creado por ti</li>
+          <li>Modificaciones de obras existentes cuando tengas los derechos necesarios</li>
+          <li>Contenido con licencias abiertas que permitan su redistribución</li>
+          <li>Recursos que hayas creado específicamente para la comunidad</li>
+        </ul>
+      </section>
+      
+      <section aria-labelledby="prohibited-content">
+        <h2 id="prohibited-content">2. Contenido Prohibido</h2>
+        <ul>
+          <li><strong>Contenido ilegal:</strong> Material que viole leyes locales o internacionales</li>
+          <li><strong>Plagios:</strong> Obras de otros sin el permiso correspondiente</li>
+          <li><strong>Contenido ofensivo:</strong> Material discriminatorio, de odio o que promueva la violencia</li>
+          <li><strong>Contenido explícito no marcado:</strong> Debe etiquetarse adecuadamente como NSFW</li>
+          <li><strong>Spam y scams:</strong> Contenido engañoso o promocional no solicitado</li>
+        </ul>
+      </section>
+      
+      <section aria-labelledby="responsibilities">
+        <h2 id="responsibilities">3. Responsabilidades del Creador</h2>
+        <ul>
+          <li>Eres responsable de todo el contenido que subas a la plataforma</li>
+          <li>Debes tener los derechos necesarios para compartir el contenido</li>
+          <li>Debes etiquetar adecuadamente el contenido sensible o explícito</li>
+          <li>Debes respetar las licencias y atribuciones requeridas</li>
+        </ul>
+      </section>
+      
+      <section aria-labelledby="moderation">
+        <h2 id="moderation">4. Moderación y Cumplimiento</h2>
+        <p>TakumiNet se reserva el derecho de:</p>
+        <ul>
+          <li>Revisar y eliminar contenido que viole estas políticas</li>
+          <li>Suspender o terminar cuentas de infractores recurrentes</li>
+          <li>Colaborar con autoridades en casos de contenido ilegal</li>
+        </ul>
+        <p>Si encuentras contenido que viola estas políticas, por favor repórtalo usando las herramientas de la plataforma.</p>
+      </section>
+      
+      <section aria-labelledby="changes">
+        <h2 id="changes">5. Cambios en esta Política</h2>
+        <p>Podemos actualizar esta Política de Contenido ocasionalmente. Te notificaremos sobre cambios significativos.</p>
+        <p><strong>Última actualización:</strong> 29 de julio de 2025</p>
+      </section>
+      
+      <section aria-labelledby="contact">
+        <h2 id="contact">6. Contacto</h2>
+        <p>Para preguntas sobre esta política o para reportar contenido inapropiado:</p>
+        <address>
+          <strong>Equipo de Moderación de TakumiNet</strong><br>
+          Email: <a href="mailto:moderacion@takuminet.com">moderacion@takuminet.com</a>
+        </address>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

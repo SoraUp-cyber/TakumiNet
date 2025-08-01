@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../src/footer.css">
+    <link rel="stylesheet" href="../src/index.css">
+    <link rel="stylesheet" href="../src/nav.css">
+    <link rel="stylesheet" href="../src/capturas.css">
+    <style rel="stylesheet" href="../src/downloadButton.css"></style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>perfil-juegos</title>
+  <style>
+
+.perfil-juego {
+  background-color: #1c1c1e;
+  color: #ffffff;
+  padding: 30px;
+  margin: 40px auto;
+  border-radius: 12px;
+  max-width: 900px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.perfil-juego h1,
+.perfil-juego h2,
+.perfil-juego h3,
+.perfil-juego h4 {
+  color: #00ff99;
+  margin-bottom: 10px;
+}
+
+.perfil-juego p,
+.perfil-juego li,
+.perfil-juego label {
+  color: #dddddd;
+  line-height: 1.6;
+}
+
+#video-container {
+  margin-bottom: 20px;
+}
+
+iframe {
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  max-width: 100%;
+}
+
+.galeria-capturas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.galeria-capturas img {
+  width: calc(33% - 10px);
+  border-radius: 6px;
+  object-fit: cover;
+  height: 140px;
+}
+
+.requisitos-sistema {
+  background-color: #2a2a2c;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.requisitos-sistema p span {
+  color: #aaaaaa;
+}
+
+.boton-juego {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.boton-juego button {
+  background-color: #00cc77;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.boton-juego button:hover {
+  background-color: #00aa66;
+}
+
+/* Comentarios */
+.comentarios {
+  margin-top: 40px;
+  background-color: #2c2c2e;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #1e1e20;
+  color: #ffffff;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.toolbar button {
+  background: #3a3a3c;
+  color: #ffffff;
+  border: none;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.toolbar button:hover {
+  background-color: #4a4a4d;
+}
+
+.btn-comentar {
+  background-color: #00cc77;
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-comentar:hover {
+  background-color: #00aa66;
+}
+
+/* Comentarios listados */
+#lista-comentarios {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+#lista-comentarios li {
+  background-color: #202022;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  color: #eeeeee;
+  border-left: 4px solid #00cc77;
+}
+
+
+
+
+#overlayFondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  filter: brightness(1.2) contrast(1.1) blur(2px);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+/* ==== FORMULARIO DE COMENTARIOS ==== */
+.comentario-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #1b1b1d;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 255, 128, 0.1);
+  margin-bottom: 20px;
+}
+
+.comentario-form textarea {
+  width: 100%;
+  min-height: 80px;
+  resize: vertical;
+  background-color: #2a2a2e;
+  color: #f0f0f0;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  padding: 10px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 15px;
+  transition: border 0.3s ease;
+}
+
+.comentario-form textarea:focus {
+  border: 1px solid #00ff88;
+  outline: none;
+}
+
+/* ==== BOTÓN DE PUBLICAR ==== */
+.comentario-form button[type="submit"] {
+  align-self: flex-end;
+  padding: 10px 20px;
+  background: linear-gradient(to right, #00c56d, #00ff88);
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 14px;
+}
+
+.comentario-form button[type="submit"]:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px #00ff88aa;
+}
+
+.comentario-form button[type="submit"]:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+/* ==== CONTENEDOR DE COMENTARIOS ==== */
+.comentarios-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ==== COMENTARIO INDIVIDUAL ==== */
+.comentario {
+  background-color: #222;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 15px;
+  color: #eee;
+  box-shadow: 0 0 10px rgba(0, 255, 128, 0.05);
+  transition: transform 0.2s;
+}
+
+.comentario:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 15px rgba(0, 255, 128, 0.15);
+}
+
+/* ==== HEADER DEL COMENTARIO ==== */
+.comentario-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+/* ==== AVATAR ==== */
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #444;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 18px;
+}
+
+.user-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ==== NOMBRE Y FECHA ==== */
+.comentario-header strong {
+  color: #00ff88;
+  font-size: 15px;
+}
+
+.comentario-header .fecha {
+  margin-left: auto;
+  font-size: 12px;
+  color: #888;
+}
+
+/* ==== TEXTO DEL COMENTARIO ==== */
+.texto {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ddd;
+  margin-bottom: 10px;
+}
+
+/* ==== ACCIONES (LIKE, DISLIKE, REPORTAR) ==== */
+.acciones {
+  display: flex;
+  gap: 10px;
+}
+
+.acciones button {
+  background-color: #2c2c2e;
+  border: none;
+  color: #ccc;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.acciones button:hover {
+  background-color: #3a3a3e;
+  color: #00ff88;
+  transform: scale(1.05);
+}
+
+.acciones .like span,
+.acciones .dislike span {
+  font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+  <div id="overlayFondo"></div>
+  <!-- tu contenido --> 
+
+  <nav class="navbar">
+    <!-- Sección Izquierda: Logo -->
+    <div class="navbar-logo">
+        <img src="../assets/img/logo.png" alt="Logo de TakumiNet">
+    </div>
+
+    <!-- Sección Central: Enlaces de navegación -->
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" aria-current="page"><i class="fas fa-home"></i> <span data-i18n="inicio">Inicio</span></a></li>
+      <li><a href="marketplace.html"><i class="fas fa-store"></i> <span data-i18n="tienda">Tienda</span></a></li>
+      <li><a href="game jam.html"><i class="fas fa-calendar-alt"></i> <span data-i18n="game_jams">Game Jams</span></a></li>
+      <li><a href="centro-aprendiz.html"><i class="fas fa-graduation-cap"></i> <span data-i18n="tutoriales">Tutoriales</span></a></li>
+      <li><a href="ranking.html"><i class="fas fa-newspaper"></i> <span data-i18n="Noticias">Noticias</span></a></li>
+      <li><a href="comunidad.html"><i class="fas fa-users"></i> <span data-i18n="comunidad">Comunidad</span></a></li>
+    </ul>
+
+    <!-- Sección Derecha: Elementos interactivos -->
+    <div class="nav-right">
+      <!-- Búsqueda -->
+      <form class="search-box" role="search">
+        <input type="search" class="search-input" placeholder="Buscar juegos, usuarios..." aria-label="Buscar en el sitio" data-i18n="buscar" data-i18n-type="placeholder">
+        <button type="submit" class="search-btn" aria-label="Ejecutar búsqueda">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+
+      <!-- Iconos de notificaciones -->
+      <div class="nav-icons">
+        <div class="notification-wrapper">
+          <button class="icon-btn notification-btn" onclick="toggleNotifications()" aria-haspopup="true" aria-expanded="false" aria-label="Notificaciones">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge" id="notificationBadge" aria-live="polite">0</span>
+          </button>
+
+          <!-- Menú desplegable de notificaciones -->
+          <div class="dropdown-menu notification-dropdown" id="notificationDropdown" role="menu" aria-hidden="true" style="display:none;">
+            <div class="dropdown-header">
+              <h4 class="dropdown-title" data-i18n="notificaciones">Notificaciones</h4>
+              <button class="mark-read" id="markReadBtn" data-i18n="ver_todas">Marcar todas como leídas</button>
+            </div>
+
+            <div class="notifications-list" id="notificationsList">
+              <!-- Aquí se insertarán las notificaciones dinámicamente -->
+            </div>
+            <div class="dropdown-footer">
+              <a href="/notificaciones" class="view-all" data-i18n="ver_todas">Ver todas</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carrito de compras -->
+        <div class="icon-btn cart-btn" aria-label="Carrito de compras" role="button" tabindex="0" onclick="toggleCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge" aria-live="polite">5</span>
+        </div>
+
+        <!-- Menú de usuario -->
+        <div class="user-menu">
+          <button class="user-profile" aria-haspopup="true" aria-expanded="false" onclick="toggleUserMenu()">
+            <div class="avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <span class="username" id="mostrarNombre">Invitado</span>
+          </button>
+
+          <!-- Menú desplegable de usuario -->
+          <div class="user-dropdown" id="userDropdown" role="menu" aria-hidden="true">
+            <div class="dropdown-group">
+              <a href="perfil del usuario.html" class="menu-item"><i class="fas fa-user"></i><span data-i18n="perfil">Perfil</span></a>
+              <a href="mis juegos.html" class="menu-item"><i class="fas fa-gamepad"></i><span data-i18n="mis_juegos">Mis Juegos</span></a>
+              <a href="juegos favoritos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="favoritos">Favoritos</span></a>
+              <a href="Creator Dashboard.html" class="menu-item"><i class="fas fa-tachometer-alt"></i><span data-i18n="dashboard">Dashboard</span></a>
+              <a href="subir_juegos.html" class="menu-item"><i class="fas fa-upload"></i><span data-i18n="subir_juego">Subir Juego</span></a>
+            </div>
+            <div class="dropdown-group">
+              <a href="biblioteca.html" class="menu-item"><i class="fas fa-book"></i><span data-i18n="biblioteca">Biblioteca</span></a>
+              <a href="descarga.html" class="menu-item"><i class="fas fa-download"></i><span data-i18n="descargas">Descargas</span></a>
+            </div>
+            <hr class="divider">
+            <div class="dropdown-group">
+              <a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i><span data-i18n="configuracion">Configuración</span></a>
+              <a href="perfil-editar.html" class="menu-item"><i class="fas fa-user-edit"></i><span data-i18n="editar_usuario">Editar Usuario</span></a>
+              <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-star"></i><span data-i18n="suscripcion">Suscripción</span></a>
+              <a href="seguidos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="seguidos">Seguidos</span></a>
+            </div>
+            <hr class="divider">
+            <div class="dropdown-group">
+              <button class="menu-item logout"><i class="fas fa-sign-out-alt"></i><span data-i18n="cerrar_sesion">Cerrar Sesión</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</nav>
+
+<div class="perfil-juego">
+  <!-- Título del juego -->
+  <h1 id="titulo-juego" data-i18n="gameProfile.title">Cargando...</h1>
+
+  <!-- Video del juego -->
+  <h3 class="ocultar-texto" data-i18n="gameProfile.videoTitle">Video del juego:</h3>
+  <div id="video-container">
+    <iframe
+      id="youtube-video"
+      width="560"
+      height="315"
+      src=""
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- Descripción -->
+  <h4 data-i18n="gameProfile.descriptionTitle">Descripción del juego:</h4>
+  <p id="descripcion-juego">Cargando descripción...</p>
+
+  <!-- Capturas -->
+  <h3 data-i18n="gameProfile.screenshotsTitle">Capturas de pantalla:</h3>
+  <div id="galeria-capturas" class="galeria-capturas"></div>
+
+  <!-- Requisitos del sistema -->
+  <div class="requisitos-sistema">
+    <h2 data-i18n="gameProfile.systemRequirementsTitle">Requisitos del sistema</h2>
+
+    <!-- Requisitos mínimos -->
+    <h3 data-i18n="gameProfile.minimumRequirements">Requisitos mínimos</h3>
+    <p><span data-i18n="gameProfile.minOS">Sistema operativo mínimo:</span> <strong id="so-min">Cargando...</strong></p>
+    <p><span data-i18n="gameProfile.minCPU">Procesador mínimo:</span> <strong id="procesador-min">Cargando...</strong></p>
+    <p><span data-i18n="gameProfile.minRAM">RAM mínima:</span> <strong id="ram-min">Cargando...</strong></p>
+    <p><span data-i18n="gameProfile.minGPU">GPU mínima:</span> <strong id="gpu-min">Cargando...</strong></p>
+    <p><span data-i18n="gameProfile.minStorage">Almacenamiento mínimo:</span> <strong id="almacenamiento-min">Cargando...</strong></p>
+
+    <!-- Requisitos recomendados -->
+    <h3 data-i18n="gameProfile.recommendedRequirements">Requisitos recomendados</h3>
+    <p><span data-i18n="gameProfile.recOS">Sistema operativo recomendado:</span> <strong id="so-rec">Cargando...</strong></p>
+    <p><span data-i18n="gameProfile.recCPU">Procesador recomendado:</span> <strong id="procesador-rec">Cargando...</strong></p>
+    <p><span data-i18n="gameProfile.recRAM">RAM recomendada:</span> <strong id="ram-rec">Cargando...</strong></p>
+    <p><span data-i18n="gameProfile.recGPU">GPU recomendada:</span> <strong id="gpu-rec">Cargando...</strong></p>
+    <p><span data-i18n="gameProfile.recStorage">Almacenamiento recomendado:</span> <strong id="almacenamiento-rec">Cargando...</strong></p>
+  </div>
+
+<!-- ✅ Contenedor donde se inserta dinámicamente el botón -->
+      <div id="contenedor-boton-juego"></div>
+  
+<!-- FORMULARIO PARA COMENTAR (ahora va primero) -->
+<form id="formComentario" class="comentario-form">
+  <textarea id="inputComentario" placeholder="Escribe tu comentario..." required></textarea>
+  <button type="submit">Publicar comentario</button>
+</form>
+
+<!-- COMENTARIOS MOSTRADOS ABAJO -->
+<div id="comentarios" class="comentarios-container"></div>
+
+
+
+  <!-- Scripts externos -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>lucide.createIcons();</script>
+
+  <script src="../js/comentario.js"></script>
+  <script src="../js/notificacion.js"></script>
+  <script src="../js/carrito.js"></script>
+  <script src="../js/user.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/user.js"></script>
+  <script src="../js/downloadButton.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dexie@3.2.3/dist/dexie.min.js"></script>
+  <script src="../js/desplegar.js"></script>
+ <script src="../js/i18n.js"></script>
+  <script src="../js/usario.js"></script>
+  <script src="../js/comentarios.js"></script>
+  <script src="../autoSync.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const gameId = new URLSearchParams(window.location.search).get('id');
+  if (!gameId) {
+    alert('ID del juego no encontrado.');
+    return;
+  }
+
+  const dbRequest = indexedDB.open('GamesDB');
+
+  dbRequest.onerror = () => {
+    console.error('Error al abrir la base de datos.');
+  };
+
+  dbRequest.onsuccess = (event) => {
+    const db = event.target.result;
+    cargarDatosDelJuego(db, gameId);
+    cargarCapturas(db, gameId);
+    cargarFondoAnimado(db, gameId);
+  };
+
+  function cargarDatosDelJuego(db, id) {
+    const tx = db.transaction('games', 'readonly');
+    const store = tx.objectStore('games');
+    const req = store.get(id);
+
+    req.onsuccess = () => {
+      const juego = req.result;
+      if (!juego) {
+        document.getElementById('titulo-juego').textContent = 'Juego no encontrado';
+        return;
+      }
+
+      document.getElementById('titulo-juego').textContent = juego.title || 'Sin título';
+      document.getElementById('descripcion-juego').textContent = juego.description || 'Sin descripción';
+
+      // Video
+      const videoIframe = document.getElementById('youtube-video');
+      let videoLink = juego.videoUrl || juego.youtube;
+      if (videoLink) {
+        try {
+          const url = new URL(videoLink);
+          const videoId = url.searchParams.get("v") || url.pathname.split("/").pop();
+          videoIframe.src = `https://www.youtube.com/embed/${videoId}?rel=0`;
+        } catch (e) {
+          videoIframe.parentElement.innerHTML = '<p>No se pudo cargar el video.</p>';
+        }
+      } else {
+        videoIframe.parentElement.innerHTML = '<p>No hay video disponible.</p>';
+      }
+
+      // Requisitos
+      const min = juego.requirements?.min || {};
+      const rec = juego.requirements?.rec || {};
+      document.getElementById('so-min').textContent = min.minOS || 'No especificado';
+      document.getElementById('procesador-min').textContent = min.minCPU || 'No especificado';
+      document.getElementById('ram-min').textContent = min.minRAM || 'No especificado';
+      document.getElementById('gpu-min').textContent = min.minGPU || 'No especificado';
+      document.getElementById('almacenamiento-min').textContent = min.minStorage || 'No especificado';
+
+      document.getElementById('so-rec').textContent = rec.recOS || 'No especificado';
+      document.getElementById('procesador-rec').textContent = rec.recCPU || 'No especificado';
+      document.getElementById('ram-rec').textContent = rec.recRAM || 'No especificado';
+      document.getElementById('gpu-rec').textContent = rec.recGPU || 'No especificado';
+      document.getElementById('almacenamiento-rec').textContent = rec.recStorage || 'No especificado';
+    };
+
+    req.onerror = () => {
+      console.error('No se pudo cargar la información del juego.');
+    };
+  }
+
+  function cargarCapturas(db, id) {
+    const tx = db.transaction('gameImages', 'readonly');
+    const store = tx.objectStore('gameImages');
+    const req = store.getAll();
+
+    req.onsuccess = () => {
+      const imagenes = req.result.filter(img => img.gameId === id);
+      const galeria = document.getElementById('galeria-capturas');
+
+      if (!galeria) return;
+      galeria.innerHTML = '';
+
+      if (imagenes.length === 0) {
+        galeria.innerHTML = '<p>No hay capturas disponibles.</p>';
+        return;
+      }
+
+      imagenes.forEach(img => {
+        const imgEl = document.createElement('img');
+        imgEl.src = img.dataUrl;
+        imgEl.alt = 'Captura del juego';
+        imgEl.className = 'captura-juego';
+        galeria.appendChild(imgEl);
+      });
+    };
+
+    req.onerror = () => {
+      console.error('Error al cargar capturas de pantalla.');
+    };
+  }
+
+  function cargarFondoAnimado(db, gameId) {
+    const overlay = document.getElementById('overlayFondo');
+    if (!overlay) return;
+
+    const tx = db.transaction('gameImages', 'readonly');
+    const store = tx.objectStore('gameImages');
+    const req = store.get(gameId);
+
+    req.onsuccess = () => {
+      const juego = req.result;
+      if (!juego || !Array.isArray(juego.screenshots)) return;
+
+      const gifs = juego.screenshots.filter(img => img.type === 'image/gif');
+      if (gifs.length === 0) return;
+
+      const gifAleatorio = gifs[Math.floor(Math.random() * gifs.length)].base64;
+      const fondo = document.createElement('img');
+      fondo.src = gifAleatorio;
+      fondo.style = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        opacity: 0.35;
+        pointer-events: none;
+      `;
+
+      overlay.innerHTML = '';
+      overlay.appendChild(fondo);
+    };
+
+    req.onerror = () => {
+      console.error('Error al obtener fondo animado.');
+    };
+  }
+});
+
+
+
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const overlay = document.getElementById('overlayFondo');
+  if (!overlay) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const gameId = params.get('id');
+  if (!gameId) return;
+
+  const request = indexedDB.open('GamesDB', 1);
+
+  request.onsuccess = (event) => {
+    const db = event.target.result;
+    const tx = db.transaction('gameImages', 'readonly');
+    const store = tx.objectStore('gameImages');
+    const getJuego = store.get(gameId);
+
+    getJuego.onsuccess = () => {
+      const juego = getJuego.result;
+      if (!juego || !Array.isArray(juego.screenshots)) {
+        console.warn('No hay GIFs en screenshots');
+        return;
+      }
+
+      // Elegir un GIF aleatorio
+      const gifs = juego.screenshots.filter(img => img.type === 'image/gif');
+      if (gifs.length === 0) return;
+
+      const gifAleatorio = gifs[Math.floor(Math.random() * gifs.length)].base64;
+
+      // Crear imagen de fondo animada
+      const fondo = document.createElement('img');
+      fondo.src = gifAleatorio;
+      fondo.style.position = 'fixed';
+      fondo.style.top = '0';
+      fondo.style.left = '0';
+      fondo.style.width = '100%';
+      fondo.style.height = '100%';
+      fondo.style.objectFit = 'cover'; // HD sin deformar
+      fondo.style.zIndex = '-1';
+      fondo.style.opacity = '0.35'; // Ajusta si quieres más brillo
+      fondo.style.pointerEvents = 'none';
+      
+
+      overlay.innerHTML = '';
+      overlay.appendChild(fondo);
+    };
+
+    getJuego.onerror = () => {
+      console.error('Error al obtener juego');
+    };
+  };
+
+  request.onerror = () => {
+    console.error('Error al abrir base de datos');
+  };
+});
+
+
+</script>
+
+<script src="../script.js"></script>
+</body>
+</html>
+  

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Cookies - TakumiNet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #27ae60;
+      --secondary-color: #1abc9c;
+      --dark-bg: #1c1c1c;
+      --darker-bg: #121212;
+      --light-text: #ffffff;
+      --dark-text: #333333;
+      --light-bg: #f5f5f5;
+      --container-bg: #ffffff;
+      --border-color: #eeeeee;
+    }
+
+    /* Base styles */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation bar */
+    .config-navbar {
+      background-color: var(--darker-bg);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .back-btn {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 1.2em;
+      margin-right: 15px;
+      display: flex;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      color: var(--secondary-color);
+    }
+
+    .config-title {
+      margin: 0;
+      color: var(--light-text);
+      font-size: 1.2em;
+      font-weight: 500;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Main content */
+    main {
+      padding: 20px 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: var(--container-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: var(--primary-color);
+      margin-top: 0;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--border-color);
+      font-size: 2em;
+    }
+
+    h2 {
+      color: var(--primary-color);
+      margin-top: 25px;
+      font-size: 1.5em;
+    }
+
+    p, li {
+      font-size: 1.05em;
+    }
+
+    ul {
+      padding-left: 25px;
+    }
+
+    li {
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    li:before {
+      content: "•";
+      color: var(--secondary-color);
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+
+    strong {
+      color: var(--primary-color);
+    }
+
+    a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+
+    address {
+      font-style: normal;
+      margin-top: 10px;
+    }
+
+    .intro {
+      font-size: 1.1em;
+      margin-bottom: 30px;
+    }
+
+    .cookie-types {
+      margin-top: 30px;
+    }
+
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    .cookie-table th, .cookie-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .cookie-table th {
+      background-color: rgba(39, 174, 96, 0.1);
+      color: var(--primary-color);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        margin: 15px;
+        padding: 20px;
+        border-radius: 0;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+      
+      .cookie-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: var(--dark-bg);
+        color: var(--light-text);
+      }
+      
+      .container {
+        background-color: #2d2d2d;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        --border-color: #444444;
+      }
+      
+      h1, h2 {
+        color: #2ecc71;
+      }
+
+      strong {
+        color: #2ecc71;
+      }
+
+      li:before {
+        color: #2ecc71;
+      }
+      
+      .cookie-table th, .cookie-table td {
+        border-bottom-color: #444;
+      }
+      
+      .cookie-table th {
+        background-color: rgba(46, 204, 113, 0.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav class="config-navbar" aria-label="Navegación principal">
+    <a href="../pages/index.html" class="back-btn" title="Volver al Inicio" data-i18n-title="config.backToHome">
+      <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      <span class="sr-only">Volver</span>
+    </a>
+    <h1 class="config-title" data-i18n="config.return">Volver</h1>
+  </nav>
+
+  <main>
+    <div class="container">
+      <h1>Política de Cookies de TakumiNet</h1>
+      
+      <p class="intro">Esta política explica cómo utilizamos las cookies y tecnologías similares en nuestro sitio web. Al continuar navegando, aceptas nuestro uso de cookies de acuerdo con esta política.</p>
+      
+      <section aria-labelledby="what-are-cookies">
+        <h2 id="what-are-cookies">1. ¿Qué son las cookies?</h2>
+        <p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Son ampliamente utilizadas para hacer que los sitios web funcionen de manera más eficiente, así como para proporcionar información a los propietarios del sitio.</p>
+      </section>
+      
+      <section aria-labelledby="how-we-use" class="cookie-types">
+        <h2 id="how-we-use">2. Cómo utilizamos las cookies</h2>
+        <p>Utilizamos cookies para los siguientes propósitos:</p>
+        <ul>
+          <li><strong>Cookies esenciales:</strong> Son necesarias para que el sitio web funcione correctamente.</li>
+          <li><strong>Cookies de preferencias:</strong> Nos permiten recordar tus ajustes y preferencias.</li>
+          <li><strong>Cookies de análisis:</strong> Nos ayudan a comprender cómo interactúan los visitantes con nuestro sitio.</li>
+          <li><strong>Cookies de marketing:</strong> Se utilizan para mostrar anuncios relevantes para ti.</li>
+        </ul>
+      </section>
+      
+      <section aria-labelledby="cookie-list">
+        <h2 id="cookie-list">3. Cookies que utilizamos</h2>
+        <table class="cookie-table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Propósito</th>
+              <th>Duración</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>session_id</td>
+              <td>Mantener tu sesión activa</td>
+              <td>Hasta cerrar sesión</td>
+            </tr>
+            <tr>
+              <td>user_prefs</td>
+              <td>Recordar tus preferencias</td>
+              <td>30 días</td>
+            </tr>
+            <tr>
+              <td>_ga</td>
+              <td>Análisis de uso (Google Analytics)</td>
+              <td>2 años</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      
+      <section aria-labelledby="manage-cookies">
+        <h2 id="manage-cookies">4. Control de cookies</h2>
+        <p>Puedes gestionar o eliminar las cookies según tus preferencias. Puedes hacerlo desde la configuración de tu navegador. A continuación te indicamos cómo hacerlo en los navegadores más populares:</p>
+        <ul>
+          <li><a href="https://support.google.com/chrome/answer/95647" target="_blank">Google Chrome</a></li>
+          <li><a href="https://support.mozilla.org/es/kb/Borrar%20cookies" target="_blank">Mozilla Firefox</a></li>
+          <li><a href="https://support.microsoft.com/es-es/help/17442/windows-internet-explorer-delete-manage-cookies" target="_blank">Internet Explorer</a></li>
+          <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank">Safari</a></li>
+        </ul>
+        <p>Ten en cuenta que si desactivas las cookies, es posible que algunas funciones del sitio no estén disponibles o no funcionen correctamente.</p>
+      </section>
+      
+      <section aria-labelledby="changes">
+        <h2 id="changes">5. Cambios en esta política</h2>
+        <p>Podemos actualizar esta Política de Cookies ocasionalmente. Te recomendamos que revises esta página periódicamente para estar informado sobre cómo estamos usando las cookies.</p>
+        <p><strong>Última actualización:</strong> 29 de julio de 2025</p>
+      </section>
+      
+      <section aria-labelledby="contact">
+        <h2 id="contact">6. Contacto</h2>
+        <p>Si tienes alguna pregunta sobre nuestra Política de Cookies, no dudes en contactarnos:</p>
+        <address>
+          <strong>Equipo de Soporte de TakumiNet</strong><br>
+          Email: <a href="mailto:soporte@takuminet.com">soporte@takuminet.com</a>
+        </address>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

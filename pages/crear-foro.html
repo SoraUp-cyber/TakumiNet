@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../src/footer.css">
+  <link rel="stylesheet" href="../src/index.css">
+  <link rel="stylesheet" href="../src/nav.css">
+  <title>Comunidad de Desarrolladores</title>
+
+  <style>
+/* ───────────────────────────────
+   Diseño Mejorado del Formulario Takumi
+   Versión 2.0 - Más profesional y cohesivo
+─────────────────────────────── */
+
+/* Variables de color (sin :root para cumplir con tu solicitud) */
+.takumi-forum-form {
+  --primary: #00c853;
+  --primary-hover: #00e676;
+  --secondary: #6200ea;
+  --dark-bg: #1e1e1e;
+  --darker-bg: #121212;
+  --input-bg: #2a2a2a;
+  --border-color: #333;
+  --text-primary: #f1f1f1;
+  --text-secondary: #bdbdbd;
+  --error: #ff3d00;
+  --success: #00c853;
+}
+
+/* Contenedor Principal - Más refinado */
+.takumi-forum-form {
+  width: 100%;
+  max-width: 860px;
+  margin: 4rem auto;
+  background: linear-gradient(145deg, var(--dark-bg), #252525);
+  padding: 3.5rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.5);
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+/* Barra superior con gradiente - Más sutil */
+.takumi-forum-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  z-index: 1;
+}
+
+/* Título - Más elegante */
+.takumi-forum-form h1 {
+  font-size: 2.25rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  position: relative;
+  padding-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+/* Subrayado del título - Mejor animación */
+.takumi-forum-form h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5rem;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.takumi-forum-form:hover h1::after {
+  width: 6rem;
+}
+
+/* Etiquetas - Más legibilidad */
+.takumi-forum-form label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.takumi-forum-form label:hover {
+  color: var(--text-primary);
+}
+
+/* Campos de formulario - Más consistencia */
+.takumi-forum-form input[type="text"],
+.takumi-forum-form input[type="file"],
+.takumi-forum-form select,
+.takumi-forum-form textarea {
+  width: 100%;
+  padding: 0.875rem 1.125rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+}
+
+/* Efectos hover y focus - Más refinados */
+.takumi-forum-form input[type="text"]:hover,
+.takumi-forum-form select:hover,
+.takumi-forum-form textarea:hover {
+  border-color: #444;
+}
+
+.takumi-forum-form input:focus,
+.takumi-forum-form select:focus,
+.takumi-forum-form textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 200, 83, 0.2);
+  outline: none;
+}
+
+/* Textarea - Mejor espaciado */
+.takumi-forum-form textarea {
+  min-height: 10rem;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* Botón principal - Más profesional */
+.takumi-forum-form button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efectos del botón - Más suaves */
+.takumi-forum-form button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 200, 83, 0.3);
+}
+
+.takumi-forum-form button:active {
+  transform: translateY(0);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 200, 83, 0.3);
+}
+
+/* Sistema de upload mejorado */
+.upload-wrapper {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.custom-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  border: 1px dashed var(--border-color);
+  transition: all 0.25s ease;
+  margin-bottom: 1rem;
+}
+
+.custom-upload-btn:hover {
+  background-color: #333;
+  border-color: #444;
+}
+
+/* Vista previa de imagen - Más profesional */
+.preview-container {
+  margin-top: 1rem;
+  position: relative;
+  display: inline-block;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg);
+  padding: 0.5rem;
+}
+
+.preview-container img {
+  max-width: 100%;
+  max-height: 20rem;
+  display: block;
+  border-radius: 0.5rem;
+  object-fit: contain;
+}
+
+
+
+#remove-image {
+  /* Eliminar estilos por defecto */
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  /* Estilo visual */
+  color: #ff4d4d;
+  font-size: 1.5rem; /* Más grande para visibilidad */
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+
+  /* Posición */
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  /* Sin bordes ni fondo */
+  width: auto;
+  height: auto;
+  border-radius: 0;
+
+  /* Mejor visibilidad sobre fondos claros u oscuros */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.24);
+  z-index: 10;
+}
+
+#remove-image:hover {
+  color: #ff1a1a;
+  transform: scale(1.3) rotate(5deg); /* efecto más llamativo */
+}
+
+#remove-image:active {
+  transform: scale(1.1) rotate(0deg);
+}
+
+
+/* Animaciones mejoradas */
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Estado de carga - Más visible */
+.takumi-forum-form button.loading {
+  color: transparent;
+}
+
+.takumi-forum-form button.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Campos requeridos - Mejor indicador */
+.takumi-forum-form input:required,
+.takumi-forum-form select:required,
+.takumi-forum-form textarea:required {
+  border-left: 3px solid var(--primary);
+  background-image: linear-gradient(to right, rgba(0, 200, 83, 0.05), transparent 10%);
+}
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+   <nav class="navbar">
+    <!-- Sección Izquierda: Logo -->
+    <div class="navbar-logo">
+        <img src="../assets/img/logo.png" alt="Logo de TakumiNet">
+    </div>
+
+    <!-- Sección Central: Enlaces de navegación -->
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" aria-current="page"><i class="fas fa-home"></i> <span data-i18n="inicio">Inicio</span></a></li>
+      <li><a href="marketplace.html"><i class="fas fa-store"></i> <span data-i18n="tienda">Tienda</span></a></li>
+      <li><a href="game jam.html"><i class="fas fa-calendar-alt"></i> <span data-i18n="game_jams">Game Jams</span></a></li>
+      <li><a href="centro-aprendiz.html"><i class="fas fa-graduation-cap"></i> <span data-i18n="tutoriales">Tutoriales</span></a></li>
+      <li><a href="ranking.html"><i class="fas fa-newspaper"></i> <span data-i18n="Noticias">Noticias</span></a></li>
+      <li><a href="comunidad.html"><i class="fas fa-users"></i> <span data-i18n="comunidad">Comunidad</span></a></li>
+    </ul>
+
+    <!-- Sección Derecha: Elementos interactivos -->
+    <div class="nav-right">
+      <!-- Búsqueda -->
+      <form class="search-box" role="search">
+        <input type="search" class="search-input" placeholder="Buscar juegos, usuarios..." aria-label="Buscar en el sitio" data-i18n="buscar" data-i18n-type="placeholder">
+        <button type="submit" class="search-btn" aria-label="Ejecutar búsqueda">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+
+      <!-- Iconos de notificaciones -->
+      <div class="nav-icons">
+        <div class="notification-wrapper">
+          <button class="icon-btn notification-btn" onclick="toggleNotifications()" aria-haspopup="true" aria-expanded="false" aria-label="Notificaciones">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge" id="notificationBadge" aria-live="polite">0</span>
+          </button>
+
+          <!-- Menú desplegable de notificaciones -->
+          <div class="dropdown-menu notification-dropdown" id="notificationDropdown" role="menu" aria-hidden="true" style="display:none;">
+            <div class="dropdown-header">
+              <h4 class="dropdown-title" data-i18n="notificaciones">Notificaciones</h4>
+              <button class="mark-read" id="markReadBtn" data-i18n="ver_todas">Marcar todas como leídas</button>
+            </div>
+
+            <div class="notifications-list" id="notificationsList">
+              <!-- Aquí se insertarán las notificaciones dinámicamente -->
+            </div>
+            <div class="dropdown-footer">
+              <a href="/notificaciones" class="view-all" data-i18n="ver_todas">Ver todas</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carrito de compras -->
+        <div class="icon-btn cart-btn" aria-label="Carrito de compras" role="button" tabindex="0" onclick="toggleCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge" aria-live="polite">5</span>
+        </div>
+
+        <!-- Menú de usuario -->
+        <div class="user-menu">
+          <button class="user-profile" aria-haspopup="true" aria-expanded="false" onclick="toggleUserMenu()">
+            <div class="avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <span class="username" id="mostrarNombre">Invitado</span>
+          </button>
+
+          <!-- Menú desplegable de usuario -->
+          <div class="user-dropdown" id="userDropdown" role="menu" aria-hidden="true">
+            <div class="dropdown-group">
+              <a href="perfil del usuario.html" class="menu-item"><i class="fas fa-user"></i><span data-i18n="perfil">Perfil</span></a>
+              <a href="mis juegos.html" class="menu-item"><i class="fas fa-gamepad"></i><span data-i18n="mis_juegos">Mis Juegos</span></a>
+              <a href="juegos favoritos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="favoritos">Favoritos</span></a>
+              <a href="Creator Dashboard.html" class="menu-item"><i class="fas fa-tachometer-alt"></i><span data-i18n="dashboard">Dashboard</span></a>
+              <a href="subir_juegos.html" class="menu-item"><i class="fas fa-upload"></i><span data-i18n="subir_juego">Subir Juego</span></a>
+            </div>
+            <div class="dropdown-group">
+              <a href="biblioteca.html" class="menu-item"><i class="fas fa-book"></i><span data-i18n="biblioteca">Biblioteca</span></a>
+              <a href="descarga.html" class="menu-item"><i class="fas fa-download"></i><span data-i18n="descargas">Descargas</span></a>
+            </div>
+            <hr class="divider">
+            <div class="dropdown-group">
+              <a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i><span data-i18n="configuracion">Configuración</span></a>
+              <a href="perfil-editar.html" class="menu-item"><i class="fas fa-user-edit"></i><span data-i18n="editar_usuario">Editar Usuario</span></a>
+              <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-star"></i><span data-i18n="suscripcion">Suscripción</span></a>
+              <a href="seguidos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="seguidos">Seguidos</span></a>
+            </div>
+            <hr class="divider">
+            <div class="dropdown-group">
+              <button class="menu-item logout"><i class="fas fa-sign-out-alt"></i><span data-i18n="cerrar_sesion">Cerrar Sesión</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</nav>
+
+  <section class="takumi-forum-form">
+  <h1 data-i18n="forumForm.createNew">Crear Nuevo Foro</h1>
+
+  <form action="/foros/crear" method="POST" enctype="multipart/form-data">
+    
+    <!-- Título del foro -->
+    <label for="titulo" data-i18n="forumForm.titleLabel">Título del Foro:</label>
+    <input type="text" id="titulo" name="titulo" data-i18n-placeholder="forumForm.titlePlaceholder" placeholder="Ingresa el título del foro" required>
+
+    <!-- Imagen del foro -->
+    <label for="imagen" data-i18n="forumForm.imageLabel">Imagen del foro (opcional):</label>
+    <div class="upload-wrapper" data-tooltip-text="Tamaño máximo: 650MB" data-i18n-tooltip="forumForm.imageTooltip">
+      <input type="file" id="imagen" name="imagen" accept="image/*" hidden>
+      <label for="imagen" id="infoIcon" class="custom-upload-btn" data-i18n="forumForm.chooseImage">📁 Elegir imagen</label>
+      <div id="preview-container" class="preview-container" style="display: none;">
+        <img id="image-preview" src="" alt="Vista previa" data-i18n-alt="forumForm.imagePreviewAlt">
+        <button id="remove-image" type="button" data-i18n="forumForm.removeImage">✖</button>
+      </div>
+    </div>
+
+    <!-- Categoría del foro -->
+    <label for="categoria" data-i18n="forumForm.categoryLabel">Categoría:</label>
+    <select id="categoria" name="categoria" required>
+      <option value="" data-i18n="forumForm.categoryDefault">Selecciona una categoría</option>
+      <option value="general" data-i18n="forumForm.categoryGeneral">General</option>
+      <option value="desarrollo" data-i18n="forumForm.categoryDev">Desarrollo de Juegos</option>
+      <option value="arte" data-i18n="forumForm.categoryArt">Arte y Diseño</option>
+      <option value="audio" data-i18n="forumForm.categoryAudio">Audio y Música</option>
+      <option value="marketing" data-i18n="forumForm.categoryMarketing">Marketing y Publicidad</option>
+      <option value="feedback" data-i18n="forumForm.categoryFeedback">Opiniones y Feedback</option>
+    </select>
+
+    <!-- Descripción del foro -->
+    <label for="descripcion" data-i18n="forumForm.descriptionLabel">Descripción:</label>
+    <textarea id="descripcion" name="descripcion" placeholder="Describe de qué tratará el foro..." data-i18n-placeholder="forumForm.descriptionPlaceholder" required></textarea>
+
+    <!-- Etiquetas del foro -->
+    <label for="etiquetas" data-i18n="forumForm.tagsLabel">Etiquetas (separadas por comas):</label>
+    <input type="text" id="etiquetas" name="etiquetas" placeholder="ej. Unity, pixel art, música" data-i18n-placeholder="forumForm.tagsPlaceholder">
+
+    <!-- Botón de envío -->
+    <button type="submit" data-i18n="forumForm.createButton">Crear Foro</button>
+  </form>
+</section>
+
+
+</body>
+</html>
+<script src="../js/notificacion.js"></script>
+<script src="../js/carrito.js"></script>
+<script src="../js/user.js"></script>
+<script src="../js/usario.js"></script>
+<script src="../js/desplegar.js"></script>
+<script src="../js/cerrar sesion.js"></script>
+<script src="../cookies.js"></script>
+<script src="../autoSync.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../script.js"></script>
+
+</body>
+</html>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ----------------------------
+  // 1. ELEMENTOS DEL DOM
+  // ----------------------------
+  const form = document.querySelector('.takumi-forum-form form');
+  const imagenInput = document.getElementById('imagen');
+  const previewContainer = document.getElementById('preview-container');
+  const imagePreview = document.getElementById('image-preview');
+  const removeBtn = document.getElementById('remove-image');
+  const fileNameDisplay = document.getElementById('file-name');
+  const uploadBtn = document.querySelector('.custom-upload-btn');
+
+  // ----------------------------
+  // 2. FUNCIONES DE IMAGEN
+  // ----------------------------
+  
+  const showImagePreview = (file) => {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      imagePreview.src = event.target.result;
+      previewContainer.style.display = 'inline-block';
+      fileNameDisplay.textContent = `Imagen cargada: ${file.name}`;
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const resetImagePreview = () => {
+    imagenInput.value = '';
+    imagePreview.src = '';
+    previewContainer.style.display = 'none';
+    fileNameDisplay.textContent = '';
+  };
+
+  // ----------------------------
+  // 3. MANEJO DE EVENTOS DE IMAGEN
+  // ----------------------------
+  
+  imagenInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file && file.type.startsWith('image/')) {
+      showImagePreview(file);
+    } else {
+      resetImagePreview();
+      if (file) showAlert('Por favor, selecciona un archivo de imagen válido.', 'error');
+    }
+  });
+
+  removeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    resetImagePreview();
+  });
+
+  // ----------------------------
+  // 4. FUNCIONES DE FORMULARIO
+  // ----------------------------
+  
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = e => resolve(e.target.result);
+      reader.onerror = e => reject(e);
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const validateForm = () => {
+    const titulo = form.titulo.value.trim();
+    const categoria = form.categoria.value;
+    const descripcion = form.descripcion.value.trim();
+    
+    if (!titulo || !categoria || !descripcion) {
+      showAlert('Por favor, completa todos los campos obligatorios.', 'error');
+      return false;
+    }
+    return true;
+  };
+
+  const processFormData = async () => {
+    try {
+      const titulo = form.titulo.value.trim();
+      const categoria = form.categoria.value;
+      const descripcion = form.descripcion.value.trim();
+      const etiquetas = form.etiquetas.value.trim();
+      const imagenFile = imagenInput.files[0];
+
+      const imagenBase64 = imagenFile ? await convertToBase64(imagenFile) : '';
+
+      const nuevoForo = {
+        id: Date.now().toString(),
+        titulo,
+        categoria,
+        descripcion,
+        etiquetas: etiquetas ? etiquetas.split(',').map(tag => tag.trim()).filter(tag => tag) : [],
+        imagen: imagenBase64,
+        fechaCreacion: new Date().toISOString(),
+        autor: localStorage.getItem('currentUser') || 'Anónimo'
+      };
+
+      const forosGuardados = JSON.parse(localStorage.getItem('foros')) || [];
+      forosGuardados.push(nuevoForo);
+      localStorage.setItem('foros', JSON.stringify(forosGuardados));
+
+      return true;
+    } catch (error) {
+      console.error('Error al procesar el formulario:', error);
+      return false;
+    }
+  };
+
+  // ----------------------------
+  // 5. MANEJO DE ENVÍO DE FORMULARIO
+  // ----------------------------
+  
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    const success = await processFormData();
+
+    if (success) {
+      showSuccessAlert();
+    } else {
+      showAlert('Hubo un error al procesar el formulario. Por favor, intenta nuevamente.', 'error');
+    }
+  });
+
+  // ----------------------------
+  // 6. SISTEMA DE NOTIFICACIONES MEJORADO
+  // ----------------------------
+  
+  function showAlert(message, type) {
+    const alert = createAlertElement(message, type);
+    document.body.appendChild(alert);
+    setTimeout(() => removeAlert(alert), 3000);
+  }
+
+  function showSuccessAlert() {
+    const alert = createAlertElement('✅ Foro creado con éxito. Redirigiendo...', 'success');
+    document.body.appendChild(alert);
+    
+    setTimeout(() => {
+      removeAlert(alert);
+      window.location.href = 'Comunidad.html';
+    }, 2000);
+  }
+
+  function createAlertElement(message, type) {
+    const alert = document.createElement('div');
+    alert.className = `custom-alert ${type}`;
+    
+    // Estilos CSS dinámicos con animaciones profesionales
+    alert.style.cssText = `
+      position: fixed;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: ${type === 'success' ? 'linear-gradient(135deg, #1e3c1e, #2d5a2d)' : 'linear-gradient(135deg, #3c1e1e, #5a2d2d)'};
+      color: white;
+      padding: 18px 30px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 90%;
+      width: max-content;
+      opacity: 0;
+      animation: alertFadeIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      backdrop-filter: blur(10px);
+      border: 1px solid ${type === 'success' ? '#4CAF50' : '#F44336'};
+    `;
+    
+    alert.innerHTML = `
+      <span style="font-size: 1.5rem;">${type === 'success' ? '✓' : '⚠'}</span>
+      <span>${message}</span>
+    `;
+    
+    return alert;
+  }
+
+  function removeAlert(alert) {
+    alert.style.animation = 'alertFadeOut 0.3s ease-out forwards';
+    setTimeout(() => alert.remove(), 300);
+  }
+
+  // ----------------------------
+  // 7. ANIMACIONES CSS PROFESIONALES
+  // ----------------------------
+  
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes alertFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-30px) scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+      }
+    }
+    
+    @keyframes alertFadeOut {
+      0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-30px) scale(0.95);
+      }
+    }
+    
+    .custom-alert.success {
+      --accent-color: #4CAF50;
+    }
+    
+    .custom-alert.error {
+      --accent-color: #F44336;
+    }
+    
+    .custom-alert::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--accent-color);
+      animation: progressBar 2s linear forwards;
+    }
+    
+    @keyframes progressBar {
+      0% { width: 100%; }
+      100% { width: 0%; }
+    }
+  `;
+  document.head.appendChild(style);
+});
+</script>
+

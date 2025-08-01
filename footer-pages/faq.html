@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preguntas Frecuentes - TakumiNet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #27ae60;
+      --secondary-color: #1abc9c;
+      --dark-bg: #1c1c1c;
+      --darker-bg: #121212;
+      --light-text: #ffffff;
+      --dark-text: #333333;
+      --light-bg: #f5f5f5;
+      --container-bg: #ffffff;
+      --border-color: #eeeeee;
+    }
+
+    /* Base styles */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation bar */
+    .config-navbar {
+      background-color: var(--darker-bg);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .back-btn {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 1.2em;
+      margin-right: 15px;
+      display: flex;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      color: var(--secondary-color);
+    }
+
+    .config-title {
+      margin: 0;
+      color: var(--light-text);
+      font-size: 1.2em;
+      font-weight: 500;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Main content */
+    main {
+      padding: 20px 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: var(--container-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: var(--primary-color);
+      margin-top: 0;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--border-color);
+      font-size: 2em;
+    }
+
+    h2 {
+      color: var(--primary-color);
+      margin-top: 30px;
+      font-size: 1.5em;
+    }
+
+    h3 {
+      color: var(--secondary-color);
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+
+    p, li {
+      font-size: 1.05em;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    strong {
+      color: var(--primary-color);
+    }
+
+    a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      color: #666;
+    }
+
+    .faq-section {
+      margin-bottom: 30px;
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        margin: 15px;
+        padding: 20px;
+        border-radius: 0;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+    }
+
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: var(--dark-bg);
+        color: var(--light-text);
+      }
+      
+      .container {
+        background-color: #2d2d2d;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        --border-color: #444444;
+      }
+      
+      h1, h2 {
+        color: #2ecc71;
+      }
+
+      h3 {
+        color: #1abc9c;
+      }
+
+      strong {
+        color: #2ecc71;
+      }
+
+      footer {
+        border-top-color: #444;
+        color: #888;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav class="config-navbar" aria-label="Navegación principal">
+    <a href="../pages/index.html" class="back-btn" title="Volver al Inicio" data-i18n-title="config.backToHome">
+      <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      <span class="sr-only">Volver</span>
+    </a>
+    <h1 class="config-title" data-i18n="config.return">Volver</h1>
+  </nav>
+
+  <main>
+    <div class="container">
+      <h1>Preguntas Frecuentes (FAQ)</h1>
+      <p>Encuentra aquí respuestas a las dudas más comunes sobre TakumiNet.</p>
+
+      <section class="faq-section" aria-labelledby="for-developers">
+        <h2 id="for-developers">Para desarrolladores</h2>
+
+        <div class="faq-item">
+          <h3>¿Cómo subo mi juego a TakumiNet?</h3>
+          <p>Debes iniciar sesión, ir a tu perfil y hacer clic en el botón "Subir juego". Podrás llenar los datos del juego, subir imágenes, requisitos y el archivo ZIP del ejecutable.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Qué tipo de juegos se permiten?</h3>
+          <p>Se permiten juegos indie de todo tipo siempre que no infrinjan nuestras <a href="contenido.html">normas de contenido</a>. No se aceptan juegos ofensivos, con discursos de odio o sin autorización de derechos.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Puedo vender mi juego?</h3>
+          <p>Sí. Puedes establecer un precio fijo, o dejarlo en modo "paga lo que quieras". Los pagos se gestionan mediante PayPal o Stripe.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Hay comisiones por ventas?</h3>
+          <p>TakumiNet toma una pequeña comisión del 10% para cubrir costos de infraestructura y mejorar la plataforma. El resto se transfiere directamente al creador.</p>
+        </div>
+      </section>
+
+      <section class="faq-section" aria-labelledby="for-players">
+        <h2 id="for-players">Para jugadores</h2>
+
+        <div class="faq-item">
+          <h3>¿Necesito cuenta para descargar juegos?</h3>
+          <p>No, puedes explorar y descargar juegos gratuitos sin cuenta. Sin embargo, para comentar, calificar o participar en jams, necesitas una cuenta gratuita.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Cómo apoyo a un desarrollador?</h3>
+          <p>Puedes comprar sus juegos, dejar una reseña positiva, compartir el enlace o participar en sus jams. También puedes enviarle premios simbólicos desde su perfil.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Hay juegos multijugador?</h3>
+          <p>Algunos juegos incluyen funciones multijugador en línea o local. Busca en la sección de "Filtros" en el marketplace para encontrarlos.</p>
+        </div>
+      </section>
+
+      <section class="faq-section" aria-labelledby="community">
+        <h2 id="community">Comunidad y cuentas</h2>
+
+        <div class="faq-item">
+          <h3>¿Cómo participo en los foros o chats?</h3>
+          <p>Debes tener una cuenta activa. Una vez dentro, puedes acceder al foro y al chat desde el menú principal.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Cómo obtengo recompensas?</h3>
+          <p>Ganas puntos y premios al participar activamente: subir juegos, comentar, unirte a eventos, recibir likes, y más.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Qué pasa si olvido mi contraseña?</h3>
+          <p>Desde la pantalla de inicio de sesión, haz clic en "¿Olvidaste tu contraseña?" y sigue los pasos para restablecerla.</p>
+        </div>
+      </section>
+
+      <section class="faq-section" aria-labelledby="support">
+        <h2 id="support">Soporte</h2>
+
+        <div class="faq-item">
+          <h3>¿Cómo contacto con el equipo?</h3>
+          <p>Puedes escribirnos desde la página <a href="contacto.html">Contacto</a> o enviarnos un correo a <strong>soporte@takuminet.com</strong>. Respondemos en un máximo de 48 horas.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Puedo reportar contenido ofensivo?</h3>
+          <p>Sí. Cada juego o comentario tiene un botón de "Reportar". También puedes escribirnos directamente con el enlace del contenido.</p>
+        </div>
+      </section>
+
+      <footer>
+        <p>© 2025 TakumiNet - Plataforma para la comunidad de desarrolladores y jugadores.</p>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>

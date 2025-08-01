@@ -1,0 +1,86 @@
+  /* Estilos base */
+  .site-footer {
+    background-color: #494949; /* Gris oscuro */
+    color: white;
+    padding: 1.5rem 0;
+    margin-top: auto; /* Empuja el footer al final */
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  /* Redes sociales */
+  .footer-social {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-social a {
+    color: white;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+  }
+
+  .footer-social a:hover {
+    color: #48bb78; /* Verde */
+  }
+
+  /* Enlaces principales */
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: #48bb78; /* Verde */
+    text-decoration: underline;
+  }
+
+  /* Legal */
+  .footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .footer-legal a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-legal a:hover {
+    color: #48bb78; /* Verde */
+  }
+
+  /* Asegura que el footer esté al final */
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+  }

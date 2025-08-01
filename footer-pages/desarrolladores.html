@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía para Desarrolladores - TakumiNet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #27ae60;
+      --secondary-color: #1abc9c;
+      --accent-color: #3498db;
+      --warning-color: #e74c3c;
+      --dark-bg: #1c1c1c;
+      --darker-bg: #121212;
+      --light-text: #ffffff;
+      --dark-text: #333333;
+      --light-bg: #f5f5f5;
+      --container-bg: #ffffff;
+      --border-color: #eeeeee;
+    }
+
+    /* Base styles */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation bar */
+    .config-navbar {
+      background-color: var(--darker-bg);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .back-btn {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 1.2em;
+      margin-right: 15px;
+      display: flex;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      color: var(--secondary-color);
+    }
+
+    .config-title {
+      margin: 0;
+      color: var(--light-text);
+      font-size: 1.2em;
+      font-weight: 500;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Main content */
+    main {
+      padding: 20px 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: var(--container-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: var(--primary-color);
+      margin-top: 0;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--border-color);
+      font-size: 2.2em;
+    }
+
+    h2 {
+      color: var(--primary-color);
+      margin-top: 35px;
+      font-size: 1.7em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h3 {
+      color: var(--accent-color);
+      margin-top: 25px;
+      font-size: 1.3em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    p, li {
+      font-size: 1.05em;
+    }
+
+    ul {
+      padding-left: 25px;
+    }
+
+    li {
+      margin-bottom: 12px;
+      position: relative;
+      padding-left: 25px;
+    }
+
+    li:before {
+      position: absolute;
+      left: 0;
+    }
+
+    .allowed li:before {
+      content: "✓";
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    .not-allowed li:before {
+      content: "✗";
+      color: var(--warning-color);
+      font-weight: bold;
+    }
+
+    .money li:before {
+      content: "💰";
+    }
+
+    strong {
+      color: var(--primary-color);
+    }
+
+    a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+
+    .dev-guide-section {
+      margin-bottom: 40px;
+    }
+
+    .rule-box {
+      background-color: rgba(39, 174, 96, 0.05);
+      border-left: 4px solid var(--primary-color);
+      padding: 15px;
+      margin: 20px 0;
+    }
+
+    .warning-box {
+      background-color: rgba(231, 76, 60, 0.05);
+      border-left: 4px solid var(--warning-color);
+      padding: 15px;
+      margin: 20px 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        margin: 15px;
+        padding: 20px;
+        border-radius: 0;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      h2 {
+        font-size: 1.4em;
+      }
+
+      h3 {
+        font-size: 1.2em;
+      }
+    }
+
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: var(--dark-bg);
+        color: var(--light-text);
+      }
+      
+      .container {
+        background-color: #2d2d2d;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        --border-color: #444444;
+      }
+      
+      h1, h2 {
+        color: #2ecc71;
+      }
+
+      h3 {
+        color: #3498db;
+      }
+
+      strong {
+        color: #2ecc71;
+      }
+
+      .rule-box {
+        background-color: rgba(46, 204, 113, 0.1);
+        border-left-color: #2ecc71;
+      }
+
+      .warning-box {
+        background-color: rgba(231, 76, 60, 0.1);
+        border-left-color: var(--warning-color);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav class="config-navbar" aria-label="Navegación principal">
+    <a href="../pages/index.html" class="back-btn" title="Volver al Inicio" data-i18n-title="config.backToHome">
+      <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      <span class="sr-only">Volver</span>
+    </a>
+    <h1 class="config-title" data-i18n="config.return">Volver</h1>
+  </nav>
+
+  <main>
+    <div class="container">
+      <h1>Guía Completa para Desarrolladores de TakumiNet</h1>
+      
+      <div class="rule-box">
+        <p>Bienvenido a la plataforma de desarrollo de TakumiNet. Esta guía te ayudará a entender cómo publicar y monetizar tus juegos de manera efectiva.</p>
+      </div>
+
+      <section class="dev-guide-section" aria-labelledby="for-developers">
+        <h2 id="for-developers">🎮 Para Desarrolladores</h2>
+        
+        <h3>✅ Lo que está permitido:</h3>
+        <ul class="allowed">
+          <li>Subir tus propios juegos, assets y contenido original con total libertad creativa.</li>
+          <li>Establecer el precio que desees (pago fijo o modelo "paga lo que quieras").</li>
+          <li>Personalizar completamente tu página de juego con imágenes, videos, descripciones detalladas y tags.</li>
+          <li>Participar en eventos y promociones oficiales de la plataforma para mayor visibilidad.</li>
+          <li>Actualizar tus juegos con parches y nuevas versiones en cualquier momento.</li>
+        </ul>
+
+        <h3>❌ No está permitido:</h3>
+        <ul class="not-allowed">
+          <li>Subir contenido ajeno sin los permisos correspondientes del creador original.</li>
+          <li>Infringir derechos de autor, marcas registradas o propiedad intelectual de terceros.</li>
+          <li>Promover contenido ilegal, ofensivo o NSFW sin el etiquetado adecuado.</li>
+          <li>Realizar actividades fraudulentas como manipulación de reseñas o descargas.</li>
+          <li>Utilizar la plataforma para distribuir malware, spyware o cualquier software malicioso.</li>
+        </ul>
+
+        <div class="warning-box">
+          <h3>⚠️ Importante sobre derechos de autor</h3>
+          <p>Eres completamente responsable del contenido que subes. TakumiNet puede eliminar cualquier material que infrinja derechos de autor tras recibir un reclamo válido.</p>
+        </div>
+
+        <h3>💸 Modelo de ganancias y pagos:</h3>
+        <ul class="money">
+          <li><strong>70% para el desarrollador</strong>, 30% para TakumiNet (incluye procesamiento de pagos y mantenimiento de plataforma).</li>
+          <li>Pagos automáticos mensuales mediante plataforma segura (Stripe, PayPal o transferencia bancaria).</li>
+          <li>Mínimo de retiro: $50 USD (o equivalente en tu moneda local).</li>
+          <li>Informes detallados de ventas y estadísticas de jugadores disponibles en tu panel de control.</li>
+          <li>Soporte para múltiples métodos de pago y monedas internacionales.</li>
+        </ul>
+      </section>
+
+      <section class="dev-guide-section" aria-labelledby="best-practices">
+        <h2 id="best-practices">🚀 Mejores Prácticas</h2>
+        
+        <h3>📌 Para maximizar tus ventas:</h3>
+        <ul>
+          <li><strong>Capturas atractivas:</strong> Usa al menos 5 imágenes de alta calidad que muestren tu juego.</li>
+          <li><strong>Video demostrativo:</strong> Los juegos con video tienen un 40% más de conversión.</li>
+          <li><strong>Descripción completa:</strong> Incluye características, controles, requisitos del sistema y créditos.</li>
+          <li><strong>Demo gratuita:</strong> Considera ofrecer una versión de prueba para atraer jugadores.</li>
+          <li><strong>Actualizaciones regulares:</strong> Mantén tu juego relevante con nuevo contenido.</li>
+        </ul>
+
+        <h3>📅 Proceso de revisión:</h3>
+        <ol>
+          <li>Sube tu juego completando todos los campos requeridos</li>
+          <li>Nuestro equipo revisará que cumpla con las políticas (1-3 días hábiles)</li>
+          <li>Recibirás un email con la aprobación o solicitud de cambios</li>
+          <li>Una vez aprobado, tu juego estará disponible inmediatamente</li>
+        </ol>
+      </section>
+
+      <section class="dev-guide-section" aria-labelledby="support">
+        <h2 id="support">🛠️ Soporte Técnico</h2>
+        
+        <h3>📚 Recursos disponibles:</h3>
+        <ul>
+          <li><strong>Documentación API:</strong> Para integraciones avanzadas con nuestra plataforma.</li>
+          <li><strong>Plantillas:</strong> Descarga plantillas para páginas de juego bien estructuradas.</li>
+          <li><strong>Webinars:</strong> Sesiones mensuales sobre marketing y desarrollo para juegos.</li>
+        </ul>
+
+        <h3>📬 Contacto:</h3>
+        <p>Para asistencia técnica o preguntas sobre desarrollo:</p>
+        <address>
+          <strong>Equipo de Soporte para Desarrolladores</strong><br>
+          Email: <a href="mailto:devsupport@takuminet.com">devsupport@takuminet.com</a><br>
+          Horario: Lunes a Viernes, 9:00 - 18:00 (GMT-5)
+        </address>
+        
+        <div class="rule-box">
+          <p><strong>Última actualización:</strong> 29 de julio de 2025</p>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

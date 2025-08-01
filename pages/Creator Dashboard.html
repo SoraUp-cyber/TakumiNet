@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sube tu Juego - TakumiNet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../src/footer.css">
+    <link rel="stylesheet" href="../src/index.css">
+    <link rel="stylesheet" href="../src/nav.css">
+  <style>
+/* Estilos base para el contenedor principal */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f5f5; /* Fondo gris claro */
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    color: #ffffff; /* Texto principal oscuro */
+}
+
+/* Barra de navegación */
+.header_nav_tabs {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    background-color: #252525; /* Gris oscuro */
+    padding: 20px 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav_btn {
+    color: #ffffff; /* Texto blanco */
+    padding: 12px 20px;
+    margin: 5px 0;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.nav_btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left-color: #4CAF50; /* Verde */
+}
+
+.nav_btn.active {
+    background-color: rgba(76, 175, 80, 0.2); /* Verde con transparencia */
+    border-left-color: #4CAF50; /* Verde */
+    font-weight: 600;
+}
+
+/* Contenido principal */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    background-color: #252525; /* Fondo blanco */
+}
+
+/* Tarjetas */
+.card {
+    background-color: #1b1b1b; /* Fondo blanco */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #e0e0e0; /* Borde gris claro */
+}
+
+.card h3 {
+    color: #fffefe; /* Gris oscuro */
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    border-bottom: 1px solid #e0e0e0; /* Borde gris claro */
+    padding-bottom: 10px;
+}
+
+/* Tablas */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table tr {
+    border-bottom: 1px solid #e0e0e0; /* Borde gris claro */
+}
+
+.table tr:last-child {
+    border-bottom: none;
+}
+
+.table td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table h4 {
+    font-size: 24px;
+    color: #4CAF50; /* Verde */
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.table p {
+    color: #fffdfd; /* Gris medio */
+    font-size: 14px;
+}
+
+/* Filtro de ganancias */
+.filter_picker_widget {
+    display: inline-block;
+    margin: 5px 0;
+}
+
+.filter_value {
+    background: none;
+    border: none;
+    color: #ffffff; /* Texto blanco */
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.filter_value:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.filter_popup {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: #616161; /* Gris más oscuro */
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 200px;
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+    visibility: hidden;
+}
+
+.filter_picker_widget:hover .filter_popup {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.filter_options {
+    padding: 8px 0;
+}
+
+.filter_option {
+    display: block;
+    padding: 10px 20px;
+    color: #ffffff; /* Texto blanco */
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.filter_option:hover {
+    background-color: rgba(76, 175, 80, 0.3); /* Verde con transparencia */
+}
+
+/* Botones de llamada a la acción */
+.cta-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.cta-button:hover {
+    background-color: #388E3C; /* Verde más oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:nth-child(2) {
+    background-color: #616161; /* Gris */
+}
+
+.cta-button:nth-child(2):hover {
+    background-color: #424242; /* Gris más oscuro */
+}
+
+/* Integración */
+.card strong {
+    color: #4CAF50; /* Verde */
+    font-weight: 600;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+    
+    .header_nav_tabs {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 10px 0;
+    }
+    
+    .nav_btn {
+        padding: 10px 15px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        white-space: nowrap;
+    }
+    
+    .nav_btn.active {
+        border-left: none;
+        border-bottom-color: #4CAF50; /* Verde */
+    }
+    
+    .main-content {
+        padding: 20px;
+    }
+    
+    .cta-group {
+        flex-direction: column;
+    }
+    
+    .table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .filter_picker_widget {
+        position: static;
+    }
+    
+    .filter_popup {
+        left: auto;
+        right: 0;
+    }
+}
+
+
+  </style>
+
+</head>
+<body>
+
+  <nav class="navbar">
+    <!-- Sección Izquierda: Logo -->
+    <div class="navbar-logo">
+        <img src="../assets/img/logo.png" alt="Logo de TakumiNet">
+    </div>
+
+    <!-- Sección Central: Enlaces de navegación -->
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" aria-current="page"><i class="fas fa-home"></i> <span data-i18n="inicio">Inicio</span></a></li>
+      <li><a href="marketplace.html"><i class="fas fa-store"></i> <span data-i18n="tienda">Tienda</span></a></li>
+      <li><a href="game jam.html"><i class="fas fa-calendar-alt"></i> <span data-i18n="game_jams">Game Jams</span></a></li>
+      <li><a href="centro-aprendiz.html"><i class="fas fa-graduation-cap"></i> <span data-i18n="tutoriales">Tutoriales</span></a></li>
+      <li><a href="ranking.html"><i class="fas fa-newspaper"></i> <span data-i18n="Noticias">Noticias</span></a></li>
+      <li><a href="comunidad.html"><i class="fas fa-users"></i> <span data-i18n="comunidad">Comunidad</span></a></li>
+    </ul>
+
+    <!-- Sección Derecha: Elementos interactivos -->
+    <div class="nav-right">
+      <!-- Búsqueda -->
+      <form class="search-box" role="search">
+        <input type="search" class="search-input" placeholder="Buscar juegos, usuarios..." aria-label="Buscar en el sitio" data-i18n="buscar" data-i18n-type="placeholder">
+        <button type="submit" class="search-btn" aria-label="Ejecutar búsqueda">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+
+      <!-- Iconos de notificaciones -->
+      <div class="nav-icons">
+        <div class="notification-wrapper">
+          <button class="icon-btn notification-btn" onclick="toggleNotifications()" aria-haspopup="true" aria-expanded="false" aria-label="Notificaciones">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge" id="notificationBadge" aria-live="polite">0</span>
+          </button>
+
+          <!-- Menú desplegable de notificaciones -->
+          <div class="dropdown-menu notification-dropdown" id="notificationDropdown" role="menu" aria-hidden="true" style="display:none;">
+            <div class="dropdown-header">
+              <h4 class="dropdown-title" data-i18n="notificaciones">Notificaciones</h4>
+              <button class="mark-read" id="markReadBtn" data-i18n="ver_todas">Marcar todas como leídas</button>
+            </div>
+
+            <div class="notifications-list" id="notificationsList">
+              <!-- Aquí se insertarán las notificaciones dinámicamente -->
+            </div>
+            <div class="dropdown-footer">
+              <a href="/notificaciones" class="view-all" data-i18n="ver_todas">Ver todas</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carrito de compras -->
+        <div class="icon-btn cart-btn" aria-label="Carrito de compras" role="button" tabindex="0" onclick="toggleCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge" aria-live="polite">5</span>
+        </div>
+
+        <!-- Menú de usuario -->
+        <div class="user-menu">
+          <button class="user-profile" aria-haspopup="true" aria-expanded="false" onclick="toggleUserMenu()">
+            <div class="avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <span class="username" id="mostrarNombre">Invitado</span>
+          </button>
+
+          <!-- Menú desplegable de usuario -->
+          <div class="user-dropdown" id="userDropdown" role="menu" aria-hidden="true">
+            <div class="dropdown-group">
+              <a href="perfil del usuario.html" class="menu-item"><i class="fas fa-user"></i><span data-i18n="perfil">Perfil</span></a>
+              <a href="mis juegos.html" class="menu-item"><i class="fas fa-gamepad"></i><span data-i18n="mis_juegos">Mis Juegos</span></a>
+              <a href="juegos favoritos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="favoritos">Favoritos</span></a>
+              <a href="Creator Dashboard.html" class="menu-item"><i class="fas fa-tachometer-alt"></i><span data-i18n="dashboard">Dashboard</span></a>
+              <a href="subir_juegos.html" class="menu-item"><i class="fas fa-upload"></i><span data-i18n="subir_juego">Subir Juego</span></a>
+            </div>
+            <div class="dropdown-group">
+              <a href="biblioteca.html" class="menu-item"><i class="fas fa-book"></i><span data-i18n="biblioteca">Biblioteca</span></a>
+              <a href="descarga.html" class="menu-item"><i class="fas fa-download"></i><span data-i18n="descargas">Descargas</span></a>
+            </div>
+            <hr class="divider">
+            <div class="dropdown-group">
+              <a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i><span data-i18n="configuracion">Configuración</span></a>
+              <a href="perfil-editar.html" class="menu-item"><i class="fas fa-user-edit"></i><span data-i18n="editar_usuario">Editar Usuario</span></a>
+              <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-star"></i><span data-i18n="suscripcion">Suscripción</span></a>
+              <a href="seguidos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="seguidos">Seguidos</span></a>
+            </div>
+            <hr class="divider">
+            <div class="dropdown-group">
+              <button class="menu-item logout"><i class="fas fa-sign-out-alt"></i><span data-i18n="cerrar_sesion">Cerrar Sesión</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</nav>
+
+<div class="dashboard-container">
+
+  <!-- Barra de navegación -->
+  <nav class="header_nav_tabs">
+    <a href="subir-juegos.html" class="nav_btn" data-i18n="dashboard.nav.projects">Proyectos</a>
+    <a href="/dashboard/analytics" class="nav_btn" data-i18n="dashboard.nav.analytics">Estadísticas</a>
+
+  <!-- Menú desplegable de Ganancias -->
+<div id="filter_picker_1435253" class="filter_picker_widget base_widget" style="position: relative;">
+  <!-- Botón para abrir menú -->
+  <button class="filter_value" aria-haspopup="true" aria-expanded="false" aria-controls="filter_popup_1435253">
+    <span class="value_label">Ganancias</span>
+    <svg height="18" width="18" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </button>
+
+  <!-- Contenedor del menú desplegable -->
+  <div id="filter_popup_1435253" class="filter_popup" role="menu" aria-labelledby="filter_picker_1435253" tabindex="-1" hidden>
+    <div class="filter_options">
+      <a href="pagos-desarrollador.html" class="filter_option" role="menuitem" tabindex="0">Pagos</a>
+      <a href="/dashboard/payouts" class="filter_option" role="menuitem" tabindex="0">Retiros</a>
+    </div>
+  </div>
+</div>
+
+
+    <a href="mis-juegos.html" class="nav_btn" data-i18n="dashboard.nav.publications">Publicaciones</a>
+    <a href="crear-game-jam.html" class="nav_btn active" data-i18n="dashboard.nav.gameJams">Game Jams</a>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main class="main-content">
+
+    <!-- Bienvenida -->
+    <div class="card">
+      <h3 data-i18n="dashboard.welcomeTitle">Bienvenido, Desarrollador</h3>
+      <p data-i18n="dashboard.welcomeDesc">
+        Desde este panel puedes gestionar tus juegos, monitorear el rendimiento y acceder a herramientas exclusivas.
+      </p>
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="card">
+      <h3 data-i18n="dashboard.accountStats">Estadísticas de la Cuenta</h3>
+      <table class="table">
+        <tr>
+          <td>
+            <h4>0</h4>
+            <p data-i18n="dashboard.stats.visits">Visitas</p>
+          </td>
+          <td>
+            <h4>0</h4>
+            <p data-i18n="dashboard.stats.downloads">Descargas</p>
+          </td>
+          <td>
+            <h4>0</h4>
+            <p data-i18n="dashboard.stats.followers">Seguidores</p>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Proyectos y análisis -->
+    <div class="card">
+      <h3 data-i18n="dashboard.projectsAnalysis">Proyectos y Análisis</h3>
+      <table class="table">
+        <tr>
+          <td>
+            <h4 data-i18n="dashboard.projects">Proyectos</h4>
+            <p data-i18n="dashboard.projectsDesc">Gestiona tus juegos publicados</p>
+          </td>
+          <td>
+            <h4 data-i18n="dashboard.analytics">Estadísticas</h4>
+            <p data-i18n="dashboard.analyticsDesc">Datos y métricas clave</p>
+          </td>
+          <td>
+            <h4 data-i18n="dashboard.earnings">Ganancias</h4>
+            <p data-i18n="dashboard.earningsDesc">Rendimiento financiero</p>
+          </td>
+        </tr>
+      </table>
+      <div class="buttons-container"></div>
+    </div>
+
+    <!-- Promociones y publicaciones -->
+    <div class="card">
+      <h3 data-i18n="dashboard.promotionsPublications">Promociones y Publicaciones</h3>
+      <table class="table">
+        <tr>
+          <td>
+            <h4 data-i18n="dashboard.promotions">Promociones</h4>
+            <p data-i18n="dashboard.promotionsDesc">Impulsa la visibilidad de tus juegos</p>
+          </td>
+          <td>
+            <h4 data-i18n="dashboard.publications">Publicaciones</h4>
+            <p data-i18n="dashboard.publicationsDesc">Comparte novedades y actualizaciones</p>
+          </td>
+          <td>
+            <h4 data-i18n="dashboard.gameJams">Game Jams</h4>
+            <p data-i18n="dashboard.gameJamsDesc">Participa en eventos creativos</p>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Integración y llamada a la acción -->
+    <div class="card">
+      <h3 data-i18n="dashboard.integrationConnections">Conexiones e Integración</h3>
+      <p>
+        <strong data-i18n="dashboard.integrationTitle">Integración TakumiNet:</strong>
+        <span data-i18n="dashboard.integrationDesc">
+          Usa tu nombre de usuario para destacar tu perfil dentro de nuestra comunidad.
+        </span>
+      </p>
+
+      <div class="cta-group">
+        <a href="subir_juegos.html" class="cta-button" data-i18n="dashboard.ctaUpload">¿Eres nuevo? Sube tu primer juego</a>
+        <a href="marketplace.html" class="cta-button" data-i18n="dashboard.ctaExplore">Explorar otros juegos</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+
+
+<script src="../js/notificacion.js"></script>
+<script src="../js/carrito.js"></script>
+<script src="../js/user.js"></script>
+<script src="../js/usario.js"></script>
+<script src="../js/desplegar.js"></script>
+<script src="../js/cerrar sesion.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../autoSync.js"></script>
+<script src="../script.js"></script>
+<script>
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.querySelector('.jam-creation-form form');
+  const imagenPortadaInput = document.getElementById('imagen-portada');
+  
+  // Manejar la conversión de la imagen a Base64
+  imagenPortadaInput.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        // Aquí puedes mostrar una vista previa si lo deseas
+        console.log("Imagen convertida a Base64");
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  // Manejar el envío del formulario
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Convertir la imagen a Base64 si existe
+    const file = imagenPortadaInput.files[0];
+    let imagenBase64 = '';
+    
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        imagenBase64 = event.target.result;
+        saveJamData(imagenBase64);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      saveJamData(imagenBase64);
+    }
+  });
+
+  function saveJamData(imagenBase64) {
+    // Obtener todos los datos del formulario
+    const formData = {
+      titulo: document.getElementById('titulo').value,
+      descripcionCorta: document.getElementById('descripcion-corta').value,
+      url: document.getElementById('url').value,
+      tipoJam: document.getElementById('tipo-jam').value,
+      quienVota: document.getElementById('quien-vota').value,
+      fechaInicio: document.getElementById('fecha-inicio').value,
+      fechaFin: document.getElementById('fecha-fin').value,
+      fechaVotacion: document.getElementById('fecha-votacion').value,
+      imagenPortada: imagenBase64,
+      contenido: document.getElementById('contenido').value,
+      criterios: document.getElementById('criterios').value,
+      hashtag: document.getElementById('hashtag').value,
+      comunidad: document.getElementById('comunidad').checked,
+      bloquearSubidas: document.getElementById('bloquear-subidas').checked,
+      ocultarResultados: document.getElementById('ocultar-resultados').checked,
+      ocultarSubmisiones: document.getElementById('ocultar-submisiones').checked,
+      visibilidad: document.getElementById('visibilidad').value,
+      fechaCreacion: new Date().toISOString()
+    };
+
+    // Obtener las jams existentes o crear un nuevo array
+    let jams = JSON.parse(localStorage.getItem('jams')) || [];
+    
+    // Agregar la nueva jam
+    jams.push(formData);
+    
+    // Guardar en localStorage
+    localStorage.setItem('jams', JSON.stringify(jams));
+    
+    // Mostrar mensaje de éxito
+    alert('Game Jam creada exitosamente! Redirigiendo...');
+    
+    // Redirigir a game-jam.html después de 1 segundo (para que se vea el alert)
+    setTimeout(function() {
+      window.location.href = 'game-jam.html';
+    }, 1000);
+  }
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos del menú desplegable
+    const filterPicker = document.getElementById('filter_picker_1435253');
+    const filterButton = filterPicker.querySelector('.filter_value');
+    const filterPopup = document.getElementById('filter_popup_1435253');
+    const filterOptions = filterPopup.querySelectorAll('.filter_option');
+    
+    // Estado del menú
+    let isMenuOpen = false;
+    
+    // Animación de apertura/cierre
+    const toggleMenu = (open) => {
+        isMenuOpen = open;
+        filterButton.setAttribute('aria-expanded', String(open));
+        filterPopup.hidden = !open;
+        
+        if (open) {
+            filterPopup.style.opacity = '0';
+            filterPopup.style.transform = 'translateY(10px)';
+            filterPopup.style.display = 'block';
+            
+            // Animación de entrada
+            requestAnimationFrame(() => {
+                filterPopup.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+                filterPopup.style.opacity = '1';
+                filterPopup.style.transform = 'translateY(0)';
+            });
+        } else {
+            // Animación de salida
+            filterPopup.style.transition = 'opacity 0.15s ease, transform 0.15s ease';
+            filterPopup.style.opacity = '0';
+            filterPopup.style.transform = 'translateY(10px)';
+            
+            // Ocultar después de la animación
+            setTimeout(() => {
+                if (!isMenuOpen) {
+                    filterPopup.style.display = 'none';
+                }
+            }, 150);
+        }
+    };
+    
+    // Evento click en el botón
+    filterButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu(!isMenuOpen);
+    });
+    
+    // Eventos en las opciones del menú
+    filterOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            // Actualizar el label del botón con la opción seleccionada
+            const selectedText = option.textContent;
+            filterButton.querySelector('.value_label').textContent = selectedText;
+            
+            // Cerrar el menú
+            toggleMenu(false);
+        });
+        
+        // Mejorar accesibilidad con teclado
+        option.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                option.click();
+            }
+        });
+    });
+    
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', (e) => {
+        if (isMenuOpen && !filterPicker.contains(e.target)) {
+            toggleMenu(false);
+        }
+    });
+    
+    // Navegación con teclado
+    filterButton.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            toggleMenu(true);
+            
+            // Enfocar la primera opción
+            if (filterOptions.length > 0) {
+                setTimeout(() => filterOptions[0].focus(), 10);
+            }
+        }
+    });
+    
+    filterPopup.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            toggleMenu(false);
+            filterButton.focus();
+        }
+        
+        // Navegación con flechas
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            const currentIndex = Array.from(filterOptions).indexOf(document.activeElement);
+            const nextIndex = (currentIndex + 1) % filterOptions.length;
+            filterOptions[nextIndex].focus();
+        }
+        
+        if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            const currentIndex = Array.from(filterOptions).indexOf(document.activeElement);
+            const prevIndex = (currentIndex - 1 + filterOptions.length) % filterOptions.length;
+            filterOptions[prevIndex].focus();
+            
+            if (prevIndex === filterOptions.length - 1) {
+                e.preventDefault();
+                filterButton.focus();
+                toggleMenu(false);
+            }
+        }
+    });
+    
+    // Inicialización
+    filterPopup.style.display = 'none';
+    filterPopup.style.opacity = '0';
+});
+
+</script>

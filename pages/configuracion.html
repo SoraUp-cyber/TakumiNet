@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../src/footer.css">
+    <link rel="stylesheet" href="../src/index.css">
+    <link rel="stylesheet" href="../src/nav.css">
+    <title>Configuración de la Aplicación - TakumiNet</title>
+    <style>
+/* Contenedor de cada sección de configuración centrado */
+.config-section {
+  background-color: #2c2c2c; /* gris oscuro */
+  border: 1px solid #22c55e; /* borde verde */
+  border-radius: 8px;
+  padding: 20px 30px;
+  margin: 25px auto; /* margen arriba/abajo y centrado horizontal */
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3); /* sombra verde */
+  max-width: 700px;
+  width: 100%;
+  color: white; /* texto blanco */
+  box-sizing: border-box;
+  text-align: center; /* centra texto dentro de la sección */
+}
+
+/* Títulos principales */
+.config-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+  border-bottom: 2px solid #22c55e; /* borde verde */
+  padding-bottom: 6px;
+  color: #22c55e; /* verde */
+  text-align: center;
+}
+
+/* Subtítulos */
+.config-section h3 {
+  font-size: 1.25rem;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  color: #a7f3d0; /* verde claro */
+  text-align: center;
+}
+
+/* Etiquetas */
+.config-section label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #d1d5db; /* gris claro */
+  cursor: pointer;
+  text-align: left; /* para que los labels no se centren */
+}
+
+/* Inputs de texto y select */
+.config-section input[type="text"],
+.config-section select {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1.5px solid #22c55e; /* borde verde */
+  border-radius: 5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+  outline-offset: 2px;
+  background-color: #121212; /* fondo oscuro */
+  color: white;
+  text-align: left;
+}
+
+.config-section input[type="text"]:focus,
+.config-section select:focus {
+  border-color: #4ade80; /* verde claro */
+  box-shadow: 0 0 5px rgba(74, 222, 128, 0.7);
+}
+
+/* Inputs readonly con fondo distinto */
+.config-section input[readonly] {
+  background-color: #3a3a3a;
+  color: #a3a3a3;
+  cursor: not-allowed;
+}
+
+/* Checkboxes */
+.config-section input[type="checkbox"] {
+  transform: scale(1.15);
+  margin-right: 8px;
+  vertical-align: middle;
+  cursor: pointer;
+  accent-color: #22c55e; /* checkbox verde */
+}
+
+/* Labels para checkboxes */
+.config-section label > input[type="checkbox"] + span {
+  vertical-align: middle;
+  color: white;
+}
+
+/* Botones */
+.config-section button {
+  background-color: #22c55e; /* verde */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 22px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 12px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(34, 197, 94, 0.3);
+}
+
+.config-section button:hover {
+  background-color: #16a34a; /* verde oscuro */
+}
+
+/* Estado de actualizaciones */
+#update-status {
+  margin-top: 12px;
+  font-weight: 600;
+  color: #22c55e;
+  min-height: 22px;
+}
+
+/* Lista de versiones */
+#version-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #a3a3a3; /* gris claro */
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+/* Separadores */
+.config-section br {
+  margin-bottom: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .config-section {
+    padding: 15px 20px;
+    max-width: 100%;
+  }  
+}
+
+
+/* Configuración de la barra de navegación */
+.config-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 1rem 2rem;
+    background-color: #1B1B1B; /* Fondo oscuro profesional */
+    color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    gap: 1rem;
+    border-bottom: 2px solid #00ff0d; /* Línea morada decorativa */
+}
+
+.back-btn {
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+    color: #17ff02; /* Morado hover */
+}
+
+.config-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+    color: #f3f4f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+    </style>
+</head>
+<body>
+<nav class="config-navbar">
+    <a href="index.html" class="back-btn" title="Volver al Inicio" data-i18n="config.back">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    <h1 class="config-title" data-i18n="config.title">Configuración</h1>
+</nav>
+
+<div class="config-section">
+  <h2 data-i18n="config.appSettings.title">Configuración de la Aplicación</h2>
+
+  <label for="app_name" data-i18n="config.appSettings.appName">Nombre de la App:</label>
+  <input type="text" id="app_name" name="app_name" value="TakumiNet" /><br><br>
+
+  <label for="version" data-i18n="config.appSettings.version">Versión Actual:</label>
+  <input type="text" id="version" name="version" value="1.0.0" readonly /><br><br>
+
+  <div class="language-selector">
+    <label for="language" data-i18n="config.appSettings.language">Idioma Predeterminado:</label>
+    <select id="language" name="language">
+      <option value="es" selected data-i18n="languages.es">Español</option>
+      <option value="en" data-i18n="languages.en">English</option>
+      <option value="zh" data-i18n="languages.zh">中文 (Chino)</option>
+      <option value="ja" data-i18n="languages.ja">日本語 (Japonés)</option>
+      <option value="pt" data-i18n="languages.pt">Português</option>
+    </select>
+  </div>
+</div>
+
+<div class="config-section">
+  <h2 data-i18n="config.updateSettings.title">Configuración de Actualizaciones</h2>
+  <button type="button" onclick="checkForUpdates()" data-i18n="config.updateSettings.checkUpdates">Buscar Actualizaciones</button>
+  <p id="update-status"></p>
+  <h3 data-i18n="config.updateSettings.versionHistory">Historial de Versiones:</h3>
+  <ul id="version-list">
+    <li data-i18n="config.updateSettings.history.1">1.0.0 - Lanzamiento inicial</li>
+    <li data-i18n="config.updateSettings.history.2">1.1.0 - Mejoras de rendimiento</li>
+    <li data-i18n="config.updateSettings.history.3">1.2.0 - Actualización de interfaz de usuario</li>
+  </ul>
+</div>
+
+<div class="config-section">
+  <h2 data-i18n="config.folderSettings.title">Configuración de Carpetas</h2>
+
+  <label for="game_folder" data-i18n="config.folderSettings.gamesFolder">Carpeta de Juegos:</label>
+  <input type="text" id="game_folder" name="game_folder" value="C:/TakumiNet/Juegos" /><br><br>
+
+  <label for="screenshots_folder" data-i18n="config.folderSettings.screenshotsFolder">Carpeta de Capturas de Pantalla:</label>
+  <input type="text" id="screenshots_folder" name="screenshots_folder" value="C:/TakumiNet/Capturas" /><br><br>
+
+  <label for="logs_folder" data-i18n="config.folderSettings.logsFolder">Carpeta de Logs:</label>
+  <input type="text" id="logs_folder" name="logs_folder" value="C:/TakumiNet/Logs" /><br><br>
+</div>
+
+<div class="config-section">
+  <h2 data-i18n="config.notifications.title">Configuración de Notificaciones</h2>
+
+  <label>
+    <input type="checkbox" id="email_notifications" name="email_notifications" checked />
+    <span data-i18n="config.notifications.email">Recibir notificaciones por correo electrónico</span>
+  </label><br><br>
+
+  <label>
+    <input type="checkbox" id="push_notifications" name="push_notifications" />
+    <span data-i18n="config.notifications.push">Recibir notificaciones dentro de la app</span>
+  </label><br><br>
+
+  <label for="notification_frequency" data-i18n="config.notifications.frequency">Frecuencia de Notificaciones:</label>
+  <select id="notification_frequency" name="notification_frequency">
+    <option value="real_time" selected data-i18n="config.notifications.realTime">En tiempo real</option>
+    <option value="daily" data-i18n="config.notifications.daily">Diarias</option>
+    <option value="weekly" data-i18n="config.notifications.weekly">Semanalmente</option>
+  </select><br><br>
+</div>
+
+<div class="config-section">
+  <h2 data-i18n="config.autoUpdates.title">Configuración de Actualizaciones Automáticas</h2>
+
+  <label>
+    <input type="checkbox" id="auto_updates" name="auto_updates" checked />
+    <span data-i18n="config.autoUpdates.app">Activar actualizaciones automáticas para la app</span>
+  </label><br><br>
+
+  <label>
+    <input type="checkbox" id="game_updates" name="game_updates" />
+    <span data-i18n="config.autoUpdates.games">Activar actualizaciones automáticas de juegos</span>
+  </label><br><br>
+</div>
+
+<div class="config-section">
+  <h2 data-i18n="config.actions.title">Acciones de Configuración</h2>
+  <button type="button" onclick="saveSettings()" data-i18n="config.actions.save">Guardar Configuración</button>
+  <button type="button" onclick="resetSettings()" data-i18n="config.actions.reset">Restablecer Configuración</button>
+</div>
+
+
+<script src="../TakumiNet.js/settings.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/usario.js"></script>
+<script src="../autoSync.js"></script>
+<script src="../script.js"></script>
+
+</body>
+</html>
