@@ -6,9 +6,9 @@
   "author": "Tu Nombre",
   "license": "ISC",
   "type": "commonjs",
-  "scripts": {
-    "start": "electron ."
-  },
+ "scripts": {
+  "start": "node backend/server.js"
+},
   "keywords": [
     "games",
     "indie",
