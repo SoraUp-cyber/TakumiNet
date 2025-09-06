@@ -193,6 +193,13 @@ function createTables() {
   });
 }
 
+// =======================
+// ARCHIVOS ESTÁTICOS
+// =======================
+app.use(express.static(path.join(__dirname, "pages")));
+app.use("/src", express.static(path.join(__dirname, "src")));
+app.use("/pdf", express.static(path.join(__dirname, "pdf")));
+app.use("/assets", express.static(path.join(__dirname, "assets")));
 
 // Página inicial siempre login
 app.get("/", (req, res) => {
