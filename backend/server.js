@@ -126,9 +126,6 @@ function parseGenres(genres) {
   return [];
 }
 
-
-
-
 // =======================
 // CREAR TABLAS SQLITE
 // =======================
@@ -195,6 +192,26 @@ function createTables() {
     });
   });
 }
+
+
+// Página inicial siempre login
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "pages/login.html"));
+});
+
+
+// =======================
+// ACCESO A CUALQUIER PÁGINA
+// =======================
+app.get("/:page", (req, res) => {
+  const pageName = req.params.page + ".html";
+  const pagePath = path.join(__dirname, "pages", pageName);
+  if (fs.existsSync(pagePath)) {
+    res.sendFile(pagePath);
+  } else {
+    res.status(404).send("Página no encontrada");
+  }
+});
 
 // =======================
 // RUTAS USUARIOS
