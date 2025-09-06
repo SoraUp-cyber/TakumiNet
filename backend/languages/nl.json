@@ -1,0 +1,506 @@
+{
+"genero": "Categorie:",
+"todos": "Alles",
+"pixelart": "Pixelart",
+"terror": "Horror",
+"accion": "Actie",
+"plataformas": "Platformgames",
+"categoria": "Categorie:",
+"todas": "Alles",
+"aventura": "Avontuur",
+"comedia": "Komedie",
+"rpg": "RPG-games",
+"precio": "Prijs:",
+"gratis": "Gratis",
+"pago": "Betaald",
+"requisitos": "Minimale vereisten:",
+"bajo": "Laag",
+"medio": "Gemiddeld",
+"alto": "Hoog",
+"aplicar_filtros": "Filters toepassen",
+"borrar_filtros": "Filters wissen",
+"inicio": "Home",
+"tienda": "Winkel",
+"game_jams": "Game Jams",
+"tutoriales": "Tutorials",
+"Noticias": "Nieuws",
+"comunidad": "Community",
+"buscar": "Zoek een spel of gebruiker...",
+"notificaciones": "Meldingen",
+"ver_todas": "Markeer alles als gelezen",
+"perfil": "Profiel",
+"panel": "Dashboard",
+"mis_juegos": "Mijn spellen",
+"favoritos": "Favorieten",
+"subir_juego": "Upload spel",
+"biblioteca": "Bibliotheek",
+"descargas": "Downloads",
+"configuracion": "Instellingen",
+"editar_usuario": "Gebruiker bewerken",
+"pagos": "Betalingen",
+"seguidos": "Gevolgd",
+"cerrar_sesion": "Uitloggen",
+"recomendados": "Aanbevolen",
+"ver_mas": "Meer zien",
+"juegos_gratis": "Gratis spellen",
+"juegos_pago": "Betaalde spellen",
+"juegos_ofertas": "Spellen in de aanbieding",
+"explorar_titulo": "Wil je meer spellen ontdekken?",
+"explorar_descripcion": "Bezoek de winkel om alle beschikbare spellen te bekijken",
+"ver_todos_juegos": "Bekijk alle spellen →",
+"acerca": "Over ons",
+"faq": "FAQ",
+"blog": "Blog",
+"contacto": "Contact",
+"terminos": "Voorwaarden",
+"privacidad": "Privacy",
+"cookies": "Cookies",
+"config": {
+  "title": "Instellingen",
+  "appSettings": {
+    "title": "App-instellingen",
+    "appName": "App-naam:",
+    "version": "Huidige versie:",
+    "language": "Standaardtaal:"
+  },
+  "updateSettings": {
+    "title": "Update-instellingen",
+    "checkUpdates": "Controleer op updates",
+    "versionHistory": "Versiegeschiedenis:",
+    "history": {
+      "1": "1.0.0 - Eerste versie",
+      "2": "1.1.0 - Prestatieverbeteringen",
+      "3": "1.2.0 - Interface-update"
+    }
+  },
+  "folderSettings": {
+    "title": "Mapinstellingen",
+    "gamesFolder": "Games-map:",
+    "screenshotsFolder": "Screenshots-map:",
+    "logsFolder": "Logbestanden-map:"
+  },
+  "notifications": {
+    "title": "Meldingsinstellingen",
+    "email": "E-mailmeldingen ontvangen",
+    "push": "In-app meldingen ontvangen",
+    "frequency": "Meldingsfrequentie:",
+    "realTime": "Realtime",
+    "daily": "Dagelijks",
+    "weekly": "Wekelijks"
+  },
+  "autoUpdates": {
+    "title": "Automatische update-instellingen",
+    "app": "Automatische updates voor de app inschakelen",
+    "games": "Automatische updates voor games inschakelen"
+  },
+  "actions": {
+    "title": "Instellingsacties",
+    "save": "Instellingen opslaan",
+    "reset": "Herstellen naar standaardwaarden"
+  }
+},
+"languages": {
+  "en": "Engels",
+  "es": "Spaans",
+  "zh": "Chinees (vereenvoudigd)",
+  "hi": "Hindi",
+  "ar": "Arabisch",
+  "fr": "Frans",
+  "de": "Duits",
+  "pt": "Portugees (Brazilië)",
+  "ru": "Russisch",
+  "ja": "Japans",
+  "ko": "Koreaans",
+  "vi": "Vietnamees",
+  "it": "Italiaans",
+  "tr": "Turks",
+  "pl": "Pools",
+  "th": "Thai",
+  "nl": "Nederlands",
+  "sv": "Zweeds",
+  "uk": "Oekraïens"
+  },
+"tabs": {
+  "learning": "Leren",
+  "code": "Code",
+  "music": "Muziek / Kunst"
+},
+"learning": {
+  "title": "Leerbronnen",
+  "description": "Hier kunt u lessen, handleidingen en educatieve links plaatsen 🎓",
+  "quickGuides": "Snelle handleidingen",
+  "uploadGame": "Upload spel",
+  "stepGuide": "Stapsgewijze handleiding",
+  "view": "Bekijk"
+},
+"code": {
+  "title": "Code uploaden",
+  "description": "Hier kunt u voorbeeldcode (C#, JS, Python, C++ enz.) uploaden via een <b>MediaFire</b> link",
+  "searchPlaceholder": "Zoek codebestanden...",
+  "searchBtn": "Zoeken",
+  "showAllBtn": "Alles tonen",
+  "addFromMediafire": "Toevoegen vanaf MediaFire",
+  "modal": {
+    "title": "MediaFire-link toevoegen",
+    "namePlaceholder": "Bestandsnaam invoeren",
+    "urlPlaceholder": "Link hier plakken",
+    "warning": "⚠️ Alleen directe MediaFire-links van code worden geaccepteerd",
+    "addBtn": "Link toevoegen",
+    "success": "Link succesvol toegevoegd ✅"
+  },
+  "snippets": "Codevoorbeelden",
+  "sampleFile": "PlayerController.cs"
+},
+"music": {
+  "title": "Muziek / Kunst",
+  "elevator": {
+    "title": "Liftmuziek (Kevin MacLeod)",
+    "size": "4,33 MB • MP3",
+    "credit": "Muziek: \"Local Forecast – Elevator\" door <a href=\"https://incompetech.com/\" target=\"_blank\">Kevin MacLeod</a><br>Verstrekt door: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>Licentie: <a href=\"http://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">CC BY 3.0</a>"
+  },
+  "visitor": {
+    "title": "Visitor (Shane Ivers)",
+    "size": "8,31 MB • MP3",
+    "credit": "Muziek: \"The Visitor\" door <a href=\"https://www.silvermansound.com\" target=\"_blank\">Shane Ivers</a><br>Verstrekt door: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>Licentie: <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\">CC BY 4.0</a>"
+  },
+  "morning": {
+    "title": "Ochtendroutine (Ghostrifter)",
+    "size": "1,83 MB • MP3",
+    "credit": "Muziek: \"Morning Routine\" door <a href=\"https://soundcloud.com/ghostrifter-official\" target=\"_blank\">Ghostrifter Official</a><br>Verstrekt door: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>Licentie: <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\">CC BY-SA 3.0</a>"
+  },
+  "poupi": {
+    "title": "Poupi-muziek (Komiku)",
+    "size": "0,52 MB • MP3",
+    "credit": "Muziek: \"Poupi Theme\" door <a href=\"https://freemusicarchive.org/music/Komiku/\" target=\"_blank\">Komiku</a><br>Verstrekt door: Free Music Archive<br>Licentie: CC0 (Commercieel gebruik toegestaan zonder bronvermelding)"
+  },
+  "fallen": {
+    "title": "Fallen Leaves (陽菜/Hina)",
+    "size": "1,13 MB • MP3",
+    "credit": "Muziek: \"Fallen Leaves\" door <a href=\"https://soundcloud.com/usuario-80857924\" target=\"_blank\">陽菜/Hina</a><br>Verstrekt door: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>Licentie: CC0 (Commercieel gebruik toegestaan zonder bronvermelding)"
+  }
+},
+"jamBanner": {
+  "title": "Organiseer je eigen Game Jam!",
+  "description": "Inspireer de community door unieke evenementen te organiseren, regels vast te stellen en je creativiteit te laten zien",
+  "createBtn": "Nieuwe Jam maken"
+},
+"news": {
+  "title": "🕹️ Game Nieuws",
+  "loading": "Nieuws laden..."
+},
+"newsFooter": {
+  "text": "Bron van nieuws:",
+  "source": "3DJuegos.com",
+  "disclaimer": "Nieuws wordt via RSS alleen voor informatieve doeleinden opgehaald en bevat altijd een link naar de originele website"
+},
+"community": {
+  "title": "TakumiNet ontwikkelaarscommunity",
+  "welcome": "Welkom bij de community! Deel, leer en interacteer met andere ontwikkelaars"
+},
+"forum": {
+  "showRules": "Toon forumregels",
+  "rules": {
+    "clear": "Schrijf duidelijk en precies:",
+    "clearDesc": "Titels moeten direct het onderwerp weergeven",
+    "noSpam": "Geen spam:",
+    "noSpamDesc": "Plaats geen irrelevante links of promotionele inhoud",
+    "categorize": "Kies de juiste categorie:",
+    "categorizeDesc": "Selecteer de meest geschikte categorie voor het onderwerp",
+    "respect": "Respecteer anderen:",
+    "respectDesc": "Geen beledigend taalgebruik of discriminerende inhoud",
+    "value": "Deel waardevolle inhoud:",
+    "valueDesc": "Zorg ervoor dat je bijdrage nuttig is voor de community",
+    "tags": "Gebruik tags:",
+    "tagsDesc": "Voeg relevante tags toe zodat het onderwerp makkelijk te vinden is",
+    "noRepeat": "Niet herhalen:",
+    "noRepeatDesc": "Controleer of er al een vergelijkbaar forumonderwerp bestaat",
+    "footer": "Het naleven van deze regels helpt het forum gezond en nuttig te houden voor iedereen"
+  },
+"discussion": "Discussieforum",
+"createTopic": "Nieuw onderwerp maken"
+},
+"profile": {
+  "username": "Gast",
+  "bioTitle": "Biografie",
+  "bioPlaceholder": "Dit gebruikersprofiel wordt hier weergegeven",
+  "socialTitle": "Sociale media",
+  "noSocials": "Nog geen sociale accounts toegevoegd",
+  "contactTitle": "Contactinformatie",
+  "noContact": "Geen contactinformatie opgegeven",
+  "gamesTitle": "Gepubliceerde spellen",
+  "noGames": "Deze gebruiker heeft nog geen spellen gepubliceerd"
+},
+"gamesModal": {
+  "close": "×",
+  "title": "Spel bewerken",
+  "labelTitle": "Titel:",
+  "labelPrice": "Prijs:",
+  "labelDiscount": "Korting (%):",
+  "finalPrice": "Eindprijs na korting:",
+  "saveBtn": "Wijzigingen opslaan"
+},
+"favorites": {
+  "title": "Favoriete spellen",
+  "noFavorites": "Je hebt nog geen favoriete spellen toegevoegd. Blader en voeg spellen toe die je leuk vindt!",
+  "container": "Favoriete spellen worden hier weergegeven via JavaScript"
+},
+"dashboard": {
+  "nav": {
+    "projects": "Projecten uploaden",
+    "analytics": "Analyse",
+    "publications": "Publicaties",
+    "gameJams": "Game Jam wedstrijden"
+  },
+  "welcomeTitle": "Welkom, ontwikkelaar",
+  "welcomeDesc": "Met dit dashboard kun je je spellen beheren, prestaties volgen en toegang krijgen tot exclusieve tools",
+  "accountStats": "Accountstatistieken",
+  "stats": {
+    "visits": "Bezoeken",
+    "downloads": "Downloads"
+  },
+  "projectsAnalysis": "Projecten & Analyse",
+  "projects": "Projecten",
+  "projectsDesc": "Beheer gepubliceerde spellen",
+  "analytics": "Analyse",
+  "analyticsDesc": "Belangrijke gegevens en statistieken",
+  "earnings": "Inkomsten",
+  "earningsDesc": "Financiële prestaties",
+  "promotionsPublications": "Promoties & Publicaties",
+  "promotions": "Promoties",
+  "promotionsDesc": "Vergroot de zichtbaarheid van spellen",
+  "publications": "Publicaties",
+  "publicationsDesc": "Deel nieuws en updates",
+  "gameJams": "Game Jam wedstrijden",
+  "gameJamsDesc": "Doe mee aan creatieve evenementen",
+  "integrationConnections": "Integratie & Verbindingen",
+  "integrationTitle": "TakumiNet-integratie:",
+  "integrationDesc": "Gebruik je gebruikersnaam om je profiel in de community te benadrukken",
+  "ctaUpload": "Nieuw hier? Upload je eerste spel",
+  "ctaExplore": "Ontdek andere spellen"
+  },
+"upload": {
+  "titleLabel": "Spelnaam",
+  "titlePlaceholder": "Voer de naam van het spel in",
+  "descriptionLabel": "Beschrijving",
+  "descriptionPlaceholder": "Voer een beschrijving in",
+  "categoryLabel": "Categorie",
+  "categories": {
+    "adventure": "Avontuur",
+    "rpg": "RPG",
+    "action": "Actie",
+    "puzzle": "Puzzel",
+    "other": "Overig"
+  },
+  "genresLabel": "Genre",
+  "genres": {
+    "pixelart": "Pixel art",
+    "retro": "Retro",
+    "shortStory": "Kort verhaal",
+    "comedy": "Komedie",
+    "fantasy": "Fantasy",
+    "levels": "Levels",
+    "choices": "Keuzes",
+    "magic": "Magie",
+    "puzzles": "Puzzels",
+    "2D": "2D",
+    "3D": "3D",
+    "4K": "4K",
+    "cooperative": "Coöperatief",
+    "competitive": "Competitief",
+    "enemies": "Vijanden",
+    "bosses": "Bazen",
+    "minigames": "Minigames",
+    "noText": "Geen tekst",
+    "mystery": "Mysterie",
+    "cyberpunk": "Cyberpunk",
+    "anime": "Anime"
+  },
+  "mainGenreLabel": "Hoofdgenre",
+  "mainGenres": {
+    "noGenre": "Geen genre",
+    "adventure": "Avontuur",
+    "rpg": "RPG",
+    "action": "Actie",
+    "puzzle": "Puzzel",
+    "horror": "Horror",
+    "other": "Overig"
+  },
+  "systemRequirements": {
+    "legend": "Systeemvereisten",
+    "typeLabel": "Selecteer type vereisten:",
+    "selectOption": "-- Kies optie --",
+    "min": "Minimale vereisten",
+    "recommended": "Aanbevolen vereisten",
+    "minTitle": "Minimale vereisten",
+    "recommendedTitle": "Aanbevolen vereisten",
+    "os": "Besturingssysteem",
+    "cpu": "CPU",
+    "ram": "RAM",
+    "gpu": "Videokaart",
+    "storage": "Opslag"
+  },
+  "cover": {
+    "label": "Spelcover",
+    "info": "Aanbevolen: 1280 × 719 px, JPG of PNG, max. 2MB",
+    "previewAlt": "Covervoorbeeld"
+  },
+  "screenshots": {
+    "label": "Screenshots van het spel (minimaal 5)"
+  },
+  "video": {
+    "label": "Spelvideo link",
+    "placeholder": "https://www.youtube.com/watch?v=XXXXX"
+  },
+  "mediafire": {
+    "label": "Upload spel naar MediaFire (max 5GB)",
+    "warning": "⚠️ Alleen spellen geüpload via MediaFire worden geaccepteerd. Lokale ZIP-bestanden zijn niet toegestaan",
+    "button": "MediaFire",
+    "modalTitle": "MediaFire link toevoegen",
+    "modalPlaceholder": "Plak hier de ZIP-bestand link",
+    "modalWarning": "⚠️ Bestand moet kleiner zijn dan 5GB",
+    "modalButton": "Link toevoegen",
+    "modalFeedback": "Link succesvol toegevoegd ✅"
+  },
+  "pricing": {
+    "label": "Prijs",
+    "options": {
+      "free": "Gratis",
+      "paid": "Betaald",
+      "donation": "Donatie"
+    },
+    "placeholder": "0.00"
+  },
+  "terms": {
+    "label": "TakumiNet voorwaarden en betalingen",
+    "link": "Bekijk voorwaarden en betalingen"
+  },
+  "submitButton": "Spel publiceren"
+ },
+"config": {
+  "backToHome": "Terug naar startpagina",
+  "manageDownloads": "Downloads beheren"
+},
+"placeholder_buscar": "Zoek spellen...",
+"filtro_todos": "Alles",
+"filtro_recientes": "Recent",
+"filtro_favoritos": "Favorieten",
+"filtro_actualizables": "Kan worden bijgewerkt",
+"orden_mayor": "Van hoog naar laag",
+"orden_menor": "Van laag naar hoog",
+"agregar_juego": "Voeg spel toe",
+"downloads": {
+  "noActivities": "Geen activiteiten beschikbaar",
+  "exploreLibrary": "Ontdek onze spelbibliotheek en vind nieuwe spannende ervaringen",
+  "discoverGames": "Ontdek spellen"
+},
+"profile": {
+  "editTitle": "Profiel bewerken",
+  "general": "Algemeen",
+  "realNameLabel": "Gebruikersnaam:",
+  "description": "Beschrijving:",
+  "contact": "Contactinformatie",
+  "email": "E-mail:",
+  "changePassword": "Wachtwoord wijzigen",
+  "currentPassword": "Huidig wachtwoord:",
+  "newPassword": "Nieuw wachtwoord:",
+  "confirmPassword": "Bevestig nieuw wachtwoord:",
+  "saveChanges": "Wijzigingen opslaan",
+  "cancel": "Annuleren"
+},
+"payments": {
+  "intro": "Op deze pagina kun je, als je TakumiNet gebruikt om je inkomsten te beheren, een opname van je beschikbare saldo op je account aanvragen. Stel je voorkeur betalingsmethode in bij de verkopersinstellingen.",
+  "sellerSettings": "Verkopersinstellingen",
+  "note": "Opmerking: Je account staat momenteel ingesteld op directe betalingen. Aankopen worden rechtstreeks naar je account overgemaakt, zonder via het interne TakumiNet-saldo te gaan.",
+  "accountBalanceTitle": "Accountsaldo",
+  "accountBalanceText": "Je account heeft momenteel geen openstaand saldo. Zodra er geld beschikbaar is, kun je een opname via TakumiNet aanvragen.",
+  "profitDistribution": "Winstverdeling: Je ontvangt 70% per verkoop (ontwikkelaar) en de resterende 30% is de commissie van TakumiNet.",
+  "paypalLogoAlt": "PayPal-logo",
+  "connectPayPalTitle": "🌍 Verbind PayPal-account",
+  "connectPayPalText": "Om internationale betalingen te ontvangen, verbind je je PayPal Business-account met het platform. Dit stelt je in staat veilig betalingen uit elk land te ontvangen.",
+  "connectPayPalButton": "Verbind PayPal",
+  "paypalConnected": "Na het verbinden kun je internationale betalingen direct ontvangen."
+   },
+"config": {
+  "payments": "Ontwikkelaarbetalingen",
+  "backToPayments": "Terug naar betalingen",
+  "backToDashboard": "Terug naar dashboard",
+  "title": "Zwart"
+},
+"followed": {
+  "title": "Gevolgde gebruikers",
+  "loading": "Laden..."
+},
+"profile": {
+  "guest": "Gast",
+  "bio": "Dit gebruikersprofiel wordt hier weergegeven",
+  "socialTitle": "Sociale media",
+  "contactTitle": "Contactinformatie",
+  "publishedGamesTitle": "Gepubliceerde spellen"
+},
+"jams": {
+  "title": "Game Jam Wedstrijden",
+  "subtitle": "Ontdek, doe mee en creëer in onze fantastische gamewedstrijden. Word lid van de community en laat je talent zien!",
+  "tabs": {
+    "overview": "Overzicht",
+    "community": "Community"
+  }
+},
+"details": {
+  "title": "Wedstrijddetails",
+  "fields": {
+    "title": "Titel:",
+    "shortDescription": "Korte beschrijving:",
+    "url": "Link (URL):",
+    "startsIn": "Start over:",
+    "type": "Wedstrijdtype:",
+    "whoVotes": "Wie stemt?",
+    "startDate": "Startdatum:",
+    "endDate": "Einddatum:",
+    "votingStart": "Start stemronde:",
+    "fullDescription": "Volledige beschrijving:",
+    "criteria": "Beoordelingscriteria:",
+    "hashtag": "Hashtag:",
+    "community": "Community:",
+    "blockUploads": "Uploads blokkeren:",
+    "hideResults": "Resultaten verbergen:",
+    "hideSubmissions": "Inzendingen verbergen:",
+    "visibility": "Zichtbaarheid:",
+    "creationDate": "Aangemaakt op:"
+  },
+"join": "Doe mee aan Jam",
+"calculating": "Bezig met berekenen..."
+},
+"forum": {
+  "title": "Forumonderwerpen",
+  "createTopic": "Maak onderwerp",
+  "loading": "Onderwerpen laden..."
+},
+"modal": {
+  "title": "Maak een nieuw onderwerp",
+  "inputTitle": "Onderwerptitel",
+  "inputDescription": "Onderwerpbeschrijving",
+  "submit": "Maak onderwerp",
+  "close": "Sluiten"
+},
+"games": {
+  "removeFavorite": "Verwijder uit favorieten",
+  "free": "Gratis",
+  "noTitle": "Geen titel",
+  "noDescription": "Geen beschrijving"
+},
+"news": {
+  "loading": "Laatste nieuws laden...",
+  "errorTitle": "Kan nieuws niet laden",
+  "errorUnknown": "Onbekende fout",
+  "retry": "Probeer opnieuw",
+  "lastUpdated": "Laatst bijgewerkt",
+  "readMore": "Lees meer",
+  "disclaimer": "Bron:",
+  "source": "3DJuegos.com",
+  "rssNote": "Nieuws wordt via RSS opgehaald voor informatieve doeleinden en bevat altijd een link naar de originele site"
+},
+"pagination": {
+  "prev": "Vorige",
+  "next": "Volgende"
+  }
+}

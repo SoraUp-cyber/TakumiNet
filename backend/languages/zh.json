@@ -1,0 +1,507 @@
+{
+  "genero": "类型:",
+  "todos": "全部",
+  "pixelart": "像素艺术",
+  "terror": "恐怖",
+  "accion": "动作",
+  "plataformas": "平台",
+  "categoria": "类别:",
+  "todas": "全部",
+  "aventura": "冒险",
+  "comedia": "喜剧",
+  "rpg": "角色扮演",
+  "precio": "价格:",
+  "gratis": "免费",
+  "pago": "付费",
+  "requisitos": "最低要求:",
+  "bajo": "低",
+  "medio": "中",
+  "alto": "高",
+  "aplicar_filtros": "应用过滤器",
+  "borrar_filtros": "清除过滤器",
+  "inicio": "首页",
+  "tienda": "商店",
+  "game_jams": "游戏创作活动",
+  "tutoriales": "教程",
+  "Noticias": "新闻",
+  "comunidad": "社区",
+  "buscar": "搜索游戏、用户...",
+  "notificaciones": "通知",
+  "ver_todas": "标记全部为已读",
+  "perfil": "个人资料",
+  "panel": "控制面板",
+  "mis_juegos": "我的游戏",
+  "favoritos": "收藏",
+  "subir_juego": "上传游戏",
+  "biblioteca": "游戏库",
+  "descargas": "下载",
+  "configuracion": "设置",
+  "editar_usuario": "编辑用户",
+  "pagos": "付款",
+  "seguidos": "关注",
+  "cerrar_sesion": "退出登录",
+  "recomendados": "推荐",
+  "ver_mas": "查看更多",
+  "juegos_gratis": "免费游戏",
+  "juegos_pago": "付费游戏",
+  "juegos_ofertas": "促销游戏",
+  "explorar_titulo": "想探索更多游戏吗？",
+  "explorar_descripcion": "访问我们的完整商店，发现所有可用游戏。",
+  "ver_todos_juegos": "查看所有游戏 →",
+  "acerca": "关于",
+  "faq": "常见问题",
+  "blog": "博客",
+  "contacto": "联系",
+  "terminos": "条款",
+  "privacidad": "隐私",
+  "cookies": "Cookies",
+    "config": {
+    "title": "设置",
+    "appSettings": {
+      "title": "应用设置",
+      "appName": "应用名称:",
+      "version": "当前版本:",
+      "language": "默认语言:"
+    },
+    "updateSettings": {
+      "title": "更新设置",
+      "checkUpdates": "检查更新",
+      "versionHistory": "版本历史:",
+      "history": {
+        "1": "1.0.0 - 初始发布",
+        "2": "1.1.0 - 性能改进",
+        "3": "1.2.0 - 界面更新"
+      }
+    },
+    "folderSettings": {
+      "title": "文件夹设置",
+      "gamesFolder": "游戏文件夹:",
+      "screenshotsFolder": "截图文件夹:",
+      "logsFolder": "日志文件夹:"
+    },
+    "notifications": {
+      "title": "通知设置",
+      "email": "接收电子邮件通知",
+      "push": "接收应用内通知",
+      "frequency": "通知频率:",
+      "realTime": "实时",
+      "daily": "每日",
+      "weekly": "每周"
+    },
+    "autoUpdates": {
+      "title": "自动更新设置",
+      "app": "启用应用自动更新",
+      "games": "启用游戏自动更新"
+    },
+    "actions": {
+      "title": "配置操作",
+      "save": "保存设置",
+      "reset": "重置设置"
+    }
+  },
+  "languages": {
+    "en": "英语",
+    "es": "西班牙语",
+    "zh": "中文（简体）",
+    "hi": "印地语",
+    "ar": "阿拉伯语",
+    "fr": "法语",
+    "de": "德语",
+    "pt": "葡萄牙语（巴西）",
+    "ru": "俄语",
+    "ja": "日语",
+    "ko": "韩语",
+    "vi": "越南语",
+    "it": "意大利语",
+    "tr": "土耳其语",
+    "pl": "波兰语",
+    "th": "泰语",
+    "nl": "荷兰语",
+    "sv": "瑞典语",
+    "uk": "乌克兰语"
+  },
+  "tabs": {
+    "learning": "学习",
+    "code": "代码",
+    "music": "音乐 / 艺术"
+  },
+  "learning": {
+    "title": "学习资源",
+    "description": "在这里你可以放置教程、指南和教育链接 🎓",
+    "quickGuides": "快速指南",
+    "uploadGame": "上传游戏",
+    "stepGuide": "分步指南",
+    "view": "查看"
+  },
+  "code": {
+    "title": "上传代码",
+    "description": "在这里你可以通过 <b>MediaFire</b> 链接上传代码片段 (C#, JS, Python, C++ 等)。",
+    "searchPlaceholder": "搜索代码文件...",
+    "searchBtn": "搜索",
+    "showAllBtn": "显示全部",
+    "addFromMediafire": "从 MediaFire 添加",
+    "modal": {
+      "title": "添加 MediaFire 链接",
+      "namePlaceholder": "输入文件名称",
+      "urlPlaceholder": "在此粘贴链接",
+      "warning": "⚠️ 仅限 MediaFire 直接代码链接",
+      "addBtn": "添加链接",
+      "success": "链接添加成功 ✅"
+    },
+    "snippets": "代码片段",
+    "sampleFile": "PlayerController.cs"
+  },
+  "music": {
+    "title": "音乐 / 艺术",
+    "elevator": {
+      "title": "电梯音乐 (Kevin MacLeod)",
+      "size": "4.33 MB • MP3",
+      "credit": "音乐: \"Local Forecast – Elevator\" 由 <a href=\"https://incompetech.com/\" target=\"_blank\">Kevin MacLeod</a> 创作<br>由 <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a> 推广<br>许可: <a href=\"http://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">CC BY 3.0</a>"
+    },
+    "visitor": {
+      "title": "访客 (Shane Ivers)",
+      "size": "8.31 MB • MP3",
+      "credit": "音乐: \"The Visitor\" 由 <a href=\"https://www.silvermansound.com\" target=\"_blank\">Shane Ivers</a> 创作<br>由 <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a> 推广<br>许可: <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\">CC BY 4.0</a>"
+    },
+    "morning": {
+      "title": "晨间日常 (Ghostrifter)",
+      "size": "1.83 MB • MP3",
+      "credit": "音乐: \"Morning Routine\" 由 <a href=\"https://soundcloud.com/ghostrifter-official\" target=\"_blank\">Ghostrifter Official</a> 创作<br>由 <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a> 推广<br>许可: <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\">CC BY-SA 3.0</a>"
+    },
+    "poupi": {
+      "title": "Poupi 主题曲 (Komiku)",
+      "size": "0.52 MB • MP3",
+      "credit": "音乐: \"Poupi 主题曲\" 由 <a href=\"https://freemusicarchive.org/music/Komiku/\" target=\"_blank\">Komiku</a> 创作<br>由 Free Music Archive 推广<br>许可: Creative Commons CC0 公共领域 (自由使用，包括商业用途，无需署名)"
+    },
+    "fallen": {
+      "title": "落叶 (陽菜/Hina)",
+      "size": "1.13 MB • MP3",
+      "credit": "音乐: \"落叶\" 由 <a href=\"https://soundcloud.com/usuario-80857924\" target=\"_blank\">陽菜/Hina</a> 创作<br>由 <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a> 推广<br>许可: Creative Commons CC0 公共领域 (自由使用，包括商业用途，无需署名)"
+    }
+  },
+  "jamBanner": {
+    "title": "组织你自己的 Game Jam!",
+    "description": "通过创建独特的活动来激励社区，制定规则，让创造力尽情发挥。",
+    "createBtn": "创建新的 Jam"
+  },
+  "news": {
+    "title": "🕹️ 电子游戏新闻",
+    "loading": "正在加载新闻..."
+  },
+  "newsFooter": {
+    "text": "所显示的新闻来自",
+    "source": "3DJuegos.com",
+    "disclaimer": "通过 RSS 获取，仅供信息参考，并始终链接到原始网站。"
+  },
+  "community": {
+    "title": "开发者社区 - TakumiNet",
+    "welcome": "欢迎来到社区！分享、学习并与其他开发者建立联系。"
+  },
+  "forum": {
+    "showRules": "显示论坛创建规则",
+    "rules": {
+      "clear": "保持清晰和具体：",
+      "clearDesc": "使用能直接概括主题的标题。",
+      "noSpam": "避免垃圾信息：",
+      "noSpamDesc": "不要发布无关链接或宣传内容。",
+      "categorize": "正确分类：",
+      "categorizeDesc": "选择最适合主题的类别。",
+      "respect": "尊重他人：",
+      "respectDesc": "禁止侮辱、冒犯性语言或歧视性内容。",
+      "value": "分享有用内容：",
+      "valueDesc": "尽量让你的描述对社区有帮助。",
+      "tags": "使用标签：",
+      "tagsDesc": "添加关键标签以方便查找你的主题。",
+      "noRepeat": "不要重复发帖：",
+      "noRepeatDesc": "在创建之前，请检查是否已有类似的论坛。",
+      "footer": "遵守这些规则有助于保持空间对所有人健康和有用。"
+    },
+    "discussion": "讨论论坛",
+    "createTopic": "创建新主题"
+  },
+    "profile": {
+    "username": "访客",
+    "bioTitle": "个人简介",
+    "bioPlaceholder": "用户的简介将显示在这里。",
+    "socialTitle": "社交媒体",
+    "noSocials": "未添加任何社交媒体。",
+    "contactTitle": "联系方式",
+    "noContact": "未提供任何联系方式。",
+    "gamesTitle": "已发布的游戏",
+    "noGames": "该用户没有发布任何游戏。"
+  },
+  "gamesModal": {
+    "close": "×",
+    "title": "编辑游戏",
+    "labelTitle": "标题：",
+    "labelPrice": "价格：",
+    "labelDiscount": "折扣 (%)：",
+    "finalPrice": "折扣后最终价格：",
+    "saveBtn": "保存更改"
+  },
+  "favorites": {
+    "title": "收藏的游戏",
+    "noFavorites": "你还没有添加任何收藏的游戏。探索并添加你喜欢的吧！",
+    "container": "收藏的游戏将通过 JavaScript 插入在此"
+  },
+  "dashboard": {
+    "nav": {
+      "projects": "上传项目",
+      "analytics": "分析",
+      "publications": "发布内容",
+      "gameJams": "Game Jams"
+    },
+    "welcomeTitle": "欢迎，开发者",
+    "welcomeDesc": "通过此面板，你可以管理游戏、监控表现并访问专属工具。",
+    "accountStats": "账户统计",
+    "stats": {
+      "visits": "访问量",
+      "downloads": "下载量"
+    },
+    "projectsAnalysis": "项目与分析",
+    "projects": "项目",
+    "projectsDesc": "管理你已发布的游戏",
+    "analytics": "分析",
+    "analyticsDesc": "关键数据与指标",
+    "earnings": "收益",
+    "earningsDesc": "财务表现",
+    "promotionsPublications": "推广与发布",
+    "promotions": "推广",
+    "promotionsDesc": "提升游戏的曝光度",
+    "publications": "发布内容",
+    "publicationsDesc": "分享新闻与更新",
+    "gameJams": "Game Jams",
+    "gameJamsDesc": "参与创意活动",
+    "integrationConnections": "连接与集成",
+    "integrationTitle": "TakumiNet 集成：",
+    "integrationDesc": "使用你的用户名在社区中突出你的个人资料。",
+    "ctaUpload": "新来的吗？上传你的第一个游戏",
+    "ctaExplore": "探索其他游戏"
+  },
+ "upload": {
+  "titleLabel": "游戏标题",
+  "titlePlaceholder": "输入游戏标题",
+  "descriptionLabel": "描述",
+  "descriptionPlaceholder": "输入描述",
+  "categoryLabel": "类别",
+  "categories": {
+    "adventure": "冒险",
+    "rpg": "RPG",
+    "action": "动作",
+    "puzzle": "益智",
+    "horror": "恐怖",
+    "other": "其他"
+  },
+  "genresLabel": "类型",
+  "genres": {
+    "pixelart": "像素艺术",
+    "retro": "复古",
+    "shortStory": "短篇故事",
+    "comedy": "喜剧",
+    "fantasy": "奇幻",
+    "levels": "关卡",
+    "choices": "选择",
+    "magic": "魔法",
+    "puzzles": "谜题",
+    "2D": "2D",
+    "3D": "3D",
+    "4K": "4K",
+    "cooperative": "合作",
+    "competitive": "对战",
+    "enemies": "敌人",
+    "bosses": "Boss",
+    "minigames": "小游戏",
+    "noText": "无文字",
+    "mystery": "悬疑",
+    "cyberpunk": "赛博朋克",
+    "anime": "动漫"
+  },
+  "mainGenreLabel": "主要类型",
+  "mainGenres": {
+    "noGenre": "无类型",
+    "adventure": "冒险",
+    "rpg": "RPG",
+    "action": "动作",
+    "puzzle": "益智",
+    "horror": "恐怖",
+    "other": "其他"
+  },
+  "systemRequirements": {
+    "legend": "系统要求",
+    "typeLabel": "选择要求类型：",
+    "selectOption": "-- 请选择一个选项 --",
+    "min": "最低要求",
+    "recommended": "推荐要求",
+    "minTitle": "最低要求",
+    "recommendedTitle": "推荐要求",
+    "os": "操作系统",
+    "cpu": "处理器",
+    "ram": "内存",
+    "gpu": "显卡",
+    "storage": "存储空间"
+  },
+  "cover": {
+    "label": "游戏封面图",
+    "info": "推荐：1280 × 719 像素，JPG 或 PNG 格式，最大 2 MB",
+    "previewAlt": "封面预览"
+  },
+  "screenshots": {
+    "label": "游戏截图（至少 5 张）"
+  },
+  "video": {
+    "label": "游戏视频链接",
+    "placeholder": "https://www.youtube.com/watch?v=XXXXX"
+  },
+  "mediafire": {
+    "label": "将你的游戏上传到 MediaFire（最大 5 GB）",
+    "warning": "⚠️ 仅允许通过 MediaFire 上传的游戏。不接受本地 ZIP 文件。",
+    "button": "MediaFire",
+    "modalTitle": "添加 MediaFire 链接",
+    "modalPlaceholder": "在此粘贴 ZIP 链接",
+    "modalWarning": "⚠️ 仅限 5 GB 以下的文件。",
+    "modalButton": "添加链接",
+    "modalFeedback": "链接添加成功 ✅"
+  },
+  "pricing": {
+    "label": "价格",
+    "options": {
+      "free": "免费",
+      "paid": "付费",
+      "donation": "捐赠"
+    },
+    "placeholder": "0.00"
+  },
+  "terms": {
+    "label": "TakumiNet 规则与支付",
+    "link": "查看规则与支付"
+  },
+  "submitButton": "发布游戏"
+},
+"config": {
+  "backToHome": "返回首页",
+  "manageDownloads": "管理下载"
+},
+"placeholder_buscar": "搜索游戏...",
+"filtro_todos": "全部",
+"filtro_recientes": "最新",
+"filtro_favoritos": "收藏",
+"filtro_actualizables": "可更新",
+"orden_mayor": "从大到小",
+"orden_menor": "从小到大",
+"agregar_juego": "添加游戏",
+"downloads": {
+  "noActivities": "目前没有可用的活动",
+  "exploreLibrary": "探索我们的游戏库，发现新的精彩体验。",
+  "discoverGames": "发现游戏"
+},
+"profile": {
+  "editTitle": "编辑个人资料",
+  "general": "常规",
+  "realNameLabel": "用户名：",
+  "description": "描述：",
+  "contact": "联系方式",
+  "email": "邮箱：",
+  "changePassword": "更改密码",
+  "currentPassword": "当前密码：",
+  "newPassword": "新密码：",
+  "confirmPassword": "确认新密码：",
+  "saveChanges": "保存更改",
+  "cancel": "取消"
+},
+"payments": {
+  "intro": "在此页面，您可以申请提现账户中的可用余额，如果您正在使用 TakumiNet 管理您的收入。请在卖家设置中配置您希望接收付款的方式。",
+  "sellerSettings": "卖家设置",
+  "note": "注意：您的账户目前设置为直接收款。购买直接进入您的账户，而不会通过 TakumiNet 内部余额。",
+  "accountBalanceTitle": "账户余额",
+  "accountBalanceText": "您的账户暂无待结算余额。当有可用资金时，您可以在 TakumiNet 申请提现。",
+  "profitDistribution": "收益分配：每笔销售，您将获得 70%（开发者）。剩余 30% 为 TakumiNet 的佣金。",
+  "paypalLogoAlt": "PayPal 标志",
+  "connectPayPalTitle": "🌍 连接您的 PayPal 账户",
+  "connectPayPalText": "要接收国际付款，您必须将 PayPal 商业账户连接到我们的平台。这使您能够安全地接受来自任何国家的付款。",
+  "connectPayPalButton": "连接 PayPal",
+  "paypalConnected": "连接后，您将能够直接接收国际付款。"
+},
+"config": {
+  "payments": "开发者付款",
+  "backToPayments": "返回付款",
+  "backToDashboard": "返回控制面板",
+  "title": "黑色"
+},
+"followed": {
+  "title": "您关注的人",
+  "loading": "加载中..."
+},
+"profile": {
+  "guest": "访客",
+  "bio": "用户的个人简介将显示在此处。",
+  "socialTitle": "社交媒体",
+  "contactTitle": "联系方式",
+  "publishedGamesTitle": "已发布的游戏"
+},
+"jams": {
+  "title": "Game Jams",
+  "subtitle": "探索、参与并在我们的精彩 Game Jams 中创作。加入社区，展示您的才华！",
+  "tabs": {
+    "overview": "概览",
+    "community": "社区"
+    },
+"details": {
+  "title": "Game Jam 详情",
+  "fields": {
+    "title": "标题：",
+    "shortDescription": "简短描述：",
+    "url": "URL：",
+    "startsIn": "开始于：",
+    "type": "Jam 类型：",
+    "whoVotes": "谁来投票？",
+    "startDate": "开始日期：",
+    "endDate": "结束日期：",
+    "votingStart": "投票开始：",
+    "fullDescription": "完整描述：",
+    "criteria": "评判标准：",
+    "hashtag": "标签：",
+    "community": "社区：",
+    "blockUploads": "阻止提交：",
+    "hideResults": "隐藏结果：",
+    "hideSubmissions": "隐藏提交：",
+    "visibility": "可见性：",
+    "creationDate": "创建日期："
+  },
+  "join": "参加 Jam",
+  "calculating": "计算中..."
+},
+"forum": {
+  "title": "论坛主题",
+  "createTopic": "创建主题",
+  "loading": "正在加载主题..."
+},
+"modal": {
+  "title": "创建新主题",
+  "inputTitle": "主题标题",
+  "inputDescription": "主题描述",
+  "submit": "创建主题",
+  "close": "关闭"
+    }
+  },
+  "games": {
+    "removeFavorite": "移除收藏",
+    "free": "免费",
+    "noTitle": "无标题",
+    "noDescription": "没有可用描述"
+  },
+  "news": {
+ "loading": "正在加载最新新闻...",
+  "errorTitle": "加载新闻失败",
+  "errorUnknown": "未知错误",
+  "retry": "重试",
+  "lastUpdated": "最后更新",
+  "readMore": "阅读更多",
+  "disclaimer": "显示的新闻来自",
+  "source": "3DJuegos.com",
+  "rssNote": "通过 RSS 获取，仅供参考，并始终附带原始网站链接。"
+  },
+  "pagination": {
+    "prev": "上一页",
+    "next": "下一页"
+  }
+}

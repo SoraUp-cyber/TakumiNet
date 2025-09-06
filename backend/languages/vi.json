@@ -1,0 +1,507 @@
+{
+"genero": "Thể loại:",
+"todos": "Tất cả",
+"pixelart": "Pixel art",
+"terror": "Kinh dị",
+"accion": "Hành động",
+"plataformas": "Game nền tảng",
+"categoria": "Danh mục:",
+"todas": "Tất cả",
+"aventura": "Phiêu lưu",
+"comedia": "Hài hước",
+"rpg": "Nhập vai (RPG)",
+"precio": "Giá:",
+"gratis": "Miễn phí",
+"pago": "Trả phí",
+"requisitos": "Yêu cầu tối thiểu:",
+"bajo": "Thấp",
+"medio": "Trung bình",
+"alto": "Cao",
+"aplicar_filtros": "Áp dụng bộ lọc",
+"borrar_filtros": "Xóa bộ lọc",
+"inicio": "Trang chủ",
+"tienda": "Cửa hàng",
+"game_jams": "Game Jams",
+"tutoriales": "Hướng dẫn",
+"Noticias": "Tin tức",
+"comunidad": "Cộng đồng",
+"buscar": "Tìm kiếm trò chơi hoặc người dùng...",
+"notificaciones": "Thông báo",
+"ver_todas": "Đánh dấu tất cả là đã đọc",
+"perfil": "Hồ sơ",
+"panel": "Bảng điều khiển",
+"mis_juegos": "Trò chơi của tôi",
+"favoritos": "Yêu thích",
+"subir_juego": "Tải trò chơi lên",
+"biblioteca": "Thư viện",
+"descargas": "Tải xuống",
+"configuracion": "Cài đặt",
+"editar_usuario": "Chỉnh sửa người dùng",
+"pagos": "Thanh toán",
+"seguidos": "Đang theo dõi",
+"cerrar_sesion": "Đăng xuất",
+"recomendados": "Đề xuất",
+"ver_mas": "Xem thêm",
+"juegos_gratis": "Trò chơi miễn phí",
+"juegos_pago": "Trò chơi trả phí",
+"juegos_ofertas": "Trò chơi giảm giá",
+"explorar_titulo": "Muốn khám phá thêm trò chơi?",
+"explorar_descripcion": "Hãy ghé thăm cửa hàng và khám phá tất cả các trò chơi có sẵn.",
+"ver_todos_juegos": "Xem tất cả trò chơi →",
+"acerca": "Về chúng tôi",
+"faq": "Câu hỏi thường gặp",
+"blog": "Blog",
+"contacto": "Liên hệ",
+"terminos": "Điều khoản",
+"privacidad": "Quyền riêng tư",
+"cookies": "Cookie",
+"config": {
+  "title": "Cài đặt",
+  "appSettings": {
+    "title": "Cài đặt ứng dụng",
+    "appName": "Tên ứng dụng:",
+    "version": "Phiên bản hiện tại:",
+    "language": "Ngôn ngữ mặc định:"
+  },
+  "updateSettings": {
+    "title": "Cài đặt cập nhật",
+    "checkUpdates": "Kiểm tra cập nhật",
+    "versionHistory": "Lịch sử phiên bản:",
+    "history": {
+      "1": "1.0.0 - Phát hành ban đầu",
+      "2": "1.1.0 - Cải thiện hiệu suất",
+      "3": "1.2.0 - Cập nhật giao diện"
+    }
+  },
+  "folderSettings": {
+    "title": "Cài đặt thư mục",
+    "gamesFolder": "Thư mục trò chơi:",
+    "screenshotsFolder": "Thư mục ảnh chụp màn hình:",
+    "logsFolder": "Thư mục nhật ký:"
+  },
+  "notifications": {
+    "title": "Cài đặt thông báo",
+    "email": "Nhận thông báo qua email",
+    "push": "Nhận thông báo trong ứng dụng",
+    "frequency": "Tần suất thông báo:",
+    "realTime": "Thời gian thực",
+    "daily": "Hàng ngày",
+    "weekly": "Hàng tuần"
+  },
+  "autoUpdates": {
+    "title": "Cài đặt tự động cập nhật",
+    "app": "Bật tự động cập nhật ứng dụng",
+    "games": "Bật tự động cập nhật trò chơi"
+  },
+  "actions": {
+    "title": "Hành động cài đặt",
+    "save": "Lưu cài đặt",
+    "reset": "Đặt lại cài đặt"
+  }
+},
+"languages": {
+  "en": "Tiếng Anh",
+  "es": "Tiếng Tây Ban Nha",
+  "zh": "Tiếng Trung (Giản thể)",
+  "hi": "Tiếng Hindi",
+  "ar": "Tiếng Ả Rập",
+  "fr": "Tiếng Pháp",
+  "de": "Tiếng Đức",
+  "pt": "Tiếng Bồ Đào Nha (Brazil)",
+  "ru": "Tiếng Nga",
+  "ja": "Tiếng Nhật",
+  "ko": "Tiếng Hàn",
+  "vi": "Tiếng Việt",
+  "it": "Tiếng Ý",
+  "tr": "Tiếng Thổ Nhĩ Kỳ",
+  "pl": "Tiếng Ba Lan",
+  "th": "Tiếng Thái",
+  "nl": "Tiếng Hà Lan",
+  "sv": "Tiếng Thụy Điển",
+  "uk": "Tiếng Ukraina"
+  },
+"tabs": {
+  "learning": "Học tập",
+  "code": "Mã nguồn",
+  "music": "Âm nhạc / Nghệ thuật"
+},
+"learning": {
+  "title": "Tài nguyên học tập",
+  "description": "Tại đây bạn có thể đăng bài học, hướng dẫn và liên kết giáo dục 🎓",
+  "quickGuides": "Hướng dẫn nhanh",
+  "uploadGame": "Tải trò chơi lên",
+  "stepGuide": "Hướng dẫn từng bước",
+  "view": "Xem"
+},
+"code": {
+  "title": "Tải mã nguồn lên",
+  "description": "Tại đây bạn có thể tải các đoạn mã (C#, JS, Python, C++...) qua liên kết <b>MediaFire</b>.",
+  "searchPlaceholder": "Tìm kiếm tệp mã...",
+  "searchBtn": "Tìm kiếm",
+  "showAllBtn": "Hiển thị tất cả",
+  "addFromMediafire": "Thêm từ MediaFire",
+  "modal": {
+    "title": "Thêm liên kết MediaFire",
+    "namePlaceholder": "Nhập tên tệp",
+    "urlPlaceholder": "Dán liên kết vào đây",
+    "warning": "⚠️ Chỉ chấp nhận liên kết trực tiếp MediaFire cho mã nguồn",
+    "addBtn": "Thêm liên kết",
+    "success": "Liên kết đã được thêm thành công ✅"
+  },
+  "snippets": "Đoạn mã",
+  "sampleFile": "PlayerController.cs"
+},
+"music": {
+  "title": "Âm nhạc / Nghệ thuật",
+  "elevator": {
+    "title": "Nhạc thang máy (Kevin MacLeod)",
+    "size": "4.33 MB • MP3",
+    "credit": "Nhạc: \"Local Forecast – Elevator\" của <a href=\"https://incompetech.com/\" target=\"_blank\">Kevin MacLeod</a><br>Cung cấp bởi <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>Giấy phép: <a href=\"http://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">CC BY 3.0</a>"
+  },
+  "visitor": {
+    "title": "Visitor (Shane Ivers)",
+    "size": "8.31 MB • MP3",
+    "credit": "Nhạc: \"The Visitor\" của <a href=\"https://www.silvermansound.com\" target=\"_blank\">Shane Ivers</a><br>Cung cấp bởi <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>Giấy phép: <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\">CC BY 4.0</a>"
+  },
+  "morning": {
+    "title": "Thói quen buổi sáng (Ghostrifter)",
+    "size": "1.83 MB • MP3",
+    "credit": "Nhạc: \"Morning Routine\" của <a href=\"https://soundcloud.com/ghostrifter-official\" target=\"_blank\">Ghostrifter Official</a><br>Cung cấp bởi <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>Giấy phép: <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\">CC BY-SA 3.0</a>"
+  },
+  "poupi": {
+    "title": "Âm nhạc Poupi (Komiku)",
+    "size": "0.52 MB • MP3",
+    "credit": "Nhạc: \"Poupi Theme\" của <a href=\"https://freemusicarchive.org/music/Komiku/\" target=\"_blank\">Komiku</a><br>Cung cấp bởi Free Music Archive<br>Giấy phép: Công cộng CC0 (Có thể sử dụng thương mại, không cần ghi công tác giả)"
+  },
+  "fallen": {
+    "title": "Lá rụng (陽菜/Hina)",
+    "size": "1.13 MB • MP3",
+    "credit": "Nhạc: \"Fallen Leaves\" của <a href=\"https://soundcloud.com/usuario-80857924\" target=\"_blank\">陽菜/Hina</a><br>Cung cấp bởi <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>Giấy phép: Công cộng CC0 (Có thể sử dụng thương mại, không cần ghi công tác giả)"
+  }
+},
+"jamBanner": {
+  "title": "Tổ chức Game Jam của riêng bạn!",
+  "description": "Truyền cảm hứng cho cộng đồng bằng cách tạo ra các sự kiện độc đáo, đặt quy tắc và thể hiện sự sáng tạo của bạn.",
+  "createBtn": "Tạo Jam mới"
+},
+"news": {
+  "title": "🕹️ Tin tức trò chơi điện tử",
+  "loading": "Đang tải tin tức..."
+},
+"newsFooter": {
+  "text": "Nguồn tin:",
+  "source": "3DJuegos.com",
+  "disclaimer": "Tin tức được lấy qua RSS chỉ nhằm mục đích thông tin và luôn có liên kết tới trang gốc."
+},
+"community": {
+  "title": "Cộng đồng nhà phát triển TakumiNet",
+  "welcome": "Chào mừng bạn đến với cộng đồng! Chia sẻ, học hỏi và tương tác với các nhà phát triển khác."
+},
+"forum": {
+  "showRules": "Xem quy tắc diễn đàn",
+  "rules": {
+    "clear": "Viết rõ ràng và cụ thể:",
+    "clearDesc": "Sử dụng tiêu đề phản ánh trực tiếp chủ đề.",
+    "noSpam": "Tránh spam:",
+    "noSpamDesc": "Không đăng các liên kết không liên quan hoặc quảng cáo.",
+    "categorize": "Phân loại đúng:",
+    "categorizeDesc": "Chọn danh mục phù hợp nhất cho chủ đề.",
+    "respect": "Tôn trọng người khác:",
+    "respectDesc": "Cấm chửi bới, xúc phạm hoặc nội dung phân biệt đối xử.",
+    "value": "Chia sẻ nội dung hữu ích:",
+    "valueDesc": "Hãy đảm bảo đóng góp của bạn có ích cho cộng đồng.",
+    "tags": "Sử dụng thẻ:",
+    "tagsDesc": "Thêm thẻ phù hợp để giúp tìm kiếm chủ đề dễ dàng hơn.",
+    "noRepeat": "Không trùng lặp:",
+    "noRepeatDesc": "Trước tiên hãy kiểm tra xem có diễn đàn tương tự đã tồn tại không.",
+    "footer": "Tuân thủ các quy tắc này sẽ giúp không gian trở nên lành mạnh và hữu ích cho tất cả mọi người."
+  },
+"discussion": "Diễn đàn thảo luận",
+"createTopic": "Tạo chủ đề mới"
+},
+"profile": {
+  "username": "Khách",
+  "bioTitle": "Tiểu sử",
+  "bioPlaceholder": "Hồ sơ người dùng sẽ được hiển thị ở đây.",
+  "socialTitle": "Mạng xã hội",
+  "noSocials": "Chưa có tài khoản mạng xã hội nào được thêm.",
+  "contactTitle": "Thông tin liên hệ",
+  "noContact": "Chưa cung cấp thông tin liên hệ.",
+  "gamesTitle": "Trò chơi đã đăng",
+  "noGames": "Người dùng này chưa đăng trò chơi nào."
+},
+"gamesModal": {
+  "close": "×",
+  "title": "Chỉnh sửa trò chơi",
+  "labelTitle": "Tiêu đề:",
+  "labelPrice": "Giá:",
+  "labelDiscount": "Giảm giá (%):",
+  "finalPrice": "Giá cuối cùng sau giảm giá:",
+  "saveBtn": "Lưu thay đổi"
+},
+"favorites": {
+  "title": "Trò chơi yêu thích",
+  "noFavorites": "Bạn chưa thêm trò chơi yêu thích nào. Hãy khám phá và thêm trò chơi bạn thích!",
+  "container": "Các trò chơi yêu thích sẽ được hiển thị ở đây bằng JavaScript."
+},
+"dashboard": {
+  "nav": {
+    "projects": "Tải dự án lên",
+    "analytics": "Phân tích",
+    "publications": "Bài đăng",
+    "gameJams": "Cuộc thi Game Jam"
+  },
+  "welcomeTitle": "Chào mừng, nhà phát triển",
+  "welcomeDesc": "Với bảng điều khiển này, bạn có thể quản lý trò chơi, theo dõi hiệu suất và truy cập các công cụ độc quyền.",
+  "accountStats": "Thống kê tài khoản",
+  "stats": {
+    "visits": "Lượt truy cập",
+    "downloads": "Lượt tải xuống"
+  },
+  "projectsAnalysis": "Dự án & phân tích",
+  "projects": "Dự án",
+  "projectsDesc": "Quản lý các trò chơi đã đăng",
+  "analytics": "Phân tích",
+  "analyticsDesc": "Dữ liệu và chỉ số chính",
+  "earnings": "Thu nhập",
+  "earningsDesc": "Hiệu quả tài chính",
+  "promotionsPublications": "Quảng bá & bài đăng",
+  "promotions": "Quảng bá",
+  "promotionsDesc": "Tăng khả năng hiển thị trò chơi",
+  "publications": "Bài đăng",
+  "publicationsDesc": "Chia sẻ tin tức và cập nhật",
+  "gameJams": "Cuộc thi Game Jam",
+  "gameJamsDesc": "Tham gia các hoạt động sáng tạo",
+  "integrationConnections": "Tích hợp & kết nối",
+  "integrationTitle": "Tích hợp TakumiNet:",
+  "integrationDesc": "Sử dụng tên người dùng của bạn để làm nổi bật hồ sơ trong cộng đồng.",
+  "ctaUpload": "Mới bắt đầu? Tải trò chơi đầu tiên của bạn lên",
+  "ctaExplore": "Khám phá các trò chơi khác"
+  },
+"upload": {
+  "titleLabel": "Tiêu đề trò chơi",
+  "titlePlaceholder": "Nhập tiêu đề trò chơi",
+  "descriptionLabel": "Mô tả",
+  "descriptionPlaceholder": "Nhập mô tả",
+  "categoryLabel": "Danh mục",
+  "categories": {
+    "adventure": "Phiêu lưu",
+    "rpg": "RPG",
+    "action": "Hành động",
+    "puzzle": "Đố vui",
+    "horror": "Kinh dị",
+    "other": "Khác"
+  },
+  "genresLabel": "Thể loại",
+  "genres": {
+    "pixelart": "Pixel art",
+    "retro": "Retro",
+    "shortStory": "Truyện ngắn",
+    "comedy": "Hài",
+    "fantasy": "Giả tưởng",
+    "levels": "Cấp độ",
+    "choices": "Lựa chọn",
+    "magic": "Ma thuật",
+    "puzzles": "Trò chơi trí tuệ",
+    "2D": "2D",
+    "3D": "3D",
+    "4K": "4K",
+    "cooperative": "Hợp tác",
+    "competitive": "Cạnh tranh",
+    "enemies": "Kẻ thù",
+    "bosses": "Trùm",
+    "minigames": "Mini game",
+    "noText": "Không có văn bản",
+    "mystery": "Bí ẩn",
+    "cyberpunk": "Cyberpunk",
+    "anime": "Anime"
+  },
+  "mainGenreLabel": "Thể loại chính",
+  "mainGenres": {
+    "noGenre": "Không có thể loại",
+    "adventure": "Phiêu lưu",
+    "rpg": "RPG",
+    "action": "Hành động",
+    "puzzle": "Đố vui",
+    "horror": "Kinh dị",
+    "other": "Khác"
+  },
+  "systemRequirements": {
+    "legend": "Yêu cầu hệ thống",
+    "typeLabel": "Chọn loại yêu cầu:",
+    "selectOption": "-- Chọn tùy chọn --",
+    "min": "Yêu cầu tối thiểu",
+    "recommended": "Yêu cầu đề xuất",
+    "minTitle": "Yêu cầu tối thiểu",
+    "recommendedTitle": "Yêu cầu đề xuất",
+    "os": "Hệ điều hành",
+    "cpu": "CPU",
+    "ram": "Bộ nhớ (RAM)",
+    "gpu": "Card đồ họa",
+    "storage": "Bộ nhớ lưu trữ"
+  },
+  "cover": {
+    "label": "Ảnh bìa trò chơi",
+    "info": "Khuyến nghị: 1280 × 719 px, định dạng JPG hoặc PNG, tối đa 2MB",
+    "previewAlt": "Xem trước bìa"
+  },
+  "screenshots": {
+    "label": "Ảnh chụp màn hình trò chơi (ít nhất 5 ảnh)"
+  },
+  "video": {
+    "label": "Liên kết video trò chơi",
+    "placeholder": "https://www.youtube.com/watch?v=XXXXX"
+  },
+  "mediafire": {
+    "label": "Tải trò chơi lên MediaFire (tối đa 5GB)",
+    "warning": "⚠️ Chỉ chấp nhận trò chơi tải qua MediaFire. Không chấp nhận file ZIP cục bộ.",
+    "button": "MediaFire",
+    "modalTitle": "Thêm liên kết MediaFire",
+    "modalPlaceholder": "Dán liên kết file ZIP tại đây",
+    "modalWarning": "⚠️ File phải nhỏ hơn 5GB.",
+    "modalButton": "Thêm liên kết",
+    "modalFeedback": "Liên kết đã được thêm thành công ✅"
+  },
+  "pricing": {
+    "label": "Giá",
+    "options": {
+      "free": "Miễn phí",
+      "paid": "Trả phí",
+      "donation": "Quyên góp"
+    },
+    "placeholder": "0.00"
+  },
+  "terms": {
+    "label": "Điều khoản và thanh toán TakumiNet",
+    "link": "Xem điều khoản và thanh toán"
+  },
+  "submitButton": "Đăng trò chơi"
+ },
+"config": {
+  "backToHome": "Quay về trang chủ",
+  "manageDownloads": "Quản lý tải xuống"
+},
+"placeholder_buscar": "Tìm kiếm trò chơi...",
+"filtro_todos": "Tất cả",
+"filtro_recientes": "Mới nhất",
+"filtro_favoritos": "Yêu thích",
+"filtro_actualizables": "Có thể cập nhật",
+"orden_mayor": "Từ cao đến thấp",
+"orden_menor": "Từ thấp đến cao",
+"agregar_juego": "Thêm trò chơi",
+"downloads": {
+  "noActivities": "Hiện không có hoạt động nào khả dụng",
+  "exploreLibrary": "Khám phá thư viện trò chơi của chúng tôi và tìm kiếm những trải nghiệm mới thú vị.",
+  "discoverGames": "Khám phá trò chơi"
+},
+"profile": {
+  "editTitle": "Chỉnh sửa hồ sơ",
+  "general": "Chung",
+  "realNameLabel": "Tên người dùng:",
+  "description": "Mô tả:",
+  "contact": "Thông tin liên hệ",
+  "email": "Email:",
+  "changePassword": "Đổi mật khẩu",
+  "currentPassword": "Mật khẩu hiện tại:",
+  "newPassword": "Mật khẩu mới:",
+  "confirmPassword": "Xác nhận mật khẩu mới:",
+  "saveChanges": "Lưu thay đổi",
+  "cancel": "Hủy"
+},
+"payments": {
+  "intro": "Trên trang này, nếu bạn sử dụng TakumiNet để quản lý thu nhập, bạn có thể yêu cầu rút số dư khả dụng trong tài khoản của mình. Vui lòng thiết lập phương thức thanh toán bạn muốn nhận trong cài đặt người bán.",
+  "sellerSettings": "Cài đặt người bán",
+  "note": "Lưu ý: Tài khoản của bạn hiện được thiết lập cho thanh toán trực tiếp. Các giao dịch mua sẽ được chuyển trực tiếp vào tài khoản của bạn mà không qua số dư nội bộ của TakumiNet.",
+  "accountBalanceTitle": "Số dư tài khoản",
+  "accountBalanceText": "Hiện tại tài khoản của bạn không có số dư đang chờ. Khi có tiền, bạn có thể yêu cầu rút tiền qua TakumiNet.",
+  "profitDistribution": "Phân chia lợi nhuận: mỗi lần bán, bạn nhận 70% (nhà phát triển). 30% còn lại là phí TakumiNet.",
+  "paypalLogoAlt": "Logo PayPal",
+  "connectPayPalTitle": "🌍 Kết nối tài khoản PayPal",
+  "connectPayPalText": "Để nhận thanh toán quốc tế, bạn cần kết nối tài khoản PayPal Business với nền tảng của chúng tôi. Điều này cho phép bạn nhận thanh toán an toàn từ bất kỳ quốc gia nào.",
+  "connectPayPalButton": "Kết nối PayPal",
+  "paypalConnected": "Sau khi kết nối, bạn có thể nhận thanh toán quốc tế trực tiếp."
+   },
+"config": {
+  "payments": "Thanh toán nhà phát triển",
+  "backToPayments": "Quay lại Thanh toán",
+  "backToDashboard": "Quay lại Bảng điều khiển",
+  "title": "Đen"
+},
+"followed": {
+  "title": "Những người bạn theo dõi",
+  "loading": "Đang tải..."
+},
+"profile": {
+  "guest": "Khách",
+  "bio": "Hồ sơ cá nhân của người dùng sẽ hiển thị ở đây.",
+  "socialTitle": "Mạng xã hội",
+  "contactTitle": "Thông tin liên hệ",
+  "publishedGamesTitle": "Trò chơi đã đăng"
+},
+"jams": {
+  "title": "Cuộc thi Game Jam",
+  "subtitle": "Khám phá, tham gia và sáng tạo trong các cuộc thi game tuyệt vời của chúng tôi. Tham gia cộng đồng và thể hiện tài năng của bạn!",
+  "tabs": {
+    "overview": "Tổng quan",
+    "community": "Cộng đồng"
+  }
+},
+"details": {
+  "title": "Chi tiết Cuộc thi Game",
+  "fields": {
+    "title": "Tiêu đề:",
+    "shortDescription": "Mô tả ngắn:",
+    "url": "Liên kết (URL):",
+    "startsIn": "Bắt đầu sau:",
+    "type": "Loại cuộc thi:",
+    "whoVotes": "Ai sẽ bỏ phiếu?",
+    "startDate": "Ngày bắt đầu:",
+    "endDate": "Ngày kết thúc:",
+    "votingStart": "Bắt đầu bỏ phiếu:",
+    "fullDescription": "Mô tả đầy đủ:",
+    "criteria": "Tiêu chí đánh giá:",
+    "hashtag": "Hashtag:",
+    "community": "Cộng đồng:",
+    "blockUploads": "Chặn tải lên:",
+    "hideResults": "Ẩn kết quả:",
+    "hideSubmissions": "Ẩn bài dự thi:",
+    "visibility": "Hiển thị:",
+    "creationDate": "Ngày tạo:"
+  },
+"join": "Tham gia Jam",
+"calculating": "Đang tính toán..."
+},
+"forum": {
+  "title": "Chủ đề diễn đàn",
+  "createTopic": "Tạo chủ đề",
+  "loading": "Đang tải chủ đề..."
+},
+"modal": {
+  "title": "Tạo chủ đề mới",
+  "inputTitle": "Tiêu đề chủ đề",
+  "inputDescription": "Mô tả chủ đề",
+  "submit": "Tạo chủ đề",
+  "close": "Đóng"
+},
+"games": {
+  "removeFavorite": "Gỡ khỏi yêu thích",
+  "free": "Miễn phí",
+  "noTitle": "Không có tiêu đề",
+  "noDescription": "Không có mô tả"
+},
+"news": {
+  "loading": "Đang tải tin tức mới nhất...",
+  "errorTitle": "Không thể tải tin tức",
+  "errorUnknown": "Lỗi không xác định",
+  "retry": "Thử lại",
+  "lastUpdated": "Cập nhật lần cuối",
+  "readMore": "Đọc thêm",
+  "disclaimer": "Nguồn tin:",
+  "source": "3DJuegos.com",
+  "rssNote": "Được lấy qua RSS chỉ nhằm mục đích thông tin, luôn bao gồm liên kết đến trang gốc."
+},
+"pagination": {
+  "prev": "Trước",
+  "next": "Tiếp"
+  }
+}

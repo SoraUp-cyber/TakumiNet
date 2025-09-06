@@ -1,0 +1,506 @@
+{
+"genero": "Kategori:",
+"todos": "Alla",
+"pixelart": "Pixelkonst",
+"terror": "Skräck",
+"accion": "Action",
+"plataformas": "Plattformsspel",
+"categoria": "Kategori:",
+"todas": "Alla",
+"aventura": "Äventyr",
+"comedia": "Komedi",
+"rpg": "RPG-spel",
+"precio": "Pris:",
+"gratis": "Gratis",
+"pago": "Betalt",
+"requisitos": "Minimikrav:",
+"bajo": "Låg",
+"medio": "Medel",
+"alto": "Hög",
+"aplicar_filtros": "Tillämpa filter",
+"borrar_filtros": "Rensa filter",
+"inicio": "Hem",
+"tienda": "Butik",
+"game_jams": "Game Jams",
+"tutoriales": "Handledningar",
+"Noticias": "Nyheter",
+"comunidad": "Community",
+"buscar": "Sök spel eller användare...",
+"notificaciones": "Notiser",
+"ver_todas": "Markera alla som lästa",
+"perfil": "Profil",
+"panel": "Instrumentpanel",
+"mis_juegos": "Mina spel",
+"favoritos": "Favoriter",
+"subir_juego": "Ladda upp spel",
+"biblioteca": "Bibliotek",
+"descargas": "Nedladdningar",
+"configuracion": "Inställningar",
+"editar_usuario": "Redigera användare",
+"pagos": "Betalningar",
+"seguidos": "Följda",
+"cerrar_sesion": "Logga ut",
+"recomendados": "Rekommenderade",
+"ver_mas": "Se mer",
+"juegos_gratis": "Gratis spel",
+"juegos_pago": "Betalda spel",
+"juegos_ofertas": "Spel på rea",
+"explorar_titulo": "Vill du upptäcka fler spel?",
+"explorar_descripcion": "Besök butiken för att bläddra bland alla tillgängliga spel",
+"ver_todos_juegos": "Se alla spel →",
+"acerca": "Om oss",
+"faq": "Vanliga frågor",
+"blog": "Blogg",
+"contacto": "Kontakt",
+"terminos": "Villkor",
+"privacidad": "Sekretess",
+"cookies": "Cookies",
+"config": {
+  "title": "Inställningar",
+  "appSettings": {
+    "title": "App-inställningar",
+    "appName": "App-namn:",
+    "version": "Aktuell version:",
+    "language": "Standard språk:"
+  },
+  "updateSettings": {
+    "title": "Uppdateringsinställningar",
+    "checkUpdates": "Sök efter uppdateringar",
+    "versionHistory": "Versionshistorik:",
+    "history": {
+      "1": "1.0.0 - Första versionen",
+      "2": "1.1.0 - Prestandaförbättringar",
+      "3": "1.2.0 - Gränssnittsuppdatering"
+    }
+  },
+  "folderSettings": {
+    "title": "Mappinställningar",
+    "gamesFolder": "Spelmapp:",
+    "screenshotsFolder": "Skärmdumpsmapp:",
+    "logsFolder": "Loggfiler:"
+  },
+  "notifications": {
+    "title": "Meddelandesinställningar",
+    "email": "Ta emot e-postmeddelanden",
+    "push": "Ta emot meddelanden i appen",
+    "frequency": "Meddelandefrekvens:",
+    "realTime": "I realtid",
+    "daily": "Dagligen",
+    "weekly": "Veckovis"
+  },
+  "autoUpdates": {
+    "title": "Automatiska uppdateringar",
+    "app": "Aktivera automatiska uppdateringar för appen",
+    "games": "Aktivera automatiska uppdateringar för spel"
+  },
+  "actions": {
+    "title": "Inställningsåtgärder",
+    "save": "Spara inställningar",
+    "reset": "Återställ standardvärden"
+  }
+},
+"languages": {
+  "en": "Engelska",
+  "es": "Spanska",
+  "zh": "Kinesiska (förenklad)",
+  "hi": "Hindi",
+  "ar": "Arabiska",
+  "fr": "Franska",
+  "de": "Tyska",
+  "pt": "Portugisiska (Brasilien)",
+  "ru": "Ryska",
+  "ja": "Japanska",
+  "ko": "Koreanska",
+  "vi": "Vietnamesiska",
+  "it": "Italienska",
+  "tr": "Turkiska",
+  "pl": "Polska",
+  "th": "Thailändska",
+  "nl": "Nederländska",
+  "sv": "Svenska",
+  "uk": "Ukrainska"
+  },
+"tabs": {
+  "learning": "Lärande",
+  "code": "Kod",
+  "music": "Musik / Konst"
+},
+"learning": {
+  "title": "Lärresurser",
+  "description": "Här kan du lägga upp lektioner, guider och utbildningslänkar 🎓",
+  "quickGuides": "Snabbguider",
+  "uploadGame": "Ladda upp spel",
+  "stepGuide": "Steg-för-steg-guide",
+  "view": "Visa"
+},
+"code": {
+  "title": "Ladda upp kod",
+  "description": "Här kan du ladda upp exempel på kod (C#, JS, Python, C++ etc.) via en <b>MediaFire</b>-länk",
+  "searchPlaceholder": "Sök kodfiler...",
+  "searchBtn": "Sök",
+  "showAllBtn": "Visa alla",
+  "addFromMediafire": "Lägg till från MediaFire",
+  "modal": {
+    "title": "Lägg till MediaFire-länk",
+    "namePlaceholder": "Ange filnamn",
+    "urlPlaceholder": "Klistra in länk här",
+    "warning": "⚠️ Endast direkta MediaFire-länkar till kod accepteras",
+    "addBtn": "Lägg till länk",
+    "success": "Länk tillagd ✅"
+  },
+  "snippets": "Kodexempel",
+  "sampleFile": "PlayerController.cs"
+},
+"music": {
+  "title": "Musik / Konst",
+  "elevator": {
+    "title": "Hissmusik (Kevin MacLeod)",
+    "size": "4,33 MB • MP3",
+    "credit": "Musik: \"Local Forecast – Elevator\" av <a href=\"https://incompetech.com/\" target=\"_blank\">Kevin MacLeod</a><br>Tillhandahållen av: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>Licens: <a href=\"http://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">CC BY 3.0</a>"
+  },
+  "visitor": {
+    "title": "Visitor (Shane Ivers)",
+    "size": "8,31 MB • MP3",
+    "credit": "Musik: \"The Visitor\" av <a href=\"https://www.silvermansound.com\" target=\"_blank\">Shane Ivers</a><br>Tillhandahållen av: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>Licens: <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\">CC BY 4.0</a>"
+  },
+  "morning": {
+    "title": "Morgonrutin (Ghostrifter)",
+    "size": "1,83 MB • MP3",
+    "credit": "Musik: \"Morning Routine\" av <a href=\"https://soundcloud.com/ghostrifter-official\" target=\"_blank\">Ghostrifter Official</a><br>Tillhandahållen av: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>Licens: <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\">CC BY-SA 3.0</a>"
+  },
+  "poupi": {
+    "title": "Poupi-musik (Komiku)",
+    "size": "0,52 MB • MP3",
+    "credit": "Musik: \"Poupi Theme\" av <a href=\"https://freemusicarchive.org/music/Komiku/\" target=\"_blank\">Komiku</a><br>Tillhandahållen av: Free Music Archive<br>Licens: CC0 (Kommersiell användning tillåten utan kreditering)"
+  },
+  "fallen": {
+    "title": "Fallen Leaves (陽菜/Hina)",
+    "size": "1,13 MB • MP3",
+    "credit": "Musik: \"Fallen Leaves\" av <a href=\"https://soundcloud.com/usuario-80857924\" target=\"_blank\">陽菜/Hina</a><br>Tillhandahållen av: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>Licens: CC0 (Kommersiell användning tillåten utan kreditering)"
+  }
+},
+"jamBanner": {
+  "title": "Organisera din egen Game Jam!",
+  "description": "Inspirera communityn genom att arrangera unika evenemang, sätta regler och visa din kreativitet",
+  "createBtn": "Skapa ny Jam"
+},
+"news": {
+  "title": "🕹️ Spelnyheter",
+  "loading": "Läser in nyheter..."
+},
+"newsFooter": {
+  "text": "Nyhetskälla:",
+  "source": "3DJuegos.com",
+  "disclaimer": "Nyheter hämtas via RSS endast för informationsändamål och innehåller alltid en länk till den ursprungliga webbplatsen"
+},
+"community": {
+  "title": "TakumiNet-utvecklarcommunity",
+  "welcome": "Välkommen till communityn! Dela, lär och interagera med andra utvecklare"
+},
+"forum": {
+  "showRules": "Visa forumregler",
+  "rules": {
+    "clear": "Skriv tydligt och precist:",
+    "clearDesc": "Titlar bör direkt spegla ämnet",
+    "noSpam": "Ingen spam:",
+    "noSpamDesc": "Lägg inte upp irrelevanta länkar eller reklam",
+    "categorize": "Välj rätt kategori:",
+    "categorizeDesc": "Välj den mest lämpliga kategorin för ämnet",
+    "respect": "Respektera andra:",
+    "respectDesc": "Inget stötande språk eller diskriminerande innehåll",
+    "value": "Dela värdefullt innehåll:",
+    "valueDesc": "Se till att ditt inlägg är nyttigt för communityn",
+    "tags": "Använd taggar:",
+    "tagsDesc": "Lägg till relevanta taggar så att ämnet blir lätt att hitta",
+    "noRepeat": "Upprepa inte:",
+    "noRepeatDesc": "Kontrollera om ett liknande forumämne redan finns",
+    "footer": "Att följa dessa regler hjälper till att hålla forumet hälsosamt och användbart för alla"
+  },
+"discussion": "Diskussionsforum",
+"createTopic": "Skapa nytt ämne"
+},
+"profile": {
+  "username": "Gäst",
+  "bioTitle": "Biografi",
+  "bioPlaceholder": "Denna användarprofil visas här",
+  "socialTitle": "Sociala medier",
+  "noSocials": "Inga sociala konton tillagda ännu",
+  "contactTitle": "Kontaktinformation",
+  "noContact": "Ingen kontaktinformation angiven",
+  "gamesTitle": "Publicerade spel",
+  "noGames": "Denna användare har inte publicerat några spel än"
+},
+"gamesModal": {
+  "close": "×",
+  "title": "Redigera spel",
+  "labelTitle": "Titel:",
+  "labelPrice": "Pris:",
+  "labelDiscount": "Rabatt (%):",
+  "finalPrice": "Slutpris efter rabatt:",
+  "saveBtn": "Spara ändringar"
+},
+"favorites": {
+  "title": "Favoritspel",
+  "noFavorites": "Du har inte lagt till några favoritspel ännu. Bläddra och lägg till spel du gillar!",
+  "container": "Favoritspel visas här via JavaScript"
+},
+"dashboard": {
+  "nav": {
+    "projects": "Ladda upp projekt",
+    "analytics": "Analys",
+    "publications": "Publikationer",
+    "gameJams": "Game Jam-tävlingar"
+  },
+  "welcomeTitle": "Välkommen, utvecklare",
+  "welcomeDesc": "Med denna instrumentpanel kan du hantera dina spel, följa prestationer och få tillgång till exklusiva verktyg",
+  "accountStats": "Kontostatistik",
+  "stats": {
+    "visits": "Besök",
+    "downloads": "Nedladdningar"
+  },
+  "projectsAnalysis": "Projekt & Analys",
+  "projects": "Projekt",
+  "projectsDesc": "Hantera publicerade spel",
+  "analytics": "Analys",
+  "analyticsDesc": "Viktig data och mätvärden",
+  "earnings": "Intäkter",
+  "earningsDesc": "Finansiell prestanda",
+  "promotionsPublications": "Kampanjer & Publikationer",
+  "promotions": "Kampanjer",
+  "promotionsDesc": "Öka synligheten för spel",
+  "publications": "Publikationer",
+  "publicationsDesc": "Dela nyheter och uppdateringar",
+  "gameJams": "Game Jam-tävlingar",
+  "gameJamsDesc": "Delta i kreativa evenemang",
+  "integrationConnections": "Integration & Anslutningar",
+  "integrationTitle": "TakumiNet-integration:",
+  "integrationDesc": "Använd ditt användarnamn för att framhäva din profil i communityn",
+  "ctaUpload": "Ny här? Ladda upp ditt första spel",
+  "ctaExplore": "Utforska andra spel"
+  },
+"upload": {
+  "titleLabel": "Spelnamn",
+  "titlePlaceholder": "Ange spelnamn",
+  "descriptionLabel": "Beskrivning",
+  "descriptionPlaceholder": "Ange en beskrivning",
+  "categoryLabel": "Kategori",
+  "categories": {
+    "adventure": "Äventyr",
+    "rpg": "RPG",
+    "action": "Action",
+    "puzzle": "Pussel",
+    "other": "Övrigt"
+  },
+  "genresLabel": "Genre",
+  "genres": {
+    "pixelart": "Pixelkonst",
+    "retro": "Retro",
+    "shortStory": "Kort berättelse",
+    "comedy": "Komedi",
+    "fantasy": "Fantasy",
+    "levels": "Nivåer",
+    "choices": "Val",
+    "magic": "Magik",
+    "puzzles": "Pusselspel",
+    "2D": "2D",
+    "3D": "3D",
+    "4K": "4K",
+    "cooperative": "Samarbete",
+    "competitive": "Tävling",
+    "enemies": "Fiender",
+    "bosses": "Bossar",
+    "minigames": "Minispel",
+    "noText": "Ingen text",
+    "mystery": "Mysterium",
+    "cyberpunk": "Cyberpunk",
+    "anime": "Anime"
+  },
+  "mainGenreLabel": "Huvudgenre",
+  "mainGenres": {
+    "noGenre": "Ingen genre",
+    "adventure": "Äventyr",
+    "rpg": "RPG",
+    "action": "Action",
+    "puzzle": "Pussel",
+    "horror": "Skräck",
+    "other": "Övrigt"
+  },
+  "systemRequirements": {
+    "legend": "Systemkrav",
+    "typeLabel": "Välj typ av krav:",
+    "selectOption": "-- Välj alternativ --",
+    "min": "Minimikrav",
+    "recommended": "Rekommenderade krav",
+    "minTitle": "Minimikrav",
+    "recommendedTitle": "Rekommenderade krav",
+    "os": "Operativsystem",
+    "cpu": "CPU",
+    "ram": "RAM",
+    "gpu": "Grafikkort",
+    "storage": "Lagring"
+  },
+  "cover": {
+    "label": "Spelomslag",
+    "info": "Rekommenderat: 1280 × 719 px, JPG eller PNG, max 2MB",
+    "previewAlt": "Omslagsförhandsvisning"
+  },
+  "screenshots": {
+    "label": "Spelskärmdumpar (minst 5)"
+  },
+  "video": {
+    "label": "Spelvideolänk",
+    "placeholder": "https://www.youtube.com/watch?v=XXXXX"
+  },
+  "mediafire": {
+    "label": "Ladda upp spel till MediaFire (max 5GB)",
+    "warning": "⚠️ Endast spel uppladdade via MediaFire accepteras. Lokala ZIP-filer tillåts inte",
+    "button": "MediaFire",
+    "modalTitle": "Lägg till MediaFire-länk",
+    "modalPlaceholder": "Klistra in ZIP-filens länk här",
+    "modalWarning": "⚠️ Filen måste vara mindre än 5GB",
+    "modalButton": "Lägg till länk",
+    "modalFeedback": "Länk tillagd ✅"
+  },
+  "pricing": {
+    "label": "Pris",
+    "options": {
+      "free": "Gratis",
+      "paid": "Betald",
+      "donation": "Donation"
+    },
+    "placeholder": "0.00"
+  },
+  "terms": {
+    "label": "TakumiNet villkor och betalningar",
+    "link": "Visa villkor och betalningar"
+  },
+  "submitButton": "Publicera spel"
+ },
+"config": {
+  "backToHome": "Tillbaka till startsidan",
+  "manageDownloads": "Hantera nedladdningar"
+},
+"placeholder_buscar": "Sök spel...",
+"filtro_todos": "Alla",
+"filtro_recientes": "Senaste",
+"filtro_favoritos": "Favoriter",
+"filtro_actualizables": "Kan uppdateras",
+"orden_mayor": "Från hög till låg",
+"orden_menor": "Från låg till hög",
+"agregar_juego": "Lägg till spel",
+"downloads": {
+  "noActivities": "Inga aktiviteter",
+  "exploreLibrary": "Utforska vårt spelbibliotek och hitta nya spännande upplevelser",
+  "discoverGames": "Upptäck spel"
+},
+"profile": {
+  "editTitle": "Redigera profil",
+  "general": "Allmänt",
+  "realNameLabel": "Användarnamn:",
+  "description": "Beskrivning:",
+  "contact": "Kontaktinformation",
+  "email": "E-post:",
+  "changePassword": "Byt lösenord",
+  "currentPassword": "Nuvarande lösenord:",
+  "newPassword": "Nytt lösenord:",
+  "confirmPassword": "Bekräfta nytt lösenord:",
+  "saveChanges": "Spara ändringar",
+  "cancel": "Avbryt"
+},
+"payments": {
+  "intro": "På den här sidan kan du, om du använder TakumiNet för att hantera dina intäkter, begära uttag av ditt tillgängliga saldo på ditt konto. Ange din föredragna betalningsmetod i säljarinställningarna.",
+  "sellerSettings": "Säljarinställningar",
+  "note": "Notering: Ditt konto är för närvarande inställt för direktbetalningar. Köp överförs direkt till ditt konto utan att gå via TakumiNets interna saldo.",
+  "accountBalanceTitle": "Kontosaldo",
+  "accountBalanceText": "Ditt konto har för närvarande inget tillgängligt saldo. När pengar blir tillgängliga kan du begära uttag via TakumiNet.",
+  "profitDistribution": "Intäktsfördelning: Du får 70 % per försäljning (utvecklare) och resterande 30 % är TakumiNets provision.",
+  "paypalLogoAlt": "PayPal-logotyp",
+  "connectPayPalTitle": "🌍 Koppla PayPal-konto",
+  "connectPayPalText": "För att ta emot internationella betalningar, koppla ditt PayPal Business-konto till plattformen. Detta gör att du kan ta emot pengar från alla länder på ett säkert sätt.",
+  "connectPayPalButton": "Koppla PayPal",
+  "paypalConnected": "När det är kopplat kan du ta emot internationella betalningar direkt."
+   },
+"config": {
+  "payments": "Utvecklarbetalningar",
+  "backToPayments": "Tillbaka till betalningar",
+  "backToDashboard": "Tillbaka till instrumentpanelen",
+  "title": "Svart"
+},
+"followed": {
+  "title": "Följda användare",
+  "loading": "Läser in..."
+},
+"profile": {
+  "guest": "Gäst",
+  "bio": "Den här användarprofilen visas här",
+  "socialTitle": "Sociala medier",
+  "contactTitle": "Kontaktinformation",
+  "publishedGamesTitle": "Publicerade spel"
+},
+"jams": {
+  "title": "Game Jam-tävlingar",
+  "subtitle": "Upptäck, delta och skapa i våra fantastiska gametävlingar. Gå med i communityn och visa upp din talang!",
+  "tabs": {
+    "overview": "Översikt",
+    "community": "Community"
+  }
+},
+"details": {
+  "title": "Tävlingsdetaljer",
+  "fields": {
+    "title": "Titel:",
+    "shortDescription": "Kort beskrivning:",
+    "url": "Länk (URL):",
+    "startsIn": "Startar om:",
+    "type": "Tävlingskategori:",
+    "whoVotes": "Vem röstar?",
+    "startDate": "Startdatum:",
+    "endDate": "Slutdatum:",
+    "votingStart": "Röstning startar:",
+    "fullDescription": "Fullständig beskrivning:",
+    "criteria": "Bedömningskriterier:",
+    "hashtag": "Hashtag:",
+    "community": "Community:",
+    "blockUploads": "Blockera uppladdningar:",
+    "hideResults": "Dölj resultat:",
+    "hideSubmissions": "Dölj inskickade bidrag:",
+    "visibility": "Synlighet:",
+    "creationDate": "Skapad den:"
+  },
+"join": "Delta i Jam",
+"calculating": "Beräknar..."
+},
+"forum": {
+  "title": "Forumämnen",
+  "createTopic": "Skapa ämne",
+  "loading": "Laddar ämnen..."
+},
+"modal": {
+  "title": "Skapa ett nytt ämne",
+  "inputTitle": "Ämnets titel",
+  "inputDescription": "Ämnets beskrivning",
+  "submit": "Skapa ämne",
+  "close": "Stäng"
+},
+"games": {
+  "removeFavorite": "Ta bort från favoriter",
+  "free": "Gratis",
+  "noTitle": "Ingen titel",
+  "noDescription": "Ingen beskrivning"
+},
+"news": {
+  "loading": "Laddar senaste nyheter...",
+  "errorTitle": "Kunde inte ladda nyheter",
+  "errorUnknown": "Okänt fel",
+  "retry": "Försök igen",
+  "lastUpdated": "Senast uppdaterad",
+  "readMore": "Läs mer",
+  "disclaimer": "Källa:",
+  "source": "3DJuegos.com",
+  "rssNote": "Nyheter hämtas via RSS för informationssyfte och innehåller alltid en länk till originalwebbplatsen"
+},
+"pagination": {
+  "prev": "Föregående",
+  "next": "Nästa"
+   }
+}

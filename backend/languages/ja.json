@@ -1,0 +1,511 @@
+{
+  "genero": "ジャンル:",
+  "todos": "すべて",
+  "pixelart": "ピクセルアート",
+  "terror": "ホラー",
+  "accion": "アクション",
+  "plataformas": "プラットフォーマー",
+  "categoria": "カテゴリ:",
+  "todas": "すべて",
+  "aventura": "アドベンチャー",
+  "comedia": "コメディ",
+  "rpg": "RPG",
+  "precio": "価格:",
+  "gratis": "無料",
+  "pago": "有料",
+  "requisitos": "最小要件:",
+  "bajo": "低",
+  "medio": "中",
+  "alto": "高",
+  "aplicar_filtros": "フィルターを適用",
+  "borrar_filtros": "フィルターをクリア",
+  "inicio": "ホーム",
+  "tienda": "ストア",
+  "game_jams": "ゲームジャム",
+  "tutoriales": "チュートリアル",
+  "Noticias": "ニュース",
+  "comunidad": "コミュニティ",
+  "buscar": "ゲーム、ユーザーを検索...",
+  "notificaciones": "通知",
+  "ver_todas": "すべて既読にする",
+  "perfil": "プロフィール",
+  "panel": "ダッシュボード",
+  "mis_juegos": "マイゲーム",
+  "favoritos": "お気に入り",
+  "subir_juego": "ゲームをアップロード",
+  "biblioteca": "ライブラリ",
+  "descargas": "ダウンロード",
+  "configuracion": "設定",
+  "editar_usuario": "ユーザー編集",
+  "pagos": "支払い",
+  "seguidos": "フォロー中",
+  "cerrar_sesion": "ログアウト",
+  "recomendados": "おすすめ",
+  "ver_mas": "もっと見る",
+  "juegos_gratis": "無料ゲーム",
+  "juegos_pago": "有料ゲーム",
+  "juegos_ofertas": "セール中のゲーム",
+  "explorar_titulo": "もっとゲームを探索したいですか？",
+  "explorar_descripcion": "ストア全体を訪れて、利用可能なすべてのタイトルを見つけましょう。",
+  "ver_todos_juegos": "すべてのゲームを見る →",
+  "acerca": "アバウト",
+  "faq": "FAQ",
+  "blog": "ブログ",
+  "contacto": "お問い合わせ",
+  "terminos": "利用規約",
+  "privacidad": "プライバシー",
+  "cookies": "クッキー",
+  "config": {
+    "title": "設定",
+    "appSettings": {
+      "title": "アプリケーション設定",
+      "appName": "アプリ名:",
+      "version": "現在のバージョン:",
+      "language": "デフォルト言語:"
+    },
+    "updateSettings": {
+      "title": "設定の更新",
+      "checkUpdates": "更新を確認",
+      "versionHistory": "バージョン履歴:",
+      "history": {
+        "1": "1.0.0 - 初期リリース",
+        "2": "1.1.0 - パフォーマンスの向上",
+        "3": "1.2.0 - UIの更新"
+      }
+    },
+    "folderSettings": {
+      "title": "フォルダー設定",
+      "gamesFolder": "ゲームフォルダー:",
+      "screenshotsFolder": "スクリーンショットフォルダー:",
+      "logsFolder": "ログフォルダー:"
+    },
+    "notifications": {
+      "title": "通知設定",
+      "email": "メール通知を受け取る",
+      "push": "アプリ内通知を受け取る",
+      "frequency": "通知頻度:",
+      "realTime": "リアルタイム",
+      "daily": "毎日",
+      "weekly": "毎週"
+    },
+    "autoUpdates": {
+      "title": "自動更新設定",
+      "app": "アプリの自動更新を有効にする",
+      "games": "ゲームの自動更新を有効にする"
+    },
+    "actions": {
+      "title": "設定アクション",
+      "save": "設定を保存",
+      "reset": "設定をリセット"
+    }
+  },
+  "languages": {
+    "en": "英語",
+    "es": "スペイン語",
+    "zh": "中国語（簡体字）",
+    "hi": "ヒンディー語",
+    "ar": "アラビア語",
+    "fr": "フランス語",
+    "de": "ドイツ語",
+    "pt": "ポルトガル語（ブラジル）",
+    "ru": "ロシア語",
+    "ja": "日本語",
+    "ko": "韓国語",
+    "vi": "ベトナム語",
+    "it": "イタリア語",
+    "tr": "トルコ語",
+    "pl": "ポーランド語",
+    "th": "タイ語",
+    "nl": "オランダ語",
+    "sv": "スウェーデン語",
+    "uk": "ウクライナ語"
+  },
+"tabs": {
+  "learning": "学習",
+  "code": "コード",
+  "music": "音楽 / アート"
+},
+"learning": {
+  "title": "学習リソース",
+  "description": "ここではチュートリアル、ガイド、教育リンクを掲載できます 🎓",
+  "quickGuides": "クイックガイド",
+  "uploadGame": "ゲームをアップロード",
+  "stepGuide": "ステップバイステップガイド",
+  "view": "表示"
+},
+"code": {
+  "title": "コードをアップロード",
+  "description": "ここでは、<b>MediaFire</b>リンクを使用してコードスニペット（C#, JS, Python, C++ など）をアップロードできます。",
+  "searchPlaceholder": "コードファイルを検索...",
+  "searchBtn": "検索",
+  "showAllBtn": "すべて表示",
+  "addFromMediafire": "MediaFireから追加",
+  "modal": {
+    "title": "MediaFireリンクを追加",
+    "namePlaceholder": "ファイル名を入力",
+    "urlPlaceholder": "リンクをここに貼り付け",
+    "warning": "⚠️ MediaFireからの直接コードリンクのみ",
+    "addBtn": "リンクを追加",
+    "success": "リンクが正常に追加されました ✅"
+  },
+  "snippets": "コードスニペット",
+  "sampleFile": "PlayerController.cs"
+},
+"music": {
+  "title": "音楽 / アート",
+  "elevator": {
+    "title": "エレベーターミュージック (Kevin MacLeod)",
+    "size": "4.33 MB • MP3",
+    "credit": "音楽: \"Local Forecast – Elevator\" by <a href=\"https://incompetech.com/\" target=\"_blank\">Kevin MacLeod</a><br>提供: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>ライセンス: <a href=\"http://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">CC BY 3.0</a>"
+  },
+  "visitor": {
+    "title": "ザ・ビジター (Shane Ivers)",
+    "size": "8.31 MB • MP3",
+    "credit": "音楽: \"The Visitor\" by <a href=\"https://www.silvermansound.com\" target=\"_blank\">Shane Ivers</a><br>提供: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>ライセンス: <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\">CC BY 4.0</a>"
+  },
+  "morning": {
+    "title": "モーニングルーティン (Ghostrifter)",
+    "size": "1.83 MB • MP3",
+    "credit": "音楽: \"Morning Routine\" by <a href=\"https://soundcloud.com/ghostrifter-official\" target=\"_blank\">Ghostrifter Official</a><br>提供: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>ライセンス: <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\">CC BY-SA 3.0</a>"
+  },
+  "poupi": {
+    "title": "Poupiのテーマ (Komiku)",
+    "size": "0.52 MB • MP3",
+    "credit": "音楽: \"Poupi’s Theme\" by <a href=\"https://freemusicarchive.org/music/Komiku/\" target=\"_blank\">Komiku</a><br>提供: Free Music Archive<br>ライセンス: Creative Commons CC0 パブリックドメイン（商用利用可、帰属不要）"
+  },
+  "fallen": {
+    "title": "落ち葉 (陽菜/Hina)",
+    "size": "1.13 MB • MP3",
+    "credit": "音楽: \"Fallen Leaves\" by <a href=\"https://soundcloud.com/usuario-80857924\" target=\"_blank\">陽菜/Hina</a><br>提供: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>ライセンス: Creative Commons CC0 パブリックドメイン（商用利用可、帰属不要）"
+  }
+},
+ "jamBanner": {
+  "title": "自分のゲームジャムを開催しよう！",
+  "description": "ユニークなイベントを作成してコミュニティに刺激を与え、ルールを設定して創造性を発揮しましょう。",
+  "createBtn": "新しいジャムを作成"
+},
+"news": {
+  "title": "🕹️ ビデオゲームニュース",
+  "loading": "ニュースを読み込み中..."
+},
+"newsFooter": {
+  "text": "表示されるニュースは以下から取得されています",
+  "source": "3DJuegos.com",
+  "disclaimer": "RSS経由で情報提供の目的で取得しており、常に元サイトへのリンクがあります。"
+},
+"community": {
+  "title": "開発者コミュニティ - TakumiNet",
+  "welcome": "コミュニティへようこそ！ 他の開発者と共有し、学び、つながりましょう。"
+},
+"forum": {
+  "showRules": "フォーラム作成ルールを表示",
+  "rules": {
+    "clear": "明確で具体的に:",
+    "clearDesc": "トピックを直接要約するタイトルを使用してください。",
+    "noSpam": "スパムを避ける:",
+    "noSpamDesc": "関係のないリンクや宣伝コンテンツを投稿しないでください。",
+    "categorize": "正しく分類:",
+    "categorizeDesc": "トピックに最も適したカテゴリを選択してください。",
+    "respect": "他者を尊重:",
+    "respectDesc": "侮辱、攻撃的な言葉、差別的な内容は禁止です。",
+    "value": "価値ある共有:",
+    "valueDesc": "説明をコミュニティにとって有益にしましょう。",
+    "tags": "タグを使用:",
+    "tagsDesc": "トピックを見つけやすくするために重要なタグを追加してください。",
+    "noRepeat": "トピックを繰り返さない:",
+    "noRepeatDesc": "作成する前に、類似のフォーラムがすでに存在するか確認してください。",
+    "footer": "これらのルールを守ることで、すべての人にとって健全で有益なスペースを維持できます。"
+  },
+  "discussion": "ディスカッションフォーラム",
+  "createTopic": "新しいトピックを作成"
+},
+ "profile": {
+  "username": "ゲスト",
+  "bioTitle": "プロフィール",
+  "bioPlaceholder": "ユーザーのプロフィールがここに表示されます。",
+  "socialTitle": "ソーシャルネットワーク",
+  "noSocials": "追加されたソーシャルネットワークはありません。",
+  "contactTitle": "連絡先",
+  "noContact": "提供された連絡先情報はありません。",
+  "gamesTitle": "公開ゲーム",
+  "noGames": "このユーザーは公開されたゲームを持っていません。"
+},
+"gamesModal": {
+  "close": "×",
+  "title": "ゲームを編集",
+  "labelTitle": "タイトル:",
+  "labelPrice": "価格:",
+  "labelDiscount": "割引 (%):",
+  "finalPrice": "割引後の最終価格:",
+  "saveBtn": "変更を保存"
+},
+"favorites": {
+  "title": "お気に入りのゲーム",
+  "noFavorites": "まだお気に入りのゲームを追加していません。探索してお気に入りを追加しましょう！",
+  "container": "お気に入りのゲームはJavaScriptでここに挿入されます"
+},
+"dashboard": {
+  "nav": {
+    "projects": "プロジェクトをアップロード",
+    "analytics": "分析",
+    "publications": "公開",
+    "gameJams": "ゲームジャム"
+  },
+  "welcomeTitle": "ようこそ、開発者さん",
+  "welcomeDesc": "このダッシュボードからゲームを管理し、パフォーマンスを監視し、専用ツールにアクセスできます。",
+  "accountStats": "アカウント統計",
+  "stats": {
+    "visits": "訪問数",
+    "downloads": "ダウンロード数"
+  },
+  "projectsAnalysis": "プロジェクトと分析",
+  "projects": "プロジェクト",
+  "projectsDesc": "公開済みゲームを管理",
+  "analytics": "分析",
+  "analyticsDesc": "主要データと指標",
+  "earnings": "収益",
+  "earningsDesc": "財務パフォーマンス",
+  "promotionsPublications": "プロモーションと公開",
+  "promotions": "プロモーション",
+  "promotionsDesc": "ゲームの可視性を高める",
+  "publications": "公開",
+  "publicationsDesc": "ニュースやアップデートを共有",
+  "gameJams": "ゲームジャム",
+  "gameJamsDesc": "クリエイティブイベントに参加",
+  "integrationConnections": "接続と統合",
+  "integrationTitle": "TakumiNet統合:",
+  "integrationDesc": "ユーザー名を使ってコミュニティ内でプロフィールを強調表示します。",
+  "ctaUpload": "初めてですか？ 最初のゲームをアップロード",
+  "ctaExplore": "他のゲームを探索"
+},
+"upload": {
+  "titleLabel": "ゲームタイトル",
+  "titlePlaceholder": "ゲームタイトルを入力",
+  "descriptionLabel": "説明",
+  "descriptionPlaceholder": "説明を入力",
+  "categoryLabel": "カテゴリ",
+  "categories": {
+    "adventure": "アドベンチャー",
+    "rpg": "RPG",
+    "action": "アクション",
+    "puzzle": "パズル",
+    "horror": "ホラー",
+    "other": "その他"
+  },
+  "genresLabel": "ジャンル",
+  "genres": {
+    "pixelart": "ピクセルアート",
+    "retro": "レトロ",
+    "shortStory": "ショートストーリー",
+    "comedy": "コメディ",
+    "fantasy": "ファンタジー",
+    "levels": "レベル",
+    "choices": "選択肢",
+    "magic": "魔法",
+    "puzzles": "パズル",
+    "2D": "2D",
+    "3D": "3D",
+    "4K": "4K",
+    "cooperative": "協力プレイ",
+    "competitive": "対戦プレイ",
+    "enemies": "敵キャラクター",
+    "bosses": "ボス",
+    "minigames": "ミニゲーム",
+    "noText": "テキストなし",
+    "mystery": "ミステリー",
+    "cyberpunk": "サイバーパンク",
+    "anime": "アニメ"
+  },
+  "mainGenreLabel": "メインジャンル",
+  "mainGenres": {
+    "noGenre": "ジャンルなし",
+    "adventure": "アドベンチャー",
+    "rpg": "RPG",
+    "action": "アクション",
+    "puzzle": "パズル",
+    "horror": "ホラー",
+    "other": "その他"
+  },
+  "systemRequirements": {
+    "legend": "システム要件",
+    "typeLabel": "要件の種類を選択:",
+    "selectOption": "-- 選択してください --",
+    "min": "最小要件",
+    "recommended": "推奨要件",
+    "minTitle": "最小要件",
+    "recommendedTitle": "推奨要件",
+    "os": "OS",
+    "cpu": "プロセッサ",
+    "ram": "RAM",
+    "gpu": "グラフィックカード",
+    "storage": "ストレージ"
+  },
+  "cover": {
+    "label": "ゲームのメイン画像",
+    "info": "推奨: 1280 × 719 px, JPGまたはPNG形式, 最大2 MB",
+    "previewAlt": "カバープレビュー"
+  },
+  "screenshots": {
+    "label": "ゲームスクリーンショット（最低5枚）"
+  },
+  "video": {
+    "label": "ゲーム動画URL",
+    "placeholder": "https://www.youtube.com/watch?v=XXXXX"
+  },
+  "mediafire": {
+    "label": "MediaFireにゲームをアップロード（最大5 GB）",
+    "warning": "⚠️ MediaFire経由のゲームのみ許可。ローカルZIPは不可。",
+    "button": "MediaFire",
+    "modalTitle": "MediaFireリンクを追加",
+    "modalPlaceholder": "ZIPリンクをここに貼り付け",
+    "modalWarning": "⚠️ 最大5 GBまでのファイルのみ。",
+    "modalButton": "リンクを追加",
+    "modalFeedback": "リンクが正常に追加されました ✅"
+  },
+  "pricing": {
+    "label": "価格",
+    "options": {
+      "free": "無料",
+      "paid": "有料",
+      "donation": "寄付"
+    },
+    "placeholder": "0.00"
+  },
+  "terms": {
+    "label": "TakumiNetのルールと支払い",
+    "link": "ルールと支払いを見る"
+  },
+  "submitButton": "ゲームを公開"
+},
+ "config": {
+  "backToHome": "ホームに戻る",
+  "manageDownloads": "ダウンロード管理"
+},
+"placeholder_buscar": "ゲームを検索...",
+"filtro_todos": "すべて",
+"filtro_recientes": "最近",
+"filtro_favoritos": "お気に入り",
+"filtro_actualizables": "更新可能",
+"orden_mayor": "高い順",
+"orden_menor": "低い順",
+"agregar_juego": "ゲームを追加",
+"downloads": {
+  "noActivities": "現在、利用可能なアクティビティはありません",
+  "exploreLibrary": "ゲームライブラリを探索して、ワクワクする新しい体験を見つけましょう。",
+  "discoverGames": "ゲームを発見"
+},
+"profile": {
+  "editTitle": "プロフィールを編集",
+  "general": "一般",
+  "realNameLabel": "ユーザー名:",
+  "description": "説明:",
+  "contact": "連絡先",
+  "email": "メール:",
+  "changePassword": "パスワードを変更",
+  "currentPassword": "現在のパスワード:",
+  "newPassword": "新しいパスワード:",
+  "confirmPassword": "新しいパスワードを確認:",
+  "saveChanges": "変更を保存",
+  "cancel": "キャンセル"
+},
+"payments": {
+  "intro": "このページでは、TakumiNetを使って収益を管理している場合、アカウントにある残高の払い出しをリクエストできます。支払いの受け取り方法は販売者設定で設定してください。",
+  "sellerSettings": "販売者設定",
+  "note": "注意: あなたのアカウントは現在、直接支払いに設定されています。購入は直接アカウントに入り、TakumiNet内部残高を経由しません。",
+  "accountBalanceTitle": "アカウント残高",
+  "accountBalanceText": "アカウントには保留中の残高はありません。資金が利用可能になると、ここで払い出しをリクエストできます。",
+  "profitDistribution": "利益分配: 各販売ごとに、70%が開発者に入ります。残りの30%はTakumiNetの手数料です。",
+  "paypalLogoAlt": "PayPalロゴ",
+  "connectPayPalTitle": "🌍 PayPalアカウントを接続",
+  "connectPayPalText": "国際支払いを受け取るには、PayPalビジネスアカウントをプラットフォームに接続する必要があります。これにより、どの国からでも安全に支払いを受け取れます。",
+  "connectPayPalButton": "PayPalを接続",
+  "paypalConnected": "接続後、国際支払いを直接受け取ることができます。"
+},
+  "config": {
+    "payments": "開発者の支払い",
+    "backToPayments": "支払い",
+    "backToDashboard": "ダッシュボードに戻る"
+  },
+  "followed": {
+    "title": "フォロー中のユーザー",
+    "loading": "読み込み中..."
+  },
+  "profile": {
+    "guest": "ゲスト",
+    "bio": "ユーザーのプロフィールがここに表示されます。",
+    "socialTitle": "ソーシャルメディア",
+    "contactTitle": "連絡先",
+    "publishedGamesTitle": "公開されたゲーム"
+  },
+
+  "config": {
+  "title": "ブラック"
+},
+"jams": {
+  "title": "ゲームジャム",
+  "subtitle": "ワクワクするゲームジャムを探索、参加、作成しましょう。コミュニティに参加してあなたの才能を披露してください！",
+  "tabs": {
+    "overview": "概要",
+    "community": "コミュニティ"
+  },
+  "details": {
+    "title": "ゲームジャムの詳細",
+    "fields": {
+      "title": "タイトル:",
+      "shortDescription": "短い説明:",
+      "url": "URL:",
+      "startsIn": "開始まで:",
+      "type": "ジャムの種類:",
+      "whoVotes": "投票者:",
+      "startDate": "開始日:",
+      "endDate": "終了日:",
+      "votingStart": "投票開始:",
+      "fullDescription": "詳細説明:",
+      "criteria": "評価基準:",
+      "hashtag": "ハッシュタグ:",
+      "community": "コミュニティ:",
+      "blockUploads": "アップロードをブロック:",
+      "hideResults": "結果を非表示:",
+      "hideSubmissions": "提出物を非表示:",
+      "visibility": "公開設定:",
+      "creationDate": "作成日:"
+    },
+    "join": "ジャムに参加",
+    "calculating": "計算中..."
+  },
+  "forum": {
+    "title": "フォーラムトピック",
+    "createTopic": "トピックを作成",
+    "loading": "トピックを読み込み中..."
+  },
+  "modal": {
+    "title": "新しいトピックを作成",
+    "inputTitle": "トピックタイトル",
+    "inputDescription": "トピックの説明",
+    "submit": "トピックを作成",
+    "close": "閉じる"
+  }
+},
+"games": {
+  "addFavorite": "お気に入りに追加",
+  "removeFavorite": "お気に入りから削除",
+  "free": "無料",
+  "noTitle": "タイトルなし",
+  "noDescription": "説明なし"
+},
+"news": {
+  "loading": "最新ニュースを読み込み中...",
+  "errorTitle": "ニュースの読み込みに失敗しました",
+  "errorUnknown": "不明なエラー",
+  "retry": "再試行",
+  "lastUpdated": "最終更新",
+  "readMore": "続きを読む",
+  "disclaimer": "表示されているニュースは以下から取得されています",
+  "source": "3DJuegos.com",
+  "rssNote": "情報提供の目的でRSS経由で取得しており、常に元サイトへのリンクがあります。"
+},
+"pagination": {
+  "prev": "前へ",
+  "next": "次へ"
+ }
+}

@@ -1,0 +1,513 @@
+{
+"genero": "Genre:",
+  "todos": "All",
+  "pixelart": "Pixel Art",
+  "terror": "Horror",
+  "accion": "Action",
+  "plataformas": "Platformer",
+  "categoria": "Category:",
+  "todas": "All",
+  "aventura": "Adventure",
+  "comedia": "Comedy",
+  "rpg": "RPG",
+  "precio": "Price:",
+  "gratis": "Free",
+  "pago": "Paid",
+  "requisitos": "Minimum Requirements:",
+  "bajo": "Low",
+  "medio": "Medium",
+  "alto": "High",
+  "aplicar_filtros": "Apply Filters",
+  "borrar_filtros": "Clear Filters",
+  "inicio": "Home",
+  "tienda": "Store",
+  "game_jams": "Game Jams",
+  "tutoriales": "Tutorials",
+  "Noticias": "News",
+  "comunidad": "Community",
+  "buscar": "Search games, users...",
+  "notificaciones": "Notifications",
+  "ver_todas": "Mark all as read",
+  "perfil": "Profile",
+  "panel": "Dashboard",
+  "mis_juegos": "My Games",
+  "favoritos": "Favorites",
+  "subir_juego": "Upload Game",
+  "biblioteca": "Library",
+  "descargas": "Downloads",
+  "configuracion": "Settings",
+  "editar_usuario": "Edit User",
+  "pagos": "Payments",
+  "seguidos": "Following",
+  "cerrar_sesion": "Log Out",
+  "recomendados": "Recommended",
+  "ver_mas": "See more",
+  "juegos_gratis": "Free Games",
+  "juegos_pago": "Paid Games",
+  "juegos_ofertas": "Games on Sale",
+  "explorar_titulo": "Want to explore more games?",
+  "explorar_descripcion": "Visit our full store and discover all available titles.",
+  "ver_todos_juegos": "See all games →",
+  "acerca": "About",
+  "faq": "FAQ",
+  "blog": "Blog",
+  "contacto": "Contact",
+  "terminos": "Terms",
+  "privacidad": "Privacy",
+  "cookies": "Cookies",
+  "config": {
+    "title": "Settings",
+    "appSettings": {
+      "title": "Application Settings",
+      "appName": "App Name:",
+      "version": "Current Version:",
+      "language": "Default Language:"
+    },
+    "updateSettings": {
+      "title": "Update Settings",
+      "checkUpdates": "Check for Updates",
+      "versionHistory": "Version History:",
+      "history": {
+        "1": "1.0.0 - Initial release",
+        "2": "1.1.0 - Performance improvements",
+        "3": "1.2.0 - UI update"
+      }
+    },
+    "folderSettings": {
+      "title": "Folder Settings",
+      "gamesFolder": "Games Folder:",
+      "screenshotsFolder": "Screenshots Folder:",
+      "logsFolder": "Logs Folder:"
+    },
+    "notifications": {
+      "title": "Notification Settings",
+      "email": "Receive email notifications",
+      "push": "Receive in-app notifications",
+      "frequency": "Notification Frequency:",
+      "realTime": "Real-time",
+      "daily": "Daily",
+      "weekly": "Weekly"
+    },
+    "autoUpdates": {
+      "title": "Automatic Updates Settings",
+      "app": "Enable automatic updates for the app",
+      "games": "Enable automatic updates for games"
+    },
+    "actions": {
+      "title": "Settings Actions",
+      "save": "Save Settings",
+      "reset": "Reset Settings"
+    }
+  },
+  "languages": {
+    "en": "English",
+    "es": "Spanish",
+    "zh": "Chinese (Simplified)",
+    "hi": "Hindi",
+    "ar": "Arabic",
+    "fr": "French",
+    "de": "German",
+    "pt": "Portuguese (Brazil)",
+    "ru": "Russian",
+    "ja": "Japanese",
+    "ko": "Korean",
+    "vi": "Vietnamese",
+    "it": "Italian",
+    "tr": "Turkish",
+    "pl": "Polish",
+    "th": "Thai",
+    "nl": "Dutch",
+    "sv": "Swedish",
+    "uk": "Ukrainian"
+  },
+"tabs": {
+    "learning": "Learning",
+    "code": "Code",
+    "music": "Music / Art"
+},
+"learning": {
+    "title": "Learning Resources",
+    "description": "Here you can put tutorials, guides, and educational links 🎓",
+    "quickGuides": "Quick Guides",
+    "uploadGame": "Upload Game",
+    "stepGuide": "Step-by-step guide",
+    "view": "View"
+},
+"code": {
+    "title": "Upload Code",
+    "description": "Here you can upload code snippets (C#, JS, Python, C++, etc.) using a <b>MediaFire</b> link.",
+    "searchPlaceholder": "Search code file...",
+    "searchBtn": "Search",
+    "showAllBtn": "Show all",
+    "addFromMediafire": "Add from MediaFire",
+    "modal": {
+        "title": "Add MediaFire link",
+        "namePlaceholder": "Enter a name for the file",
+        "urlPlaceholder": "Paste the link here",
+        "warning": "⚠️ Only direct code links from MediaFire",
+        "addBtn": "Add link",
+        "success": "Link added successfully ✅"
+    },
+    "snippets": "Code Snippets",
+    "sampleFile": "PlayerController.cs"
+},
+"music": {
+    "title": "Music / Art",
+    "elevator": {
+        "title": "Elevator Music (Kevin MacLeod)",
+        "size": "4.33 MB • MP3",
+        "credit": "Music: \"Local Forecast – Elevator\" by <a href=\"https://incompetech.com/\" target=\"_blank\">Kevin MacLeod</a><br>Promoted by <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>License: <a href=\"http://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">CC BY 3.0</a>"
+    },
+    "visitor": {
+        "title": "The Visitor (Shane Ivers)",
+        "size": "8.31 MB • MP3",
+        "credit": "Music: \"The Visitor\" by <a href=\"https://www.silvermansound.com\" target=\"_blank\">Shane Ivers</a><br>Promoted by <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>License: <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\">CC BY 4.0</a>"
+    },
+    "morning": {
+        "title": "Morning Routine (Ghostrifter)",
+        "size": "1.83 MB • MP3",
+        "credit": "Music: \"Morning Routine\" by <a href=\"https://soundcloud.com/ghostrifter-official\" target=\"_blank\">Ghostrifter Official</a><br>Promoted by <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>License: <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\">CC BY-SA 3.0</a>"
+    },
+    "poupi": {
+        "title": "Poupi’s Theme (Komiku)",
+        "size": "0.52 MB • MP3",
+        "credit": "Music: \"Poupi’s Theme\" by <a href=\"https://freemusicarchive.org/music/Komiku/\" target=\"_blank\">Komiku</a><br>Promoted by Free Music Archive<br>License: Creative Commons CC0 Public Domain (free use, including commercial, no attribution required)"
+    },
+    "fallen": {
+        "title": "Fallen Leaves (陽菜/Hina)",
+        "size": "1.13 MB • MP3",
+        "credit": "Music: \"Fallen Leaves\" by <a href=\"https://soundcloud.com/usuario-80857924\" target=\"_blank\">陽菜/Hina</a><br>Promoted by <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>License: Creative Commons CC0 Public Domain (free use, including commercial, no attribution required)"
+     }
+   },
+  "jamBanner": {
+    "title": "Organize Your Own Game Jam!",
+    "description": "Inspire the community by creating unique events, set the rules, and let creativity flow.",
+    "createBtn": "Create New Jam"
+  },
+  "news": {
+    "title": "🕹️ Video Game News",
+    "loading": "Loading news..."
+  },
+  "newsFooter": {
+    "text": "The news displayed is obtained from",
+    "source": "3DJuegos.com",
+    "disclaimer": "via RSS for informational purposes, always linking to the original site."
+  },
+  "community": {
+    "title": "Developer Community - TakumiNet",
+    "welcome": "Welcome to the community! Share, learn, and connect with other developers."
+  },
+  "forum": {
+    "showRules": "Show forum creation rules",
+    "rules": {
+      "clear": "Be clear and specific:",
+      "clearDesc": "Use a title that directly summarizes the topic.",
+      "noSpam": "Avoid spam:",
+      "noSpamDesc": "Do not post irrelevant links or promotional content.",
+      "categorize": "Categorize correctly:",
+      "categorizeDesc": "Select the category that best fits the topic.",
+      "respect": "Respect others:",
+      "respectDesc": "No insults, offensive language, or discriminatory content allowed.",
+      "value": "Share with value:",
+      "valueDesc": "Try to make your description useful to the community.",
+      "tags": "Use tags:",
+      "tagsDesc": "Add key tags to make your topic easier to find.",
+      "noRepeat": "Do not repeat topics:",
+      "noRepeatDesc": "Before creating, check if a similar forum already exists.",
+      "footer": "Following these rules helps keep the space healthy and useful for everyone."
+    },
+    "discussion": "Discussion Forums",
+    "createTopic": "Create new topic"
+  },
+  "profile": {
+    "username": "Guest",
+    "bioTitle": "Biography",
+    "bioPlaceholder": "User biography will appear here.",
+    "socialTitle": "Social Networks",
+    "noSocials": "No social networks added.",
+    "contactTitle": "Contact",
+    "noContact": "No contact information provided.",
+    "gamesTitle": "Published Games",
+    "noGames": "This user has no published games."
+  },
+  "gamesModal": {
+    "close": "×",
+    "title": "Edit Game",
+    "labelTitle": "Title:",
+    "labelPrice": "Price:",
+    "labelDiscount": "Discount (%):",
+    "finalPrice": "Final price with discount:",
+    "saveBtn": "Save Changes"
+  },
+  "favorites": {
+    "title": "Favorite Games",
+    "noFavorites": "You haven't added any favorite games yet. Explore and add your favorites!",
+    "container": "Favorite games will be inserted here via JavaScript"
+  },
+  "dashboard": {
+    "nav": {
+      "projects": "Upload Projects",
+      "analytics": "Analytics",
+      "publications": "Publications",
+      "gameJams": "Game Jams"
+    },
+    "welcomeTitle": "Welcome, Developer",
+    "welcomeDesc": "From this dashboard, you can manage your games, monitor performance, and access exclusive tools.",
+    "accountStats": "Account Statistics",
+    "stats": {
+      "visits": "Visits",
+      "downloads": "Downloads"
+    },
+    "projectsAnalysis": "Projects and Analysis",
+    "projects": "Projects",
+    "projectsDesc": "Manage your published games",
+    "analytics": "Analytics",
+    "analyticsDesc": "Key data and metrics",
+    "earnings": "Earnings",
+    "earningsDesc": "Financial performance",
+    "promotionsPublications": "Promotions and Publications",
+    "promotions": "Promotions",
+    "promotionsDesc": "Boost the visibility of your games",
+    "publications": "Publications",
+    "publicationsDesc": "Share news and updates",
+    "gameJams": "Game Jams",
+    "gameJamsDesc": "Participate in creative events",
+    "integrationConnections": "Connections and Integration",
+    "integrationTitle": "TakumiNet Integration:",
+    "integrationDesc": "Use your username to highlight your profile within our community.",
+    "ctaUpload": "New here? Upload your first game",
+    "ctaExplore": "Explore other games"
+  },
+  "upload": {
+    "titleLabel": "Game Title",
+    "titlePlaceholder": "Enter the game title",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Enter a description",
+    "categoryLabel": "Category",
+    "categories": {
+      "adventure": "Adventure",
+      "rpg": "RPG",
+      "action": "Action",
+      "puzzle": "Puzzle",
+      "horror": "Horror",
+      "other": "Other"
+    },
+    "genresLabel": "Genres",
+    "genres": {
+      "pixelart": "Pixelart",
+      "retro": "Retro",
+      "shortStory": "Short Story",
+      "comedy": "Comedy",
+      "fantasy": "Fantasy",
+      "levels": "Levels",
+      "choices": "Choices",
+      "magic": "Magic",
+      "puzzles": "Puzzles",
+      "2D": "2D",
+      "3D": "3D",
+      "4K": "4K",
+      "cooperative": "Cooperative",
+      "competitive": "Competitive",
+      "enemies": "Enemies",
+      "bosses": "Bosses",
+      "minigames": "Minigames",
+      "noText": "No text",
+      "mystery": "Mystery",
+      "cyberpunk": "Cyberpunk",
+      "anime": "Anime"
+    },
+    "mainGenreLabel": "Main Genre",
+    "mainGenres": {
+      "noGenre": "No genre",
+      "adventure": "Adventure",
+      "rpg": "RPG",
+      "action": "Action",
+      "puzzle": "Puzzle",
+      "horror": "Horror",
+      "other": "Other"
+    },
+    "systemRequirements": {
+      "legend": "System Requirements",
+      "typeLabel": "Select the type of requirements:",
+      "selectOption": "-- Select an option --",
+      "min": "Minimum Requirements",
+      "recommended": "Recommended Requirements",
+      "minTitle": "Minimum Requirements",
+      "recommendedTitle": "Recommended Requirements",
+      "os": "Operating System",
+      "cpu": "Processor",
+      "ram": "RAM",
+      "gpu": "Graphics Card",
+      "storage": "Storage"
+    },
+    "cover": {
+      "label": "Game Featured Image",
+      "info": "Recommended: 1280 × 719 px, JPG or PNG format, max 2 MB",
+      "previewAlt": "Cover preview"
+    },
+    "screenshots": {
+      "label": "Game Screenshots (minimum 5)"
+    },
+    "video": {
+      "label": "Game Video URL",
+      "placeholder": "https://www.youtube.com/watch?v=XXXXX"
+    },
+    "mediafire": {
+      "label": "Upload your game to MediaFire (max 5 GB)",
+      "warning": "⚠️ Only games via MediaFire are allowed. Local ZIPs are not accepted.",
+      "button": "MediaFire",
+      "modalTitle": "Add MediaFire Link",
+      "modalPlaceholder": "Paste ZIP link here",
+      "modalWarning": "⚠️ Only files up to 5 GB.",
+      "modalButton": "Add Link",
+      "modalFeedback": "Link added successfully ✅"
+    },
+    "pricing": {
+      "label": "Price",
+      "options": {
+        "free": "Free",
+        "paid": "Paid",
+        "donation": "Donation"
+      },
+      "placeholder": "0.00"
+    },
+    "terms": {
+      "label": "TakumiNet Rules and Payments",
+      "link": "View Rules and Payments"
+    },
+    "submitButton": "Publish Game"
+  },
+  "config": {
+    "backToHome": "Back to Home",
+    "manageDownloads": "Manage Downloads"
+  },
+  "placeholder_buscar": "Search games...",
+  "filtro_todos": "All",
+  "filtro_recientes": "Recent",
+  "filtro_favoritos": "Favorites",
+  "filtro_actualizables": "Updatable",
+  "orden_mayor": "Highest to Lowest",
+  "orden_menor": "Lowest to Highest",
+  "agregar_juego": "Add Game"
+  ,
+  "downloads": {
+    "noActivities": "There are currently no activities available",
+    "exploreLibrary": "Explore our game library to discover exciting new experiences.",
+    "discoverGames": "Discover Games"
+  },
+  "profile": {
+    "editTitle": "Edit Profile",
+    "general": "General",
+    "realNameLabel": "Username:",
+    "description": "Description:",
+    "contact": "Contact",
+    "email": "Email:",
+    "changePassword": "Change Password",
+    "currentPassword": "Current Password:",
+    "newPassword": "New Password:",
+    "confirmPassword": "Confirm New Password:",
+    "saveChanges": "Save Changes",
+    "cancel": "Cancel"
+  },
+  "payments": {
+    "intro": "On this page you can request a payout for any available balance in your account if you are using TakumiNet to manage your earnings. Set up how you receive your payments in Seller Settings.",
+    "sellerSettings": "Seller Settings",
+    "note": "Note: Your account is currently set up for direct payments to you. Purchases go directly to your account and do not pass through an internal TakumiNet balance.",
+    "accountBalanceTitle": "Account Balance",
+    "accountBalanceText": "Your account has no pending balance. When you have funds available, you can request a payout here on TakumiNet.",
+    "profitDistribution": "Profit Distribution: For each sale, you will receive 70% (developer). The remaining 30% is TakumiNet's commission.",
+    "paypalLogoAlt": "PayPal Logo",
+    "connectPayPalTitle": "🌍 Connect your PayPal account",
+    "connectPayPalText": "To receive international payments, you must connect your PayPal Business account to our platform. This allows you to accept payments from any country securely.",
+    "connectPayPalButton": "Connect PayPal",
+    "paypalConnected": "Once connected, you will be able to receive international payments directly."
+  },
+  "config": {
+    "payments": "Developer Payments",
+    "backToPayments": "Payments",
+    "backToDashboard": "Back to Dashboard"
+  },
+  "followed": {
+    "title": "People You Follow",
+    "loading": "Loading..."
+  },
+  "profile": {
+    "guest": "Guest",
+    "bio": "User biography will appear here.",
+    "socialTitle": "Social Media",
+    "contactTitle": "Contact",
+    "publishedGamesTitle": "Published Games"
+  },
+
+  "config": {
+    "title": "Black"
+  },
+  "jams": {
+    "title": "Game Jams",
+    "subtitle": "Explore, participate, and create in our exciting Game Jams. Join the community and show your talent!",
+    "tabs": {
+      "overview": "Overview",
+      "community": "Community"
+    },
+    "details": {
+      "title": "Game Jam Details",
+      "fields": {
+        "title": "Title:",
+        "shortDescription": "Short Description:",
+        "url": "URL:",
+        "startsIn": "Starts In:",
+        "type": "Type of Jam:",
+        "whoVotes": "Who Votes?",
+        "startDate": "Start Date:",
+        "endDate": "End Date:",
+        "votingStart": "Voting Start:",
+        "fullDescription": "Full Description:",
+        "criteria": "Criteria:",
+        "hashtag": "Hashtag:",
+        "community": "Community:",
+        "blockUploads": "Block Uploads:",
+        "hideResults": "Hide Results:",
+        "hideSubmissions": "Hide Submissions:",
+        "visibility": "Visibility:",
+        "creationDate": "Creation Date:"
+      },
+      "join": "Join the Jam",
+      "calculating": "Calculating..."
+    },
+    "forum": {
+      "title": "Forum Topics",
+      "createTopic": "Create Topic",
+      "loading": "Loading topics..."
+    },
+    "modal": {
+      "title": "Create New Topic",
+      "inputTitle": "Topic Title",
+      "inputDescription": "Topic Description",
+      "submit": "Create Topic",
+      "close": "Close"
+    }
+  },
+  "games": {
+    "removeFavorite": "Remove from Favorites",
+    "free": "Free",
+    "noTitle": "No Title",
+    "noDescription": "No description available"
+  },
+  "news": {
+    "loading": "Loading latest news...",
+    "errorTitle": "Failed to load news",
+    "errorUnknown": "Unknown error",
+    "retry": "Retry",
+    "lastUpdated": "Last updated",
+    "readMore": "Read more"
+  },
+  "pagination": {
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "news": {
+    "disclaimer": "The news displayed is obtained from",
+    "source": "3DJuegos.com",
+    "rssNote": "via RSS for informational purposes, always linking to the original site."
+  }
+}

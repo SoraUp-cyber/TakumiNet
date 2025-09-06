@@ -1,0 +1,507 @@
+{
+"genero": "Tür:",
+"todos": "Tümü",
+"pixelart": "Pixel sanatı",
+"terror": "Korku",
+"accion": "Aksiyon",
+"plataformas": "Platform oyunları",
+"categoria": "Kategori:",
+"todas": "Tümü",
+"aventura": "Macera",
+"comedia": "Komedi",
+"rpg": "Rol yapma oyunu (RPG)",
+"precio": "Fiyat:",
+"gratis": "Ücretsiz",
+"pago": "Ücretli",
+"requisitos": "Minimum gereksinimler:",
+"bajo": "Düşük",
+"medio": "Orta",
+"alto": "Yüksek",
+"aplicar_filtros": "Filtreleri uygula",
+"borrar_filtros": "Filtreleri temizle",
+"inicio": "Ana Sayfa",
+"tienda": "Mağaza",
+"game_jams": "Game Jam",
+"tutoriales": "Eğitimler",
+"Noticias": "Haberler",
+"comunidad": "Topluluk",
+"buscar": "Oyun veya kullanıcı ara...",
+"notificaciones": "Bildirimler",
+"ver_todas": "Tümünü okundu olarak işaretle",
+"perfil": "Profil",
+"panel": "Kontrol Paneli",
+"mis_juegos": "Oyunlarım",
+"favoritos": "Favoriler",
+"subir_juego": "Oyun yükle",
+"biblioteca": "Kütüphane",
+"descargas": "İndirilenler",
+"configuracion": "Ayarlar",
+"editar_usuario": "Kullanıcıyı düzenle",
+"pagos": "Ödemeler",
+"seguidos": "Takip ettiklerim",
+"cerrar_sesion": "Çıkış yap",
+"recomendados": "Önerilenler",
+"ver_mas": "Daha fazla göster",
+"juegos_gratis": "Ücretsiz oyunlar",
+"juegos_pago": "Ücretli oyunlar",
+"juegos_ofertas": "İndirimdeki oyunlar",
+"explorar_titulo": "Daha fazla oyun keşfetmek ister misiniz?",
+"explorar_descripcion": "Tüm mevcut oyunları keşfetmek için mağazayı ziyaret edin.",
+"ver_todos_juegos": "Tüm oyunları gör →",
+"acerca": "Hakkımızda",
+"faq": "SSS",
+"blog": "Blog",
+"contacto": "İletişim",
+"terminos": "Şartlar",
+"privacidad": "Gizlilik",
+"cookies": "Çerezler",
+"config": {
+  "title": "Ayarlar",
+  "appSettings": {
+    "title": "Uygulama Ayarları",
+    "appName": "Uygulama Adı:",
+    "version": "Mevcut Sürüm:",
+    "language": "Varsayılan Dil:"
+  },
+  "updateSettings": {
+    "title": "Güncelleme Ayarları",
+    "checkUpdates": "Güncellemeleri Kontrol Et",
+    "versionHistory": "Sürüm Geçmişi:",
+    "history": {
+      "1": "1.0.0 - İlk sürüm",
+      "2": "1.1.0 - Performans iyileştirmeleri",
+      "3": "1.2.0 - Arayüz güncellemesi"
+    }
+  },
+  "folderSettings": {
+    "title": "Klasör Ayarları",
+    "gamesFolder": "Oyunlar Klasörü:",
+    "screenshotsFolder": "Ekran Görüntüleri Klasörü:",
+    "logsFolder": "Kayıtlar Klasörü:"
+  },
+  "notifications": {
+    "title": "Bildirim Ayarları",
+    "email": "E-posta ile bildirim al",
+    "push": "Uygulama içi bildirim al",
+    "frequency": "Bildirim Sıklığı:",
+    "realTime": "Gerçek Zamanlı",
+    "daily": "Günlük",
+    "weekly": "Haftalık"
+  },
+  "autoUpdates": {
+    "title": "Otomatik Güncelleme Ayarları",
+    "app": "Uygulama için otomatik güncellemeleri etkinleştir",
+    "games": "Oyunlar için otomatik güncellemeleri etkinleştir"
+  },
+  "actions": {
+    "title": "Ayar İşlemleri",
+    "save": "Ayarları Kaydet",
+    "reset": "Ayarları Sıfırla"
+  }
+},
+"languages": {
+  "en": "İngilizce",
+  "es": "İspanyolca",
+  "zh": "Çince (Basitleştirilmiş)",
+  "hi": "Hintçe",
+  "ar": "Arapça",
+  "fr": "Fransızca",
+  "de": "Almanca",
+  "pt": "Portekizce (Brezilya)",
+  "ru": "Rusça",
+  "ja": "Japonca",
+  "ko": "Korece",
+  "vi": "Vietnamca",
+  "it": "İtalyanca",
+  "tr": "Türkçe",
+  "pl": "Lehçe",
+  "th": "Tayca",
+  "nl": "Hollandaca",
+  "sv": "İsveççe",
+  "uk": "Ukraynaca"
+  },
+"tabs": {
+  "learning": "Öğrenme",
+  "code": "Kod",
+  "music": "Müzik / Sanat"
+},
+"learning": {
+  "title": "Öğrenme Kaynakları",
+  "description": "Buradan dersler, rehberler ve eğitim bağlantıları paylaşabilirsiniz 🎓",
+  "quickGuides": "Hızlı Rehberler",
+  "uploadGame": "Oyun Yükle",
+  "stepGuide": "Adım Adım Rehber",
+  "view": "Görüntüle"
+},
+"code": {
+  "title": "Kod Yükle",
+  "description": "Buradan kod parçacıklarını (C#, JS, Python, C++ vb.) <b>MediaFire</b> linki ile yükleyebilirsiniz.",
+  "searchPlaceholder": "Kod dosyası ara...",
+  "searchBtn": "Ara",
+  "showAllBtn": "Tümünü Göster",
+  "addFromMediafire": "MediaFire'dan Ekle",
+  "modal": {
+    "title": "MediaFire Linki Ekle",
+    "namePlaceholder": "Dosya adını girin",
+    "urlPlaceholder": "Linki buraya yapıştırın",
+    "warning": "⚠️ Sadece MediaFire doğrudan kod linkleri kabul edilir",
+    "addBtn": "Link Ekle",
+    "success": "Link başarıyla eklendi ✅"
+  },
+  "snippets": "Kod Parçacıkları",
+  "sampleFile": "PlayerController.cs"
+},
+"music": {
+  "title": "Müzik / Sanat",
+  "elevator": {
+    "title": "Asansör Müziği (Kevin MacLeod)",
+    "size": "4.33 MB • MP3",
+    "credit": "Müzik: \"Local Forecast – Elevator\" <a href=\"https://incompetech.com/\" target=\"_blank\">Kevin MacLeod</a> tarafından<br>Sağlayan: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>Lisans: <a href=\"http://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">CC BY 3.0</a>"
+  },
+  "visitor": {
+    "title": "Visitor (Shane Ivers)",
+    "size": "8.31 MB • MP3",
+    "credit": "Müzik: \"The Visitor\" <a href=\"https://www.silvermansound.com\" target=\"_blank\">Shane Ivers</a> tarafından<br>Sağlayan: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>Lisans: <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\">CC BY 4.0</a>"
+  },
+  "morning": {
+    "title": "Sabah Rutini (Ghostrifter)",
+    "size": "1.83 MB • MP3",
+    "credit": "Müzik: \"Morning Routine\" <a href=\"https://soundcloud.com/ghostrifter-official\" target=\"_blank\">Ghostrifter Official</a> tarafından<br>Sağlayan: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>Lisans: <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\">CC BY-SA 3.0</a>"
+  },
+  "poupi": {
+    "title": "Poupi Müziği (Komiku)",
+    "size": "0.52 MB • MP3",
+    "credit": "Müzik: \"Poupi Theme\" <a href=\"https://freemusicarchive.org/music/Komiku/\" target=\"_blank\">Komiku</a> tarafından<br>Sağlayan: Free Music Archive<br>Lisans: Kamu malı CC0 (Ticari kullanım serbest, atıf gerekli değil)"
+  },
+  "fallen": {
+    "title": "Fallen Leaves (陽菜/Hina)",
+    "size": "1.13 MB • MP3",
+    "credit": "Müzik: \"Fallen Leaves\" <a href=\"https://soundcloud.com/usuario-80857924\" target=\"_blank\">陽菜/Hina</a> tarafından<br>Sağlayan: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>Lisans: Kamu malı CC0 (Ticari kullanım serbest, atıf gerekli değil)"
+  }
+},
+"jamBanner": {
+  "title": "Kendi Game Jam’inizi Düzenleyin!",
+  "description": "Topluluğu, benzersiz etkinlikler oluşturarak, kurallar belirleyerek ve yaratıcılığınızı göstererek ilham verin.",
+  "createBtn": "Yeni Jam Oluştur"
+},
+"news": {
+  "title": "🕹️ Video Oyun Haberleri",
+  "loading": "Haberler yükleniyor..."
+},
+"newsFooter": {
+  "text": "Haber kaynağı:",
+  "source": "3DJuegos.com",
+  "disclaimer": "Haberler yalnızca bilgilendirme amacıyla RSS üzerinden alınmıştır ve her zaman orijinal siteye bir bağlantı içerir."
+},
+"community": {
+  "title": "TakumiNet Geliştirici Topluluğu",
+  "welcome": "Topluluğa hoş geldiniz! Paylaşın, öğrenin ve diğer geliştiricilerle etkileşimde bulunun."
+},
+"forum": {
+  "showRules": "Forum kurallarını görüntüle",
+  "rules": {
+    "clear": "Net ve spesifik yazın:",
+    "clearDesc": "Başlıklar konuyu doğrudan yansıtmalıdır.",
+    "noSpam": "Spam yapmayın:",
+    "noSpamDesc": "Alakasız bağlantılar veya tanıtım içerikleri paylaşmayın.",
+    "categorize": "Doğru kategori seçin:",
+    "categorizeDesc": "Konunuz için en uygun kategoriyi seçin.",
+    "respect": "Başkalarına saygı gösterin:",
+    "respectDesc": "Küfür, hakaret veya ayrımcı içerik yasaktır.",
+    "value": "Yararlı içerik paylaşın:",
+    "valueDesc": "Katkınızın topluluk için faydalı olmasını sağlayın.",
+    "tags": "Etiket kullanın:",
+    "tagsDesc": "Konuyu kolayca bulmak için uygun etiketler ekleyin.",
+    "noRepeat": "Tekrar etmeyin:",
+    "noRepeatDesc": "Benzer bir forumun zaten var olup olmadığını kontrol edin.",
+    "footer": "Bu kurallara uymak, alanı sağlıklı ve herkes için faydalı tutmaya yardımcı olacaktır."
+  },
+"discussion": "Tartışma forumu",
+"createTopic": "Yeni konu oluştur"
+},
+"profile": {
+  "username": "Misafir",
+  "bioTitle": "Biyografi",
+  "bioPlaceholder": "Kullanıcı profili burada görüntülenecek.",
+  "socialTitle": "Sosyal medya",
+  "noSocials": "Eklenmiş sosyal hesap yok.",
+  "contactTitle": "İletişim bilgileri",
+  "noContact": "Sağlanmış iletişim bilgisi yok.",
+  "gamesTitle": "Yayınlanan oyunlar",
+  "noGames": "Bu kullanıcı henüz oyun yayınlamadı."
+},
+"gamesModal": {
+  "close": "×",
+  "title": "Oyunu düzenle",
+  "labelTitle": "Başlık:",
+  "labelPrice": "Fiyat:",
+  "labelDiscount": "İndirim (%):",
+  "finalPrice": "İndirim sonrası son fiyat:",
+  "saveBtn": "Değişiklikleri kaydet"
+},
+"favorites": {
+  "title": "Favori oyunlar",
+  "noFavorites": "Henüz favori oyun eklemediniz. Keşfedin ve beğendiklerinizi ekleyin!",
+  "container": "Favori oyunlar burada JavaScript ile görüntülenecek."
+},
+"dashboard": {
+  "nav": {
+    "projects": "Projeleri yükle",
+    "analytics": "Analiz",
+    "publications": "Yayınlar",
+    "gameJams": "Game Jam Yarışmaları"
+  },
+  "welcomeTitle": "Hoş geldiniz, geliştirici",
+  "welcomeDesc": "Bu panel ile oyunlarınızı yönetebilir, performansları takip edebilir ve özel araçlara erişebilirsiniz.",
+  "accountStats": "Hesap istatistikleri",
+  "stats": {
+    "visits": "Ziyaretler",
+    "downloads": "İndirilenler"
+  },
+  "projectsAnalysis": "Projeler & Analiz",
+  "projects": "Projeler",
+  "projectsDesc": "Yayınlanan oyunları yönetin",
+  "analytics": "Analiz",
+  "analyticsDesc": "Temel veriler ve metrikler",
+  "earnings": "Kazançlar",
+  "earningsDesc": "Finansal performans",
+  "promotionsPublications": "Promosyonlar & Yayınlar",
+  "promotions": "Promosyonlar",
+  "promotionsDesc": "Oyun görünürlüğünü artırın",
+  "publications": "Yayınlar",
+  "publicationsDesc": "Haberleri ve güncellemeleri paylaşın",
+  "gameJams": "Game Jam Yarışmaları",
+  "gameJamsDesc": "Yaratıcı etkinliklere katılın",
+  "integrationConnections": "Entegrasyon & Bağlantılar",
+  "integrationTitle": "TakumiNet Entegrasyonu:",
+  "integrationDesc": "Toplulukta profilinizi öne çıkarmak için kullanıcı adınızı kullanın.",
+  "ctaUpload": "Yeni misiniz? İlk oyununuzu yükleyin",
+  "ctaExplore": "Diğer oyunları keşfedin"
+  },
+"upload": {
+  "titleLabel": "Oyun Başlığı",
+  "titlePlaceholder": "Oyun başlığını girin",
+  "descriptionLabel": "Açıklama",
+  "descriptionPlaceholder": "Açıklamayı girin",
+  "categoryLabel": "Kategori",
+  "categories": {
+    "adventure": "Macera",
+    "rpg": "RPG",
+    "action": "Aksiyon",
+    "puzzle": "Bulmaca",
+    "horror": "Korku",
+    "other": "Diğer"
+  },
+  "genresLabel": "Tür",
+  "genres": {
+    "pixelart": "Pixel art",
+    "retro": "Retro",
+    "shortStory": "Kısa Hikaye",
+    "comedy": "Komedi",
+    "fantasy": "Fantastik",
+    "levels": "Seviyeler",
+    "choices": "Seçimler",
+    "magic": "Büyü",
+    "puzzles": "Mantık oyunları",
+    "2D": "2D",
+    "3D": "3D",
+    "4K": "4K",
+    "cooperative": "Kooperatif",
+    "competitive": "Rekabetçi",
+    "enemies": "Düşmanlar",
+    "bosses": "BOSS",
+    "minigames": "Mini oyunlar",
+    "noText": "Metinsiz",
+    "mystery": "Gizem",
+    "cyberpunk": "Siberpunk",
+    "anime": "Anime"
+  },
+  "mainGenreLabel": "Ana Tür",
+  "mainGenres": {
+    "noGenre": "Tür yok",
+    "adventure": "Macera",
+    "rpg": "RPG",
+    "action": "Aksiyon",
+    "puzzle": "Bulmaca",
+    "horror": "Korku",
+    "other": "Diğer"
+  },
+  "systemRequirements": {
+    "legend": "Sistem Gereksinimleri",
+    "typeLabel": "Gereksinim türünü seçin:",
+    "selectOption": "-- Seçenek seçin --",
+    "min": "Minimum Gereksinimler",
+    "recommended": "Önerilen Gereksinimler",
+    "minTitle": "Minimum Gereksinimler",
+    "recommendedTitle": "Önerilen Gereksinimler",
+    "os": "İşletim Sistemi",
+    "cpu": "CPU",
+    "ram": "RAM",
+    "gpu": "Ekran Kartı",
+    "storage": "Depolama"
+  },
+  "cover": {
+    "label": "Oyun Kapak Resmi",
+    "info": "Önerilen: 1280 × 719 px, JPG veya PNG formatı, maksimum 2MB",
+    "previewAlt": "Kapak önizlemesi"
+  },
+  "screenshots": {
+    "label": "Oyun ekran görüntüleri (en az 5 resim)"
+  },
+  "video": {
+    "label": "Oyun videosu linki",
+    "placeholder": "https://www.youtube.com/watch?v=XXXXX"
+  },
+  "mediafire": {
+    "label": "Oyunu MediaFire yükle (maks 5GB)",
+    "warning": "⚠️ Sadece MediaFire üzerinden yüklenen oyunlar kabul edilir. Yerel ZIP dosyaları kabul edilmez.",
+    "button": "MediaFire",
+    "modalTitle": "MediaFire linki ekle",
+    "modalPlaceholder": "ZIP dosya linkini buraya yapıştırın",
+    "modalWarning": "⚠️ Dosya 5GB’dan küçük olmalıdır.",
+    "modalButton": "Link ekle",
+    "modalFeedback": "Link başarıyla eklendi ✅"
+  },
+  "pricing": {
+    "label": "Fiyat",
+    "options": {
+      "free": "Ücretsiz",
+      "paid": "Ücretli",
+      "donation": "Bağış"
+    },
+    "placeholder": "0.00"
+  },
+  "terms": {
+    "label": "TakumiNet Şartlar ve Ödemeler",
+    "link": "Şartlar ve ödemeleri görüntüle"
+  },
+  "submitButton": "Oyunu Yayınla"
+ },
+"config": {
+  "backToHome": "Ana sayfaya dön",
+  "manageDownloads": "İndirmeleri yönet"
+},
+"placeholder_buscar": "Oyunları ara...",
+"filtro_todos": "Tümü",
+"filtro_recientes": "En yeniler",
+"filtro_favoritos": "Favoriler",
+"filtro_actualizables": "Güncellenebilir",
+"orden_mayor": "Yüksekten düşüğe",
+"orden_menor": "Düşükten yükseğe",
+"agregar_juego": "Oyun ekle",
+"downloads": {
+  "noActivities": "Şu anda kullanılabilir etkinlik yok",
+  "exploreLibrary": "Oyun kütüphanemizi keşfedin ve yeni heyecan verici deneyimler bulun.",
+  "discoverGames": "Oyunları keşfet"
+},
+"profile": {
+  "editTitle": "Profili düzenle",
+  "general": "Genel",
+  "realNameLabel": "Kullanıcı adı:",
+  "description": "Açıklama:",
+  "contact": "İletişim bilgileri",
+  "email": "E-posta:",
+  "changePassword": "Şifre değiştir",
+  "currentPassword": "Mevcut şifre:",
+  "newPassword": "Yeni şifre:",
+  "confirmPassword": "Yeni şifreyi onayla:",
+  "saveChanges": "Değişiklikleri kaydet",
+  "cancel": "İptal"
+},
+"payments": {
+  "intro": "Bu sayfada, TakumiNet'i kazançlarınızı yönetmek için kullanıyorsanız, hesabınızdaki mevcut bakiyeyi çekme talebinde bulunabilirsiniz. Almak istediğiniz ödeme yöntemini satıcı ayarlarında belirleyin.",
+  "sellerSettings": "Satıcı ayarları",
+  "note": "Not: Hesabınız şu anda doğrudan ödemeler için ayarlanmıştır. Satın almalar, TakumiNet iç bakiyesinden geçmeden doğrudan hesabınıza aktarılır.",
+  "accountBalanceTitle": "Hesap bakiyesi",
+  "accountBalanceText": "Şu anda hesabınızda bekleyen bir bakiye yok. Para olduğunda, TakumiNet üzerinden çekim talebinde bulunabilirsiniz.",
+  "profitDistribution": "Kâr dağılımı: her satışta %70 siz (geliştirici) alırsınız, kalan %30 TakumiNet ücreti olarak gider.",
+  "paypalLogoAlt": "PayPal logosu",
+  "connectPayPalTitle": "🌍 PayPal hesabını bağla",
+  "connectPayPalText": "Uluslararası ödemeleri almak için PayPal Business hesabınızı platforma bağlayın. Bu, herhangi bir ülkeden güvenli ödeme almanıza olanak tanır.",
+  "connectPayPalButton": "PayPal bağla",
+  "paypalConnected": "Bağlantıdan sonra uluslararası ödemeleri doğrudan alabilirsiniz."
+   },
+"config": {
+  "payments": "Geliştirici ödemeleri",
+  "backToPayments": "Ödemelere geri dön",
+  "backToDashboard": "Kontrol paneline geri dön",
+  "title": "Siyah"
+},
+"followed": {
+  "title": "Takip edilen kişiler",
+  "loading": "Yükleniyor..."
+},
+"profile": {
+  "guest": "Misafir",
+  "bio": "Kullanıcının kişisel profili burada görüntülenecek.",
+  "socialTitle": "Sosyal medya",
+  "contactTitle": "İletişim bilgileri",
+  "publishedGamesTitle": "Yayınlanan oyunlar"
+},
+"jams": {
+  "title": "Game Jam Yarışmaları",
+  "subtitle": "Harika oyun yarışmalarımızı keşfedin, katılın ve yaratın. Topluluğa katılın ve yeteneğinizi gösterin!",
+  "tabs": {
+    "overview": "Genel Bakış",
+    "community": "Topluluk"
+  }
+},
+"details": {
+  "title": "Yarışma Detayları",
+  "fields": {
+    "title": "Başlık:",
+    "shortDescription": "Kısa açıklama:",
+    "url": "Bağlantı (URL):",
+    "startsIn": "Başlangıç:",
+    "type": "Yarışma türü:",
+    "whoVotes": "Kim oy verecek?",
+    "startDate": "Başlangıç tarihi:",
+    "endDate": "Bitiş tarihi:",
+    "votingStart": "Oylama başlangıcı:",
+    "fullDescription": "Tam açıklama:",
+    "criteria": "Değerlendirme kriterleri:",
+    "hashtag": "Hashtag:",
+    "community": "Topluluk:",
+    "blockUploads": "Yüklemeleri engelle:",
+    "hideResults": "Sonuçları gizle:",
+    "hideSubmissions": "Katılımları gizle:",
+    "visibility": "Görünürlük:",
+    "creationDate": "Oluşturulma tarihi:"
+  },
+"join": "Jama Katıl",
+"calculating": "Hesaplanıyor..."
+},
+"forum": {
+  "title": "Forum Konuları",
+  "createTopic": "Konu Oluştur",
+  "loading": "Konular yükleniyor..."
+},
+"modal": {
+  "title": "Yeni Konu Oluştur",
+  "inputTitle": "Konu Başlığı",
+  "inputDescription": "Konu Açıklaması",
+  "submit": "Konu Oluştur",
+  "close": "Kapat"
+},
+"games": {
+  "removeFavorite": "Favorilerden Kaldır",
+  "free": "Ücretsiz",
+  "noTitle": "Başlık yok",
+  "noDescription": "Açıklama yok"
+},
+"news": {
+  "loading": "En son haberler yükleniyor...",
+  "errorTitle": "Haberler yüklenemiyor",
+  "errorUnknown": "Bilinmeyen hata",
+  "retry": "Tekrar Dene",
+  "lastUpdated": "Son güncelleme",
+  "readMore": "Devamını oku",
+  "disclaimer": "Kaynak:",
+  "source": "3DJuegos.com",
+  "rssNote": "Haberler yalnızca bilgilendirme amacıyla RSS üzerinden alınır ve her zaman orijinal siteye bağlantı içerir."
+},
+"pagination": {
+  "prev": "Önceki",
+  "next": "Sonraki"
+   }
+ } 

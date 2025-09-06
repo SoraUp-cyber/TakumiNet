@@ -1,0 +1,507 @@
+{
+"genero": "장르:",
+"todos": "전체",
+"pixelart": "픽셀 아트",
+"terror": "호러",
+"accion": "액션",
+"plataformas": "플랫폼 게임",
+"categoria": "카테고리:",
+"todas": "전체",
+"aventura": "어드벤처",
+"comedia": "코미디",
+"rpg": "롤플레잉 게임 (RPG)",
+"precio": "가격:",
+"gratis": "무료",
+"pago": "유료",
+"requisitos": "최소 요구 사항:",
+"bajo": "낮음",
+"medio": "중간",
+"alto": "높음",
+"aplicar_filtros": "필터 적용",
+"borrar_filtros": "필터 초기화",
+"inicio": "홈",
+"tienda": "스토어",
+"game_jams": "게임 잼",
+"tutoriales": "튜토리얼",
+"Noticias": "뉴스",
+"comunidad": "커뮤니티",
+"buscar": "게임 또는 사용자 검색...",
+"notificaciones": "알림",
+"ver_todas": "모두 읽음으로 표시",
+"perfil": "프로필",
+"panel": "대시보드",
+"mis_juegos": "내 게임",
+"favoritos": "즐겨찾기",
+"subir_juego": "게임 업로드",
+"biblioteca": "라이브러리",
+"descargas": "다운로드",
+"configuracion": "설정",
+"editar_usuario": "사용자 편집",
+"pagos": "결제",
+"seguidos": "팔로우",
+"cerrar_sesion": "로그아웃",
+"recomendados": "추천",
+"ver_mas": "더보기",
+"juegos_gratis": "무료 게임",
+"juegos_pago": "유료 게임",
+"juegos_ofertas": "할인 게임",
+"explorar_titulo": "더 많은 게임을 찾고 싶나요?",
+"explorar_descripcion": "스토어를 방문하여 모든 사용 가능한 게임을 확인하세요.",
+"ver_todos_juegos": "모든 게임 보기 →",
+"acerca": "회사 소개",
+"faq": "자주 묻는 질문",
+"blog": "블로그",
+"contacto": "문의",
+"terminos": "약관",
+"privacidad": "개인정보 보호",
+"cookies": "쿠키",
+  "config": {
+  "title": "설정",
+  "appSettings": {
+    "title": "앱 설정",
+    "appName": "앱 이름:",
+    "version": "현재 버전:",
+    "language": "기본 언어:"
+  },
+  "updateSettings": {
+    "title": "업데이트 설정",
+    "checkUpdates": "업데이트 확인",
+    "versionHistory": "버전 기록:",
+    "history": {
+      "1": "1.0.0 - 초기 출시",
+      "2": "1.1.0 - 성능 향상",
+      "3": "1.2.0 - 인터페이스 업데이트"
+    }
+  },
+  "folderSettings": {
+    "title": "폴더 설정",
+    "gamesFolder": "게임 폴더:",
+    "screenshotsFolder": "스크린샷 폴더:",
+    "logsFolder": "로그 폴더:"
+  },
+  "notifications": {
+    "title": "알림 설정",
+    "email": "이메일로 알림 받기",
+    "push": "앱 내 알림 받기",
+    "frequency": "알림 빈도:",
+    "realTime": "실시간",
+    "daily": "매일",
+    "weekly": "매주"
+  },
+  "autoUpdates": {
+    "title": "자동 업데이트 설정",
+    "app": "앱 자동 업데이트 활성화",
+    "games": "게임 자동 업데이트 활성화"
+  },
+  "actions": {
+    "title": "설정 작업",
+    "save": "설정 저장",
+    "reset": "설정 초기화"
+  }
+},
+"languages": {
+  "en": "영어",
+  "es": "스페인어",
+  "zh": "중국어(간체)",
+  "hi": "힌디어",
+  "ar": "아랍어",
+  "fr": "프랑스어",
+  "de": "독일어",
+  "pt": "포르투갈어(브라질)",
+  "ru": "러시아어",
+  "ja": "일본어",
+  "ko": "한국어",
+  "vi": "베트남어",
+  "it": "이탈리아어",
+  "tr": "터키어",
+  "pl": "폴란드어",
+  "th": "태국어",
+  "nl": "네덜란드어",
+  "sv": "스웨덴어",
+  "uk": "우크라이나어"
+  },
+ "tabs": {
+  "learning": "학습",
+  "code": "코드",
+  "music": "음악 / 아트"
+},
+"learning": {
+  "title": "학습 자료",
+  "description": "여기에서 수업, 가이드 및 교육용 링크를 게시할 수 있습니다 🎓",
+  "quickGuides": "빠른 가이드",
+  "uploadGame": "게임 업로드",
+  "stepGuide": "단계별 가이드",
+  "view": "보기"
+},
+"code": {
+  "title": "코드 업로드",
+  "description": "여기에서 <b>MediaFire</b> 링크를 통해 코드 조각(C#, JS, Python, C++ 등)을 업로드할 수 있습니다.",
+  "searchPlaceholder": "코드 파일 검색...",
+  "searchBtn": "검색",
+  "showAllBtn": "모두 보기",
+  "addFromMediafire": "MediaFire에서 추가",
+  "modal": {
+    "title": "MediaFire 링크 추가",
+    "namePlaceholder": "파일 이름 입력",
+    "urlPlaceholder": "링크를 여기에 붙여넣기",
+    "warning": "⚠️ 코드에 대한 MediaFire 직접 링크만 허용됩니다",
+    "addBtn": "링크 추가",
+    "success": "링크가 성공적으로 추가되었습니다 ✅"
+  },
+  "snippets": "코드 스니펫",
+  "sampleFile": "PlayerController.cs"
+},
+"music": {
+  "title": "음악 / 아트",
+  "elevator": {
+    "title": "엘리베이터 음악 (Kevin MacLeod)",
+    "size": "4.33 MB • MP3",
+    "credit": "음악: <a href=\"https://incompetech.com/\" target=\"_blank\">Kevin MacLeod</a>의 \"Local Forecast – Elevator\"<br>제공: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>라이선스: <a href=\"http://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">CC BY 3.0</a>"
+  },
+  "visitor": {
+    "title": "Visitor (Shane Ivers)",
+    "size": "8.31 MB • MP3",
+    "credit": "음악: <a href=\"https://www.silvermansound.com\" target=\"_blank\">Shane Ivers</a>의 \"The Visitor\"<br>제공: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>라이선스: <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\">CC BY 4.0</a>"
+  },
+  "morning": {
+    "title": "아침 루틴 (Ghostrifter)",
+    "size": "1.83 MB • MP3",
+    "credit": "음악: <a href=\"https://soundcloud.com/ghostrifter-official\" target=\"_blank\">Ghostrifter Official</a>의 \"Morning Routine\"<br>제공: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>라이선스: <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\">CC BY-SA 3.0</a>"
+  },
+  "poupi": {
+    "title": "Poupi 음악 (Komiku)",
+    "size": "0.52 MB • MP3",
+    "credit": "음악: <a href=\"https://freemusicarchive.org/music/Komiku/\" target=\"_blank\">Komiku</a>의 \"Poupi Theme\"<br>제공: Free Music Archive<br>라이선스: 퍼블릭 도메인 CC0 (상업적 사용 포함 자유롭게 사용 가능, 저작자 표시 불필요)"
+  },
+  "fallen": {
+    "title": "떨어지는 잎 (陽菜/Hina)",
+    "size": "1.13 MB • MP3",
+    "credit": "음악: <a href=\"https://soundcloud.com/usuario-80857924\" target=\"_blank\">陽菜/Hina</a>의 \"Fallen Leaves\"<br>제공: <a href=\"https://www.chosic.com/free-music/all/\" target=\"_blank\">Chosic</a><br>라이선스: 퍼블릭 도메인 CC0 (상업적 사용 포함 자유롭게 사용 가능, 저작자 표시 불필요)"
+  }
+},
+"jamBanner": {
+  "title": "자신만의 Game Jam을 개최하세요!",
+  "description": "독창적인 이벤트를 만들고, 규칙을 설정하며, 창의력을 발휘하여 커뮤니티에 영감을 주세요.",
+  "createBtn": "새 Jam 생성"
+},
+"news": {
+  "title": "🕹️ 비디오 게임 뉴스",
+  "loading": "뉴스 로딩 중..."
+},
+"newsFooter": {
+  "text": "뉴스 출처:",
+  "source": "3DJuegos.com",
+  "disclaimer": "뉴스는 RSS를 통해 정보 제공 목적으로만 가져왔으며, 항상 원본 사이트를 명시합니다."
+},
+"community": {
+  "title": "TakumiNet 개발자 커뮤니티",
+  "welcome": "커뮤니티에 오신 것을 환영합니다! 다른 개발자와 공유하고, 배우고, 소통하세요."
+},
+"forum": {
+  "showRules": "포럼 규칙 보기",
+  "rules": {
+    "clear": "명확하고 구체적으로 작성하세요:",
+    "clearDesc": "주제를 직접적으로 나타내는 제목을 사용하세요.",
+    "noSpam": "스팸을 피하세요:",
+    "noSpamDesc": "관련 없는 링크나 홍보성 자료를 게시하지 마세요.",
+    "categorize": "올바른 분류:",
+    "categorizeDesc": "주제에 가장 적합한 카테고리를 선택하세요.",
+    "respect": "다른 사람을 존중하세요:",
+    "respectDesc": "욕설, 비방, 차별적인 콘텐츠는 금지됩니다.",
+    "value": "유용한 콘텐츠를 공유하세요:",
+    "valueDesc": "커뮤니티에 도움이 되는 게시물을 작성하세요.",
+    "tags": "태그를 사용하세요:",
+    "tagsDesc": "관련 태그를 추가하여 주제를 쉽게 찾을 수 있도록 하세요.",
+    "noRepeat": "중복하지 마세요:",
+    "noRepeatDesc": "비슷한 포럼이 이미 있는지 먼저 확인하세요.",
+    "footer": "이 규칙을 따르면 이 공간이 건강하고 유용하게 유지됩니다."
+  },
+  "discussion": "토론 포럼",
+  "createTopic": "새 주제 생성"
+   },
+"profile": {
+  "username": "손님",
+  "bioTitle": "소개",
+  "bioPlaceholder": "사용자 프로필이 여기에 표시됩니다.",
+  "socialTitle": "소셜 미디어",
+  "noSocials": "추가된 소셜 계정이 없습니다.",
+  "contactTitle": "연락처 정보",
+  "noContact": "연락처 정보가 제공되지 않았습니다.",
+  "gamesTitle": "게시한 게임",
+  "noGames": "이 사용자는 게시한 게임이 없습니다."
+},
+"gamesModal": {
+  "close": "×",
+  "title": "게임 편집",
+  "labelTitle": "제목:",
+  "labelPrice": "가격:",
+  "labelDiscount": "할인 (%):",
+  "finalPrice": "할인 적용 최종 가격:",
+  "saveBtn": "변경 사항 저장"
+},
+"favorites": {
+  "title": "즐겨찾기 게임",
+  "noFavorites": "아직 즐겨찾기 게임을 추가하지 않았습니다. 탐색하고 마음에 드는 게임을 추가하세요!",
+  "container": "즐겨찾기 게임이 여기에서 JavaScript로 표시됩니다."
+},
+"dashboard": {
+  "nav": {
+    "projects": "프로젝트 업로드",
+    "analytics": "분석",
+    "publications": "게시물",
+    "gameJams": "Game Jam 대회"
+  },
+  "welcomeTitle": "환영합니다, 개발자님",
+  "welcomeDesc": "이 대시보드를 통해 게임을 관리하고 성과를 확인하며 독점 도구에 접근할 수 있습니다.",
+  "accountStats": "계정 통계",
+  "stats": {
+    "visits": "방문",
+    "downloads": "다운로드"
+  },
+  "projectsAnalysis": "프로젝트 및 분석",
+  "projects": "프로젝트",
+  "projectsDesc": "게시된 게임 관리",
+  "analytics": "분석",
+  "analyticsDesc": "주요 데이터 및 지표",
+  "earnings": "수익",
+  "earningsDesc": "재무 성과",
+  "promotionsPublications": "홍보 및 게시물",
+  "promotions": "홍보",
+  "promotionsDesc": "게임 가시성 향상",
+  "publications": "게시물",
+  "publicationsDesc": "뉴스 및 업데이트 공유",
+  "gameJams": "Game Jam 대회",
+  "gameJamsDesc": "창의적 활동에 참여",
+  "integrationConnections": "통합 및 연결",
+  "integrationTitle": "TakumiNet 통합:",
+  "integrationDesc": "사용자 이름을 사용하여 커뮤니티에서 프로필을 돋보이게 하세요.",
+  "ctaUpload": "처음이신가요? 첫 게임을 업로드하세요",
+  "ctaExplore": "다른 게임 탐색"
+  },
+"upload": {
+  "titleLabel": "게임 제목",
+  "titlePlaceholder": "게임 제목 입력",
+  "descriptionLabel": "설명",
+  "descriptionPlaceholder": "설명 입력",
+  "categoryLabel": "카테고리",
+  "categories": {
+    "adventure": "모험",
+    "rpg": "RPG",
+    "action": "액션",
+    "puzzle": "퍼즐",
+    "horror": "호러",
+    "other": "기타"
+  },
+  "genresLabel": "장르",
+  "genres": {
+    "pixelart": "픽셀 아트",
+    "retro": "레트로",
+    "shortStory": "단편 스토리",
+    "comedy": "코미디",
+    "fantasy": "판타지",
+    "levels": "레벨",
+    "choices": "선택",
+    "magic": "마법",
+    "puzzles": "퍼즐",
+    "2D": "2D",
+    "3D": "3D",
+    "4K": "4K",
+    "cooperative": "협동",
+    "competitive": "경쟁",
+    "enemies": "적",
+    "bosses": "보스",
+    "minigames": "미니게임",
+    "noText": "텍스트 없음",
+    "mystery": "미스터리",
+    "cyberpunk": "사이버펑크",
+    "anime": "애니메이션"
+  },
+  "mainGenreLabel": "주요 장르",
+  "mainGenres": {
+    "noGenre": "장르 없음",
+    "adventure": "모험",
+    "rpg": "RPG",
+    "action": "액션",
+    "puzzle": "퍼즐",
+    "horror": "호러",
+    "other": "기타"
+  },
+  "systemRequirements": {
+    "legend": "시스템 요구 사항",
+    "typeLabel": "요구 사항 유형 선택:",
+    "selectOption": "-- 옵션 선택 --",
+    "min": "최소 요구 사항",
+    "recommended": "권장 요구 사항",
+    "minTitle": "최소 요구 사항",
+    "recommendedTitle": "권장 요구 사항",
+    "os": "운영 체제",
+    "cpu": "CPU",
+    "ram": "메모리 (RAM)",
+    "gpu": "그래픽 카드",
+    "storage": "저장 공간"
+  },
+  "cover": {
+    "label": "게임 커버",
+    "info": "권장: 1280 × 719 픽셀, JPG 또는 PNG 형식, 최대 2MB",
+    "previewAlt": "커버 미리보기"
+  },
+  "screenshots": {
+    "label": "게임 스크린샷 (최소 5장)"
+  },
+  "video": {
+    "label": "게임 영상 링크",
+    "placeholder": "https://www.youtube.com/watch?v=XXXXX"
+  },
+  "mediafire": {
+    "label": "게임을 MediaFire에 업로드 (최대 5GB)",
+    "warning": "⚠️ MediaFire를 통해 업로드된 게임만 허용됩니다. 로컬 ZIP 파일은 허용되지 않습니다.",
+    "button": "MediaFire",
+    "modalTitle": "MediaFire 링크 추가",
+    "modalPlaceholder": "여기에 ZIP 파일 링크 붙여넣기",
+    "modalWarning": "⚠️ 파일은 5GB 이하이어야 합니다.",
+    "modalButton": "링크 추가",
+    "modalFeedback": "링크가 성공적으로 추가되었습니다 ✅"
+  },
+  "pricing": {
+    "label": "가격",
+    "options": {
+      "free": "무료",
+      "paid": "유료",
+      "donation": "기부"
+    },
+    "placeholder": "0.00"
+  },
+  "terms": {
+    "label": "TakumiNet 이용 약관 및 결제",
+    "link": "약관 및 결제 보기"
+  },
+  "submitButton": "게임 게시"
+ },
+"config": {
+  "backToHome": "홈으로 돌아가기",
+  "manageDownloads": "다운로드 관리"
+},
+"placeholder_buscar": "게임 검색...",
+"filtro_todos": "전체",
+"filtro_recientes": "최신",
+"filtro_favoritos": "즐겨찾기",
+"filtro_actualizables": "업데이트 가능",
+"orden_mayor": "높은 순",
+"orden_menor": "낮은 순",
+"agregar_juego": "게임 추가",
+"downloads": {
+  "noActivities": "현재 이용 가능한 활동이 없습니다",
+  "exploreLibrary": "우리 게임 라이브러리를 탐색하고 새롭고 흥미로운 경험을 발견하세요.",
+  "discoverGames": "게임 발견"
+},
+"profile": {
+  "editTitle": "프로필 편집",
+  "general": "일반",
+  "realNameLabel": "사용자 이름:",
+  "description": "설명:",
+  "contact": "연락처 정보",
+  "email": "이메일:",
+  "changePassword": "비밀번호 변경",
+  "currentPassword": "현재 비밀번호:",
+  "newPassword": "새 비밀번호:",
+  "confirmPassword": "새 비밀번호 확인:",
+  "saveChanges": "변경 사항 저장",
+  "cancel": "취소"
+},
+"payments": {
+  "intro": "이 페이지에서 TakumiNet를 사용하여 수익을 관리하는 경우, 계정의 사용 가능한 잔액을 출금 요청할 수 있습니다. 판매자 설정에서 수익을 받을 결제 수단을 설정하세요.",
+  "sellerSettings": "판매자 설정",
+  "note": "참고: 현재 계정은 직접 결제로 설정되어 있습니다. 구매는 계정으로 직접 들어가며 TakumiNet 내부 잔액을 거치지 않습니다.",
+  "accountBalanceTitle": "계정 잔액",
+  "accountBalanceText": "현재 계정에 대기 중인 잔액이 없습니다. 잔액이 생기면 TakumiNet를 통해 출금 요청할 수 있습니다.",
+  "profitDistribution": "수익 분배: 판매 시 70%는 개발자에게 지급되며, 나머지 30%는 TakumiNet 수수료입니다.",
+  "paypalLogoAlt": "PayPal 로고",
+  "connectPayPalTitle": "🌍 PayPal 계정 연결",
+  "connectPayPalText": "국제 결제를 받으려면 PayPal 비즈니스 계정을 플랫폼에 연결해야 합니다. 이를 통해 어느 나라에서든 안전하게 결제를 받을 수 있습니다.",
+  "connectPayPalButton": "PayPal 연결",
+  "paypalConnected": "연결 후 국제 결제를 직접 받을 수 있습니다."
+   },
+"config": {
+  "payments": "개발자 결제",
+  "backToPayments": "결제로 돌아가기",
+  "backToDashboard": "대시보드로 돌아가기",
+  "title": "검정"
+},
+"followed": {
+  "title": "팔로우한 사람들",
+  "loading": "로드 중..."
+},
+"profile": {
+  "guest": "게스트",
+  "bio": "사용자 개인 프로필이 여기에 표시됩니다.",
+  "socialTitle": "소셜 미디어",
+  "contactTitle": "연락처 정보",
+  "publishedGamesTitle": "게시된 게임"
+},
+"jams": {
+  "title": "게임 잼(Game Jams)",
+  "subtitle": "우리의 멋진 게임 대회에서 탐색하고, 참여하고, 창작하세요. 커뮤니티에 참여하여 당신의 재능을 보여주세요!",
+  "tabs": {
+    "overview": "개요",
+    "community": "커뮤니티"
+  }
+},
+"details": {
+  "title": "게임 대회 세부 정보",
+  "fields": {
+    "title": "제목:",
+    "shortDescription": "간략 설명:",
+    "url": "링크 (URL):",
+    "startsIn": "시작까지 남은 시간:",
+    "type": "대회 유형:",
+    "whoVotes": "누가 투표합니까?",
+    "startDate": "시작 날짜:",
+    "endDate": "종료 날짜:",
+    "votingStart": "투표 시작:",
+    "fullDescription": "전체 설명:",
+    "criteria": "평가 기준:",
+    "hashtag": "해시태그 (Hashtag):",
+    "community": "커뮤니티:",
+    "blockUploads": "업로드 차단:",
+    "hideResults": "결과 숨기기:",
+    "hideSubmissions": "참가작 숨기기:",
+    "visibility": "가시성:",
+    "creationDate": "생성일:"
+  },
+"join": "잼에 참여하기",
+"calculating": "계산 중..."
+},
+"forum": {
+  "title": "포럼 주제",
+  "createTopic": "주제 생성",
+  "loading": "주제 로딩 중..."
+},
+"modal": {
+  "title": "새 주제 만들기",
+  "inputTitle": "주제 제목",
+  "inputDescription": "주제 설명",
+  "submit": "주제 생성",
+  "close": "닫기"
+},
+"games": {
+  "removeFavorite": "즐겨찾기에서 제거",
+  "free": "무료",
+  "noTitle": "제목 없음",
+  "noDescription": "설명 없음"
+},
+"news": {
+  "loading": "최신 뉴스 로딩 중...",
+  "errorTitle": "뉴스 로딩 실패",
+  "errorUnknown": "알 수 없는 오류",
+  "retry": "다시 시도",
+  "lastUpdated": "마지막 업데이트",
+  "readMore": "더 읽기",
+  "disclaimer": "뉴스 출처:",
+  "source": "3DJuegos.com",
+  "rssNote": "RSS를 통해 정보 제공 목적으로만 가져왔으며, 항상 원본 사이트에 대한 링크 포함."
+},
+"pagination": {
+  "prev": "이전",
+  "next": "다음"
+  }
+}
