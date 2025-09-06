@@ -1,0 +1,11 @@
+### Crear foro
+POST http://localhost:3001/foros/crear
+Content-Type: application/json
+
+{
+  "title": "Primer foro",
+  "category": "Videojuegos",
+  "description": "Foro para discutir sobre juegos indie",
+  "tags": "indie, desarrollo",
+  "image_base64": null
+}

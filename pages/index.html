@@ -11,57 +11,206 @@
   <link rel="stylesheet" href="../src/footer.css">
   <link rel="stylesheet" href="../src/featuredGames.css">
 <style>
-  /* Estilos generales - Minimalista oscuro con acentos verdes */
+/* Estilos para la sección promocional con video - Versión optimizada */
 .large_promo_section {
-   background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
-                url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-  padding: 4rem 2rem;
-  text-align: center;
-  border-bottom: 1px solid #2e2e2e;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  text-align: center;
-  border-bottom: 1px solid #00ff55;
-  color: #d4ffd4; /* texto en tono verde claro para contraste */
-  
-}
-.promo-content {
-  max-width: 800px;
-  margin: 0 auto;
+    position: relative;
+    height: 80vh; /* Reducido de 100vh para mejor visualización */
+    min-height: 500px; /* Más equilibrado */
+    max-height: 900px; /* Más razonable */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    isolation: isolate;
 }
 
+.promo-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+/* Capa de overlay mejorada */
+.large_promo_section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%);
+    z-index: -1;
+}
+
+.promo-content {
+    max-width: 800px; /* Más adecuado para lectura */
+    padding: 2rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Títulos perfectamente escalados */
 .promo-content h1 {
-  color: #ffffff;
-  font-size: 2.8rem;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    font-size: 2.8rem; /* Tamaño más natural */
+    font-weight: 700; /* Peso intermedio */
+    margin-bottom: 1.2rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    line-height: 1.3;
 }
 
 .promo-content p {
-  color: #cccccc;
-  font-size: 1.2rem;
-  margin-bottom: 2.5rem;
+    font-size: 1.2rem; /* Más legible */
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    line-height: 1.5;
 }
 
+/* Botón con proporciones perfectas */
 .promo-btn {
-  display: inline-block;
-  padding: 1.2rem 2.4rem;
-  background-color: #4CAF50;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    display: inline-block;
+    padding: 0.9rem 2.2rem; /* Más proporcionado */
+    background: linear-gradient(
+  135deg,
+  rgba(16, 255, 8, 0.31) 0%,   /* verde transparente */
+  rgba(16, 255, 8, 0.15) 50%,  /* verde más transparente */
+  rgba(16, 255, 8, 0.05) 100%  /* casi transparente */
+);
+
+    color: rgb(252, 239, 239);
+    font-size: 1.1rem; /* Tamaño ideal */
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
 }
 
 .promo-btn:hover {
-  background-color: #45a049;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+  background-color: #5bdb4aa6; /* verde un poco más oscuro */
+  box-shadow: 0 8px 20px rgba(90, 219, 74, 0.6);
+  transform: translateY(-3px) scale(1.05);
 }
 
+/* Formulario MailerLite optimizado */
+.mailerlite-form-container {
+    max-width: 450px; /* Más compacto */
+    margin: 2rem auto 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    animation: fadeIn 0.8s ease-out 0.4s both;
+}
+
+.mailerlite-form-title {
+    font-size: 1.3rem; /* Tamaño ideal */
+    margin-bottom: 1.2rem;
+    color: white;
+    font-weight: 500;
+}
+
+.mailerlite-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem; /* Espaciado perfecto */
+}
+
+.mailerlite-form input {
+    padding: 0.9rem;
+    border-radius: 50px;
+    border: none;
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.92);
+    transition: all 0.25s ease;
+}
+
+.mailerlite-form button {
+    padding: 0.9rem;
+    font-size: 0.95rem; /* Mejor proporción */
+}
+
+/* Animaciones más fluidas */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design optimizado */
+@media (max-width: 768px) {
+    .large_promo_section {
+        height: 85vh;
+        min-height: 450px;
+    }
+    
+    .promo-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .promo-content p {
+        font-size: 1.1rem;
+    }
+    
+    .mailerlite-form-container {
+        max-width: 380px;
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .large_promo_section {
+        height: 80vh;
+        min-height: 400px;
+    }
+    
+    .promo-content h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .promo-content p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .promo-btn {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+    }
+    
+    .mailerlite-form-container {
+        max-width: 320px;
+        padding: 1rem;
+    }
+    
+    .mailerlite-form-title {
+        font-size: 1.1rem;
+    }
+}
 
 
 
@@ -70,31 +219,38 @@
 
 /* === CONTENEDOR PRINCIPAL === */
 main.juegos-contenedor {
+  background: linear-gradient(-45deg, #019e0e, #1b1b1b, #1a1a1a, #007a35);
+  background-size: 400% 400%;
+  animation: gradienteAnimado 15s ease infinite;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding:2rem 1rem;               /* Espaciado interno */
-  margin: 0 auto;                   /* Centrado horizontal */
+  padding: 2rem 1rem;              
+  margin: 0 auto;                  
   width: 100%;
-  max-width: 2100px;                /* Ancho máximo deseado */      /* Fondo oscuro */
-  color: #fff;                      /* Texto blanco */
-  border-radius: 15px;                 /* Bordes completamente cuadrados */
-  box-sizing: border-box;           /* Padding incluido en el ancho */
-  overflow-x: hidden;               /* Evita scroll horizontal */
+  max-width: 2100px;               
+  color: #fff;                     
+  border-radius: 1px;             
+  box-sizing: border-box;          
+  overflow-x: hidden;              
+}
+
+/* Animación del gradiente */
+@keyframes gradienteAnimado {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* === SECCIÓN INDIVIDUAL === */
 .content-preview {
-  background-color: #1a1a1a;
   border-radius: 1px;
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* === TÍTULO DE SECCIÓN === */
 .content-preview h2 {
   font-size: 1.25rem; /* Equivale a 18px */
-
   margin-bottom: 1rem;
   font-weight: 600;
   color: #ffffff;
@@ -259,7 +415,7 @@ main.juegos-contenedor {
 /* ============================= */
 .juego-card, 
 .game-card {
-  background: #1f1f1f;
+
   border-radius: 12px;
   overflow: hidden;
   display: flex;
@@ -566,7 +722,7 @@ main.juegos-contenedor {
             <div class="dropdown-group">
               <a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i><span data-i18n="configuracion">Configuración</span></a>
               <a href="perfil-editar.html" class="menu-item"><i class="fas fa-user-edit"></i><span data-i18n="editar_usuario">Editar Usuario</span></a>
-              <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-star"></i><span data-i18n="suscripcion">Suscripción</span></a>
+                <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-money-bill-wave"></i><span data-i18n="pagos">Pagos</span></a>
               <a href="seguidos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="seguidos">Seguidos</span></a>
             </div>
             <hr class="divider">
@@ -580,15 +736,18 @@ main.juegos-contenedor {
 </nav>
 
 
+  <section class="large_promo_section">
+    <video class="promo-video" autoplay muted loop>
+      <source src="../assets/191684-891315375_small.mp4" type="video/mp4">
+      Tu navegador no soporta videos HTML5.
+    </video>
 
-<section class="large_promo_section">
     <div class="promo-content">
-        <h1 data-i18n="bienvenida">¡Bienvenido a TakumiNet!</h1>
-        <p data-i18n="descripcion">Descubre, comparte y disfruta los mejores juegos indie.</p>
-        <a href="Creator Dashboard.html" class="promo-btn" data-i18n="boton-publicar">Publica tu juego aquí</a>
+      <h1 data-i18n="bienvenida">¡Bienvenido a TakumiNet!</h1>
+      <p data-i18n="descripcion">Descubre, comparte y disfruta los mejores juegos indie.</p>
+      <a href="Creator Dashboard.html" class="promo-btn" data-i18n="boton-publicar">Publica tu juego aquí</a>
     </div>
-</section>
-
+  </section>
 
 <main class="juegos-contenedor">
   <!-- Juegos destacados -->
@@ -687,130 +846,311 @@ main.juegos-contenedor {
 <script src="../js/notificacion.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dexie@3.2.3/dist/dexie.min.js"></script>
 <script src="../js/carrito.js"></script>
-<script src="../js/user.js"></script>
 <script src="../js/desplegar.js"></script>
 <script src="../js/cerrar sesion.js"></script>
 <script src="../js/discorduser.js"></script>
-<script src="../js/usario.js"></script>
 <script src="../main.js"></script>
-<script src="../js/i18n.js"></script>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/dexie@3.2.3/dist/dexie.min.js"></script>
+<script src="../js/traductor.js"></script>
+<script src="../renderer.js"></script>
+<script src="../js/user.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('✅ Cargando juegos en secciones...');
-
-    // Abrir conexión a IndexedDB
-    const request = indexedDB.open('GamesDB', 2); // asegúrate de mantener esta versión para que onupgradeneeded se dispare si es nuevo
-
-    request.onerror = () => console.error('❌ No se pudo abrir la base de datos.');
-
-    request.onupgradeneeded = (event) => {
-        const db = event.target.result;
-        console.log('⚙️ Actualizando o creando la base de datos...');
-
-        // Crea las object stores si no existen
-        if (!db.objectStoreNames.contains('games')) {
-            db.createObjectStore('games', { keyPath: 'id' });
-            console.log('📦 Store "games" creada');
-        }
-
-        if (!db.objectStoreNames.contains('gameImages')) {
-            db.createObjectStore('gameImages', { keyPath: 'id' });
-            console.log('🖼️ Store "gameImages" creada');
-        }
-    };
-
-    request.onsuccess = (event) => {
-        const db = event.target.result;
-        cargarSecciones(db);
-    };
-
-    // Tu función cargarSecciones queda igual...
-    function cargarSecciones(db) {
-        const tx = db.transaction(['games', 'gameImages'], 'readonly');
-        const gamesStore = tx.objectStore('games');
-        const imagesStore = tx.objectStore('gameImages');
-
-        const juegos = [];
-
-        gamesStore.openCursor().onsuccess = (e) => {
-            const cursor = e.target.result;
-            if (cursor) {
-                juegos.push(cursor.value);
-                cursor.continue();
-            } else {
-                if (juegos.length === 0) {
-                    mostrarMensajeVacio();
-                    return;
-                }
-
-                mostrarJuegos(juegos, 'juegos-destacados', 4);
-                mostrarJuegosAleatorios(juegos, 'juegos-recomendados', 4);
-                mostrarJuegosPorPrecio(juegos, 'juegos-gratis', 'gratis', 4);
-                mostrarJuegosPorPrecio(juegos, 'juegos-pagos', 'pago', 4);
-                mostrarJuegosAleatorios(juegos, 'juegos-seleccionados', 4);
-            }
-        };
-
-        function mostrarMensajeVacio() {
-            const secciones = document.querySelectorAll('.juegos-contenedor');
-            secciones.forEach(sec => sec.innerHTML = '<p>No hay juegos disponibles.</p>');
-        }
-
-        function mostrarJuegos(lista, contenedorId, max) {
-            const contenedor = document.getElementById(contenedorId);
-            contenedor.innerHTML = '';
-            const subset = lista.slice(0, max);
-            subset.forEach(game => crearCard(game, contenedor));
-        }
-
-        function mostrarJuegosAleatorios(lista, contenedorId, max) {
-            const contenedor = document.getElementById(contenedorId);
-            contenedor.innerHTML = '';
-            const shuffled = [...lista].sort(() => 0.5 - Math.random());
-            shuffled.slice(0, max).forEach(game => crearCard(game, contenedor));
-        }
-
-        function mostrarJuegosPorPrecio(lista, contenedorId, tipo, max) {
-            const contenedor = document.getElementById(contenedorId);
-            contenedor.innerHTML = '';
-            const filtrados = lista.filter(g => (tipo === 'gratis' ? g.pricing === 'gratis' : g.pricing !== 'gratis'));
-            const subset = filtrados.slice(0, max);
-            subset.forEach(game => crearCard(game, contenedor));
-        }
-
-        function crearCard(game, contenedor) {
-            const imgRequest = imagesStore.get(game.id);
-            imgRequest.onsuccess = () => {
-                const imgData = imgRequest.result;
-                const portada = imgData?.cover ? imgData.cover.base64 : 'https://via.placeholder.com/300x180?text=Sin+Imagen';
-
-                const card = document.createElement('div');
-                card.className = 'game-card';
-                card.style.cursor = 'pointer';
-                card.addEventListener('click', () => {
-                    window.location.href = `perfil-juegos.html?id=${game.id}`;
-                });
-
-                card.innerHTML = `
-                    <img src="${portada}" alt="Portada" width="100%" height="140" style="object-fit:cover;">
-                    <div>
-                        <h3>${game.title}</h3>
-                        <p>${game.category || 'Sin categoría'}</p>
-                        <p>${game.description.length > 40 ? game.description.substring(0, 40) + '...' : game.description}</p>
-                        <p>${game.pricing === 'gratis' ? 'Gratis' : `$${game.price.toFixed(2)}`}</p>
-                    </div>
-                `;
-
-                contenedor.appendChild(card);
-            };
-        }
+// Datos de ejemplo para juegos
+const juegosEjemplo = {
+  destacados: [
+    {
+      id: 1,
+      nombre: "The Witcher 3",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header.jpg",
+      precio: 29.99,
+      rating: 4.9,
+      esGratis: false
+    },
+    {
+      id: 2,
+      nombre: "Cyberpunk 2077",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg",
+      precio: 39.99,
+      rating: 4.2,
+      esGratis: false
+    },
+    {
+      id: 3,
+      nombre: "Elden Ring",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg",
+      precio: 49.99,
+      rating: 4.8,
+      esGratis: false
+    },
+    {
+      id: 4,
+      nombre: "Stardew Valley",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/413150/header.jpg",
+      precio: 14.99,
+      rating: 4.7,
+      esGratis: false
+    },
+    {
+      id: 17,
+      nombre: "God of War",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/header.jpg",
+      precio: 49.99,
+      rating: 4.9,
+      esGratis: false
+    },
+    {
+      id: 18,
+      nombre: "Horizon Zero Dawn",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1151640/header.jpg",
+      precio: 59.99,
+      rating: 4.9,
+      esGratis: false
     }
-});
+  ],
+  recomendados: [
+    {
+      id: 5,
+      nombre: "Hades",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/header.jpg",
+      precio: 24.99,
+      rating: 4.8,
+      esGratis: false
+    },
+    {
+      id: 6,
+      nombre: "Valheim",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/892970/header.jpg",
+      precio: 19.99,
+      rating: 4.6,
+      esGratis: false
+    },
+    {
+      id: 7,
+      nombre: "Among Us",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/945360/header.jpg",
+      precio: 4.99,
+      rating: 4.0,
+      esGratis: false
+    },
+    {
+      id: 19,
+      nombre: "Sekiro: Shadows Die Twice",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/814380/header.jpg",
+      precio: 39.99,
+      rating: 4.8,
+      esGratis: false
+    },
+    {
+      id: 20,
+      nombre: "DOOM Eternal",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/782330/header.jpg",
+      precio: 29.99,
+      rating: 4.7,
+      esGratis: false
+    },
+    {
+      id: 21,
+      nombre: "Death Stranding",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1190460/header.jpg",
+      precio: 39.99,
+      rating: 4.6,
+      esGratis: false
+    }
+  ],
+  gratis: [
+    {
+      id: 8,
+      nombre: "Dota 2",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/570/header.jpg",
+      precio: 0,
+      rating: 4.1,
+      esGratis: true
+    },
+    {
+      id: 9,
+      nombre: "Team Fortress 2",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/440/header.jpg",
+      precio: 0,
+      rating: 4.3,
+      esGratis: true
+    },
+    {
+      id: 10,
+      nombre: "Warframe",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/230410/header.jpg",
+      precio: 0,
+      rating: 4.4,
+      esGratis: true
+    },
+    {
+      id: 22,
+      nombre: "Apex Legends",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg",
+      precio: 0,
+      rating: 4.5,
+      esGratis: true
+    },
+    {
+      id: 23,
+      nombre: "Destiny 2",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1085660/header.jpg",
+      precio: 0,
+      rating: 4.2,
+      esGratis: true
+    },
+    {
+      id: 24,
+      nombre: "Path of Exile",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/238960/header.jpg",
+      precio: 0,
+      rating: 4.6,
+      esGratis: true
+    }
+  ],
+  pagos: [
+    {
+      id: 11,
+      nombre: "Red Dead Redemption 2",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg",
+      precio: 59.99,
+      rating: 4.7,
+      esGratis: false
+    },
+    {
+      id: 12,
+      nombre: "Baldur's Gate 3",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg",
+      precio: 49.99,
+      rating: 4.9,
+      esGratis: false
+    },
+    {
+      id: 13,
+      nombre: "Call of Duty: Warzone",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1962663/header.jpg",
+      precio: 0,
+      rating: 3.8,
+      esGratis: true
+    },
+    {
+      id: 25,
+      nombre: "Assassin's Creed Valhalla",
+      imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202211/1416/HXBxcRRNOpjREOW3GpBndz3u.png",
+      precio: 59.99,
+      rating: 4.5,
+      esGratis: false
+    },
+    {
+      id: 26,
+      nombre: "Far Cry 6",
+      imagen: "https://image.api.playstation.com/vulcan/img/rnd/202106/1514/fkPaEpz998Uu7QaofSj1VIhr.png",
+      precio: 49.99,
+      rating: 4.3,
+      esGratis: false
+    },
+    {
+    id: 27,
+      nombre: "Resident Evil 4 Remake",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/header.jpg",
+      precio: 39.99,
+      rating: 4.8,
+      esGratis: false
+    }
+  ],
+  seleccionados: [
+    {
+      id: 14,
+      nombre: "Hollow Knight",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg",
+      precio: 14.99,
+      rating: 4.8,
+      esGratis: false
+    },
+    {
+      id: 15,
+      nombre: "Celeste",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/504230/header.jpg",
+      precio: 19.99,
+      rating: 4.7,
+      esGratis: false
+    },
+    {
+      id: 16,
+      nombre: "Terraria",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/105600/header.jpg",
+      precio: 9.99,
+      rating: 4.6,
+      esGratis: false
+    },
+    {
+      id: 28,
+      nombre: "Cuphead",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/268910/header.jpg",
+      precio: 19.99,
+      rating: 4.9,
+      esGratis: false
+    },
+    {
+      id: 29,
+      nombre: "Undertale",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/391540/header.jpg",
+      precio: 9.99,
+      rating: 4.8,
+      esGratis: false
+    },
+    {
+      id: 30,
+      nombre: "Hades",
+      imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/header.jpg",
+      precio: 24.99,
+      rating: 4.9,
+      esGratis: false
+    }
+  ]
+};
 
+// Función para crear el HTML de un juego
+function crearElementoJuego(juego) {
+  return `
+    <div class="juego-card">
+      <img src="${juego.imagen}" alt="${juego.nombre}" class="juego-imagen">
+      <div class="juego-info">
+        <h3 class="juego-nombre">${juego.nombre}</h3>
+        <div class="juego-detalles">
+          ${juego.esGratis ? 
+            '<span class="juego-precio gratis">Gratis</span>' : 
+            `<span class="juego-precio">$${juego.precio.toFixed(2)}</span>`
+          }
+          <span class="juego-rating">⭐ ${juego.rating}</span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// Función para cargar juegos en una sección
+function cargarJuegosEnSeccion(seccionId, juegos) {
+  const contenedor = document.getElementById(seccionId);
+  if (!contenedor) return;
+  
+  contenedor.innerHTML = juegos.map(juego => crearElementoJuego(juego)).join('');
+}
+
+// Cargar todos los juegos cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+  // Cargar juegos en cada sección
+  cargarJuegosEnSeccion('juegos-destacados', juegosEjemplo.destacados);
+  cargarJuegosEnSeccion('juegos-recomendados', juegosEjemplo.recomendados);
+  cargarJuegosEnSeccion('juegos-gratis', juegosEjemplo.gratis);
+  cargarJuegosEnSeccion('juegos-pagos', juegosEjemplo.pagos);
+  cargarJuegosEnSeccion('juegos-seleccionados', juegosEjemplo.seleccionados);
+  
+  // Opcional: Añadir evento para el botón "Ver todos"
+  document.querySelector('.btn-ver-todos').addEventListener('click', function(e) {
+    e.preventDefault();
+    // Aquí podrías añadir lógica adicional antes de redirigir
+    window.location.href = 'marketplace.html';
+  });
+});
 
 </script>
 </body>

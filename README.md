@@ -89,6 +89,3 @@ El equipo busca avanzar con apoyo técnico propio y recursos disponibles.
 TakumiNet aspira a consolidarse como un referente en el mundo de los videojuegos indie, promoviendo la accesibilidad, la seguridad y el crecimiento de una comunidad vibrante de desarrolladores y jugadores.
 
 ---
-=======
-TakumiNet es una plataforma digital multiplataforma (escritorio y móvil) para la venta y promoción de videojuegos indie. Permitirá a los desarrolladores subir sus juegos, gestionar precios, capturas de pantalla y videos promocionales.
->>>>>>> d57cf24861b4f3c8dd6b1f5132db21472c47f222

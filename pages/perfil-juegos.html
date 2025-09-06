@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../src/footer.css">
     <link rel="stylesheet" href="../src/index.css">
     <link rel="stylesheet" href="../src/nav.css">
@@ -346,13 +346,128 @@ textarea {
   font-weight: bold;
 }
 
+
+
+
+
+
+
+
+
+
+#contenedor-boton-juego {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    margin: 40px auto 0 auto; /* Top reducido, margen centrado horizontal */
+    width: 100%;
+    background: none;
+}
+
+
+.boton-juego {
+    display: inline-block;
+    padding: 16px 40px;
+    background-color: #04a541;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+    transition: all 0.3s ease;
+    min-width: 250px;
+
+    margin-top: -20px; /* Bajado suavemente */
+    margin-bottom: 20px;
+}
+
+
+
+/* Efecto hover */
+.boton-juego:hover {
+    background-color: #27ae60; /* Verde más oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(46, 204, 113, 0.4);
+}
+
+/* Efecto al hacer clic */
+.boton-juego:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px rgba(46, 204, 113, 0.3);
+}
+
+/* Icono de descarga (opcional) */
+.boton-juego::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>');
+    vertical-align: middle;
+}
+
+/* Mensajes de error */
+#contenedor-boton-juego p {
+    color: #e74c3c;
+    padding: 15px;
+    background-color: #fdecea;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    border-left: 4px solid #e74c3c;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+
+#galeria-capturas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  padding: 20px;
+  background-color: #121212;
+}
+
+.captura-galeria {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  border: 1px solid #2a2a2a;
+  background-color: #1c1c1c;
+  cursor: pointer;
+}
+
+.captura-galeria:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px rgba(0, 255, 128, 0.2);
+  border-color: #3fcf8e;
+}
 </style>
 </head>
 <body>
   <div id="overlayFondo"></div>
   <!-- tu contenido --> 
 
-  <nav class="navbar">
+<nav class="navbar">
     <!-- Sección Izquierda: Logo -->
     <div class="navbar-logo">
         <img src="../assets/img/logo.png" alt="Logo de TakumiNet">
@@ -434,7 +549,7 @@ textarea {
             <div class="dropdown-group">
               <a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i><span data-i18n="configuracion">Configuración</span></a>
               <a href="perfil-editar.html" class="menu-item"><i class="fas fa-user-edit"></i><span data-i18n="editar_usuario">Editar Usuario</span></a>
-              <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-star"></i><span data-i18n="suscripcion">Suscripción</span></a>
+                <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-money-bill-wave"></i><span data-i18n="pagos">Pagos</span></a>
               <a href="seguidos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="seguidos">Seguidos</span></a>
             </div>
             <hr class="divider">
@@ -469,9 +584,8 @@ textarea {
   <h4 data-i18n="gameProfile.descriptionTitle">Descripción del juego:</h4>
   <p id="descripcion-juego">Cargando descripción...</p>
 
-  <!-- Capturas -->
-  <h3 data-i18n="gameProfile.screenshotsTitle">Capturas de pantalla:</h3>
-  <div id="galeria-capturas" class="galeria-capturas"></div>
+<!-- Capturas -->
+<div id="galeria-capturas"></div>
 
   <!-- Requisitos del sistema -->
   <div class="requisitos-sistema">
@@ -494,9 +608,10 @@ textarea {
     <p><span data-i18n="gameProfile.recStorage">Almacenamiento recomendado:</span> <strong id="almacenamiento-rec">Cargando...</strong></p>
   </div>
 
-<!-- ✅ Contenedor donde se inserta dinámicamente el botón -->
-      <div id="contenedor-boton-juego"></div>
-  
+<!-- En tu HTML -->
+<div id="contenedor-boton-juego"></div>
+
+
 <!-- FORMULARIO PARA COMENTAR (ahora va primero) -->
 <form id="formComentario" class="comentario-form">
   <textarea id="inputComentario" placeholder="Escribe tu comentario..." required></textarea>
@@ -511,6 +626,8 @@ textarea {
   <!-- Scripts externos -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>lucide.createIcons();</script>
+<script src="../js/juegoGratis.js"></script>
+<script src="../js/juegoPago.js"></script>
 
   <script src="../js/comentario.js"></script>
   <script src="../js/notificacion.js"></script>
@@ -527,147 +644,179 @@ textarea {
   <script src="../autoSync.js"></script>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const gameId = new URLSearchParams(window.location.search).get('id');
-  if (!gameId) {
-    alert('ID del juego no encontrado.');
-    return;
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    // Obtener ID del juego desde la URL
+    const gameId = getGameIdFromURL();
+    if (!gameId) return showError('ID del juego no encontrado');
+
+    // Abrir conexión a IndexedDB
+    const db = await openDatabase('GamesDB');
+    
+    // Cargar datos en paralelo para mejor rendimiento
+    const [gameData, imagesData] = await Promise.all([
+      getGameData(db, gameId),
+      getGameImages(db, gameId)
+    ]);
+
+    // Mostrar datos en la interfaz
+    displayGameInfo(gameData);
+    displayGameGallery(imagesData);
+    displayBackground(gameData, imagesData);
+    displayRequirements(gameData.requirements);
+
+  } catch (error) {
+    console.error('Error:', error);
+    showError('Error al cargar el juego');
   }
+});
 
-  const dbRequest = indexedDB.open('GamesDB');
+// ===== FUNCIONES UTILITARIAS =====
 
-  dbRequest.onerror = () => {
-    console.error('Error al abrir la base de datos.');
-  };
+function getGameIdFromURL() {
+  return new URLSearchParams(window.location.search).get('id');
+}
 
-  dbRequest.onsuccess = (event) => {
-    const db = event.target.result;
-    cargarDatosDelJuego(db, gameId);
-    cargarCapturas(db, gameId);
-    cargarFondoAnimado(db, gameId);
-  };
+function openDatabase(dbName) {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open(dbName);
+    
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject('Error al abrir la base de datos');
+  });
+}
 
-  function cargarDatosDelJuego(db, id) {
+// ===== FUNCIONES DE DATOS =====
+
+function getGameData(db, gameId) {
+  return new Promise((resolve, reject) => {
     const tx = db.transaction('games', 'readonly');
     const store = tx.objectStore('games');
-    const req = store.get(id);
+    const req = store.get(gameId);
 
-    req.onsuccess = () => {
-      const juego = req.result;
-      if (!juego) {
-        document.getElementById('titulo-juego').textContent = 'Juego no encontrado';
-        return;
-      }
+    req.onsuccess = () => resolve(req.result || {});
+    req.onerror = () => reject('No se pudo cargar la información del juego');
+  });
+}
 
-      document.getElementById('titulo-juego').textContent = juego.title || 'Sin título';
-      document.getElementById('descripcion-juego').textContent = juego.description || 'Sin descripción';
-
-      // Video
-      const videoIframe = document.getElementById('youtube-video');
-      let videoLink = juego.videoUrl || juego.youtube;
-      if (videoLink) {
-        try {
-          const url = new URL(videoLink);
-          const videoId = url.searchParams.get("v") || url.pathname.split("/").pop();
-          videoIframe.src = `https://www.youtube.com/embed/${videoId}?rel=0`;
-        } catch (e) {
-          videoIframe.parentElement.innerHTML = '<p>No se pudo cargar el video.</p>';
-        }
-      } else {
-        videoIframe.parentElement.innerHTML = '<p>No hay video disponible.</p>';
-      }
-
-      // Requisitos
-      const min = juego.requirements?.min || {};
-      const rec = juego.requirements?.rec || {};
-      document.getElementById('so-min').textContent = min.minOS || 'No especificado';
-      document.getElementById('procesador-min').textContent = min.minCPU || 'No especificado';
-      document.getElementById('ram-min').textContent = min.minRAM || 'No especificado';
-      document.getElementById('gpu-min').textContent = min.minGPU || 'No especificado';
-      document.getElementById('almacenamiento-min').textContent = min.minStorage || 'No especificado';
-
-      document.getElementById('so-rec').textContent = rec.recOS || 'No especificado';
-      document.getElementById('procesador-rec').textContent = rec.recCPU || 'No especificado';
-      document.getElementById('ram-rec').textContent = rec.recRAM || 'No especificado';
-      document.getElementById('gpu-rec').textContent = rec.recGPU || 'No especificado';
-      document.getElementById('almacenamiento-rec').textContent = rec.recStorage || 'No especificado';
-    };
-
-    req.onerror = () => {
-      console.error('No se pudo cargar la información del juego.');
-    };
-  }
-
-  function cargarCapturas(db, id) {
-    const tx = db.transaction('gameImages', 'readonly');
-    const store = tx.objectStore('gameImages');
-    const req = store.getAll();
-
-    req.onsuccess = () => {
-      const imagenes = req.result.filter(img => img.gameId === id);
-      const galeria = document.getElementById('galeria-capturas');
-
-      if (!galeria) return;
-      galeria.innerHTML = '';
-
-      if (imagenes.length === 0) {
-        galeria.innerHTML = '<p>No hay capturas disponibles.</p>';
-        return;
-      }
-
-      imagenes.forEach(img => {
-        const imgEl = document.createElement('img');
-        imgEl.src = img.dataUrl;
-        imgEl.alt = 'Captura del juego';
-        imgEl.className = 'captura-juego';
-        galeria.appendChild(imgEl);
-      });
-    };
-
-    req.onerror = () => {
-      console.error('Error al cargar capturas de pantalla.');
-    };
-  }
-
-  function cargarFondoAnimado(db, gameId) {
-    const overlay = document.getElementById('overlayFondo');
-    if (!overlay) return;
-
+function getGameImages(db, gameId) {
+  return new Promise((resolve, reject) => {
     const tx = db.transaction('gameImages', 'readonly');
     const store = tx.objectStore('gameImages');
     const req = store.get(gameId);
 
-    req.onsuccess = () => {
-      const juego = req.result;
-      if (!juego || !Array.isArray(juego.screenshots)) return;
+    req.onsuccess = () => resolve(req.result || {});
+    req.onerror = () => reject('Error al cargar imágenes del juego');
+  });
+}
 
-      const gifs = juego.screenshots.filter(img => img.type === 'image/gif');
-      if (gifs.length === 0) return;
+// ===== FUNCIONES DE RENDERIZADO =====
 
-      const gifAleatorio = gifs[Math.floor(Math.random() * gifs.length)].base64;
-      const fondo = document.createElement('img');
-      fondo.src = gifAleatorio;
-      fondo.style = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-        opacity: 0.35;
-        pointer-events: none;
-      `;
+function displayGameInfo(game) {
+  if (!game) return;
+  
+  // Información básica
+  document.getElementById('titulo-juego').textContent = game.title || 'Sin título';
+  document.getElementById('descripcion-juego').textContent = game.description || 'Sin descripción';
+  
+  // Video de YouTube
+  setupYouTubeVideo(game.videoUrl || game.youtube);
+}
 
-      overlay.innerHTML = '';
-      overlay.appendChild(fondo);
-    };
+function setupYouTubeVideo(videoLink) {
+  const videoContainer = document.getElementById('youtube-video');
+  if (!videoContainer) return;
 
-    req.onerror = () => {
-      console.error('Error al obtener fondo animado.');
-    };
+  try {
+    if (!videoLink) throw new Error('No hay video');
+    
+    const url = new URL(videoLink);
+    const videoId = url.searchParams.get("v") || url.pathname.split("/").pop();
+    videoContainer.src = `https://www.youtube.com/embed/${videoId}?rel=0`;
+  } catch {
+    videoContainer.parentElement.innerHTML = '<p>No hay video disponible</p>';
   }
-});
+}
+
+function displayGameGallery(imagesData) {
+  const gallery = document.getElementById('galeria-capturas');
+  if (!gallery) return;
+
+  gallery.innerHTML = '';
+
+  if (!imagesData?.screenshots?.length) {
+    gallery.innerHTML = '<p>No hay capturas disponibles</p>';
+    return;
+  }
+
+  imagesData.screenshots.forEach((img, i) => {
+    if (!img.base64) return;
+    
+    const imgEl = document.createElement('img');
+    imgEl.src = img.base64;
+    imgEl.alt = `Captura ${i + 1}`;
+    imgEl.className = 'captura-galeria';
+    gallery.appendChild(imgEl);
+  });
+}
+
+function displayBackground(gameData, imagesData) {
+  const overlay = document.getElementById('overlayFondo');
+  if (!overlay) return;
+
+  // Buscar imágenes disponibles
+  const availableImages = [
+    ...(imagesData?.screenshots || []),
+    ...(gameData?.cover ? [gameData.cover] : [])
+  ].filter(img => img?.base64);
+
+  if (availableImages.length === 0) return;
+
+  // Seleccionar imagen aleatoria
+  const randomImg = availableImages[Math.floor(Math.random() * availableImages.length)];
+  
+  const fondo = document.createElement('img');
+  fondo.src = randomImg.base64;
+  fondo.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.35;
+    pointer-events: none;
+  `;
+
+  overlay.innerHTML = '';
+  overlay.appendChild(fondo);
+}
+
+function displayRequirements(requirements = {}) {
+  const min = requirements.min || {};
+  const rec = requirements.rec || {};
+  
+  // Requisitos mínimos
+  document.getElementById('so-min').textContent = min.minOS || 'No especificado';
+  document.getElementById('procesador-min').textContent = min.minCPU || 'No especificado';
+  document.getElementById('ram-min').textContent = min.minRAM || 'No especificado';
+  document.getElementById('gpu-min').textContent = min.minGPU || 'No especificado';
+  document.getElementById('almacenamiento-min').textContent = min.minStorage || 'No especificado';
+  
+  // Requisitos recomendados
+  document.getElementById('so-rec').textContent = rec.recOS || 'No especificado';
+  document.getElementById('procesador-rec').textContent = rec.recCPU || 'No especificado';
+  document.getElementById('ram-rec').textContent = rec.recRAM || 'No especificado';
+  document.getElementById('gpu-rec').textContent = rec.recGPU || 'No especificado';
+  document.getElementById('almacenamiento-rec').textContent = rec.recStorage || 'No especificado';
+}
+
+function showError(message) {
+  alert(message);
+  console.error(message);
+}
+
 
 
 
@@ -682,7 +831,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const gameId = params.get('id');
   if (!gameId) return;
 
-  const request = indexedDB.open('GamesDB', 1);
+  const request = indexedDB.open('GamesDB', 2);
 
   request.onsuccess = (event) => {
     const db = event.target.result;
@@ -693,41 +842,49 @@ window.addEventListener('DOMContentLoaded', () => {
     getJuego.onsuccess = () => {
       const juego = getJuego.result;
       if (!juego || !Array.isArray(juego.screenshots)) {
-        console.warn('No hay GIFs en screenshots');
+        console.warn('No hay capturas disponibles');
         return;
       }
 
-      // Elegir un GIF aleatorio
-      const gifs = juego.screenshots.filter(img => img.type === 'image/gif');
-      if (gifs.length === 0) return;
+      // Filtrar imágenes HD admitidas
+      const imagenesHD = juego.screenshots.filter(img =>
+        ['image/gif', 'image/jpeg', 'image/png'].includes(img.type)
+      );
 
-      const gifAleatorio = gifs[Math.floor(Math.random() * gifs.length)].base64;
+      if (imagenesHD.length === 0) {
+        console.warn('No hay imágenes HD disponibles');
+        return;
+      }
 
-      // Crear imagen de fondo animada
+      // Escoger una imagen aleatoria
+      const imagenSeleccionada = imagenesHD[Math.floor(Math.random() * imagenesHD.length)].base64;
+
+      // Crear imagen de fondo responsiva
       const fondo = document.createElement('img');
-      fondo.src = gifAleatorio;
+      fondo.src = imagenSeleccionada;
+      fondo.alt = "Fondo del juego";
       fondo.style.position = 'fixed';
       fondo.style.top = '0';
       fondo.style.left = '0';
-      fondo.style.width = '100%';
-      fondo.style.height = '100%';
-      fondo.style.objectFit = 'cover'; // HD sin deformar
+      fondo.style.width = '100vw';
+      fondo.style.height = '100vh';
+      fondo.style.objectFit = 'cover'; // 4K sin recorte feo
       fondo.style.zIndex = '-1';
-      fondo.style.opacity = '0.35'; // Ajusta si quieres más brillo
+      fondo.style.opacity = '0.3';     // Más tenue
       fondo.style.pointerEvents = 'none';
-      
+      fondo.style.transition = 'opacity 1s ease';
 
       overlay.innerHTML = '';
       overlay.appendChild(fondo);
     };
 
     getJuego.onerror = () => {
-      console.error('Error al obtener juego');
+      console.error('❌ Error al obtener las capturas del juego');
     };
   };
 
   request.onerror = () => {
-    console.error('Error al abrir base de datos');
+    console.error('❌ Error al abrir la base de datos GamesDB');
   };
 });
 

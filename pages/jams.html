@@ -266,344 +266,288 @@
 
 
 
-/* ===== SECCIÓN COMUNIDAD ===== */
-.chat-comunidad {
-    background-color: #1e1e1e;
-    padding: 2.5rem;
-    border-radius: 0 8px 8px 8px;
-    border: 1px solid #333333;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.foro-jam {
+  margin-top: 40px;
+  padding: 15px;
+  background: #222;
+  border-radius: 8px;
+  color: white;
 }
 
-.chat-comunidad h2 {
-    color: #4CAF50;
-    font-size: 1.8rem;
-    margin-bottom: 1.8rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid #333333;
-    font-weight: 600;
+.btn-foro {
+  background: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 15px;
 }
 
-.chat-comunidad h3.chat-subtitulo {
-    color: #ffffff;
-    font-size: 1.4rem;
-    margin: 2rem 0 1.5rem 0;
-    font-weight: 500;
+.btn-foro:hover {
+  background: #218838;
 }
 
-/* ===== FORMULARIO DE COMENTARIOS ===== */
-.chat-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 2rem;
+.lista-foro {
+  list-style: none;
+  padding: 0;
 }
 
-.chat-label {
-    color: #e0e0e0;
-    font-size: 1rem;
-    font-weight: 500;
+.lista-foro li {
+  padding: 10px;
+  border-bottom: 1px solid #444;
 }
 
-.chat-textarea {
-    width: 100%;
-    padding: 1rem;
-    background-color: #252525;
-    border: 1px solid #404040;
-    border-radius: 6px;
-    color: #ffffff;
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 1rem;
-    resize: vertical;
-    transition: border-color 0.3s ease;
+.lista-foro a {
+  color: #00aaff;
+  text-decoration: none;
 }
 
-.chat-textarea:focus {
-    outline: none;
-    border-color: #4CAF50;
-    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
-}
-
-.chat-textarea::placeholder {
-    color: #666666;
-}
-
-/* ===== BOTÓN DE COMENTAR ===== */
-.btn-comentar {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    align-self: flex-start;
-}
-
-.btn-comentar:hover {
-    background-color: #3d8b40;
-    transform: translateY(-1px);
-}
-
-.btn-comentar:active {
-    transform: translateY(0);
+.lista-foro a:hover {
+  text-decoration: underline;
 }
 
 
+/* ===== Modal ===== */
+#modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
+#modal-container.visible {
+  opacity: 1;
+}
 
+.modal-content {
+  background: #272727;
+  padding: 25px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 500px;
+  transform: translateY(-50px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+  border: 1px solid #636e72;
+  color: white;
+}
 
+#modal-container.visible .modal-content {
+  transform: translateY(0);
+}
 
-
-
-
-
-
-/* ======== ESTILOS GENERALES ======== */
-#comentarioForm {
+/* ===== Formulario ===== */
+.form-group {
   margin-bottom: 20px;
 }
 
-#comentarioTexto {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: 1px solid #444;
-  background: #1c1c1c;
-  color: #f0f0f0;
-  resize: vertical;
-  transition: border-color 0.3s ease;
-}
-
-#comentarioTexto:focus {
-  border-color: #0dd85b;
-  outline: none;
-}
-
-#comentarioForm button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #0dd85b;
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
   color: white;
+  font-size: 14px;
+}
+
+.form-group input, 
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  background: #303030;
+  border: 1px solid #62ff06;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.3s;
+  color: white;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+  outline: none;
+  border-color: #0bff02;
+  box-shadow: 0 0 0 2px rgba(21, 255, 0, 0.5);
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #dfe6e9;
+  opacity: 0.7;
+}
+
+/* ===== Botones del modal ===== */
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
+  font-weight: 600;
+  font-size: 14px;
 }
 
-#comentarioForm button:hover {
-  background-color: #0bb04a;
-  transform: translateY(-1px);
+.modal-buttons button:hover {
+  transform: translateY(-2px);
 }
 
-/* ======== LISTA DE COMENTARIOS ======== */
-#lista-comentarios {
+.btn-cancel {
+  background: #fa0303;
+  color: black;
+}
+
+.btn-cancel:hover {
+  background: #ff8902;
+  color: white;
+}
+
+.btn-submit {
+  background: #03fc03;
+  color: black;
+}
+
+.btn-submit:hover {
+  background: #05c905;
+}
+
+/* ===== Caja de normas ===== */
+.rules-container {
+  background: rgba(99, 110, 114, 0.3);
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  border-left: 4px solid #00ff22;
+}
+
+.rules-container h4 {
+  margin-top: 0;
+  color: #00ff15;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.rules-container ul {
+  padding-left: 20px;
+  margin-bottom: 0;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.rules-container li {
+  margin-bottom: 5px;
+}
+
+/* ===== Animaciones ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+/* ===== Lista de temas ===== */
+#lista-temas {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.comentario-item, .respuesta {
-  margin-bottom: 15px;
-  background: #1f1f1f;
-  border-radius: 10px;
-  padding: 15px;
-  color: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
-  animation: fadeIn 0.5s ease;
-}
-
-.comentario-item:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  transform: translateY(-2px);
-}
-
-/* ======== ESTRUCTURA DE COMENTARIOS ======== */
-.comentario-con-avatar {
-  display: flex;
-  gap: 15px;
-  align-items: flex-start;
-}
-
-.user-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  background: #333;
-  flex-shrink: 0;
-}
-
-.user-avatar.icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  color: #ccc;
-  background: linear-gradient(135deg, #414141, #333);
-}
-
-.contenido-comentario {
-  flex: 1;
-  min-width: 0; /* Para evitar problemas con flexbox */
-}
-
-/* ======== CABECERA DE COMENTARIOS ======== */
-.comentario-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
-}
-
-.nombre-usuario {
-  color: #0dd85b;
-  font-weight: bold;
-  font-size: 15px;
-  margin-right: 10px;
-}
-
-.fecha {
-  font-size: 0.8em;
-  color: #aaa;
-}
-
-.texto-comentario {
-  margin: 8px 0 12px;
-  color: #f1f1f1;
-  line-height: 1.5;
-  word-break: break-word;
-}
-
-/* ======== BOTONES DE ACCIÓN ======== */
-.acciones-comentario {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.acciones-comentario button {
-  background: rgba(13, 216, 91, 0.1);
-  color: #0dd85b;
-  border: 1px solid rgba(13, 216, 91, 0.3);
-  padding: 6px 12px;
+.tema-item {
+  background: #2d2d2d;
+  border: 1px solid #00b894;
   border-radius: 6px;
-  cursor: pointer;
-  font-size: 13px;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: all 0.3s;
 }
 
-.acciones-comentario button:hover {
-  background: rgba(13, 216, 91, 0.2);
-  color: #fff;
-  border-color: #0dd85b;
+.tema-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border-color: #55efc4;
+  background: #555f63;
 }
 
-.acciones-comentario button i {
+.tema-item a {
+  text-decoration: none;
+  color: white;
+}
+
+.tema-item h3 {
+  margin: 0 0 10px 0;
+  color: #55efc4;
+  font-size: 18px;
+}
+
+.tema-item p {
+  margin: 0 0 8px 0;
+  color: #dfe6e9;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.tema-item small {
+  color: #bdc3c7;
   font-size: 12px;
 }
 
-/* ======== RESPUESTAS ======== */
-.respuestas-lista {
-  list-style: none;
-  padding-left: 40px;
-  margin-top: 15px;
-  border-left: 2px solid rgba(13, 216, 91, 0.1);
+/* ===== Botón Crear Tema ===== */
+#btn-crear-tema {
+  background: #0aff02;
+  color: black;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s;
+  margin-bottom: 20px;
 }
 
-.respuesta {
-  margin-top: 10px;
-  background: #2b2b2b;
-  padding: 12px;
-  animation: fadeIn 0.4s ease;
+#btn-crear-tema:hover {
+  background: #05af21;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.respuesta .user-avatar.icon {
-  background: linear-gradient(135deg, #888, #666);
+.boton-exito {
+  background: #008c6d !important;
+  box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.5) !important;
 }
 
-/* ======== ANIMACIONES ======== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-/* ======== NOTIFICACIONES ======== */
-.notificacion {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 15px 25px;
-  border-radius: 8px;
-  color: white;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  animation: slideIn 0.3s ease, fadeOut 0.5s ease 2.5s forwards;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.notificacion i {
-  font-size: 20px;
-}
-
-.notificacion.info {
-  background: linear-gradient(135deg, #2196F3, #1976D2);
-}
-
-.notificacion.success {
-  background: linear-gradient(135deg, #4CAF50, #388E3C);
-}
-
-.notificacion.error {
-  background: linear-gradient(135deg, #f44336, #D32F2F);
-}
-
-@keyframes slideIn {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-
-/* ======== MEDIA QUERIES ======== */
-@media (max-width: 768px) {
-  .comentario-con-avatar {
-    gap: 10px;
-  }
-  
-  .user-avatar {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .respuestas-lista {
-    padding-left: 30px;
-  }
-  
-  .acciones-comentario {
-    flex-wrap: wrap;
-  }
-}
 
     </style>
 </head>
@@ -690,7 +634,7 @@
             <div class="dropdown-group">
               <a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i><span data-i18n="configuracion">Configuración</span></a>
               <a href="perfil-editar.html" class="menu-item"><i class="fas fa-user-edit"></i><span data-i18n="editar_usuario">Editar Usuario</span></a>
-              <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-star"></i><span data-i18n="suscripcion">Suscripción</span></a>
+                <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-money-bill-wave"></i><span data-i18n="pagos">Pagos</span></a>
               <a href="seguidos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="seguidos">Seguidos</span></a>
             </div>
             <hr class="divider">
@@ -702,7 +646,6 @@
       </div>
     </div>
 </nav>
-
 
 
 <div class="container">
@@ -721,7 +664,7 @@
     </div>
   </div>
 
-  <!-- Vista General -->
+  <!-- Contenido de Vista General -->
   <div id="tab-vista" class="tab-content active">
     <section class="ver-jam-formulario">
       <h2 data-i18n="jams.details.title">Detalles de la Game Jam</h2>
@@ -747,24 +690,21 @@
     </section>
   </div>
 
-  <!-- Comunidad -->
-  <div id="tab-comunidad" class="tab-content">
-    <section class="chat-comunidad">
-      <h2 data-i18n="jams.community.leaveComment">Deja tu comentario</h2>
-
-      <form id="comentarioForm" class="chat-form">
-        <label for="comentarioTexto" class="chat-label" data-i18n="jams.community.commentLabel">Comentario:</label>
-        <textarea id="comentarioTexto" rows="6" placeholder="Escribe tu comentario..." required class="chat-textarea" data-i18n-placeholder="jams.community.commentPlaceholder"></textarea>
-        <button type="submit" class="btn-comentar" data-i18n="jams.community.postComment">Publicar comentario</button>
-      </form>
-
-      <h3 class="chat-subtitulo" data-i18n="jams.community.recentComments">Comentarios recientes:</h3>
-      <ul id="lista-comentarios" class="chat-mensajes"></ul>
+  <!-- Contenido de Comunidad -->
+  <div id="tab-comunidad" class="tab-content" style="display:none;">
+    <section class="foro-jam">
+      <h2>Temas del Foro</h2>
+      
+      <!-- Botón para crear nuevo tema -->
+      <button id="btn-crear-tema" class="btn-foro">+ Crear Tema</button>
+  
+      <!-- Lista de temas -->
+      <ul id="lista-temas" class="lista-foro">
+        <li>Cargando temas...</li>
+      </ul>
     </section>
   </div>
-
 </div>
-
 
 
   <!-- Scripts -->
@@ -776,719 +716,80 @@
   <script src="../cookies.js"></script>
 <script src="../autoSync.js"></script>
 <script src="../js/usario.js"></script>
-<script src="../js/i18n.js"></script>
-  <script src="../script.js"></script>
+<script src="../js/temas.js"></script>
+<script src="../js/cambiar-pestanas.js"></script>
 </body>
 </html>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Obtener el ID de la URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const jamId = urlParams.get('id');
-  
-  if (!jamId) {
-    showError("Error: No se especificó ID de Game Jam en la URL");
-    return;
+  // ======= Obtener el ID de la Game Jam desde la URL =======
+  function obtenerIdDesdeURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('id'); // Ej: /gamejam.html?id=5
   }
 
-  // Obtener datos del localStorage
-  const jamsData = localStorage.getItem('jams');
-  
-  if (!jamsData) {
-    showError("No hay Game Jams almacenadas en localStorage");
-    return;
-  }
+  // ======= Cargar detalles de la Game Jam =======
+  async function cargarDetallesGameJam() {
+    const jamId = obtenerIdDesdeURL();
+    if (!jamId) return console.error('No se proporcionó el ID de la Game Jam.');
 
-  try {
-    // Parsear y encontrar la jam específica
-    const jams = JSON.parse(jamsData);
-    console.log("Datos completos de jams:", jams); // Para depuración
-    
-    let jam;
-    if (Array.isArray(jams)) {
-      jam = jams.find(j => j.id == jamId || j.id === jamId);
-    } else if (typeof jams === 'object' && jams !== null) {
-      jam = jams.id == jamId || jams.id === jamId ? jams : null;
-    }
-    
-    if (!jam) {
-      showError(`Game Jam con ID "${jamId}" no encontrada`);
-      return;
-    }
-    
-    console.log("Jam encontrada:", jam); // Para depuración
-    
-    // Mostrar los datos
-    displayJamData(jam);
-    
-    // Configurar contador
-    setupCountdown(jam.fechaInicio);
-    
-  } catch (error) {
-    console.error("Error al procesar datos:", error);
-    showError("Error al cargar los datos de la Game Jam");
-  }
-});
-
-function showError(message) {
-  const tabVista = document.getElementById('tab-vista');
-  if (tabVista) {
-    tabVista.innerHTML = `<p class="error-message">${message}</p>`;
-  } else {
-    console.error("Elemento #tab-vista no encontrado");
-  }
-}
-
-function displayJamData(jam) {
-  // Función para formatear fechas
-  const formatDate = (dateString) => {
-    if (!dateString) return 'No especificada';
     try {
-      const date = new Date(dateString);
-      if (isNaN(date.getTime())) return 'Fecha inválida';
-      
-      const options = { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-      };
-      return date.toLocaleDateString('es-ES', options);
-    } catch (e) {
-      console.error("Error formateando fecha:", e);
-      return 'Fecha inválida';
-    }
-  };
+      const response = await fetch(`http://localhost:3001/api/eventos/${jamId}`);
+      const data = await response.json();
 
-  // Función para valores booleanos
-  const formatBoolean = (value) => {
-    if (value === null || value === undefined) return 'No especificado';
-    return value ? 'Sí' : 'No';
-  };
-
-  // Mapeo completo de todos los campos
-  const fields = {
-    // Texto simple
-    'jam-titulo': jam.titulo || 'No especificado',
-    'jam-descripcion-corta': jam.descripcionCorta || 'No especificado',
-    'jam-tipo-jam': jam.tipoJam || 'No especificado',
-    'jam-quien-vota': jam.quienVota || 'No especificado',
-    'jam-contenido': jam.contenido || 'No especificado',
-    'jam-criterios': jam.criterios || 'No especificado',
-    'jam-hashtag': jam.hashtag || 'No especificado',
-    'jam-visibilidad': jam.visibilidad || 'No especificado',
-    
-    // Imagen
-    'jam-imagen': {
-      src: jam.imagenPortada || '',
-      alt: jam.titulo ? `Imagen de ${jam.titulo}` : 'Imagen de la jam'
-    },
-    
-    // URL
-    'jam-url': {
-      href: jam.url || '#',
-      text: jam.url ? 'Unirme al Jam' : 'No disponible'
-    },
-    
-    // Fechas
-    'jam-fecha-inicio': formatDate(jam.fechaInicio),
-    'jam-fecha-fin': formatDate(jam.fechaFin),
-    'jam-fecha-votacion': formatDate(jam.fechaVotacion),
-    'jam-fecha-creacion': formatDate(jam.fechaCreacion),
-    
-    // Booleanos
-    'jam-comunidad': formatBoolean(jam.comunidad),
-    'jam-bloquear-subidas': formatBoolean(jam.bloquearSubidas),
-    'jam-ocultar-resultados': formatBoolean(jam.ocultarResultados),
-    'jam-ocultar-submisiones': formatBoolean(jam.ocultarSubmisiones)
-  };
-
-  // Asignar valores a los elementos
-  for (const [fieldId, value] of Object.entries(fields)) {
-    const element = document.getElementById(fieldId);
-    if (!element) {
-      console.warn(`Elemento no encontrado: ${fieldId}`);
-      continue;
-    }
-
-    if (typeof value === 'object') {
-      // Para objetos especiales (imagen, url)
-      for (const [prop, val] of Object.entries(value)) {
-        element[prop] = val;
-      }
-    } else {
-      // Para valores normales
-      element.textContent = value;
-    }
-  }
-}
-
-function setupCountdown(startDate) {
-  const counterElement = document.getElementById('jam-contador');
-  if (!counterElement) return;
-
-  if (!startDate) {
-    counterElement.textContent = 'Fecha no especificada';
-    return;
-  }
-
-  const updateCountdown = () => {
-    try {
-      const now = new Date();
-      const start = new Date(startDate);
-      
-      if (isNaN(start.getTime())) {
-        counterElement.textContent = 'Fecha inválida';
+      if (!data.ok) {
+        console.error('Error al obtener la Game Jam:', data.error);
         return;
       }
 
-      const diff = start - now;
+      const jam = data.evento;
 
-      if (diff <= 0) {
-        counterElement.textContent = '¡La Game Jam ya comenzó!';
-        return;
+      // Mostrar los datos en el HTML
+      document.getElementById('jam-titulo').textContent = jam.titulo;
+      document.getElementById('jam-imagen').src = jam.imagen_portada_base64 || '';
+      document.getElementById('jam-descripcion-corta').textContent = jam.descripcion_corta;
+      document.getElementById('jam-url').href = jam.url;
+      document.getElementById('jam-tipo-jam').textContent = jam.tipo_jam;
+      document.getElementById('jam-quien-vota').textContent = jam.quien_vota;
+      document.getElementById('jam-fecha-inicio').textContent = jam.fecha_inicio;
+      document.getElementById('jam-fecha-fin').textContent = jam.fecha_fin;
+      document.getElementById('jam-fecha-votacion').textContent = jam.fecha_votacion;
+      document.getElementById('jam-contenido').textContent = jam.contenido;
+      document.getElementById('jam-criterios').textContent = jam.criterios;
+      document.getElementById('jam-hashtag').textContent = jam.hashtag;
+      document.getElementById('jam-comunidad').textContent = jam.comunidad ? 'Sí' : 'No';
+      document.getElementById('jam-bloquear-subidas').textContent = jam.bloquear_subidas ? 'Sí' : 'No';
+      document.getElementById('jam-ocultar-resultados').textContent = jam.ocultar_resultados ? 'Sí' : 'No';
+      document.getElementById('jam-ocultar-submisiones').textContent = jam.ocultar_submisiones ? 'Sí' : 'No';
+      document.getElementById('jam-visibilidad').textContent = jam.visibilidad;
+      document.getElementById('jam-fecha-creacion').textContent = jam.created_at;
+
+      // Opcional: calcular tiempo restante
+      const contador = document.getElementById('jam-contador');
+      const fechaFin = new Date(jam.fecha_fin);
+      function actualizarContador() {
+        const ahora = new Date();
+        const diff = fechaFin - ahora;
+        if (diff <= 0) {
+          contador.textContent = 'Finalizado';
+          clearInterval(intervalo);
+          return;
+        }
+        const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutos = Math.floor((diff / (1000 * 60)) % 60);
+        const segundos = Math.floor((diff / 1000) % 60);
+        contador.textContent = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
       }
+      actualizarContador();
+      const intervalo = setInterval(actualizarContador, 1000);
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-
-      counterElement.textContent = `${days}d ${hours}h ${minutes}m`;
-    } catch (e) {
-      console.error("Error en contador:", e);
-      counterElement.textContent = 'Error en fecha';
-    }
-  };
-
-  updateCountdown();
-  setInterval(updateCountdown, 60000); // Actualizar cada minuto
-}
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const tabs = document.querySelectorAll('.header_tab');
-  const contents = document.querySelectorAll('.tab-content');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      // Desactivar todas las pestañas y contenidos
-      tabs.forEach(t => t.classList.remove('active'));
-      contents.forEach(c => c.classList.remove('active'));
-
-      // Activar pestaña clickeada
-      tab.classList.add('active');
-
-      // Activar contenido correspondiente
-      const target = document.getElementById(`tab-${tab.dataset.tab}`);
-      if (target) target.classList.add('active');
-    });
-  });
-});
-
-
-
-
-
-// ======== CONFIG KEYS ========
-const SESSION_KEY = 'current_token';
-const STORAGE_KEY = 'takumi_login_system';
-
-// Obtener el ID del jam de la URL
-const urlParams = new URLSearchParams(window.location.search);
-const jamId = urlParams.get('id') || 'comunidad_general';
-
-// Usar el jamId para crear claves únicas
-function getComentariosKey() {
-  return `takumi_comentarios_${jamId}`;
-}
-
-function getComentariosRespuestasKey() {
-  return `takumi_respuestas_${jamId}`;
-}
-
-// ======== FUNCIONES PRINCIPALES ========
-function guardarComentario(comentario) {
-  const comentarios = JSON.parse(localStorage.getItem(getComentariosKey())) || [];
-  comentarios.unshift(comentario);
-  localStorage.setItem(getComentariosKey(), JSON.stringify(comentarios));
-}
-
-function obtenerComentarios() {
-  return JSON.parse(localStorage.getItem(getComentariosKey())) || [];
-}
-
-function guardarRespuesta(comentarioIndex, respuesta) {
-  const respuestas = JSON.parse(localStorage.getItem(getComentariosRespuestasKey())) || {};
-  if (!respuestas[comentarioIndex]) {
-    respuestas[comentarioIndex] = [];
-  }
-  respuestas[comentarioIndex].push(respuesta);
-  localStorage.setItem(getComentariosRespuestasKey(), JSON.stringify(respuestas));
-}
-
-function obtenerRespuestas(comentarioIndex) {
-  const respuestas = JSON.parse(localStorage.getItem(getComentariosRespuestasKey())) || {};
-  return respuestas[comentarioIndex] || [];
-}
-
-function getUsuarioActual() {
-  const token = sessionStorage.getItem(SESSION_KEY);
-  if (!token) return 'Invitado';
-  const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-  const session = data.sessions?.[token];
-  return session ? session.username : 'Invitado';
-}
-
-function getAvatarDeUsuario(username) {
-  const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-  const userData = data.users?.[username.toLowerCase()];
-  return userData?.avatar || null;
-}
-
-// ======== FUNCIONES DE ANIMACIÓN ========
-function mostrarNotificacion(mensaje, tipo = 'info') {
-  const notificacion = document.createElement('div');
-  notificacion.className = `notificacion ${tipo}`;
-  notificacion.innerHTML = `
-    <i class="fas ${tipo === 'success' ? 'fa-check-circle' : tipo === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
-    <span>${mensaje}</span>
-  `;
-  notificacion.style.animation = 'slideIn 0.3s ease, fadeOut 0.5s ease 2.5s forwards';
-  
-  document.body.appendChild(notificacion);
-  
-  setTimeout(() => {
-    notificacion.style.animation = 'fadeOut 0.3s ease forwards';
-    setTimeout(() => notificacion.remove(), 300);
-  }, 2500);
-}
-
-function mostrarModalRespuesta(comentarioIndex, callback) {
-  const modal = document.createElement('div');
-  modal.className = 'modal-respuesta';
-  modal.style.animation = 'fadeIn 0.3s ease';
-  
-  modal.innerHTML = `
-    <div class="modal-contenido" style="animation: slideUp 0.4s ease">
-      <h3>Responder al comentario</h3>
-      <textarea placeholder="Escribe tu respuesta aquí..." class="modal-textarea" autofocus></textarea>
-      <div class="modal-botones">
-        <button class="btn-cancelar">Cancelar</button>
-        <button class="btn-enviar">Enviar respuesta</button>
-      </div>
-    </div>
-  `;
-  
-  document.body.appendChild(modal);
-  
-  modal.querySelector('.btn-enviar').addEventListener('click', () => {
-    const texto = modal.querySelector('.modal-textarea').value.trim();
-    if (texto) {
-      modal.style.animation = 'fadeOut 0.3s ease forwards';
-      setTimeout(() => {
-        modal.remove();
-        callback(texto);
-      }, 300);
-    } else {
-      modal.querySelector('.modal-textarea').style.animation = 'shake 0.5s ease';
-      setTimeout(() => {
-        modal.querySelector('.modal-textarea').style.animation = '';
-      }, 500);
-    }
-  });
-  
-  modal.querySelector('.btn-cancelar').addEventListener('click', () => {
-    modal.style.animation = 'fadeOut 0.3s ease forwards';
-    setTimeout(() => modal.remove(), 300);
-  });
-  
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.style.animation = 'fadeOut 0.3s ease forwards';
-      setTimeout(() => modal.remove(), 300);
-    }
-  });
-}
-
-function mostrarModalReporte(comentarioIndex, callback) {
-  const modal = document.createElement('div');
-  modal.className = 'modal-reporte';
-  modal.style.animation = 'fadeIn 0.3s ease';
-  
-  modal.innerHTML = `
-    <div class="modal-contenido" style="animation: slideUp 0.4s ease">
-      <h3>Reportar comentario</h3>
-      <p>Por favor selecciona el motivo del reporte:</p>
-      <select class="modal-select">
-        <option value="">Selecciona un motivo</option>
-        <option value="spam">Spam o publicidad</option>
-        <option value="inapropiado">Contenido inapropiado</option>
-        <option value="odio">Discurso de odio</option>
-        <option value="otro">Otro motivo</option>
-      </select>
-      <textarea placeholder="Explica brevemente el problema (opcional)" class="modal-textarea"></textarea>
-      <div class="modal-botones">
-        <button class="btn-cancelar">Cancelar</button>
-        <button class="btn-enviar">Enviar reporte</button>
-      </div>
-    </div>
-  `;
-  
-  document.body.appendChild(modal);
-  
-  modal.querySelector('.btn-enviar').addEventListener('click', () => {
-    const motivo = modal.querySelector('.modal-select').value;
-    if (motivo) {
-      const detalle = modal.querySelector('.modal-textarea').value.trim();
-      modal.style.animation = 'fadeOut 0.3s ease forwards';
-      setTimeout(() => {
-        modal.remove();
-        callback(motivo, detalle);
-      }, 300);
-    } else {
-      modal.querySelector('.modal-select').style.animation = 'shake 0.5s ease';
-      setTimeout(() => {
-        modal.querySelector('.modal-select').style.animation = '';
-      }, 500);
-    }
-  });
-  
-  modal.querySelector('.btn-cancelar').addEventListener('click', () => {
-    modal.style.animation = 'fadeOut 0.3s ease forwards';
-    setTimeout(() => modal.remove(), 300);
-  });
-  
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.style.animation = 'fadeOut 0.3s ease forwards';
-      setTimeout(() => modal.remove(), 300);
-    }
-  });
-}
-
-// ======== RENDERIZAR COMENTARIOS ========
-function renderizarComentarios() {
-  const lista = document.getElementById('lista-comentarios');
-  if (!lista) return;
-  
-  lista.innerHTML = '';
-  const comentarios = obtenerComentarios();
-
-  comentarios.forEach((com, index) => {
-    const item = document.createElement('li');
-    item.classList.add('comentario-item');
-    item.style.animation = 'fadeIn 0.5s ease';
-
-    const avatarURL = getAvatarDeUsuario(com.usuario);
-    const avatarHTML = avatarURL
-      ? `<img src="${avatarURL}" alt="avatar" class="user-avatar">`
-      : `<div class="user-avatar icon"><i class="fas fa-user"></i></div>`;
-
-    item.innerHTML = `
-      <div class="comentario-con-avatar">
-        <div class="avatar">${avatarHTML}</div>
-        <div class="contenido-comentario">
-          <div class="comentario-header">
-            <strong class="nombre-usuario">${com.usuario}</strong>
-            <small class="fecha">${new Date(com.fecha).toLocaleString()}</small>
-          </div>
-          <p class="texto-comentario">${com.texto}</p>
-          <div class="acciones-comentario">
-            <button class="btn-responder" data-index="${index}">
-              <i class="fas fa-reply"></i> Responder
-            </button>
-            <button class="btn-reportar" data-index="${index}">
-              <i class="fas fa-flag"></i> Reportar
-            </button>
-          </div>
-          <ul class="respuestas-lista" id="respuestas-${index}"></ul>
-        </div>
-      </div>
-    `;
-
-    lista.appendChild(item);
-
-    // === RENDERIZAR RESPUESTAS ===
-    const respuestas = obtenerRespuestas(index);
-    if (respuestas.length > 0) {
-      const respuestasContainer = item.querySelector(`#respuestas-${index}`);
-      respuestasContainer.style.maxHeight = '0';
-      respuestasContainer.style.overflow = 'hidden';
-      respuestasContainer.style.transition = 'max-height 0.5s ease, opacity 0.3s ease';
-      
-      setTimeout(() => {
-        respuestasContainer.style.maxHeight = `${respuestas.length * 100}px`;
-        respuestasContainer.style.opacity = '1';
-      }, 50);
-
-      respuestas.forEach((resp, respIndex) => {
-        const respAvatar = getAvatarDeUsuario(resp.usuario);
-        const respAvatarHTML = respAvatar
-          ? `<img src="${respAvatar}" alt="avatar" class="user-avatar">`
-          : `<div class="user-avatar icon"><i class="fas fa-reply"></i></div>`;
-
-        const respuesta = document.createElement('li');
-        respuesta.classList.add('respuesta');
-        respuesta.style.animation = 'fadeIn 0.4s ease';
-        respuesta.style.animationDelay = `${respIndex * 0.1}s`;
-
-        respuesta.innerHTML = `
-          <div class="comentario-con-avatar">
-            <div class="avatar">${respAvatarHTML}</div>
-            <div class="contenido-comentario">
-              <div class="comentario-header">
-                <strong>${resp.usuario}</strong>
-                <small>${new Date(resp.fecha).toLocaleString()}</small>
-              </div>
-              <p>${resp.texto}</p>
-            </div>
-          </div>
-        `;
-        respuestasContainer.appendChild(respuesta);
-      });
-    }
-
-    // === EVENTOS DE ACCIÓN ===
-    item.querySelector('.btn-responder').addEventListener('click', () => {
-      mostrarModalRespuesta(index, (textoRespuesta) => {
-        const respuesta = {
-          usuario: getUsuarioActual(),
-          texto: textoRespuesta,
-          fecha: new Date().toISOString()
-        };
-        
-        guardarRespuesta(index, respuesta);
-        mostrarNotificacion('¡Respuesta enviada con éxito!', 'success');
-        renderizarComentarios();
-        
-        const nuevaRespuesta = item.querySelector(`#respuestas-${index}`).lastChild;
-        nuevaRespuesta.style.animation = 'pulse 0.5s ease, highlight 2s ease';
-      });
-    });
-
-    item.querySelector('.btn-reportar').addEventListener('click', () => {
-      if (getUsuarioActual() === 'Invitado') {
-        mostrarNotificacion('Debes iniciar sesión para reportar comentarios', 'error');
-        return;
-      }
-      
-      mostrarModalReporte(index, (motivo, detalle) => {
-        const reporte = {
-          jamId,
-          comentarioIndex: index,
-          usuario: getUsuarioActual(),
-          motivo,
-          detalle: detalle || 'Sin detalles adicionales',
-          fecha: new Date().toISOString()
-        };
-        
-        console.log('Reporte enviado:', reporte);
-        mostrarNotificacion('Gracias por reportar. Revisaremos este comentario.', 'info');
-        
-        item.style.animation = 'none';
-        setTimeout(() => {
-          item.style.animation = 'shake 0.5s ease, fadeToGray 1s ease forwards';
-        }, 10);
-      });
-    });
-  });
-}
-
-// ======== INICIALIZACIÓN ========
-document.addEventListener('DOMContentLoaded', () => {
-  // Actualizar el título de la página con el nombre del jam
-  if (jamId !== 'comunidad_general') {
-    const jamTitle = document.getElementById('jam-title');
-    if (jamTitle) {
-      jamTitle.textContent = jamId.replace(/_/g, ' ');
+    } catch (err) {
+      console.error('Error al cargar la Game Jam:', err);
     }
   }
 
-  const form = document.getElementById('comentarioForm');
-  const textarea = document.getElementById('comentarioTexto');
-
-  // Agregar estilos para las notificaciones y modales
-  const style = document.createElement('style');
-  style.textContent = `
-    /* Animaciones base */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes fadeOut {
-      from { opacity: 1; }
-      to { opacity: 0; }
-    }
-    @keyframes slideIn {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes slideUp {
-      from { transform: translateY(30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      20%, 60% { transform: translateX(-5px); }
-      40%, 80% { transform: translateX(5px); }
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    @keyframes highlight {
-      from { background-color: rgba(76, 175, 80, 0.3); }
-      to { background-color: transparent; }
-    }
-    @keyframes fadeToGray {
-      to { background-color: #2a2a2a; }
-    }
-    
-    /* Notificaciones */
-    .notificacion {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 15px 25px;
-      border-radius: 8px;
-      color: white;
-      z-index: 1000;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      max-width: 300px;
-    }
-    .notificacion i {
-      font-size: 20px;
-    }
-    .notificacion.info {
-      background: linear-gradient(135deg, #2196F3, #1976D2);
-    }
-    .notificacion.success {
-      background: linear-gradient(135deg, #4CAF50, #388E3C);
-    }
-    .notificacion.error {
-      background: linear-gradient(135deg, #f44336, #D32F2F);
-    }
-    
-    /* Modales */
-    .modal-respuesta, .modal-reporte {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0,0,0,0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-    }
-    .modal-contenido {
-      background-color: #2a2a2a;
-      padding: 20px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 500px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-    .modal-contenido h3 {
-      margin-top: 0;
-      color: #0dd85b;
-    }
-    .modal-textarea, .modal-select {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #444;
-      background-color: #1c1c1c;
-      color: #f0f0f0;
-    }
-    .modal-textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
-    .modal-botones {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-      margin-top: 15px;
-    }
-    .modal-botones button {
-      padding: 8px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: all 0.2s ease;
-    }
-    .btn-cancelar {
-      background-color: transparent;
-      border: 1px solid #666;
-      color: #ccc;
-    }
-    .btn-cancelar:hover {
-      background-color: #333;
-    }
-    .btn-enviar {
-      background-color: #0dd85b;
-      border: none;
-      color: white;
-    }
-    .btn-enviar:hover {
-      background-color: #0bb04a;
-    }
-  `;
-  document.head.appendChild(style);
-
-  renderizarComentarios();
-
-  if (form && textarea) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const texto = textarea.value.trim();
-      if (!texto) {
-        mostrarNotificacion('El comentario no puede estar vacío', 'error');
-        textarea.style.animation = 'shake 0.5s ease';
-        setTimeout(() => textarea.style.animation = '', 500);
-        return;
-      }
-
-      const comentario = {
-        usuario: getUsuarioActual(),
-        texto,
-        fecha: new Date().toISOString()
-      };
-
-      guardarComentario(comentario);
-      textarea.value = '';
-      mostrarNotificacion('Comentario publicado con éxito', 'success');
-      
-      const lista = document.getElementById('lista-comentarios');
-      if (lista.firstChild) {
-        lista.firstChild.style.animation = 'pulse 0.5s ease, highlight 2s ease';
-      }
-      
-      renderizarComentarios();
-    });
-  }
-
-  // Sincronización entre pestañas
-  window.addEventListener('storage', (e) => {
-    if (e.key === getComentariosKey() || e.key === getComentariosRespuestasKey()) {
-      renderizarComentarios();
-    }
-  });
-});
+  // Ejecutar al cargar la página
+  window.addEventListener('DOMContentLoaded', cargarDetallesGameJam);
 </script>
+

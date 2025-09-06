@@ -1,5 +1,3 @@
-// carrito.js
-
 // Simulación de una API de juegos
 const juegosAPI = [
     { id: 1, nombre: "Juego A", precio: 20 },

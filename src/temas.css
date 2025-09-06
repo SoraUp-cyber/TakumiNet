@@ -1,0 +1,151 @@
+
+
+/* ==== Navbar ==== */
+.config-navbar {
+  background-color: #252525;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 2px solid #00ff88;
+}
+
+.config-navbar .back-btn {
+  color: #00ff88;
+  font-size: 1.2rem;
+  transition: 0.3s;
+}
+
+.config-navbar .back-btn:hover {
+  color: #00cc6a;
+}
+
+.config-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* ==== Contenedor global ancho ==== */
+.tema-container {
+  width: 100%;
+  max-width: 1400px; /* ancho máximo para evitar que sea excesivo en monitores ultra anchos */
+  margin: 30px auto;
+  padding: 0 40px; /* más espacio lateral */
+}
+
+/* ==== Datos del tema ==== */
+.tema-detalle {
+  background: #252525;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.tema-titulo {
+  font-size: 1.8rem;
+  color: #00ff88;
+}
+
+.tema-descripcion {
+  color: #ccc;
+  margin: 10px 0;
+}
+
+.tema-autor {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* ==== Formulario de comentario ==== */
+.formulario-comentario {
+  background: #252525;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.comentario-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comentario-form textarea {
+  background: #2a2a2a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  min-height: 80px;
+  resize: none;
+}
+
+.comentario-form button {
+  background-color: #00ff88;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.comentario-form button:hover {
+  background-color: #00cc6a;
+}
+
+/* ==== Lista de comentarios ==== */
+.comentarios-section {
+  background: #252525;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.comentarios-lista {
+  list-style: none;
+}
+
+.comentario-item {
+  background: #2a2a2a;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.comentario-item:hover {
+  background: #333;
+}
+
+.comentario-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.comentario-usuario {
+  color: #00ff88;
+  font-weight: bold;
+}
+
+.comentario-fecha {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.comentario-texto {
+  color: #ddd;
+  font-size: 0.95rem;
+}
+
+/* ==== Responsivo ==== */
+@media (max-width: 600px) {
+  .tema-titulo {
+    font-size: 1.4rem;
+  }
+  .comentarios-title {
+    font-size: 1.1rem;
+  }
+}

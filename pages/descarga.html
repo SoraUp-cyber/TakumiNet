@@ -295,7 +295,6 @@
     <p data-i18n="downloads.exploreLibrary">Explora nuestra biblioteca de juegos para descubrir nuevas experiencias emocionantes.</p>
     <a href="marketplace.html" class="discover-games-btn" data-i18n="downloads.discoverGames">Descubre los juegos</a>
 
-
 </div>
 <footer class="site-footer">
   <div class="footer-content">
@@ -337,5 +336,34 @@
 </body>
 </html>
 <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const title = document.getElementById('download-title');
+    const message = document.getElementById('download-message');
+    const progressBar = document.getElementById('progress-bar');
 
+    // Cambia el texto para iniciar
+    title.textContent = "Descargando juego...";
+    message.textContent = "Por favor espera mientras preparamos tu experiencia.";
+
+    let progress = 0;
+
+    const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 8) + 2; // Avance aleatorio
+        if (progress > 100) progress = 100;
+
+        progressBar.style.width = progress + "%";
+
+        if (progress >= 100) {
+            clearInterval(interval);
+            title.textContent = "¡Instalación completada!";
+            message.textContent = "Tu juego está listo para jugar.";
+            progressBar.style.background = 'linear-gradient(90deg, #00ff00, #00c853)';
+
+            setTimeout(() => {
+                // Aquí puedes redirigir o abrir el juego si estás en Electron
+                // window.location.href = "juego.html?id=...";
+            }, 2000);
+        }
+    }, 300);
+});
 </script>

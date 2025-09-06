@@ -118,324 +118,215 @@
 
 
 
-.avatar-container {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-}
-
-.avatar-circle {
-    width: 150px;
-    height: 150px;
-    background: #a0a0a0;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.avatar-icon {
-    color: #ffffff;
-    font-size: 80px;
-}
-
-.camera-icon-wrapper {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: #fff;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.camera-icon-wrapper:hover {
-    background: #eaeaea;
-}
-
-.camera-icon {
-    color: #555;
-    font-size: 22px;
-}
-
-input[type="file"] {
-    display: none;
-}
 
 
 
 
 
-
-.avatar-container {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-}
-
-.avatar-circle {
-    width: 150px;
-    height: 150px;
-    background: #000;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.avatar-icon {
-    color: #fff;
-    font-size: 80px;
-}
-
-.camera-icon-wrapper {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: #fff;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.camera-icon-wrapper:hover {
-    background: #eaeaea;
-}
-
-.camera-icon {
-    color: #555;
-    font-size: 22px;
-}
-
-input[type="file"] {
-    display: none;
-}
-
-
-
-
-
-
-
-/* Avatar Container */
+/* ======= Contenedor del avatar ======= */
 .avatar-container {
   position: relative;
-  width: 150px;
-  height: 150px;
-  margin: 0 auto;
-  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px auto;
 }
 
-/* Avatar Circle */
+/* ======= Círculo del avatar ======= */
 .avatar-circle {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #424242, #212121); /* Gris oscuro a más oscuro */
   border-radius: 50%;
+  background-color: #444; /* Color de fondo si no hay imagen */
+  background-size: cover;
+  background-position: center;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 3px solid #2ecc71; /* borde verde elegante */
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
+/* ======= Icono por defecto ======= */
+.avatar-circle i.avatar-icon {
+  font-size: 48px;
+  color: #ccc;
+  transition: all 0.3s ease;
+}
+
+/* ======= Hover sobre el avatar ======= */
 .avatar-circle:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.6);
 }
 
-/* Default Icon */
-.avatar-icon {
-  color: rgba(255, 255, 255, 0.9); /* Blanco */
-  font-size: 80px;
-  transition: opacity 0.3s ease;
-}
-
-/* Camera Button */
+/* ======= Ícono de cámara ======= */
 .camera-icon-wrapper {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: #ffffff; /* Blanco */
-  width: 45px;
-  height: 45px;
+  bottom: 0;
+  right: 0;
+  background-color: #2ecc71;
   border-radius: 50%;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  width: 35px;
+  height: 35px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  z-index: 2;
-  border: 2px solid #f8f8f8; /* Blanco más suave */
+  transition: all 0.3s ease;
+  border: 2px solid #fff;
 }
 
 .camera-icon-wrapper:hover {
-  background: #e0e0e0; /* Gris claro */
+  background-color: #27ae60;
   transform: scale(1.1);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.camera-icon {
-  color: #616161; /* Gris medio */
-  font-size: 22px;
-  transition: color 0.2s ease;
+.camera-icon-wrapper i.camera-icon {
+  color: #fff;
+  font-size: 16px;
 }
 
-.camera-icon-wrapper:hover .camera-icon {
-  color: #424242; /* Gris más oscuro */
-}
-
-/* Image Preview */
-.avatar-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.3s ease;
-}
-
-.avatar-circle.has-image .avatar-icon {
+/* ======= Input de archivo invisible ======= */
+#upload-photo {
   display: none;
 }
 
-/* Loading Animation */
-.avatar-loading {
-  position: absolute;
-  top: 0;
-  left: 0;
+
+
+.input-icon-wrapper {
+  position: relative;
+}
+
+.input-icon-wrapper input {
   width: 100%;
-  height: 100%;
-  background: rgba(33, 33, 33, 0.8); /* Gris oscuro semitransparente */
-  border-radius: 50%;
+  padding-right: 35px; /* espacio para el icono */
+  font-size: 1em;
+}
+
+.input-icon-wrapper .toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 33%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+}
+
+
+/* Notificación animada */
+#notificacion {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#notificacion.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+
+/* Contenedor principal */
+.username-display-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 3;
-  animation: fadeIn 0.3s ease;
-}
-
-.avatar-loading-spinner {
-  border: 3px solid rgba(255, 255, 255, 0.3); /* Blanco transparente */
-  border-radius: 50%;
-  border-top: 3px solid #4CAF50; /* Verde */
-  width: 30px;
-  height: 30px;
-  animation: spin 1s linear infinite;
-}
-
-/* Messages */
-.upload-message {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%) translateY(-20px);
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  color: white; /* Texto blanco */
-  opacity: 0;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  z-index: 1000;
-  pointer-events: none;
-  max-width: 90%;
-  text-align: center;
-}
-
-.upload-message.success {
-  background: #4CAF50; /* Verde */
-  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-}
-
-.upload-message.error {
-  background: #616161; /* Gris */
-  box-shadow: 0 4px 15px rgba(97, 97, 97, 0.3);
-}
-
-/* Size Tooltip */
-.size-tooltip {
-  position: absolute;
-  bottom: calc(100% + 15px);
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  width: 220px;
-  background: #f5f5f5; /* Gris muy claro */
-  color: #212121; /* Texto gris oscuro */
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-  padding: 12px;
-  font-size: 12px;
-  line-height: 1.5;
-  opacity: 0;
-  visibility: hidden;
   transition: all 0.3s ease;
-  z-index: 10;
 }
 
-.size-tooltip .tooltip-arrow {
+/* Texto del nombre de usuario */
+.username-value {
+  font-weight: 500;
+  color: #4CAF50;
+  transition: color 0.3s ease;
+}
+
+/* Botón de cambiar nombre */
+.cambiar-nombre-btn {
+  position: relative;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cambiar-nombre-btn:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cambiar-nombre-btn:active {
+  transform: translateY(0);
+}
+
+/* Animación del botón */
+.cambiar-nombre-btn::after {
+  content: '';
   position: absolute;
-  top: 100%;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 8px solid #f5f5f5; /* Gris muy claro */
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
 }
 
-.size-tooltip .tooltip-content ul {
-  padding-left: 18px;
-  margin: 8px 0 0 0;
+.cambiar-nombre-btn:focus:not(:active)::after {
+  animation: ripple 0.6s ease-out;
 }
 
-.size-tooltip .tooltip-content li {
-  margin-bottom: 4px;
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(20, 20);
+    opacity: 0;
+  }
 }
 
-.size-tooltip strong {
-  color: #4CAF50; /* Verde para títulos */
+/* Icono del botón */
+.btn-icon {
+  transition: transform 0.3s ease;
 }
 
-/* Animations */
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.cambiar-nombre-btn:hover .btn-icon {
+  transform: rotate(15deg);
 }
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-
-
-
-
-
-
-
     </style>
 </head>
 <body>
- <nav class="navbar">
+  <nav class="navbar">
     <!-- Sección Izquierda: Logo -->
     <div class="navbar-logo">
         <img src="../assets/img/logo.png" alt="Logo de TakumiNet">
@@ -517,7 +408,7 @@ input[type="file"] {
             <div class="dropdown-group">
               <a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i><span data-i18n="configuracion">Configuración</span></a>
               <a href="perfil-editar.html" class="menu-item"><i class="fas fa-user-edit"></i><span data-i18n="editar_usuario">Editar Usuario</span></a>
-              <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-star"></i><span data-i18n="suscripcion">Suscripción</span></a>
+                <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-money-bill-wave"></i><span data-i18n="pagos">Pagos</span></a>
               <a href="seguidos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="seguidos">Seguidos</span></a>
             </div>
             <hr class="divider">
@@ -533,6 +424,8 @@ input[type="file"] {
 <main>
   <section id="perfil-modificar">
     <h1 data-i18n="profile.editTitle">Modificar Perfil</h1>
+
+    <!-- Formulario de perfil -->
     <form id="formPerfil">
 
       <!-- Avatar -->
@@ -540,363 +433,156 @@ input[type="file"] {
         <div id="avatar-circle" class="avatar-circle">
           <i id="avatar-icon" class="fa-solid fa-user avatar-icon"></i>
         </div>
-        <label id="camera-icon-wrapper" for="upload-photo" class="camera-icon-wrapper" aria-label="Cambiar foto de perfil" title="Cambiar foto de perfil">
+        <label 
+          id="camera-icon-wrapper" 
+          for="upload-photo" 
+          class="camera-icon-wrapper" 
+          aria-label="Cambiar foto de perfil" 
+          title="Cambiar foto de perfil">
           <i class="fa-solid fa-camera camera-icon"></i>
         </label>
-        <input type="file" id="upload-photo" accept="image/*" />
+        <input type="file" id="upload-photo" accept="image/*" hidden />
       </div>
 
+        <div class="username-display-container">
+         <strong>Nombre de Usuario: </strong>
+            <span id="current-username">Invitado</span>
+          </div>
       <!-- Sección General -->
       <div class="perfil-seccion">
         <h2 data-i18n="profile.general">General</h2>
-        <label for="nombre-real" data-i18n="profile.realNameLabel">Nombre de Usuario:</label>
-        <input type="text" id="nombre-real" name="nombre-real" value="">
+        <div class="form-group">
+          <label for="nombre-real" data-i18n="profile.realNameLabel">Nombre de Usuario:</label>
+          <input type="text" id="nombre-real" name="nombre-real" placeholder="Escribe tu nombre de usuario">
+        </div>
       </div>
 
-      <!-- Sección Cambiar Contraseña -->
-      <div class="perfil-seccion">
-        <h2 data-i18n="profile.changePassword">Cambiar Contraseña</h2>
-        <label for="contrasena-actual" data-i18n="profile.currentPassword">Contraseña Actual:</label>
-        <input type="password" id="contrasena-actual" name="contrasena-actual" required>
+<!-- Sección Cambiar Contraseña -->
+<div class="perfil-seccion">
+  <h2 data-i18n="profile.changePassword">Cambiar Contraseña</h2>
 
-        <label for="nueva-contrasena" data-i18n="profile.newPassword">Nueva Contraseña:</label>
-        <input type="password" id="nueva-contrasena" name="nueva-contrasena" required>
+  <div class="form-group password-wrapper">
+    <label for="contrasena-actual" data-i18n="profile.currentPassword">Contraseña Actual:</label>
+    <div class="input-icon-wrapper">
+      <input type="password" id="contrasena-actual" name="contrasena-actual" required placeholder="Contraseña actual">
+      <i class="fas fa-eye toggle-password" data-target="contrasena-actual"></i>
+    </div>
+  </div>
 
-        <label for="confirmar-contrasena" data-i18n="profile.confirmPassword">Confirmar Nueva Contraseña:</label>
-        <input type="password" id="confirmar-contrasena" name="confirmar-contrasena" required>
-      </div>
+  <div class="form-group password-wrapper">
+    <label for="nueva-contrasena" data-i18n="profile.newPassword">Nueva Contraseña:</label>
+    <div class="input-icon-wrapper">
+      <input type="password" id="nueva-contrasena" name="nueva-contrasena" required placeholder="Nueva contraseña">
+      <i class="fas fa-eye toggle-password" data-target="nueva-contrasena"></i>
+    </div>
+  </div>
+
+  <div class="form-group password-wrapper">
+    <label for="confirmar-contrasena" data-i18n="profile.confirmPassword">Confirmar Nueva Contraseña:</label>
+    <div class="input-icon-wrapper">
+      <input type="password" id="confirmar-contrasena" name="confirmar-contrasena" required placeholder="Confirma tu nueva contraseña">
+      <i class="fas fa-eye toggle-password" data-target="confirmar-contrasena"></i>
+    </div>
+  </div>
+</div>
 
       <!-- Botones -->
       <div class="perfil-botones">
-        <button id="guardar-perfil-btn" type="button" data-i18n="profile.saveChanges">Guardar Cambios</button>
-        <button id="cancelar-edicion-btn" type="button" data-i18n="profile.cancel">Cancelar</button>
+        <button id="guardar-perfil-btn" type="button" data-i18n="profile.saveChanges" class="btn btn-primary">
+          Guardar Cambios
+        </button>
+        <button id="cancelar-edicion-btn" type="button" data-i18n="profile.cancel" class="btn btn-secondary">
+          Cancelar
+        </button>
       </div>
 
     </form>
   </section>
 </main>
 
+
 <script src="../js/notificacion.js"></script>
 <script src="../js/carrito.js"></script>
 <script src="../js/user.js"></script>
-<script src="../js/i18n.js"></script>
 <script src="../js/desplegar.js"></script>
 <script src="../js/cerrar sesion.js"></script>
 <script src="../cookies.js"></script>
-<script src="../js/usario.js"></script>
 <script src="../autoSync.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    // Elementos del DOM
-    const uploadInput = document.getElementById('upload-photo');
-    const avatarCircle = document.getElementById('avatar-circle');
-    const avatarIcon = document.getElementById('avatar-icon');
-    const inputNombre = document.getElementById('nombre-real');
-    const inputActual = document.getElementById('contrasena-actual');
-    const inputNueva = document.getElementById('nueva-contrasena');
-    const inputConfirmar = document.getElementById('confirmar-contrasena');
-    const btnGuardar = document.getElementById('guardar-perfil-btn');
-    const btnCancelar = document.getElementById('cancelar-edicion-btn');
-    const btnEliminarAvatar = document.createElement('button');
-
-    // Configuración de almacenamiento
-    const STORAGE_KEY = 'takumi_login_system';
-    
-    // Sistema de notificaciones
-    const notification = document.createElement('div');
-    notification.className = 'profile-notification';
-    document.body.appendChild(notification);
-
-    // Añadir estilos CSS
-    const style = document.createElement('style');
-    style.textContent = `
-        .profile-notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 25px;
-            border-radius: 5px;
-            color: white;
-            font-weight: bold;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            transform: translateX(200%);
-            transition: transform 0.3s ease;
-            z-index: 1000;
-        }
-        
-        .profile-notification.show {
-            transform: translateX(0);
-        }
-        
-        .profile-notification.success {
-            background-color: #4CAF50;
-        }
-        
-        .profile-notification.error {
-            background-color: #F44336;
-        }
-        
-        .profile-notification.info {
-            background-color: #2196F3;
-        }
-        
-        .avatar-preview {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            display: block;
-            transition: all 0.3s ease;
-        }
-        
-        .avatar-container {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 20px;
-        }
-        
-        .eliminar-avatar-btn {
-            position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #f44336;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 12px;
-            display: none;
-        }
-        
-        .eliminar-avatar-btn:hover {
-            background: #d32f2f;
-        }
-        
-        .avatar-icon {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #e0e0e0;
-            border-radius: 50%;
-            color: #757575;
-            font-size: 50px;
-        }
-    `;
-    document.head.appendChild(style);
-
-    // Mostrar notificación
-    function showNotification(message, type = 'success') {
-        notification.textContent = message;
-        notification.className = `profile-notification ${type} show`;
-        setTimeout(() => notification.classList.remove('show'), 3000);
-    }
-
-    // Obtener usuario actual
-    function getCurrentUser() {
-        const token = sessionStorage.getItem('current_token');
-        if (!token) return null;
-
-        const appData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-        const session = appData.sessions?.[token];
-        if (!session) return null;
-
-        const userKey = session.username.toLowerCase();
-        return {
-            ...appData.users?.[userKey],
-            userKey
-        };
-    }
-
-    // Guardar avatar en el sistema
-    function saveAvatarToUser(avatarData) {
-        const user = getCurrentUser();
-        if (!user) return false;
-
-        const appData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || { users: {} };
-        
-        if (!appData.users[user.userKey]) {
-            appData.users[user.userKey] = {};
-        }
-        
-        // Guardar la imagen en base64 dentro del objeto del usuario
-        appData.users[user.userKey].avatar = avatarData;
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
-        
-        return true;
-    }
-
-    // Mostrar avatar
-    function displayAvatar(avatarData) {
-        avatarCircle.innerHTML = '';
-        const img = document.createElement('img');
-        img.src = avatarData;
-        img.className = 'avatar-preview';
-        img.alt = 'Foto de perfil del usuario';
-        avatarCircle.appendChild(img);
-        
-        if (avatarIcon) avatarIcon.style.display = 'none';
-        btnEliminarAvatar.style.display = 'block';
-    }
-
-    // Restablecer avatar por defecto
-    function resetAvatar() {
-        avatarCircle.innerHTML = '';
-        if (avatarIcon) {
-            avatarIcon.style.display = 'block';
-            avatarCircle.appendChild(avatarIcon);
-        }
-        btnEliminarAvatar.style.display = 'none';
-        
-        // Eliminar avatar del usuario
-        const user = getCurrentUser();
-        if (user) {
-            const appData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-            if (appData.users[user.userKey]?.avatar) {
-                delete appData.users[user.userKey].avatar;
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
-            }
-        }
-    }
-
-    // Cargar avatar del usuario
-    function loadUserAvatar() {
-        const user = getCurrentUser();
-        if (user?.avatar) {
-            displayAvatar(user.avatar);
-        } else {
-            resetAvatar();
-        }
-    }
-
-    // Cargar datos del usuario
-    function loadUserData() {
-        const user = getCurrentUser();
-        if (user) {
-            if (inputNombre) inputNombre.value = user.realName || '';
-        }
-    }
-
-    // Configurar botón eliminar avatar
-    btnEliminarAvatar.innerHTML = '<i class="fa-solid fa-trash"></i> Eliminar Foto';
-    btnEliminarAvatar.className = 'eliminar-avatar-btn';
-    btnEliminarAvatar.onclick = () => {
-        if (confirm('¿Eliminar foto de perfil?')) {
-            resetAvatar();
-            showNotification('Foto eliminada', 'info');
-        }
-    };
-    document.querySelector('.avatar-container').appendChild(btnEliminarAvatar);
-
-    // Manejar subida de imagen
-    uploadInput.addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (!file) return;
-
-        if (!file.type.startsWith('image/')) {
-            showNotification('Solo se permiten imágenes', 'error');
-            return;
-        }
-
-        if (file.size > 2 * 1024 * 1024) {
-            showNotification('La imagen debe ser menor a 2MB', 'error');
-            return;
-        }
-
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const imageBase64 = e.target.result;
-            
-            // Guardar en el sistema takumi_login_system
-            if (saveAvatarToUser(imageBase64)) {
-                displayAvatar(imageBase64);
-                showNotification('Foto actualizada');
-            } else {
-                showNotification('Error al guardar foto', 'error');
-            }
-        };
-        reader.readAsDataURL(file);
-    });
-
-    // Manejar guardar perfil
-    if (btnGuardar) {
-        btnGuardar.addEventListener('click', function() {
-            const user = getCurrentUser();
-            if (!user) {
-                showNotification('No se pudo identificar al usuario', 'error');
-                return;
-            }
-
-            const appData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || { users: {} };
-            const currentUser = appData.users[user.userKey];
-            
-            // Actualizar nombre real
-            if (inputNombre && inputNombre.value.trim() !== '') {
-                currentUser.realName = inputNombre.value.trim();
-            }
-            
-            // Actualizar contraseña si se proporcionó
-            if (inputActual && inputNueva && inputConfirmar) {
-                const currentPassword = inputActual.value;
-                const newPassword = inputNueva.value;
-                const confirmPassword = inputConfirmar.value;
-                
-                if (currentPassword || newPassword || confirmPassword) {
-                    // Validar que todos los campos de contraseña estén completos
-                    if (!currentPassword || !newPassword || !confirmPassword) {
-                        showNotification('Por favor completa todos los campos de contraseña', 'error');
-                        return;
-                    }
-                    
-                    // Verificar contraseña actual
-                    if (currentUser.password !== currentPassword) {
-                        showNotification('La contraseña actual es incorrecta', 'error');
-                        return;
-                    }
-                    
-                    // Verificar que las nuevas contraseñas coincidan
-                    if (newPassword !== confirmPassword) {
-                        showNotification('Las nuevas contraseñas no coinciden', 'error');
-                        return;
-                    }
-                    
-                    // Actualizar contraseña
-                    currentUser.password = newPassword;
-                    inputActual.value = '';
-                    inputNueva.value = '';
-                    inputConfirmar.value = '';
-                }
-            }
-            
-            // Guardar cambios
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
-            showNotification('Perfil actualizado correctamente');
-        });
-    }
-
-    // Manejar cancelar edición
-    if (btnCancelar) {
-        btnCancelar.addEventListener('click', function() {
-            loadUserData();
-            if (inputActual && inputNueva && inputConfirmar) {
-                inputActual.value = '';
-                inputNueva.value = '';
-                inputConfirmar.value = '';
-            }
-            showNotification('Cambios cancelados', 'info');
-        });
-    }
-
-    // Inicializar
-    loadUserAvatar();
-    loadUserData();
-});
-</script>
-<script src="../script.js"></script>
 
 </body>
 </html>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const avatarCircle = document.getElementById("avatar-circle");
+  const avatarIcon = document.getElementById("avatar-icon");
+  const avatarInput = document.getElementById("upload-photo");
+  const guardarBtn = document.getElementById("guardar-perfil-btn");
+  const passwordInput = document.getElementById("contrasena-actual");
+  const userId = sessionStorage.getItem("userId");
+  const token = sessionStorage.getItem("token");
+
+  // Cambiar avatar
+  avatarCircle.addEventListener("click", () => avatarInput.click());
+  avatarInput.addEventListener("change", e => {
+    const file = e.target.files[0];
+    if (!file || !file.type.startsWith("image/")) return;
+    const reader = new FileReader();
+    reader.onload = async event => {
+      avatarCircle.style.backgroundImage = `url(${event.target.result})`;
+      avatarIcon.style.display = "none";
+      try {
+        await fetch(`http://localhost:3001/api/usuario/${userId}/editar`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            avatar: event.target.result,
+            currentPassword: sessionStorage.getItem("password")
+          })
+        });
+      } catch (err) {
+        console.error("Error actualizando avatar:", err.message);
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+
+  // Cambiar contraseña
+  guardarBtn.addEventListener("click", async () => {
+    const newPassword = document.getElementById("nueva-contrasena").value.trim();
+    const confirmPassword = document.getElementById("confirmar-contrasena").value.trim();
+    const currentPassword = sessionStorage.getItem("password");
+
+    if (!newPassword || newPassword !== confirmPassword) {
+      alert("❌ Las nuevas contraseñas no coinciden o están vacías");
+      return;
+    }
+
+    try {
+      const res = await fetch(`http://localhost:3001/api/usuario/${userId}/editar`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify({ currentPassword, newPassword })
+      });
+      const data = await res.json();
+      if (data.ok) {
+        alert("✅ Contraseña cambiada correctamente");
+        sessionStorage.setItem("password", newPassword);
+        passwordInput.value = newPassword;
+        document.getElementById("nueva-contrasena").value = "";
+        document.getElementById("confirmar-contrasena").value = "";
+      } else {
+        alert(`❌ Error: ${data.error}`);
+      }
+    } catch (err) {
+      console.error("Error cambiando contraseña:", err.message);
+    }
+  });
+});
+
+</script>

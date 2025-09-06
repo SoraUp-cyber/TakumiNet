@@ -313,7 +313,7 @@
             <div class="dropdown-group">
               <a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i><span data-i18n="configuracion">Configuración</span></a>
               <a href="perfil-editar.html" class="menu-item"><i class="fas fa-user-edit"></i><span data-i18n="editar_usuario">Editar Usuario</span></a>
-              <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-star"></i><span data-i18n="suscripcion">Suscripción</span></a>
+                <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-money-bill-wave"></i><span data-i18n="pagos">Pagos</span></a>
               <a href="seguidos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="seguidos">Seguidos</span></a>
             </div>
             <hr class="divider">
@@ -361,24 +361,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initApp() {
   loadGameJams();
-  loadCommunityTopics();
+  loadCommunityTopics(); // Esta función depende si tienes sección de comunidad
 }
 
-function loadGameJams() {
+async function loadGameJams() {
   const jamsContainer = document.getElementById('jamsContainer');
-  const jamsData = localStorage.getItem('jams');
-
-  if (!jamsData) {
-    jamsContainer.innerHTML = '<p class="no-jams-message">No se encontraron Game Jams. ¡Publica una jam para empezar!</p>';
-    return;
-  }
 
   try {
-    const jams = JSON.parse(jamsData);
-    renderGameJams(jams, jamsContainer);
+    const res = await fetch('http://localhost:3001/api/eventos'); // Llama a tu backend
+    const data = await res.json();
+
+    if (!data.ok) {
+      jamsContainer.innerHTML = '<p class="no-jams-message">Error al cargar Game Jams</p>';
+      return;
+    }
+
+    if (data.eventos.length === 0) {
+      jamsContainer.innerHTML = '<p class="no-jams-message">No hay Game Jams disponibles</p>';
+      return;
+    }
+
+    renderGameJams(data.eventos, jamsContainer);
   } catch (error) {
-    console.error('Error al parsear los datos de jams:', error);
-    jamsContainer.innerHTML = '<p>Error al cargar las Game Jams</p>';
+    console.error('Error al cargar eventos:', error);
+    jamsContainer.innerHTML = '<p class="no-jams-message">Error de conexión con el servidor</p>';
   }
 }
 
@@ -390,44 +396,34 @@ function renderGameJams(jams, container) {
     container.appendChild(jamCard);
   });
 
-  setupJamEventListeners(); // Esta función configura los listeners para los botones
+  setupJamEventListeners();
 }
 
 function createJamCard(jam) {
   const jamCard = document.createElement('div');
   jamCard.className = 'jam-card';
 
-  // Asegúrate de que jam.id existe, si no, usa un valor por defecto
   const jamId = jam.id || 'default-id';
 
   jamCard.innerHTML = `
     <div class="jam-card-header">
-  ${jam.imagenPortada ? `<img src="${jam.imagenPortada}" alt="Portada ${jam.titulo}" class="jam-cover">` : ''}
-  <h3>${jam.titulo || '<span data-i18n="jam.noTitle">Game Jam sin título</span>'}</h3>
-</div>
+      ${jam.imagen_portada_base64 ? `<img src="${jam.imagen_portada_base64}" alt="Portada ${jam.titulo}" class="jam-cover">` : ''}
+      <h3>${jam.titulo || 'Game Jam sin título'}</h3>
+    </div>
 
-<div class="jam-card-body">
-  <p><strong data-i18n="jam.description">Descripción:</strong> ${jam.descripcionCorta || '<span data-i18n="jam.noDescription">Sin descripción</span>'}</p>
-  <p><strong data-i18n="jam.type">Tipo:</strong> ${jam.tipoJam || '<span data-i18n="jam.notSpecified">No especificado</span>'}</p>
-  <p><strong data-i18n="jam.dates">Fechas:</strong> ${formatDate(jam.fechaInicio)} - ${formatDate(jam.fechaFin)}</p>
-  <p><strong data-i18n="jam.voting">Votación:</strong> ${jam.quienVota || '<span data-i18n="jam.notSpecified">No especificado</span>'} (${formatDate(jam.fechaVotacion)})</p>
-  <p><strong data-i18n="jam.visibility">Visibilidad:</strong> ${jam.visibilidad || '<span data-i18n="jam.public">Pública</span>'}</p>
+    <div class="jam-card-body">
+      <p><strong>Descripción:</strong> ${jam.descripcion_corta || 'Sin descripción'}</p>
+      <p><strong>Tipo:</strong> ${jam.tipo_jam || 'No especificado'}</p>
+      <p><strong>Fechas:</strong> ${formatDate(jam.fecha_inicio)} - ${formatDate(jam.fecha_fin)}</p>
+      <p><strong>Votación:</strong> ${jam.quien_vota || 'No especificado'} (${formatDate(jam.fecha_votacion)})</p>
+      <p><strong>Visibilidad:</strong> ${jam.visibilidad || 'Pública'}</p>
+      ${jam.url ? `<p><strong>URL:</strong> <a href="${jam.url}" target="_blank" rel="noopener noreferrer">${jam.url}</a></p>` : ''}
+      ${jam.hashtag ? `<p><strong>Hashtag:</strong> #${jam.hashtag}</p>` : ''}
+    </div>
 
-  ${jam.url ? `<p><strong data-i18n="jam.url">URL:</strong> <a href="${jam.url}" target="_blank">${jam.url}</a></p>` : ''}
-  ${jam.hashtag ? `<p><strong data-i18n="jam.hashtag">Hashtag:</strong> #${jam.hashtag}</p>` : ''}
-
-  <div class="jam-flags">
-    ${jam.comunidad ? '<span class="flag comunidad" data-i18n="jam.community">Comunidad</span>' : ''}
-    ${jam.bloquearSubidas ? '<span class="flag bloqueada" data-i18n="jam.uploadBlocked">Subidas bloqueadas</span>' : ''}
-    ${jam.ocultarResultados ? '<span class="flag resultados-ocultos" data-i18n="jam.resultsHidden">Resultados ocultos</span>' : ''}
-    ${jam.ocultarSubmisiones ? '<span class="flag submisiones-ocultas" data-i18n="jam.submissionsHidden">Submisiones ocultas</span>' : ''}
-  </div>
-</div>
-
-<div class="jam-card-footer">
-  <small><span data-i18n="jam.createdOn">Creada el:</span> ${formatDate(jam.fechaCreacion)}</small>
-  <button class="view-jam-btn" data-jamid="${jamId}" data-i18n="jam.viewDetails">Ver detalles</button>
-</div>
+    <div class="jam-card-footer">
+      <button class="view-jam-btn" data-jamid="${jamId}">Ver detalles</button>
+    </div>
   `;
 
   return jamCard;
@@ -438,19 +434,20 @@ function setupJamEventListeners() {
 
   botones.forEach(boton => {
     boton.addEventListener('click', (event) => {
-      event.stopPropagation(); // Evita eventos duplicados
+      event.stopPropagation();
       const jamId = boton.getAttribute('data-jamid');
       if (jamId) {
         window.location.href = `jams.html?id=${jamId}`;
-      } else {
-        console.error('No se encontró el ID de la jam');
       }
     });
   });
 }
 
+// Función para cargar temas de comunidad (si tienes sección)
 function loadCommunityTopics() {
   const temasContainer = document.getElementById('temasContainer');
+  if (!temasContainer) return; // Si no existe el contenedor, salir
+
   const temasData = localStorage.getItem('temas');
 
   if (!temasData) {
@@ -462,12 +459,12 @@ function loadCommunityTopics() {
     const temas = JSON.parse(temasData);
     renderCommunityTopics(temas, temasContainer);
   } catch (error) {
-    console.error('Error al parsear los datos de foros:', error);
+    console.error('Error al parsear foros:', error);
     temasContainer.innerHTML = '<p>Error al cargar los temas de discusión</p>';
   }
 }
 
-// Función auxiliar para formatear fechas (asegúrate de que existe)
+// Función para formatear fechas a formato legible en español
 function formatDate(dateString) {
   if (!dateString) return 'No especificada';
   const options = { year: 'numeric', month: 'long', day: 'numeric' };

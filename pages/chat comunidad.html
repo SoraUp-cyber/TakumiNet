@@ -97,7 +97,7 @@
             <div class="dropdown-group">
               <a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i><span data-i18n="configuracion">Configuración</span></a>
               <a href="perfil-editar.html" class="menu-item"><i class="fas fa-user-edit"></i><span data-i18n="editar_usuario">Editar Usuario</span></a>
-              <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-star"></i><span data-i18n="suscripcion">Suscripción</span></a>
+                <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-money-bill-wave"></i><span data-i18n="pagos">Pagos</span></a>
               <a href="seguidos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="seguidos">Seguidos</span></a>
             </div>
             <hr class="divider">
@@ -110,25 +110,30 @@
     </div>
 </nav>
 
+<!-- HTML -->
 <div class="foro-container">
-    <div class="foro-header">
-      <img id="foroImagen" class="foro-img" alt="Imagen del foro">
-      <div class="foro-title-area">
-        <h1 id="foroTitulo" class="foro-title"></h1>
-        <div class="foro-meta">
-          Publicado en la categoría: <strong id="foroCategoria"></strong><br>
-          Creado por <strong id="foroAutor"></strong> el <span id="foroFecha"></span>
+  <div class="foro-header">
+    <img id="foroImagen" class="foro-img" alt="Imagen del foro">
+
+    <div class="foro-title-area">
+      <h1 id="foroTitulo" class="foro-title"></h1>
+
+      <div class="foro-meta">
+        Publicado en la categoría: <strong id="foroCategoria"></strong>
+        <div class="domain-wrapper">
         </div>
+        Fecha: <span id="foroFecha"></span>
       </div>
     </div>
-
-    <div id="foroDescripcion" class="foro-description"></div>
-
-    <div class="foro-etiquetas">
-      <strong>Etiquetas:</strong>
-      <div id="foroEtiquetas"></div>
-    </div>
   </div>
+
+  <div id="foroDescripcion" class="foro-description"></div>
+
+  <div class="foro-etiquetas">
+    <strong>Etiquetas:</strong>
+    <div id="foroEtiquetas"></div>
+  </div>
+</div>
 
  <div class="tab-bar">
   <button class="tab-btn active" onclick="mostrarSeccion(event, 'capturas')" data-i18n="tabs.capturas">Capturas</button>
@@ -212,6 +217,7 @@
   <script src="../js/cerrar sesion.js"></script>
   <script src="../js/i18n.js"></script>
   <script src="../js/usario.js"></script>
+  <script src="../js/mostrarSeccion.js"></script>
   <script src="../autoSync.js"></script>
   <script src="../script.js"></script>
   
@@ -220,1430 +226,122 @@
 </body>
 </html>
 <script>
-// Script para cargar los datos del foro desde localStorage
-document.addEventListener('DOMContentLoaded', function() {
-    // Obtener el ID del foro de la URL (ejemplo: ?id=123)
-    const urlParams = new URLSearchParams(window.location.search);
-    const foroId = urlParams.get('id');
+document.addEventListener('DOMContentLoaded', async () => {
+  const API_BASE = "http://localhost:3001";
 
-    if (foroId) {
-        // Obtener todos los foros del localStorage
-        const forosGuardados = JSON.parse(localStorage.getItem('foros')) || [];
-        
-        // Buscar el foro específico
-        const foro = forosGuardados.find(f => f.id == foroId);
-
-        if (foro) {
-            // Cargar los datos en los elementos HTML
-            document.getElementById('foroTitulo').textContent = foro.titulo || 'Sin título';
-            document.getElementById('foroCategoria').textContent = foro.categoria || 'Sin categoría';
-            document.getElementById('foroAutor').textContent = foro.autor || 'Anónimo';
-            document.getElementById('foroFecha').textContent = foro.fecha || 'Fecha desconocida';
-            document.getElementById('foroDescripcion').textContent = foro.descripcion || 'Sin descripción';
-            
-            // Cargar imagen si existe
-            if (foro.imagen) {
-                document.getElementById('foroImagen').src = foro.imagen;
-                document.getElementById('foroImagen').style.display = 'block';
-            } else {
-                document.getElementById('foroImagen').style.display = 'none';
-            }
-            
-            // Cargar etiquetas
-            const etiquetasContainer = document.getElementById('foroEtiquetas');
-            etiquetasContainer.innerHTML = ''; // Limpiar contenedor
-            
-            if (foro.etiquetas && foro.etiquetas.length > 0) {
-                foro.etiquetas.forEach(etiqueta => {
-                    const span = document.createElement('span');
-                    span.className = 'etiqueta';
-                    span.textContent = etiqueta;
-                    etiquetasContainer.appendChild(span);
-                });
-            } else {
-                etiquetasContainer.innerHTML = '<span class="sin-etiquetas">No hay etiquetas</span>';
-            }
-        } else {
-            mostrarError('El foro solicitado no existe o ha sido eliminado');
-        }
-    } else {
-        mostrarError('No se ha especificado un foro para mostrar');
-    }
-
-    function mostrarError(mensaje) {
-        const container = document.querySelector('.foro-container');
-        container.innerHTML = `<div class="error-foro">${mensaje}</div>`;
-    }
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Get all tab buttons and sections
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  const sections = document.querySelectorAll('.seccion');
-  
-  // Add click event to each tab button
-  tabButtons.forEach(button => {
-    button.addEventListener('click', function(e) {
-      const targetSectionId = e.target.getAttribute('onclick').match(/'(\w+)'/)[1];
-      mostrarSeccion(e, targetSectionId);
-    });
-  });
-  
-  // Function to show selected section
-  function mostrarSeccion(event, sectionId) {
-    event.preventDefault();
-    
-    // Remove active class from all buttons
-    tabButtons.forEach(btn => {
-      btn.classList.remove('active');
-    });
-    
-    // Add active class to clicked button
-    event.currentTarget.classList.add('active');
-    
-    // Hide all sections with fade out effect
-    sections.forEach(section => {
-      section.style.opacity = '0';
-      section.style.transform = 'translateY(10px)';
-      setTimeout(() => {
-        section.classList.remove('activa');
-      }, 300); // Match this with CSS transition time
-    });
-    
-    // Show selected section with fade in effect
-    setTimeout(() => {
-      const activeSection = document.getElementById(sectionId);
-      activeSection.classList.add('activa');
-      setTimeout(() => {
-        activeSection.style.opacity = '1';
-        activeSection.style.transform = 'translateY(0)';
-      }, 50);
-    }, 300);
-  }
-  
-  // Initialize first tab as active
-  const firstTab = document.querySelector('.tab-btn.active');
-  if (firstTab) {
-    const firstSectionId = firstTab.getAttribute('onclick').match(/'(\w+)'/)[1];
-    document.getElementById(firstSectionId).classList.add('activa');
-    document.getElementById(firstSectionId).style.opacity = '1';
-    document.getElementById(firstSectionId).style.transform = 'translateY(0)';
-  }
-});
-
-
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  // ====== CONFIGURACIÓN GENERAL ======
-  const STORAGE_KEY = 'takumi_login_system';
-  const mostrarNombre = document.getElementById('mostrarNombre');
-  const inputNombre = document.getElementById('nombre-real');
-  const btnGuardar = document.getElementById('guardar-perfil-btn');
-
-  // ====== PERFIL DE USUARIO ======
-  function showNotification(message, type = 'success') {
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.textContent = message;
-    document.body.appendChild(notification);
-    
-    setTimeout(() => notification.classList.add('show'), 10);
-    setTimeout(() => {
-      notification.classList.remove('show');
-      setTimeout(() => notification.remove(), 300);
-    }, 3000);
+  function obtenerIdDesdeURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('id');
   }
 
-  function actualizarNombreEnUI(nombre) {
-    if (mostrarNombre) {
-      mostrarNombre.textContent = nombre || 'Invitado';
-    }
-  }
-
-  function getCurrentUser() {
-    const token = sessionStorage.getItem('current_token');
-    if (!token) return null;
-    const appData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-    const session = appData.sessions?.[token];
-    if (!session) return null;
-    return appData.users?.[session.username.toLowerCase()];
-  }
-
-  function cargarDatosUsuario() {
-    const usuario = getCurrentUser();
-    if (usuario) {
-      if (inputNombre) inputNombre.value = usuario.username || '';
-      actualizarNombreEnUI(usuario.username);
-      return usuario;
-    } else {
-      actualizarNombreEnUI('Invitado');
-      if (inputNombre) inputNombre.value = '';
+  // Obtener usuario desde localStorage
+  function getLocalUser() {
+    const data = localStorage.getItem('takumi_user');
+    if (!data) return null;
+    try {
+      return JSON.parse(data);
+    } catch {
       return null;
     }
   }
 
-  async function guardarPerfil(nuevoNombre) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        try {
-          const token = sessionStorage.getItem('current_token');
-          if (!token) return reject(new Error('No hay sesión activa'));
-          const appData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || { users: {}, sessions: {} };
-          const session = appData.sessions[token];
-          if (!session) return reject(new Error('Sesión inválida'));
-          const userKey = session.username.toLowerCase();
-          if (!appData.users[userKey]) return reject(new Error('Usuario no encontrado'));
-
-          appData.users[userKey].username = nuevoNombre;
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
-          resolve({ success: true, username: nuevoNombre });
-        } catch (error) {
-          reject(error);
-        }
-      }, 500);
-    });
-  }
-
-  // Guardar cambios
-  if (btnGuardar && inputNombre) {
-    btnGuardar.addEventListener('click', async () => {
-      const nuevoNombre = inputNombre.value.trim();
-      if (!nuevoNombre || nuevoNombre.length < 3) {
-        showNotification('El nombre debe tener al menos 3 caracteres', 'error');
-        inputNombre.focus();
-        return;
-      }
-
-      btnGuardar.disabled = true;
-      btnGuardar.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Guardando...';
-
-      try {
-        const result = await guardarPerfil(nuevoNombre);
-        if (result.success) {
-          actualizarNombreEnUI(result.username);
-          showNotification('Perfil actualizado correctamente');
-        }
-      } catch (error) {
-        showNotification(error.message || 'Error al guardar los cambios', 'error');
-      } finally {
-        btnGuardar.disabled = false;
-        btnGuardar.innerHTML = '<i class="fas fa-save"></i> Guardar Cambios';
-      }
-    });
-  }
-
-  if (inputNombre) {
-    inputNombre.addEventListener('input', () => {
-      inputNombre.classList.toggle('invalid', inputNombre.value.trim().length > 0 && inputNombre.value.trim().length < 3);
-    });
-  }
-
-  // Cargar nombre al iniciar
-  const usuarioActual = cargarDatosUsuario();
-
-  // ====== GALERÍA DE CAPTURAS CON INTERACCIÓN ======
-  function obtenerNombreUsuario() {
-    const user = getCurrentUser();
-    return user?.username || 'Invitado';
-  }
-
-  const params = new URLSearchParams(location.search);
-  const chatId = params.get('id') || 'default';
-  const storageKey = `chatCapturas_${chatId}`;
-  const userVotesKey = `userVotes_${chatId}_${obtenerNombreUsuario()}`;
-  const userAwardsKey = `userAwards_${chatId}_${obtenerNombreUsuario()}`;
-
-  const form = document.getElementById('formCaptura');
-  const inputImagen = document.getElementById('inputImagen');
-  const galeria = document.getElementById('galeriaCapturas');
-  const btnPremium = document.getElementById('btnPremium');
-  let esPremium = localStorage.getItem('esPremium') === 'true';
-
-  if (btnPremium) {
-    btnPremium.classList.toggle('active', esPremium);
-    btnPremium.innerHTML = esPremium ? '<i class="fas fa-crown"></i> Premium ACTIVO' : '<i class="fas fa-crown"></i> Activar Premium';
-
-    btnPremium.addEventListener('click', () => {
-      esPremium = !esPremium;
-      localStorage.setItem('esPremium', esPremium.toString());
-      btnPremium.classList.toggle('active', esPremium);
-      btnPremium.innerHTML = esPremium ? '<i class="fas fa-crown"></i> Premium ACTIVO' : '<i class="fas fa-crown"></i> Activar Premium';
-      alert(esPremium ? '¡Modo Premium activado!' : 'Modo Premium desactivado');
-    });
-  }
-
-  function crearElementoCaptura(src, user, fecha, likes, dislikes, awards, id, userVote, userAwarded) {
-    const el = document.createElement('div');
-    el.className = 'mensaje-captura';
-    el.dataset.id = id;
-    el.innerHTML = `
-      <div class="usuario-info">
-        <i class="fas fa-user usuario-icono"></i>
-        <span class="usuario-captura">${user}</span>
-        ${esPremium && user !== 'Invitado' ? '<span class="badge-premium"><i class="fas fa-crown"></i> Premium</span>' : ''}
-      </div>
-      <img src="${src}" class="img-captura" alt="Captura">
-      <div class="fecha-captura"><i class="far fa-clock"></i> ${fecha}</div>
-      <div class="interaccion">
-        <button class="btn-like ${userVote === 'like' ? 'active' : ''}" data-id="${id}">
-          <i class="fas fa-thumbs-up"></i> <span class="contador">${likes}</span>
-        </button>
-        <button class="btn-dislike ${userVote === 'dislike' ? 'active' : ''}" data-id="${id}">
-          <i class="fas fa-thumbs-down"></i> <span class="contador">${dislikes}</span>
-        </button>
-        ${esPremium ? `<button class="btn-award ${userAwarded ? 'awarded' : ''}" data-id="${id}"><i class="fas fa-medal"></i> <span class="contador">${awards}</span></button>` : ''}
-      </div>`;
-    galeria.appendChild(el);
-    galeria.scrollTop = galeria.scrollHeight;
-
-    el.querySelector('.btn-like')?.addEventListener('click', manejarLike);
-    el.querySelector('.btn-dislike')?.addEventListener('click', manejarDislike);
-    el.querySelector('.btn-award')?.addEventListener('click', manejarAward);
-  }
-
-  function cargarCapturas() {
-    const capturas = JSON.parse(localStorage.getItem(storageKey)) || [];
-    const userVotes = JSON.parse(localStorage.getItem(userVotesKey)) || {};
-    const userAwards = JSON.parse(localStorage.getItem(userAwardsKey)) || {};
-
-    capturas.forEach(c => {
-      crearElementoCaptura(c.imagen, c.usuario || obtenerNombreUsuario(), c.fecha || new Date().toLocaleString(), c.likes || 0, c.dislikes || 0, c.awards || 0, c.id, userVotes[c.id] || null, userAwards[c.id] || false);
-    });
-  }
-
-  function manejarLike(e) {
-    const id = parseInt(e.currentTarget.dataset.id);
-    const capturas = JSON.parse(localStorage.getItem(storageKey)) || [];
-    const userVotes = JSON.parse(localStorage.getItem(userVotesKey)) || {};
-    const idx = capturas.findIndex(c => c.id === id);
-    if (idx === -1) return;
-
-    if (userVotes[id] === 'like') {
-      capturas[idx].likes--; userVotes[id] = null;
-    } else if (userVotes[id] === 'dislike') {
-      capturas[idx].dislikes--; capturas[idx].likes++; userVotes[id] = 'like';
-    } else {
-      capturas[idx].likes++; userVotes[id] = 'like';
-    }
-
-    localStorage.setItem(storageKey, JSON.stringify(capturas));
-    localStorage.setItem(userVotesKey, JSON.stringify(userVotes));
-    actualizarInterfaz(id, capturas[idx]);
-  }
-
-  function manejarDislike(e) {
-    const id = parseInt(e.currentTarget.dataset.id);
-    const capturas = JSON.parse(localStorage.getItem(storageKey)) || [];
-    const userVotes = JSON.parse(localStorage.getItem(userVotesKey)) || {};
-    const idx = capturas.findIndex(c => c.id === id);
-    if (idx === -1) return;
-
-    if (userVotes[id] === 'dislike') {
-      capturas[idx].dislikes--; userVotes[id] = null;
-    } else if (userVotes[id] === 'like') {
-      capturas[idx].likes--; capturas[idx].dislikes++; userVotes[id] = 'dislike';
-    } else {
-      capturas[idx].dislikes++; userVotes[id] = 'dislike';
-    }
-
-    localStorage.setItem(storageKey, JSON.stringify(capturas));
-    localStorage.setItem(userVotesKey, JSON.stringify(userVotes));
-    actualizarInterfaz(id, capturas[idx]);
-  }
-
-  function manejarAward(e) {
-    if (!esPremium) return alert('Activa Premium para premiar imágenes');
-    const id = parseInt(e.currentTarget.dataset.id);
-    const capturas = JSON.parse(localStorage.getItem(storageKey)) || [];
-    const userAwards = JSON.parse(localStorage.getItem(userAwardsKey)) || {};
-    const idx = capturas.findIndex(c => c.id === id);
-    if (idx === -1) return;
-
-    if (userAwards[id]) {
-      capturas[idx].awards--; userAwards[id] = false;
-    } else {
-      capturas[idx].awards++; userAwards[id] = true;
-      const medal = document.createElement('div');
-      medal.className = 'medal-animation'; medal.innerHTML = '<i class="fas fa-medal"></i>';
-      e.currentTarget.appendChild(medal); setTimeout(() => medal.remove(), 1000);
-    }
-
-    localStorage.setItem(storageKey, JSON.stringify(capturas));
-    localStorage.setItem(userAwardsKey, JSON.stringify(userAwards));
-    actualizarInterfaz(id, capturas[idx]);
-  }
-
-  function actualizarInterfaz(id, captura) {
-    const el = galeria.querySelector(`[data-id="${id}"]`);
-    if (!el) return;
-    el.querySelector('.btn-like .contador').textContent = captura.likes;
-    el.querySelector('.btn-dislike .contador').textContent = captura.dislikes;
-    const vote = JSON.parse(localStorage.getItem(userVotesKey)) || {};
-    el.querySelector('.btn-like').classList.toggle('active', vote[id] === 'like');
-    el.querySelector('.btn-dislike').classList.toggle('active', vote[id] === 'dislike');
-
-    const awards = JSON.parse(localStorage.getItem(userAwardsKey)) || {};
-    const btnAward = el.querySelector('.btn-award');
-    if (btnAward) {
-      btnAward.querySelector('.contador').textContent = captura.awards;
-      btnAward.classList.toggle('awarded', awards[id]);
-    }
-  }
-
-  if (form && inputImagen && galeria) {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const archivo = inputImagen.files[0];
-      if (!archivo) return;
-      const reader = new FileReader();
-      reader.onload = ev => {
-        const nuevaCaptura = {
-          id: Date.now(),
-          imagen: ev.target.result,
-          usuario: obtenerNombreUsuario(),
-          fecha: new Date().toLocaleString(),
-          likes: 0,
-          dislikes: 0,
-          awards: 0
-        };
-        const capturas = JSON.parse(localStorage.getItem(storageKey)) || [];
-        capturas.push(nuevaCaptura);
-        localStorage.setItem(storageKey, JSON.stringify(capturas));
-        crearElementoCaptura(nuevaCaptura.imagen, nuevaCaptura.usuario, nuevaCaptura.fecha, 0, 0, 0, nuevaCaptura.id, null, false);
-        inputImagen.value = '';
-      };
-      reader.readAsDataURL(archivo);
-    });
-    cargarCapturas();
-  }
-
-  // Estilos dinámicos
-  const style = document.createElement('style');
-  style.textContent = `
-    .notification {
-      position: fixed; bottom: 20px; right: 20px;
-      padding: 12px 24px; border-radius: 8px;
-      color: white; background-color: #4CAF50;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      transform: translateY(100px); opacity: 0;
-      transition: all 0.3s ease; z-index: 1000;
-    }
-    .notification.show { transform: translateY(0); opacity: 1; }
-    .notification.error { background-color: #f44336; }
-    .invalid { border-color: #f44336 !important; }
-  `;
-  document.head.appendChild(style);
-});
-
-
-
-
-
-// Función para crear y manejar el botón "Volver arriba"
-function crearBotonVolverArriba() {
-  // Crear el elemento del botón
-  const boton = document.createElement('button');
-  boton.id = 'btnVolverArriba';
-  boton.innerHTML = '<i class="fas fa-arrow-up"></i>';
-  boton.title = 'Volver arriba';
-  boton.style.display = 'none'; // Inicialmente oculto
-  document.body.appendChild(boton);
-
-  // Estilos básicos para el botón (puedes personalizarlos)
-  Object.assign(boton.style, {
-  position: 'fixed',
-  bottom: '180px', // ⬆️ Subido más alto aún
-  right: '30px',
-  width: '50px',
-  height: '50px',
-  borderRadius: '50%',
-  backgroundColor: '#2d2d2d',
-  color: '#fff',
-  border: '2px solid #ffc107',
-  cursor: 'pointer',
-  fontSize: '20px',
-  zIndex: '999',
-  transition: 'all 0.3s ease',
-  opacity: '0.7'
-  });
-
-  // Evento para mostrar/ocultar el botón según el scroll
-  window.addEventListener('scroll', function() {
-    if (window.pageYOffset > 300) {
-      boton.style.display = 'flex';
-      boton.style.alignItems = 'center';
-      boton.style.justifyContent = 'center';
-      boton.style.opacity = '0.7';
-    } else {
-      boton.style.display = 'none';
-    }
-  });
-
-  // Efecto hover
-  boton.addEventListener('mouseenter', function() {
-    this.style.opacity = '1';
-    this.style.transform = 'scale(1.1)';
-  });
-
-  boton.addEventListener('mouseleave', function() {
-    this.style.opacity = '0.7';
-    this.style.transform = 'scale(1)';
-  });
-
-  // Función para volver arriba
-  boton.addEventListener('click', function() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth' // Desplazamiento suave
-    });
-  });
-}
-
-// Llamar a la función al cargar la página
-document.addEventListener('DOMContentLoaded', function() {
-  crearBotonVolverArriba();
-});
-
-
-
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  // ✅ Función corregida para obtener nombre de usuario desde sistema de sesión
-  function obtenerNombreUsuario() {
+  // Obtener usuario desde backend por ID
+  async function getUserFromBackend(id) {
     try {
-      const token = sessionStorage.getItem('current_token');
-      if (!token) return 'Invitado';
-
-      const sistema = JSON.parse(localStorage.getItem('takumi_login_system')) || {};
-      const sesion = sistema.sessions?.[token];
-      if (!sesion) return 'Invitado';
-
-      const usernameKey = sesion.username?.toLowerCase();
-      const usuario = sistema.users?.[usernameKey];
-
-      return usuario?.username || 'Invitado';
-    } catch (error) {
-      console.error('Error al obtener usuario:', error);
-      return 'Invitado';
+      const res = await fetch(`${API_BASE}/api/usuario/${id}`);
+      if (!res.ok) return null;
+      const data = await res.json();
+      return data.ok ? data : null;
+    } catch {
+      return null;
     }
   }
 
-  // Obtener ID único desde la URL
-  const params = new URLSearchParams(window.location.search);
-  const chatId = params.get('id') || 'default';
-  const storageKey = `chatMensajes_${chatId}`;
-  const userVotesKey = `userVotes_${chatId}_${obtenerNombreUsuario()}`;
-
-  const form = document.getElementById('formChat');
-  const input = document.getElementById('chatMensaje');
-  const mensajesContenedor = document.getElementById('mensajesChat');
-  const btnPremium = document.getElementById('btnPremium');
-
-  // Estado premium
-  let esPremium = localStorage.getItem('esPremium') === 'true';
-
-  if (btnPremium) {
-    btnPremium.classList.toggle('active', esPremium);
-    btnPremium.innerHTML = esPremium
-      ? '<i class="fas fa-crown"></i> Premium ACTIVO'
-      : '<i class="fas fa-crown"></i> Activar Premium';
-
-    btnPremium.addEventListener('click', function () {
-      esPremium = !esPremium;
-      localStorage.setItem('esPremium', esPremium.toString());
-      this.classList.toggle('active', esPremium);
-      this.innerHTML = esPremium
-        ? '<i class="fas fa-crown"></i> Premium ACTIVO'
-        : '<i class="fas fa-crown"></i> Activar Premium';
-      alert(esPremium ? '¡Modo Premium activado!' : 'Modo Premium desactivado');
-    });
-  }
-
-  const usuario = obtenerNombreUsuario();
-
-  // Cargar mensajes
-  cargarMensajes();
-
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const texto = input.value.trim();
-    if (!texto) return;
-
-    const nuevoMensaje = {
-      id: Date.now(),
-      usuario,
-      mensaje: texto,
-      fecha: new Date().toLocaleTimeString(),
-      likes: 0,
-      dislikes: 0,
-      awards: 0
-    };
-
-    const mensajes = JSON.parse(localStorage.getItem(storageKey)) || [];
-    mensajes.push(nuevoMensaje);
-    localStorage.setItem(storageKey, JSON.stringify(mensajes));
-
-    mostrarMensaje(nuevoMensaje, null, true); // <-- true para insertar al inicio
-    input.value = '';
-  });
-
-  function cargarMensajes() {
-    const mensajes = JSON.parse(localStorage.getItem(storageKey)) || [];
-    const userVotes = JSON.parse(localStorage.getItem(userVotesKey)) || {};
-
-    // Mostrar los mensajes del más reciente al más antiguo
-    mensajes.slice().reverse().forEach(m => {
-      mostrarMensaje(m, userVotes[m.id] || null, false);
-    });
-  }
-
-  function mostrarMensaje({ id, usuario, mensaje, fecha, likes = 0, dislikes = 0, awards = 0 }, userVote = null, insertarAlInicio = false) {
-    const div = document.createElement('div');
-    div.className = 'mensaje-chat';
-    div.dataset.id = id;
-
-    div.innerHTML = `
-      <div class="usuario-info">
-        <i class="fas fa-user usuario-icono"></i>
-        <span class="usuario-chat">${usuario}</span>
-        ${esPremium && usuario !== 'Invitado' ? '<span class="badge-premium"><i class="fas fa-crown"></i> Premium</span>' : ''}
-      </div>
-      <div class="mensaje-contenido">${mensaje}</div>
-      <div class="chat-fecha">
-        <i class="far fa-clock"></i> ${fecha}
-      </div>
-      <div class="interaccion">
-        <button class="btn-like ${userVote === 'like' ? 'active' : ''}" data-id="${id}">
-          <i class="fas fa-thumbs-up"></i> <span class="contador">${likes}</span>
-        </button>
-        <button class="btn-dislike ${userVote === 'dislike' ? 'active' : ''}" data-id="${id}">
-          <i class="fas fa-thumbs-down"></i> <span class="contador">${dislikes}</span>
-        </button>
-        ${esPremium ? `
-        <button class="btn-award" data-id="${id}">
-          <i class="fas fa-medal"></i> <span class="contador">${awards}</span>
-        </button>
-        ` : ''}
-      </div>
-    `;
-
-    if (insertarAlInicio && mensajesContenedor.firstChild) {
-      mensajesContenedor.insertBefore(div, mensajesContenedor.firstChild);
-    } else {
-      mensajesContenedor.appendChild(div);
-    }
-
-    agregarEventosInteraccion(div, id);
-  }
-
-  function agregarEventosInteraccion(elemento, mensajeId) {
-    elemento.querySelector('.btn-like')?.addEventListener('click', () => manejarVoto(mensajeId, 'like'));
-    elemento.querySelector('.btn-dislike')?.addEventListener('click', () => manejarVoto(mensajeId, 'dislike'));
-    elemento.querySelector('.btn-award')?.addEventListener('click', () => manejarPremio(mensajeId));
-  }
-
-  function manejarVoto(mensajeId, tipo) {
-    const mensajes = JSON.parse(localStorage.getItem(storageKey)) || [];
-    const mensaje = mensajes.find(m => m.id === mensajeId);
-    const userVotes = JSON.parse(localStorage.getItem(userVotesKey)) || {};
-
-    if (!mensaje) return;
-
-    if (userVotes[mensajeId] === tipo) {
-      mensaje[tipo === 'like' ? 'likes' : 'dislikes']--;
-      userVotes[mensajeId] = null;
-    } else {
-      if (userVotes[mensajeId]) {
-        mensaje[userVotes[mensajeId] === 'like' ? 'likes' : 'dislikes']--;
-      }
-      mensaje[tipo === 'like' ? 'likes' : 'dislikes']++;
-      userVotes[mensajeId] = tipo;
-    }
-
-    localStorage.setItem(storageKey, JSON.stringify(mensajes));
-    localStorage.setItem(userVotesKey, JSON.stringify(userVotes));
-
-    const elemento = document.querySelector(`.mensaje-chat[data-id="${mensajeId}"]`);
-    if (elemento) {
-      elemento.querySelector('.btn-like .contador').textContent = mensaje.likes;
-      elemento.querySelector('.btn-dislike .contador').textContent = mensaje.dislikes;
-
-      elemento.querySelector('.btn-like').classList.toggle('active', userVotes[mensajeId] === 'like');
-      elemento.querySelector('.btn-dislike').classList.toggle('active', userVotes[mensajeId] === 'dislike');
-    }
-  }
-
-  function manejarPremio(mensajeId) {
-    if (!esPremium) return;
-
-    const mensajes = JSON.parse(localStorage.getItem(storageKey)) || [];
-    const mensaje = mensajes.find(m => m.id === mensajeId);
-    if (!mensaje) return;
-
-    mensaje.awards++;
-    localStorage.setItem(storageKey, JSON.stringify(mensajes));
-
-    const elemento = document.querySelector(`.mensaje-chat[data-id="${mensajeId}"]`);
-    if (elemento) {
-      const awardBtn = elemento.querySelector('.btn-award');
-      awardBtn.querySelector('.contador').textContent = mensaje.awards;
-      awardBtn.classList.add('awarded');
-
-      awardBtn.animate([
-        { transform: 'scale(1)' },
-        { transform: 'scale(1.2)' },
-        { transform: 'scale(1)' }
-      ], {
-        duration: 300
-      });
-    }
-  }
-});
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const params = new URLSearchParams(window.location.search);
-  const jamId = params.get('id') || 'default';
-  const storageKey = `chatVideos_${jamId}`;
-  const usuario = obtenerNombreUsuario();
-  const userVotesKey = `userVotes_${jamId}_${usuario}`;
-  const userAwardsKey = `userAwards_${jamId}_${usuario}`;
-
-  const form = document.getElementById('formVideo');
-  const input = document.getElementById('urlVideo');
-  const lista = document.getElementById('listaVideos');
-  const btnPremium = document.getElementById('btnPremium');
-
-  let esPremium = localStorage.getItem('esPremium') === 'true';
-
-  if (btnPremium) {
-    btnPremium.classList.toggle('active', esPremium);
-    btnPremium.innerHTML = esPremium 
-      ? '<i class="fas fa-crown"></i> Premium ACTIVO' 
-      : '<i class="fas fa-crown"></i> Activar Premium';
-
-    btnPremium.addEventListener('click', function () {
-      esPremium = !esPremium;
-      localStorage.setItem('esPremium', esPremium.toString());
-      this.classList.toggle('active', esPremium);
-      this.innerHTML = esPremium 
-        ? '<i class="fas fa-crown"></i> Premium ACTIVO' 
-        : '<i class="fas fa-crown"></i> Activar Premium';
-      alert(esPremium ? '¡Modo Premium activado! Ahora puedes premiar videos.' : 'Modo Premium desactivado');
-      cargarVideos(); // recarga para mostrar botones de premio si aplica
-    });
-  }
-
-  cargarVideos();
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const url = input.value.trim();
-    const videoId = extraerIDYoutube(url);
-
-    if (!videoId) {
-      alert('URL de YouTube inválida');
-      return;
-    }
-
-    const nuevoVideo = {
-      id: Date.now(),
-      videoId,
-      usuario,
-      fecha: new Date().toISOString(), // importante usar ISO para comparar fechas
-      likes: 0,
-      dislikes: 0,
-      awards: 0
-    };
-
-    const videos = JSON.parse(localStorage.getItem(storageKey)) || [];
-    videos.push(nuevoVideo);
-    localStorage.setItem(storageKey, JSON.stringify(videos));
-
-    cargarVideos(); // recargar y reordenar
-    input.value = '';
-  });
-
-  function cargarVideos() {
-    const videos = JSON.parse(localStorage.getItem(storageKey)) || [];
-    const userVotes = JSON.parse(localStorage.getItem(userVotesKey)) || {};
-    const userAwards = JSON.parse(localStorage.getItem(userAwardsKey)) || {};
-
-    // Ordenar por fecha descendente (recientes primero)
-    videos.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
-
-    lista.innerHTML = '';
-
-    videos.forEach(video => {
-      mostrarVideo(video, userVotes[video.id] || null, userAwards[video.id] || false);
-    });
-  }
-
-  function mostrarVideo({ id, videoId, usuario, fecha, likes = 0, dislikes = 0, awards = 0 }, userVote = null, userAwarded = false) {
-    const div = document.createElement('div');
-    div.className = 'video-chat';
-    div.dataset.id = id;
-
-    const fechaLocal = new Date(fecha).toLocaleString();
-
-    div.innerHTML = `
-      <div class="usuario-info">
-        <i class="fas fa-user usuario-icono"></i>
-        <span class="usuario-captura">${usuario}</span>
-        ${esPremium && usuario !== 'Invitado' ? '<span class="badge-premium"><i class="fas fa-crown"></i> Premium</span>' : ''}
-      </div>
-      <div class="video-embed">
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <div class="fecha-captura"><i class="far fa-clock"></i> ${fechaLocal}</div>
-      <div class="interaccion">
-        <button class="btn-like ${userVote === 'like' ? 'active' : ''}" data-id="${id}">
-          <i class="fas fa-thumbs-up"></i> <span class="contador">${likes}</span>
-        </button>
-        <button class="btn-dislike ${userVote === 'dislike' ? 'active' : ''}" data-id="${id}">
-          <i class="fas fa-thumbs-down"></i> <span class="contador">${dislikes}</span>
-        </button>
-        ${esPremium ? `
-        <button class="btn-award ${userAwarded ? 'awarded' : ''}" data-id="${id}">
-          <i class="fas fa-medal"></i> <span class="contador">${awards}</span>
-        </button>` : ''}
-      </div>
-    `;
-
-    // Insertar al principio (más reciente primero)
-    lista.prepend(div);
-
-    agregarEventosInteraccion(div, id);
-  }
-
-  function agregarEventosInteraccion(elemento, videoId) {
-    elemento.querySelector('.btn-like')?.addEventListener('click', () => manejarVoto(videoId, 'like'));
-    elemento.querySelector('.btn-dislike')?.addEventListener('click', () => manejarVoto(videoId, 'dislike'));
-    elemento.querySelector('.btn-award')?.addEventListener('click', () => manejarPremio(videoId));
-  }
-
-  function manejarVoto(videoId, tipo) {
-    const videos = JSON.parse(localStorage.getItem(storageKey)) || [];
-    const video = videos.find(v => v.id === videoId);
-    const userVotes = JSON.parse(localStorage.getItem(userVotesKey)) || {};
-
-    if (!video) return;
-
-    if (userVotes[videoId] === tipo) {
-      video[tipo === 'like' ? 'likes' : 'dislikes']--;
-      userVotes[videoId] = null;
-    } else {
-      if (userVotes[videoId]) {
-        video[userVotes[videoId] === 'like' ? 'likes' : 'dislikes']--;
-      }
-      video[tipo === 'like' ? 'likes' : 'dislikes']++;
-      userVotes[videoId] = tipo;
-    }
-
-    localStorage.setItem(storageKey, JSON.stringify(videos));
-    localStorage.setItem(userVotesKey, JSON.stringify(userVotes));
-    cargarVideos(); // recargar para reflejar cambios
-  }
-
-  function manejarPremio(videoId) {
-    if (!esPremium) return;
-
-    const videos = JSON.parse(localStorage.getItem(storageKey)) || [];
-    const video = videos.find(v => v.id === videoId);
-    const userAwards = JSON.parse(localStorage.getItem(userAwardsKey)) || {};
-
-    if (!video || userAwards[videoId]) return;
-
-    video.awards++;
-    userAwards[videoId] = true;
-
-    localStorage.setItem(storageKey, JSON.stringify(videos));
-    localStorage.setItem(userAwardsKey, JSON.stringify(userAwards));
-    cargarVideos();
-  }
-
-  function extraerIDYoutube(url) {
-    const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/))([a-zA-Z0-9_-]{11})/);
-    return match ? match[1] : null;
-  }
-
-  function obtenerNombreUsuario() {
-    try {
-      const token = sessionStorage.getItem('current_token');
-      if (!token) return 'Invitado';
-
-      const sistema = JSON.parse(localStorage.getItem('takumi_login_system')) || {};
-      const sesion = sistema.sessions?.[token];
-      if (!sesion) return 'Invitado';
-
-      const usernameKey = sesion.username?.toLowerCase();
-      const usuario = sistema.users?.[usernameKey];
-      return usuario?.username || 'Invitado';
-    } catch (e) {
-      return 'Invitado';
-    }
-  }
-});
-
-
-
-
-
-// PERFIL Y GUÍAS UNIFICADO
-
-// ✅ Inicia cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-  const STORAGE_KEY = 'takumi_login_system';
-
-  function obtenerNombreUsuario() {
-    const token = sessionStorage.getItem('current_token');
-    if (!token) return 'Invitado';
-
-    const sistema = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-    const sesion = sistema.sessions?.[token];
-    if (!sesion) return 'Invitado';
-
-    const usernameKey = sesion.username?.toLowerCase();
-    const usuario = sistema.users?.[usernameKey];
-
-    return usuario?.username || 'Invitado';
-  }
-
-  function getCurrentUser() {
-    const token = sessionStorage.getItem('current_token');
-    if (!token) return null;
-
-    const appData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-    const session = appData.sessions?.[token];
-    if (!session) return null;
-
-    return appData.users?.[session.username.toLowerCase()];
-  }
-
-  const params = new URLSearchParams(window.location.search);
-  const jamId = params.get('id') || 'default';
-  const storageKey = `chatGuias_${jamId}`;
-  const nombreUsuario = obtenerNombreUsuario();
-  const userVotesKey = `userVotes_${jamId}_${nombreUsuario}`;
-  const userAwardsKey = `userAwards_${jamId}_${nombreUsuario}`;
-
-  const mostrarNombre = document.getElementById('mostrarNombre');
-  const inputNombre = document.getElementById('nombre-real');
-  const btnGuardar = document.getElementById('guardar-perfil-btn');
-  const form = document.getElementById('formGuia');
-  const inputTitulo = document.getElementById('tituloGuia');
-  const inputContenido = document.getElementById('contenidoGuia');
-  const lista = document.getElementById('listaGuias');
-  const btnPremium = document.getElementById('btnPremium');
-
-  let esPremium = localStorage.getItem('esPremium') === 'true';
-
-  if (btnPremium) {
-    btnPremium.classList.toggle('active', esPremium);
-    btnPremium.innerHTML = esPremium
-      ? '<i class="fas fa-crown"></i> Premium ACTIVO'
-      : '<i class="fas fa-crown"></i> Activar Premium';
-
-    btnPremium.addEventListener('click', function () {
-      esPremium = !esPremium;
-      localStorage.setItem('esPremium', esPremium.toString());
-      this.classList.toggle('active', esPremium);
-      this.innerHTML = esPremium
-        ? '<i class="fas fa-crown"></i> Premium ACTIVO'
-        : '<i class="fas fa-crown"></i> Activar Premium';
-      alert(esPremium ? '¡Modo Premium activado!' : 'Modo Premium desactivado');
-    });
-  }
-
-  function actualizarNombreEnUI(nombre) {
-    if (mostrarNombre) mostrarNombre.textContent = nombre || 'Invitado';
-  }
-
-  function cargarDatosUsuario() {
-    const usuario = getCurrentUser();
-    if (usuario) {
-      if (inputNombre) inputNombre.value = usuario.username || '';
-      actualizarNombreEnUI(usuario.username);
-    } else {
-      actualizarNombreEnUI('Invitado');
-      if (inputNombre) inputNombre.value = '';
-    }
-  }
-
-  async function guardarPerfil(nuevoNombre) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        try {
-          const token = sessionStorage.getItem('current_token');
-          if (!token) return reject(new Error('No hay sesión activa'));
-
-          const sistema = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-          const sesion = sistema.sessions?.[token];
-          if (!sesion) return reject(new Error('Sesión inválida'));
-
-          const key = sesion.username.toLowerCase();
-          if (!sistema.users[key]) return reject(new Error('Usuario no encontrado'));
-
-          sistema.users[key].username = nuevoNombre;
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(sistema));
-
-          resolve({ success: true, username: nuevoNombre });
-        } catch (e) {
-          reject(e);
-        }
-      }, 500);
-    });
-  }
-
-  if (btnGuardar && inputNombre) {
-    btnGuardar.addEventListener('click', async () => {
-      const nuevoNombre = inputNombre.value.trim();
-      if (!nuevoNombre || nuevoNombre.length < 3) {
-        showNotification('El nombre debe tener al menos 3 caracteres', 'error');
-        return inputNombre.focus();
-      }
-
-      btnGuardar.disabled = true;
-      btnGuardar.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Guardando...';
-
-      try {
-        const res = await guardarPerfil(nuevoNombre);
-        if (res.success) {
-          actualizarNombreEnUI(res.username);
-          showNotification('Perfil actualizado correctamente');
-        }
-      } catch (err) {
-        showNotification(err.message || 'Error al guardar', 'error');
-      } finally {
-        btnGuardar.disabled = false;
-        btnGuardar.innerHTML = '<i class="fas fa-save"></i> Guardar Cambios';
-      }
-    });
-  }
-
-  if (inputNombre) {
-    inputNombre.addEventListener('input', () => {
-      inputNombre.classList.toggle('invalid', inputNombre.value.trim().length > 0 && inputNombre.value.trim().length < 3);
-    });
-  }
-
-  function showNotification(msg, type = 'success') {
-    const notif = document.createElement('div');
-    notif.className = `notification ${type}`;
-    notif.textContent = msg;
-    document.body.appendChild(notif);
-
-    setTimeout(() => notif.classList.add('show'), 10);
-    setTimeout(() => {
-      notif.classList.remove('show');
-      setTimeout(() => notif.remove(), 300);
-    }, 3000);
-  }
-
-  const style = document.createElement('style');
-  style.textContent = `
-    .notification {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 12px 24px;
-      border-radius: 8px;
-      color: white;
-      background-color: #4CAF50;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      transform: translateY(100px);
-      opacity: 0;
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-    .notification.show {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    .notification.error {
-      background-color: #f44336;
-    }
-    .invalid {
-      border-color: #f44336 !important;
-    }
-  `;
-  document.head.appendChild(style);
-
-  cargarGuias();
-
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const titulo = inputTitulo.value.trim();
-    const contenido = inputContenido.value.trim();
-    if (!titulo || !contenido) return alert('Completa título y contenido');
-
-    const nuevaGuia = {
-      id: Date.now(),
-      titulo,
-      contenido,
-      usuario: nombreUsuario,
-      fecha: new Date().toLocaleString(),
-      likes: 0,
-      dislikes: 0,
-      awards: 0
-    };
-
-    const guias = JSON.parse(localStorage.getItem(storageKey)) || [];
-    guias.push(nuevaGuia);
-    localStorage.setItem(storageKey, JSON.stringify(guias));
-
-    mostrarGuia(nuevaGuia, null, false, true);
-    inputTitulo.value = '';
-    inputContenido.value = '';
-  });
-
-  function cargarGuias() {
-    const guias = JSON.parse(localStorage.getItem(storageKey)) || [];
-    const userVotes = JSON.parse(localStorage.getItem(userVotesKey)) || {};
-    const userAwards = JSON.parse(localStorage.getItem(userAwardsKey)) || {};
-
-    guias.sort((a, b) => b.id - a.id);
-
-    guias.forEach(g => mostrarGuia(g, userVotes[g.id], userAwards[g.id]));
-  }
-
-  function mostrarGuia({ id, titulo, contenido, usuario, fecha, likes = 0, dislikes = 0, awards = 0 }, userVote = null, userAwarded = false, insertarPrimero = false) {
-    const div = document.createElement('div');
-    div.className = 'guia-chat';
-    div.dataset.id = id;
-    div.innerHTML = `
-      <div class="usuario-info">
-        <i class="fas fa-user usuario-icono"></i>
-        <span class="usuario-captura">${usuario}</span>
-        ${esPremium && usuario !== 'Invitado' ? '<span class="badge-premium"><i class="fas fa-crown"></i> Premium</span>' : ''}
-      </div>
-      <div class="guia-header">
-        <h3 class="guia-titulo">${titulo}</h3>
-        <span class="guia-fecha"><i class="far fa-clock"></i> ${fecha}</span>
-      </div>
-      <div class="guia-contenido">${contenido.replace(/\n/g, '<br>')}</div>
-      <div class="interaccion">
-        <button class="btn-like ${userVote === 'like' ? 'active' : ''}" data-id="${id}"><i class="fas fa-thumbs-up"></i> <span class="contador">${likes}</span></button>
-        <button class="btn-dislike ${userVote === 'dislike' ? 'active' : ''}" data-id="${id}"><i class="fas fa-thumbs-down"></i> <span class="contador">${dislikes}</span></button>
-        ${esPremium ? `<button class="btn-award ${userAwarded ? 'awarded' : ''}" data-id="${id}"><i class="fas fa-medal"></i> <span class="contador">${awards}</span></button>` : ''}
-      </div>
-    `;
-    if (insertarPrimero && lista.firstChild) {
-      lista.insertBefore(div, lista.firstChild);
-    } else {
-      lista.appendChild(div);
-    }
-    agregarEventosInteraccion(div, id);
-  }
-
-  function agregarEventosInteraccion(el, guiaId) {
-    el.querySelector('.btn-like')?.addEventListener('click', () => manejarVoto(guiaId, 'like'));
-    el.querySelector('.btn-dislike')?.addEventListener('click', () => manejarVoto(guiaId, 'dislike'));
-    el.querySelector('.btn-award')?.addEventListener('click', () => manejarPremio(guiaId));
-  }
-
-  function manejarVoto(guiaId, tipo) {
-    const guias = JSON.parse(localStorage.getItem(storageKey)) || [];
-    const guia = guias.find(g => g.id === guiaId);
-    const userVotes = JSON.parse(localStorage.getItem(userVotesKey)) || {};
-
-    if (userVotes[guiaId] === tipo) {
-      guia[tipo === 'like' ? 'likes' : 'dislikes']--;
-      userVotes[guiaId] = null;
-    } else {
-      if (userVotes[guiaId]) {
-        guia[userVotes[guiaId] === 'like' ? 'likes' : 'dislikes']--;
-      }
-      guia[tipo === 'like' ? 'likes' : 'dislikes']++;
-      userVotes[guiaId] = tipo;
-    }
-
-    localStorage.setItem(storageKey, JSON.stringify(guias));
-    localStorage.setItem(userVotesKey, JSON.stringify(userVotes));
-
-    const el = document.querySelector(`.guia-chat[data-id="${guiaId}"]`);
+  // Mostrar autor en el DOM
+  function mostrarAutor(nombre) {
+    const el = document.getElementById('foroAutor');
     if (el) {
-      el.querySelector('.btn-like .contador').textContent = guia.likes;
-      el.querySelector('.btn-dislike .contador').textContent = guia.dislikes;
-      el.querySelector('.btn-like').classList.toggle('active', userVotes[guiaId] === 'like');
-      el.querySelector('.btn-dislike').classList.toggle('active', userVotes[guiaId] === 'dislike');
-    }
-  }
-
-  function manejarPremio(guiaId) {
-    if (!esPremium) return;
-    const guias = JSON.parse(localStorage.getItem(storageKey)) || [];
-    const guia = guias.find(g => g.id === guiaId);
-    const userAwards = JSON.parse(localStorage.getItem(userAwardsKey)) || {};
-
-    if (userAwards[guiaId]) return;
-
-    guia.awards++;
-    userAwards[guiaId] = true;
-    localStorage.setItem(storageKey, JSON.stringify(guias));
-    localStorage.setItem(userAwardsKey, JSON.stringify(userAwards));
-
-    const el = document.querySelector(`.guia-chat[data-id="${guiaId}"]`);
-    if (el) {
-      const awardBtn = el.querySelector('.btn-award');
-      awardBtn.querySelector('.contador').textContent = guia.awards;
-      awardBtn.classList.add('awarded');
-      awardBtn.animate([
-        { transform: 'scale(1)' },
-        { transform: 'scale(1.2)' },
-        { transform: 'scale(1)' }
-      ], { duration: 300 });
-    }
-  }
-
-  cargarDatosUsuario();
-});
-
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const params = new URLSearchParams(window.location.search);
-  const juegoId = params.get('id') || 'default';
-  const storageKey = `resenas_${juegoId}`;
-  const votacionesKey = `votaciones_${juegoId}`;
-  const STORAGE_KEY = 'takumi_login_system';
-
-  function getCurrentUser() {
-    const token = sessionStorage.getItem('current_token');
-    if (!token) return null;
-    const appData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-    const session = appData.sessions?.[token];
-    if (!session) return null;
-    return appData.users?.[session.username.toLowerCase()];
-  }
-
-  const usuarioActual = getCurrentUser();
-  let username = usuarioActual?.username || 'Invitado';
-  let esPremium = localStorage.getItem('esPremium') === 'true';
-
-  const mostrarNombre = document.getElementById('mostrarNombre');
-  if (mostrarNombre) mostrarNombre.textContent = username;
-
-  const form = document.getElementById('formResena');
-  const textarea = document.getElementById('textoResena');
-  const calificacion = document.getElementById('calificacionResena');
-  const lista = document.getElementById('listaResenas');
-  const btnPremium = document.getElementById('btnPremium');
-
-  // Crear el promedio si no existe
-  if (!document.getElementById('promedioVotos')) {
-    const promedioContainer = document.createElement('div');
-    promedioContainer.id = 'promedioVotos';
-    promedioContainer.style.marginBottom = '10px';
-    if (form) form.parentNode.insertBefore(promedioContainer, form);
-    else if (lista) lista.parentNode.insertBefore(promedioContainer, lista);
-  }
-
-  function mostrarPromedio() {
-    const votos = JSON.parse(localStorage.getItem(votacionesKey)) || [];
-    const promedioBox = document.getElementById('promedioVotos');
-    if (!promedioBox) return;
-
-    if (votos.length === 0) {
-      promedioBox.textContent = '⭐ Promedio: 0.0 (0 votos)';
-      return;
-    }
-
-    const suma = votos.reduce((a, b) => a + b, 0);
-    const promedio = (suma / votos.length).toFixed(1);
-    promedioBox.textContent = `⭐ Promedio: ${promedio} (${votos.length} voto${votos.length !== 1 ? 's' : ''})`;
-  }
-
-  if (btnPremium) {
-    btnPremium.innerHTML = esPremium
-      ? '<i class="fas fa-crown"></i> Premium ACTIVO'
-      : '<i class="fas fa-crown"></i> Activar Premium';
-    btnPremium.classList.toggle('active', esPremium);
-
-    btnPremium.addEventListener('click', () => {
-      esPremium = !esPremium;
-      localStorage.setItem('esPremium', esPremium.toString());
-      btnPremium.innerHTML = esPremium
-        ? '<i class="fas fa-crown"></i> Premium ACTIVO'
-        : '<i class="fas fa-crown"></i> Activar Premium';
-      btnPremium.classList.toggle('active', esPremium);
-      alert(esPremium ? '¡Modo Premium activado!' : 'Modo Premium desactivado');
-      cargarResenas();
-    });
-  }
-
-  function obtenerVotosUsuario() {
-    return JSON.parse(localStorage.getItem(`userVotes_${juegoId}_${username}`)) || {};
-  }
-
-  function obtenerPremiosUsuario() {
-    return JSON.parse(localStorage.getItem(`userAwards_${juegoId}_${username}`)) || {};
-  }
-
-  function cargarResenas() {
-    const resenas = JSON.parse(localStorage.getItem(storageKey)) || [];
-    const userVotes = obtenerVotosUsuario();
-    const userAwards = obtenerPremiosUsuario();
-
-    if (lista) lista.innerHTML = '';
-
-    // Ordenar por fecha más reciente primero
-    resenas.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
-
-    resenas.forEach(resena => {
-      const div = document.createElement('div');
-      div.className = 'resena-item';
-      div.dataset.id = resena.id;
-
-      div.innerHTML = `
-        <div class="usuario-info">
-          <i class="fas fa-user usuario-icono"></i>
-          <span class="usuario-captura">${resena.usuario}</span>
-          ${esPremium && resena.usuario !== 'Invitado' ? '<span class="badge-premium"><i class="fas fa-crown"></i> Premium</span>' : ''}
-        </div>
-        <div class="resena-estrellas">${'★'.repeat(resena.calificacion)}${'☆'.repeat(5 - resena.calificacion)}</div>
-        <div class="resena-texto">${resena.texto}</div>
-        <div class="fecha-captura"><i class="far fa-clock"></i> ${new Date(resena.fecha).toLocaleString()}</div>
-        <div class="interaccion">
-          <button class="btn-like ${userVotes[resena.id] === 'like' ? 'active' : ''}" data-id="${resena.id}">
-            <i class="fas fa-thumbs-up"></i> <span class="contador">${resena.likes || 0}</span>
-          </button>
-          <button class="btn-dislike ${userVotes[resena.id] === 'dislike' ? 'active' : ''}" data-id="${resena.id}">
-            <i class="fas fa-thumbs-down"></i> <span class="contador">${resena.dislikes || 0}</span>
-          </button>
-          ${esPremium ? `
-          <button class="btn-award ${userAwards[resena.id] ? 'awarded' : ''}" data-id="${resena.id}">
-            <i class="fas fa-medal"></i> <span class="contador">${resena.awards || 0}</span>
-          </button>` : ''}
-        </div>
-      `;
-
-      if (lista) lista.appendChild(div); // Agrega del más reciente arriba
-      agregarEventosInteraccion(div, resena.id);
-    });
-  }
-
-  function agregarEventosInteraccion(elemento, resenaId) {
-    elemento.querySelector('.btn-like')?.addEventListener('click', () => manejarVoto(resenaId, 'like'));
-    elemento.querySelector('.btn-dislike')?.addEventListener('click', () => manejarVoto(resenaId, 'dislike'));
-    elemento.querySelector('.btn-award')?.addEventListener('click', () => manejarPremio(resenaId));
-  }
-
-  function manejarVoto(resenaId, tipo) {
-    const resenas = JSON.parse(localStorage.getItem(storageKey)) || [];
-    const resena = resenas.find(r => r.id === resenaId);
-    const userVotes = obtenerVotosUsuario();
-    if (!resena) return;
-
-    resena.likes = resena.likes || 0;
-    resena.dislikes = resena.dislikes || 0;
-
-    if (userVotes[resenaId] === tipo) {
-      resena[tipo === 'like' ? 'likes' : 'dislikes']--;
-      userVotes[resenaId] = null;
+      el.textContent = nombre || "Autor desconocido";
     } else {
-      if (userVotes[resenaId]) {
-        resena[userVotes[resenaId] === 'like' ? 'likes' : 'dislikes']--;
-      }
-      resena[tipo === 'like' ? 'likes' : 'dislikes']++;
-      userVotes[resenaId] = tipo;
-    }
-
-    localStorage.setItem(storageKey, JSON.stringify(resenas));
-    localStorage.setItem(`userVotes_${juegoId}_${username}`, JSON.stringify(userVotes));
-
-    cargarResenas();
-  }
-
-  function manejarPremio(resenaId) {
-    if (!esPremium) return;
-
-    const resenas = JSON.parse(localStorage.getItem(storageKey)) || [];
-    const resena = resenas.find(r => r.id === resenaId);
-    const userAwards = obtenerPremiosUsuario();
-    if (!resena || userAwards[resenaId]) return;
-
-    resena.awards = resena.awards || 0;
-    resena.awards++;
-    userAwards[resenaId] = true;
-
-    localStorage.setItem(storageKey, JSON.stringify(resenas));
-    localStorage.setItem(`userAwards_${juegoId}_${username}`, JSON.stringify(userAwards));
-
-    cargarResenas();
-
-    if (typeof confetti === 'function') {
-      confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+      console.warn("⚠ No se encontró el elemento #foroAutor en el DOM.");
     }
   }
 
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const texto = textarea.value.trim();
-      const estrellas = parseInt(calificacion.value);
+  // Mostrar usuario local en user-domain
+  function mostrarUsuarioLocal() {
+    const userDomain = document.getElementById('user-domain');
+    if (!userDomain) return;
 
-      if (!texto || estrellas < 1 || estrellas > 5) {
-        alert('Por favor completa todos los campos correctamente');
-        return;
-      }
-
-      const resenas = JSON.parse(localStorage.getItem(storageKey)) || [];
-      const nuevaResena = {
-        id: Date.now(),
-        usuario: username,
-        texto,
-        calificacion: estrellas,
-        fecha: new Date().toISOString(),
-        likes: 0,
-        dislikes: 0,
-        awards: 0
-      };
-
-      resenas.push(nuevaResena);
-      localStorage.setItem(storageKey, JSON.stringify(resenas));
-
-      const votaciones = JSON.parse(localStorage.getItem(votacionesKey)) || [];
-      votaciones.push(estrellas);
-      localStorage.setItem(votacionesKey, JSON.stringify(votaciones));
-
-      textarea.value = '';
-      calificacion.value = '5';
-      cargarResenas();
-      mostrarPromedio();
-
-      // IMPORTANTE: evitar scroll automático, mantener arriba
-    });
+    const localUser = getLocalUser();
+    userDomain.textContent = localUser?.username || 'Invitado';
   }
 
-  cargarResenas();
-  mostrarPromedio();
-  setInterval(mostrarPromedio, 2000); // actualizar el promedio periódicamente
+  mostrarUsuarioLocal();
+
+  const foroId = obtenerIdDesdeURL();
+  if (!foroId) {
+    console.warn('No se especificó ID de foro en la URL');
+    document.querySelector('.foro-container').innerHTML = '<p>ID de foro no especificado.</p>';
+    return;
+  }
+
+  try {
+    // Obtener datos del foro
+    const resForo = await fetch(`${API_BASE}/foros/${encodeURIComponent(foroId)}`);
+    if (!resForo.ok) throw new Error('Foro no encontrado');
+    const foro = await resForo.json();
+
+    // Mostrar datos básicos del foro
+    document.getElementById('foroTitulo').textContent = foro.title || 'Sin título';
+    document.getElementById('foroCategoria').textContent = foro.category || 'Sin categoría';
+    document.getElementById('foroDescripcion').textContent = foro.description || 'Sin descripción';
+    document.getElementById('foroFecha').textContent = foro.created_at
+      ? new Date(foro.created_at).toLocaleDateString()
+      : 'Fecha no disponible';
+
+    const foroImagen = document.getElementById('foroImagen');
+    foroImagen.src = foro.image_base64
+      ? (foro.image_base64.startsWith('data:')
+          ? foro.image_base64
+          : `data:image/jpeg;base64,${foro.image_base64}`)
+      : 'default-image.jpg';
+
+    // Mostrar etiquetas
+    const foroEtiquetas = document.getElementById('foroEtiquetas');
+    foroEtiquetas.innerHTML = ''; // limpiar antes
+
+    if (foro.tags) {
+      // Puede ser array o string separado por comas
+      const tagsArray = Array.isArray(foro.tags) ? foro.tags : foro.tags.split(',').map(t => t.trim());
+      if (tagsArray.length) {
+        tagsArray.forEach(tag => {
+          const span = document.createElement('span');
+          span.classList.add('foro-tag');
+          span.textContent = tag;
+          foroEtiquetas.appendChild(span);
+        });
+      } else {
+        foroEtiquetas.textContent = 'No hay etiquetas';
+      }
+    } else {
+      foroEtiquetas.textContent = 'No hay etiquetas';
+    }
+
+    // Mostrar autor
+    const localUser = getLocalUser();
+    if (localUser && foro.authorId && String(localUser.id) === String(foro.authorId)) {
+      mostrarAutor(localUser.username || "Autor desconocido");
+    } else if (foro.authorId) {
+      const backendUser = await getUserFromBackend(foro.authorId);
+      mostrarAutor(backendUser?.username || foro.author || "Autor desconocido");
+    } else {
+      mostrarAutor(foro.author || "Autor desconocido");
+    }
+
+  } catch (err) {
+    console.error('Error al cargar foro:', err);
+    document.querySelector('.foro-container').innerHTML = '<p>Foro no encontrado o error al cargar.</p>';
+  }
 });
-
-
 
 </script>
-

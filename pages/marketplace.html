@@ -171,7 +171,7 @@
       <li><a href="marketplace.html"><i class="fas fa-store"></i> <span data-i18n="tienda">Tienda</span></a></li>
       <li><a href="game jam.html"><i class="fas fa-calendar-alt"></i> <span data-i18n="game_jams">Game Jams</span></a></li>
       <li><a href="centro-aprendiz.html"><i class="fas fa-graduation-cap"></i> <span data-i18n="tutoriales">Tutoriales</span></a></li>
-      <li><a href="ranking.html"><i class="fas fa-newspaper"></i> <span data-i18n="ranking">Noticias</span></a></li>
+      <li><a href="ranking.html"><i class="fas fa-newspaper"></i> <span data-i18n="Noticias">Noticias</span></a></li>
       <li><a href="comunidad.html"><i class="fas fa-users"></i> <span data-i18n="comunidad">Comunidad</span></a></li>
     </ul>
 
@@ -241,7 +241,7 @@
             <div class="dropdown-group">
               <a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i><span data-i18n="configuracion">Configuración</span></a>
               <a href="perfil-editar.html" class="menu-item"><i class="fas fa-user-edit"></i><span data-i18n="editar_usuario">Editar Usuario</span></a>
-              <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-star"></i><span data-i18n="suscripcion">Suscripción</span></a>
+                <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-money-bill-wave"></i><span data-i18n="pagos">Pagos</span></a>
               <a href="seguidos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="seguidos">Seguidos</span></a>
             </div>
             <hr class="divider">
@@ -253,7 +253,6 @@
       </div>
     </div>
 </nav>
-
 
 <!-- Formulario de Filtros -->
 <form id="gameFilters" class="filters-form">
@@ -300,6 +299,7 @@
 
   <div class="filter-actions">
     <button type="submit" class="btn btn-primary">Aplicar Filtros</button>
+    <button type="button" id="resetFilters" class="btn btn-secondary">Borrar Filtros</button>
   </div>
 </form>
 
@@ -314,7 +314,6 @@
 <script src="../js/notificacion.js"></script>
 <script src="../js/carrito.js"></script>
 <script src="../js/user.js"></script>
-<script src="../js/filtros.js"></script>
 <script src="../js/desplegar.js"></script>
 <script src="../js/i18n.js"></script>
 <script src="../js/buscador.js"></script>
@@ -333,134 +332,414 @@
 </script>
 
 <script>
-document.addEventListener('DOMContentLoaded', async () => {
-    const contenedorJuegos = document.getElementById('contenedor-juegos');
+// Array de juegos de ejemplo
+const juegos = [
+  {
+    id: 1,
+    nombre: "The Witcher 3: Wild Hunt",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header.jpg",
+    precio: 29.99,
+    descuento: 20,
+    rating: 4.9,
+    esGratis: false,
+    categorias: ["RPG", "Aventura"]
+  },
+  {
+    id: 2,
+    nombre: "Cyberpunk 2077",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg",
+    precio: 39.99,
+    descuento: 30,
+    rating: 4.2,
+    esGratis: false,
+    categorias: ["RPG", "FPS"]
+  },
+  {
+    id: 3,
+    nombre: "Elden Ring",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg",
+    precio: 49.99,
+    descuento: 0,
+    rating: 4.8,
+    esGratis: false,
+    categorias: ["RPG", "Souls-like"]
+  },
+  {
+    id: 4,
+    nombre: "Stardew Valley",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/413150/header.jpg",
+    precio: 14.99,
+    descuento: 10,
+    rating: 4.7,
+    esGratis: false,
+    categorias: ["Simulación", "Agricultura"]
+  },
+  {
+    id: 5,
+    nombre: "Dota 2",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/570/header.jpg",
+    precio: 0,
+    descuento: 0,
+    rating: 4.1,
+    esGratis: true,
+    categorias: ["MOBA", "Multijugador"]
+  },
+  {
+    id: 6,
+    nombre: "Counter-Strike 2",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg",
+    precio: 0,
+    descuento: 0,
+    rating: 4.4,
+    esGratis: true,
+    categorias: ["FPS", "Competitivo"]
+  },
+  {
+    id: 7,
+    nombre: "Red Dead Redemption 2",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg",
+    precio: 59.99,
+    descuento: 40,
+    rating: 4.7,
+    esGratis: false,
+    categorias: ["Aventura", "Mundo abierto"]
+  },
+  {
+    id: 8,
+    nombre: "Hades",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/header.jpg",
+    precio: 24.99,
+    descuento: 15,
+    rating: 4.8,
+    esGratis: false,
+    categorias: ["Roguelike", "Indie"]
+  },
+  {
+    id: 9,
+    nombre: "Valheim",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/892970/header.jpg",
+    precio: 19.99,
+    descuento: 0,
+    rating: 4.6,
+    esGratis: false,
+    categorias: ["Supervivencia", "Mundo abierto"]
+  },
+  {
+    id: 10,
+    nombre: "Baldur's Gate 3",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg",
+    precio: 59.99,
+    descuento: 0,
+    rating: 4.9,
+    esGratis: false,
+    categorias: ["RPG", "Aventura"]
+  },
+  {
+    id: 11,
+    nombre: "Celeste",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/504230/header.jpg",
+    precio: 19.99,
+    descuento: 0,
+    rating: 4.9,
+    esGratis: false,
+    categorias: ["Plataformas", "Indie"]
+  },
+  {
+    id: 12,
+    nombre: "Hollow Knight",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg",
+    precio: 14.99,
+    descuento: 0,
+    rating: 4.8,
+    esGratis: false,
+    categorias: ["Metroidvania", "Aventura"]
+  },
+  {
+    id: 13,
+    nombre: "Cuphead",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/268910/header.jpg",
+    precio: 19.99,
+    descuento: 0,
+    rating: 4.9,
+    esGratis: false,
+    categorias: ["Plataformas", "Indie"]
+  },
+  {
+    id: 14,
+    nombre: "Hollow Knight",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg",
+    precio: 14.99,
+    descuento: 0,
+    rating: 4.8,
+    esGratis: false,
+    categorias: ["Metroidvania", "Aventura"]
+  },
+  {
+    id: 15,
+    nombre: "The Elder Scrolls V: Skyrim",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/489830/header.jpg",
+    precio: 39.99,
+    rating: 4.8,
+    esGratis: false,
+    categorias: ["RPG", "Aventura"]
+  },
+  {
+    id: 16, 
+    nombre: "Dark Souls III",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/374320/header.jpg",
+    precio: 59.99,
+    rating: 4.7,
+    esGratis: false,
+    categorias: ["RPG", "Souls-like"]
+  },
+  {
+    id: 17,
+    nombre: "Final Fantasy VII Remake",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1462040/header.jpg",
+    precio: 69.99,
+    rating: 4.8,
+    esGratis: false,
+    categorias: ["RPG", "Aventura"]
+  },
+  {
+    id: 18,
+    nombre: "Monster Hunter: World",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/582010/header.jpg", 
+    precio: 29.99,
+    rating: 4.6,
+    esGratis: false,
+    categorias: ["RPG", "Acción"]
+  },
+  {
+    id: 19,
+    nombre: "Divinity: Original Sin 2",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/435150/header.jpg",
+    precio: 44.99,
+    rating: 4.8,
+    esGratis: false,
+    categorias: ["RPG", "Estrategia"]
+  },
+  {
+    id: 20,
+    nombre: "DOOM Eternal",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/782330/header.jpg",
+    precio: 39.99,
+    rating: 4.7,
+    esGratis: false,
+    categorias: ["FPS", "Acción"]
+  },
+  {
+    id: 21,
+    nombre: "Overwatch 2",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/2357570/header.jpg",
+    precio: 0,
+    rating: 4.0,
+    esGratis: true,
+    categorias: ["FPS", "Multijugador"]
+  },
+  {
+    id: 22,
+    nombre: "Apex Legends",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg",
+    precio: 0,
+    rating: 4.3,
+    esGratis: true,
+    categorias: ["FPS", "Battle Royale"]
+  },
+  {
+    id: 23,
+    nombre: "Civilization VI",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/289070/header.jpg",
+    precio: 59.99,
+    rating: 4.3,
+    esGratis: false,
+    categorias: ["Estrategia", "Turnos"]
+  },
+  {
+    id: 24,
+    nombre: "XCOM 2",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/268500/header.jpg",
+    precio: 49.99,
+    rating: 4.4,
+    esGratis: false,
+    categorias: ["Estrategia", "Turnos"]
+  },
+  {
+    id: 25,
+    nombre: "FIFA 23",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1811260/header.jpg",
+    precio: 59.99,
+    rating: 4.1,
+    esGratis: false,
+    categorias: ["Deportes", "Fútbol"]
+  },
+  {
+    id: 26,
+    nombre: "NBA 2K23",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1919590/header.jpg",
+    precio: 59.99,
+    rating: 3.9,
+    esGratis: false,
+    categorias: ["Deportes", "Baloncesto"]
+  },
+  {
+    id: 27,
+    nombre: "Rocket League",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/252950/header.jpg",
+    precio: 19.99,
+    rating: 4.5,
+    esGratis: false,
+    categorias: ["Deportes", "Carreras"]
+  },
+  {
+    id: 28,
+    nombre: "Among Us",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/945360/header.jpg",
+    precio: 4.99,
+    rating: 4.2,
+    esGratis: false,
+    categorias: ["Multijugador", "Party"]
+  },
+  {
+    id: 29,
+    nombre: "Terraria",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/105600/header.jpg",
+    precio: 9.99,
+    rating: 4.8,
+    esGratis: false,
+    categorias: ["Aventura", "Sandbox"]
+  },
+  {
+    id: 30,
+    nombre: "Factorio",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/427520/header.jpg",
+    precio: 29.99,
+    rating: 4.9,
+    esGratis: false,
+    categorias: ["Estrategia", "Simulación"]
+  },
+  {
+    id: 31,
+    nombre: "Garten of Banban",
+    imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2232840/header.jpg?t=1736376055",
+    precio: 19.99,
+    rating: 4.5,
+    esGratis: false,
+    categorias: ["Aventura", "Plataformas"]
+  },
+  {
+    id: 32,
+    nombre: "Hogwarts Legacy",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/990080/header.jpg",
+    precio: 59.99,
+    descuento: 15,
+    rating: 4.6,
+    esGratis: false,
+    categorias: ["Aventura", "RPG"]
+  },
+  {
+    id: 33,
+    nombre: "Resident Evil Village",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1196590/header.jpg",
+    precio: 39.99,
+    descuento: 20,
+    rating: 4.5,
+    esGratis: false,
+    categorias: ["Terror", "Aventura"]
+  },
+  {
+    id: 34,
+    nombre: "Ghost of Tsushima",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1217060/header.jpg",
+    precio: 49.99,
+    descuento: 10,
+    rating: 4.8,
+    esGratis: false,
+    categorias: ["Aventura", "Acción"]
+  },
+  {
+    id: 35,
+    nombre: "Sekiro: Shadows Die Twice",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/814380/header.jpg",
+    precio: 39.99,
+    descuento: 25,
+    rating: 4.7,
+    esGratis: false,
+    categorias: ["RPG", "Acción"]
+  },
+  {
+    id: 36,
+    nombre: "Demon's Souls",
+    imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/1182360/header.jpg",
+    precio: 49.99,
+    descuento: 15,
+    rating: 4.9,
+    esGratis: false,
+    categorias: ["RPG", "Acción"]
+  }
+];
 
-    // Mostrar estado (cargando, error, vacío)
-    function mostrarEstado(mensaje, tipo = 'cargando') {
-        contenedorJuegos.innerHTML = `<div class="${tipo}">${mensaje}</div>`;
-    }
 
-    try {
-        mostrarEstado('Cargando juegos...');
-        const juegos = await obtenerJuegosPublicados();
+// Función para formatear el precio con descuento
+function calcularPrecioConDescuento(precio, descuento) {
+  if (descuento > 0) {
+    const precioDescuento = precio * (1 - descuento / 100);
+    return `<span class="precio-original">$${precio.toFixed(2)}</span> $${precioDescuento.toFixed(2)}`;
+  }
+  return `$${precio.toFixed(2)}`;
+}
 
-        if (juegos.length === 0) {
-            mostrarEstado('No hay juegos disponibles.', 'sin-juegos');
-            return;
-        }
+// Función para crear el HTML de una tarjeta de juego
+function crearTarjetaJuego(juego) {
+  return `
+<div class="juego-card">
+  <div class="juego-imagen-container">
+    <button class="btn-deseo" data-id="${juego.id}">
+      <i class="fa-regular fa-heart"></i>
+    </button> 
 
-        mostrarJuegos(juegos);
-    } catch (error) {
-        console.error('Error:', error);
-        mostrarEstado('Error al cargar los juegos. Intenta recargar la página.', 'error');
-    }
+    <img src="${juego.imagen}" alt="${juego.nombre}" class="juego-imagen">
 
-    // 🔹 Obtener juegos publicados desde IndexedDB usando index 'status'
-    async function obtenerJuegosPublicados() {
-        return new Promise((resolve, reject) => {
-            const request = indexedDB.open('GamesDB');
+    ${juego.descuento > 0 ? `<span class="descuento-tag">-${juego.descuento}%</span>` : ''}
+  </div>
 
-            request.onsuccess = (event) => {
-                const db = event.target.result;
-                const tx = db.transaction('games', 'readonly');
-                const store = tx.objectStore('games');
-                
-                // Requiere que el índice 'status' exista
-                const index = store.index('status');
-                const getRequest = index.getAll('published');
+  <div class="juego-info">
+    <h3 class="juego-nombre">${juego.nombre}</h3>
 
-                getRequest.onsuccess = (e) => resolve(e.target.result);
-                getRequest.onerror = (e) => reject(`Error: ${e.target.error}`);
-            };
+    <div class="juego-categorias">
+      ${juego.categorias.map(cat => `<span class="categoria-tag">${cat}</span>`).join('')}
+    </div>
 
-            request.onerror = (event) => reject(`Error al abrir DB: ${event.target.error}`);
-        });
-    }
+    <div class="juego-detalles">
+      <div class="juego-precio">
+        ${juego.esGratis ? 'Gratis' : calcularPrecioConDescuento(juego.precio, juego.descuento)}
+      </div>
+      <div class="juego-rating">
+        ⭐ ${juego.rating}
+      </div>
+    </div>
+  </div>
+</div>
 
-    // 🔹 Mostrar tarjetas de juegos
-    async function mostrarJuegos(juegos) {
-        contenedorJuegos.innerHTML = '';
+  `;
+}
 
-        for (const juego of juegos) {
-            const portadaURL = await cargarPortada(juego.id);
+// Función para cargar los juegos en el contenedor
+function cargarJuegos() {
+  const contenedor = document.getElementById('contenedor-juegos');
+  if (!contenedor) return;
+  
+  // Limpiar contenedor primero
+  contenedor.innerHTML = '';
+  
+  // Crear y añadir tarjetas de juego
+  juegos.forEach(juego => {
+    contenedor.insertAdjacentHTML('beforeend', crearTarjetaJuego(juego));
+  });
+}
 
-            const juegoElemento = document.createElement('div');
-            juegoElemento.className = 'juego-card';
-            juegoElemento.dataset.gameId = juego.id;
-
-            juegoElemento.innerHTML = `
-                <div class="juego-portada">
-                    <img src="${portadaURL}" alt="${juego.title}" class="portada-img">
-                </div>
-                <div class="juego-info">
-                    <h3>${juego.title}</h3>
-                    <p class="juego-categoria">${juego.category || 'Sin categoría'} • ${juego.genres || 'Sin género'}</p>
-                    <p class="juego-descripcion">${juego.description || 'Sin descripción'}</p>
-                    <div class="juego-metadata">
-                        <span class="juego-propietario">Subido por: ${juego.owner || 'Anónimo'}</span>
-                        <span class="juego-precio">${juego.pricing === 'gratis' ? 'Gratis' : `$${juego.price || 0}`}</span>
-                    </div>
-                </div>
-            `;
-
-            contenedorJuegos.appendChild(juegoElemento);
-        }
-
-        // 🔹 Añadir eventos a cada tarjeta
-        document.querySelectorAll('.juego-card').forEach(card => {
-            card.addEventListener('click', function () {
-                const gameId = this.dataset.gameId;
-                window.location.href = `perfil-juegos.html?id=${gameId}`;
-            });
-
-            // Hover UX
-            card.addEventListener('mouseenter', () => {
-                card.style.cursor = 'pointer';
-                card.style.transform = 'scale(1.02)';
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'scale(1)';
-            });
-        });
-    }
-
-    // 🔹 Cargar imagen de portada desde IndexedDB
-    async function cargarPortada(gameId) {
-        try {
-            const portadaData = await obtenerPortada(gameId);
-            return portadaData.cover?.base64 || 'https://via.placeholder.com/300x150?text=Sin+portada';
-        } catch (error) {
-            console.warn(`Portada no encontrada para ${gameId}`);
-            return 'https://via.placeholder.com/300x150?text=Sin+portada';
-        }
-    }
-
-    // 🔹 Obtener portada desde objectStore 'gameImages'
-    async function obtenerPortada(gameId) {
-        return new Promise((resolve, reject) => {
-            const request = indexedDB.open('GamesDB');
-
-            request.onsuccess = (event) => {
-                const db = event.target.result;
-                const tx = db.transaction('gameImages', 'readonly');
-                const store = tx.objectStore('gameImages');
-                const getReq = store.get(gameId);
-
-                getReq.onsuccess = (e) => {
-                    const data = e.target.result;
-                    if (data) resolve(data);
-                    else reject('Portada no encontrada');
-                };
-
-                getReq.onerror = (e) => reject(`Error: ${e.target.error}`);
-            };
-
-            request.onerror = (event) => reject(`Error al abrir DB: ${event.target.error}`);
-        });
-    }
-});
+// Cargar juegos cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', cargarJuegos);
 
 </script>
 

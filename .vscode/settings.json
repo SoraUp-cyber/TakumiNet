@@ -17,5 +17,6 @@
     "codegraphy.outlineColor": "#ffd700",
     "liveServer.settings.useLocalIp": true,
     "remote.localPortHost": "localhost",
-    "livePreview.defaultPreviewPath": "/pages/subir_juegos.html"
+    "livePreview.defaultPreviewPath": "/pages/subir_juegos.html",
+    "postman.settings.dotenv-detection-notification-visibility": false
 }

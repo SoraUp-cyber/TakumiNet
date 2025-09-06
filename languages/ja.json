@@ -25,7 +25,6 @@
   "descripcion": "最高のインディーゲームを発見、共有、楽しもう。",
   "boton-publicar": "ここであなたのゲームを公開",
    "juegos_destacados": "注目のゲーム",
-  "recomendados": "おすすめ",
   "juegos_gratis": "無料ゲーム",
   "juegos_pago": "有料ゲーム",
   "mas_seleccionados": "その他のおすすめゲーム",
@@ -88,7 +87,6 @@
   "selecciona_categoria": "カテゴリーを選択",
   "precio": "価格",
   "todos": "すべて",
-  "gratis": "無料",
   "de_pago": "有料",
   "requisitos_sistema": "システム要件",
   "minimos": "最小",
@@ -97,7 +95,6 @@
   "cualquiera": "任意",
   "ram_minima": "最小RAM",
   "aplicar_filtros": "フィルターを適用",
-    "placeholder_buscar": "ゲームを検索...",
   "filtro_todos": "すべて",
   "filtro_recientes": "最近",
   "filtro_favoritos": "お気に入り",
@@ -107,7 +104,6 @@
   "agregar_juego": "ゲームを追加",
   "sin_juegos_lista": "ウィッシュリストにゲームがありません。",
   "guias_rapidas": "クイックガイド",
-  "subir_juego": "ゲームをアップロード",
   "guia_paso_paso": "ステップバイステップガイド",
   "ver": "見る",
    "code_snippets": "コードスニペット",
@@ -258,14 +254,11 @@
    "jam.noTitle": "タイトルなしのゲームジャム",
   "jam.description": "説明：",
   "jam.noDescription": "説明なし",
-  "jam.type": "タイプ：",
   "jam.notSpecified": "未指定",
   "jam.dates": "日付：",
   "jam.voting": "投票：",
-  "jam.visibility": "公開設定：",
   "jam.public": "公開",
   "jam.url": "URL：",
-  "jam.hashtag": "ハッシュタグ：",
   "jam.community": "コミュニティ",
   "jam.uploadBlocked": "アップロード禁止",
   "jam.resultsHidden": "結果非表示",
@@ -445,7 +438,6 @@
   "pagination.goTo": "移動先:",
   "pagination.go": "移動",
 
-  "config.backToHome": "ホームに戻る",
   "config.return": "戻る",
 
 
@@ -587,8 +579,9 @@
   "config.actions.title": "アクション",
   "config.actions.reset": "デフォルトにリセット",
 
+
+
   "game_card": {
-    "sin_descripcion": "説明がありません。",
-    "gratis": "無料"
+    "sin_descripcion": "説明がありません。"
   }
 }

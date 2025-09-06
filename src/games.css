@@ -83,6 +83,36 @@
   transform: scale(1.05);
 }
 
+/* Botón lista de deseos */
+.btn-deseo {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #bbb; /* gris claro */
+  transition: color 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-deseo:hover {
+  color: #ff4d4d; /* rojo vibrante */
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: scale(1.2);
+}
+
+.btn-deseo:focus {
+  outline: none;
+  box-shadow: 0 0 6px 2px #ff4d4d88;
+}
+
+
 /* ==================== */
 /*     GAME INFO         */
 /* ==================== */
@@ -257,3 +287,8 @@
     padding: 12px 15px;
   }
 }
+
+
+
+
+

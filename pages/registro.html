@@ -10,15 +10,19 @@
     <link rel="stylesheet" href="../src/nav.css">
     <style>
 
-/* Estilos para el contenedor principal */
+/* ===== Contenedor principal mejorado ===== */
 .auth-container {
-  width: 150%;
-  max-width: 480px;
-  margin: 30px auto;
-  padding: 30px;
-  background-color: #2e2e2e;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 40px 30px;
+  background: linear-gradient(145deg, #2e2e2e, #3a3a3a); /* degradado gris */
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05); /* borde sutil */
+  animation: fadeIn 0.6s ease forwards;
+  color: #fff;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
 }
 
 /* Estilo para el logo */
@@ -237,37 +241,153 @@ input[type="checkbox"] {
 
 
 
-.alerta {
+
+/* ===== Botón de Discord ===== */
+.auth-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  color: #fff;
+  margin: 10px 0;
+}
+
+/* Botón Discord */
+.discord-button {
+  background: #5865F2; /* Color principal Discord */
+  background: linear-gradient(135deg, #5865F2, #7289DA); /* Degradado */
+}
+
+.discord-button i {
+  margin-right: 10px;
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover */
+.discord-button:hover {
+  background: linear-gradient(135deg, #7289DA, #5865F2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.discord-button:hover i {
+  transform: rotate(-15deg) scale(1.1);
+}
+
+/* Efecto activo */
+.discord-button:active {
+  transform: translateY(0px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+
+
+
+/* ====== Overlay de bienvenida ====== */
+.welcome-overlay {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 15px 25px;
-  border-radius: 5px;
-  color: white;
-  font-weight: bold;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(50, 50, 50, 0.95); /* fondo gris oscuro semitransparente */
+  display: none; /* se mostrará con JS */
+  justify-content: center;
+  align-items: center;
   z-index: 9999;
+  animation: fadeInOverlay 0.5s ease forwards;
 }
 
-.alerta-info {
-  background-color: #2196F3;
+/* Animación de aparición */
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.alerta-success {
-  background-color: #4CAF50;
+/* Contenido del overlay */
+.welcome-content {
+  background: #2b2b2b; /* gris oscuro sólido */
+  padding: 40px 30px;
+  border-radius: 16px;
+  text-align: center;
+  color: #ffffff; /* letras blancas */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  max-width: 400px;
+  width: 90%;
+  transform: scale(0.9);
+  animation: popUp 0.5s ease forwards;
 }
 
-.alerta-error {
-  background-color: #F44336;
+/* Animación de “pop” */
+@keyframes popUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
-.alerta.desaparecer {
-  opacity: 0 !important;
+/* Icono de bienvenida */
+.welcome-icon {
+  font-size: 50px;
+  margin-bottom: 20px;
+  animation: bounce 1s infinite;
 }
 
+/* Animación del icono */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Títulos */
+.welcome-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #ffffff; /* letras blancas */
+}
+
+.welcome-subtitle {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #ffffff; /* letras blancas */
+}
+
+/* Barra de progreso */
+.progress-bar {
+  width: 0%;
+  height: 5px;
+  background: #00ff7f; /* verde */
+  border-radius: 3px;
+  margin-bottom: 20px;
+  transition: width 0.3s ease;
+}
+
+/* Botón continuar */
+.continue-btn {
+  background: #00ff7f; /* verde brillante */
+  color: #2b2b2b; /* texto oscuro sobre botón verde */
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.continue-btn:hover {
+  background: #00cc66; /* verde más oscuro al pasar mouse */
+  transform: translateY(0) scale(1.05);
+}
 
     </style>
 </head>
@@ -345,9 +465,11 @@ input[type="checkbox"] {
             <button type="submit" class="auth-button">
                 <i class="fas fa-user-plus"></i> Cuenta Nueva
             </button>
-            <button type="button" id="discordBtn" class="auth-button discord-button">
-            <i class="fab fa-discord"></i> Continuar con Discord
-           </button>
+           <!-- Botón estilizado -->
+    <!-- Botón que solo redirige -->
+     <button id="discordBtn" class="auth-button discord-button">
+    <i class="fab fa-discord"></i> Continuar con Discord
+     </button>
         </div>
 
         <!-- Enlace a Login -->
@@ -360,456 +482,109 @@ input[type="checkbox"] {
 <script src="../cookies.js"></script>
 <script src="../js/discord.js"></script>
 <script src="../autoSync.js"></script>
-<script src="../js/i18n.js"></script>
+<script src="../usuario.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const registerForm = document.getElementById('registerForm');
-  const usernameInput = document.getElementById('username');
-  const usernameError = document.getElementById('usernameError');
-  const emailInput = document.getElementById('email');
-  const passwordInput = document.getElementById('password');
-  const confirmPasswordInput = document.getElementById('confirmPassword');
-  const playGamesCheckbox = document.getElementById('playGames');
-  const distributeContentCheckbox = document.getElementById('distributeContent');
-  const newsletterCheckbox = document.getElementById('newsletter');
-  const termsCheckbox = document.getElementById('terms');
-  const discordBtn = document.getElementById('discordBtn');
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("registerForm");
 
-  // Clave única para almacenar todos los usuarios
-  const STORAGE_KEY = 'takumi_login_system';
-  
-  // Contenedor para mensajes
-  const feedbackContainer = document.createElement('div');
-  feedbackContainer.id = 'feedback';
-  document.body.appendChild(feedbackContainer);
-
-  // Estilos CSS integrados
-  const style = document.createElement('style');
-  style.textContent = `
-    #feedback {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000;
-      width: 90%;
-      max-width: 400px;
-    }
-    
-    .alert {
-      padding: 12px 20px;
-      margin-bottom: 10px;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-size: 14px;
-      opacity: 0;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      transform: translateY(-20px);
-    }
-    
-    .alert.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .alert-success {
-      background-color: #d4edda;
-      color: #155724;
-      border-left: 4px solid #28a745;
-    }
-    
-    .alert-error {
-      background-color: #f8d7da;
-      color: #721c24;
-      border-left: 4px solid #dc3545;
-    }
-    
-    .alert-info {
-      background-color: #d1ecf1;
-      color: #0c5460;
-      border-left: 4px solid #17a2b8;
-    }
-    
-    .spinner {
-      width: 40px;
-      height: 40px;
-      border: 4px solid rgba(0, 0, 0, 0.1);
-      border-radius: 50%;
-      border-top-color: #09f;
-      animation: spin 1s ease-in-out infinite;
-      margin: 0 auto 10px;
-    }
-    
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    
-    .form-disabled {
-      opacity: 0.7;
-      pointer-events: none;
-    }
-    
-    .auth-button.disabled {
-      background-color: #cccccc !important;
-    }
-    
-    .error-message {
-      color: #dc3545;
-      font-size: 12px;
-      margin-top: 5px;
-      display: none;
-    }
-    
-    .input-group.error input {
-      border-color: #dc3545;
-    }
-    
-    /* Estilo específico para el mensaje de 8 caracteres */
-    .username-length-error {
-      color: #dc3545;
-      font-size: 12px;
-      margin-top: 5px;
-      display: none;
-    }
-    
-    .input-group.error .auth-input {
-      border-color: #dc3545 !important;
-    }
+  // =========================
+  // 📌 Overlay de Bienvenida
+  // =========================
+  const welcomeOverlay = document.createElement("div");
+  welcomeOverlay.className = "welcome-overlay";
+  welcomeOverlay.innerHTML = `
+    <div class="welcome-content">
+      <div class="welcome-icon">🎉</div>
+      <h1 class="welcome-title">¡Bienvenido a TakumiNet!</h1>
+      <p class="welcome-subtitle">Registro completado con éxito</p>
+      <div class="progress-bar"></div>
+      <button class="continue-btn">Continuar</button>
+    </div>
   `;
-  document.head.appendChild(style);
+  document.body.appendChild(welcomeOverlay);
 
-  // Mostrar alerta con animación
-  function showAlert(message, type = 'info', duration = 4000) {
-    const alert = document.createElement('div');
-    alert.className = `alert alert-${type}`;
-    alert.textContent = message;
-    feedbackContainer.appendChild(alert);
-    
-    setTimeout(() => alert.classList.add('show'), 10);
-    
-    setTimeout(() => {
-      alert.classList.remove('show');
-      setTimeout(() => alert.remove(), 300);
-    }, duration - 300);
-  }
+  function showWelcomeAnimation() {
+    welcomeOverlay.style.display = "flex";
+    const progressBar = welcomeOverlay.querySelector(".progress-bar");
+    progressBar.style.width = "100%";
+    progressBar.style.transition = "width 0.3s ease";
 
-  // Mostrar carga
-  function showLoading(message) {
-    feedbackContainer.innerHTML = `
-      <div class="spinner"></div>
-      <div class="alert alert-info show">${message}</div>
-    `;
-  }
-
-  // Deshabilitar formulario
-  function toggleForm(disabled) {
-    if (disabled) {
-      registerForm.classList.add('form-disabled');
-      registerForm.querySelectorAll('input, button').forEach(el => {
-        el.setAttribute('disabled', 'true');
-      });
-    } else {
-      registerForm.classList.remove('form-disabled');
-      registerForm.querySelectorAll('input, button').forEach(el => {
-        el.removeAttribute('disabled');
-      });
-    }
-  }
-
-  // Mostrar error en un campo
-  function showError(input, message) {
-    const inputGroup = input.closest('.input-group');
-    const errorElement = inputGroup.querySelector('.error-message');
-    
-    inputGroup.classList.add('error');
-    errorElement.textContent = message;
-    errorElement.style.display = 'block';
-  }
-
-  // Ocultar error en un campo
-  function hideError(input) {
-    const inputGroup = input.closest('.input-group');
-    const errorElement = inputGroup.querySelector('.error-message');
-    
-    inputGroup.classList.remove('error');
-    errorElement.style.display = 'none';
-  }
-
-  // Validar nombre de usuario (ahora con 8 caracteres mínimo)
-  function validateUsername(username) {
-    if (!username) {
-      return 'El nombre de usuario es requerido';
-    }
-    
-    if (username.length < 8) {
-      return 'El nombre debe tener al menos 8 caracteres';
-    }
-    
-    if (username.length > 20) {
-      return 'El nombre no puede exceder los 20 caracteres';
-    }
-    
-    if (!/^[a-zA-Z0-9_]+$/.test(username)) {
-      return 'Solo se permiten letras, números y guiones bajos';
-    }
-    
-    return null;
-  }
-
-  // Validar email
-  function validateEmail(email) {
-    if (!email) {
-      return 'El correo electrónico es requerido';
-    }
-    
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return 'Por favor ingresa un correo electrónico válido';
-    }
-    
-    return null;
-  }
-
-  // Validar contraseña
-  function validatePassword(password) {
-    if (!password) {
-      return 'La contraseña es requerida';
-    }
-    
-    if (password.length < 6) {
-      return 'La contraseña debe tener al menos 6 caracteres';
-    }
-    
-    return null;
-  }
-
-  // Validar confirmación de contraseña
-  function validateConfirmPassword(password, confirmPassword) {
-    if (!confirmPassword) {
-      return 'Por favor confirma tu contraseña';
-    }
-    
-    if (password !== confirmPassword) {
-      return 'Las contraseñas no coinciden';
-    }
-    
-    return null;
-  }
-
-  // Validar términos
-  function validateTerms(accepted) {
-    if (!accepted) {
-      return 'Debes aceptar los términos y condiciones';
-    }
-    return null;
-  }
-
-  // Obtener todos los datos
-  function getAppData() {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { users: {}, sessions: {} };
-  }
-
-  // Guardar todos los datos
-  function saveAppData(data) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-  }
-
-  // Verificar si el usuario ya existe
-  function userExists(username, email) {
-    const appData = getAppData();
-    const userKey = username.toLowerCase();
-    
-    if (appData.users[userKey]) {
-      return { exists: true, field: 'username' };
-    }
-    
-    for (const key in appData.users) {
-      if (appData.users[key].email.toLowerCase() === email.toLowerCase()) {
-        return { exists: true, field: 'email' };
-      }
-    }
-    
-    return { exists: false };
-  }
-
-  // Generar un ID único para el usuario
-  function generateUserId() {
-    return 'user_' + Date.now().toString(36) + Math.random().toString(36).substr(2, 9);
-  }
-
-  // Registrar nuevo usuario
-  async function registerUser(userData) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const { username, email, password, preferences } = userData;
-        
-        const existsCheck = userExists(username, email);
-        if (existsCheck.exists) {
-          const field = existsCheck.field;
-          const message = field === 'username' 
-            ? 'El nombre de usuario ya está en uso' 
-            : 'El correo electrónico ya está registrado';
-          reject(new Error(message));
-          return;
-        }
-        
-        const appData = getAppData();
-        const userKey = username.toLowerCase();
-        const userId = generateUserId();
-        
-        appData.users[userKey] = {
-          id: userId,
-          username,
-          email,
-          password,
-          preferences: preferences || {},
-          created: new Date().toISOString()
-        };
-        
-        saveAppData(appData);
-        
-        resolve({
-          success: true,
-          user: {
-            id: userId,
-            username,
-            email,
-            preferences
-          }
-        });
-      }, 1000);
+    const continueBtn = welcomeOverlay.querySelector(".continue-btn");
+    continueBtn.style.opacity = "1";
+    continueBtn.style.transform = "translateY(0)";
+    continueBtn.addEventListener("click", () => {
+      welcomeOverlay.style.display = "none";
+      window.location.href = "login.html";
     });
   }
 
-  // Validación en tiempo real del nombre de usuario (con mensaje de 8 caracteres)
-  usernameInput.addEventListener('input', function() {
-    const username = this.value.trim();
-    const inputGroup = this.closest('.input-group');
-    
-    if (username.length > 0 && username.length < 8) {
-      inputGroup.classList.add('error');
-      usernameError.textContent = 'El nombre de usuario debe tener al menos 8 caracteres';
-      usernameError.style.display = 'block';
-    } else {
-      inputGroup.classList.remove('error');
-      usernameError.style.display = 'none';
-      
-      // Validación adicional de otros requisitos
-      const error = validateUsername(username);
-      if (error) showError(usernameInput, error);
-      else hideError(usernameInput);
-    }
-  });
-
-  // Manejar submit del formulario de registro
-  registerForm.addEventListener('submit', async e => {
+  // =========================
+  // 📌 Enviar formulario de registro
+  // =========================
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    
-    const username = usernameInput.value.trim();
-    const email = emailInput.value.trim();
-    const password = passwordInput.value;
-    const confirmPassword = confirmPasswordInput.value;
-    const playGames = playGamesCheckbox.checked;
-    const distributeContent = distributeContentCheckbox.checked;
-    const newsletter = newsletterCheckbox.checked;
-    const termsAccepted = termsCheckbox.checked;
-    
-    // Validar campos
-    const usernameError = validateUsername(username);
-    const emailError = validateEmail(email);
-    const passwordError = validatePassword(password);
-    const confirmError = validateConfirmPassword(password, confirmPassword);
-    const termsError = validateTerms(termsAccepted);
-    
-    // Mostrar errores
-    if (usernameError) showError(usernameInput, usernameError);
-    if (emailError) showError(emailInput, emailError);
-    if (passwordError) showError(passwordInput, passwordError);
-    if (confirmError) showError(confirmPasswordInput, confirmError);
-    
-    if (termsError) {
-      showAlert(termsError, 'error');
-      return;
-    }
-    
-    if (usernameError || emailError || passwordError || confirmError) {
-      return;
-    }
-    
+
+    const username = form.querySelector("#username").value.trim();
+    const email = form.querySelector("#email").value.trim();
+    const password = form.querySelector("#password").value;
+    const confirmPassword = form.querySelector("#confirmPassword").value;
+    const playGames = form.querySelector("#playGames")?.checked || false;
+    const distributeContent = form.querySelector("#distributeContent")?.checked || false;
+    const newsletter = form.querySelector("#newsletter")?.checked || false;
+
+    // Validaciones rápidas
+    if (username.length < 3) { alert("El nombre de usuario debe tener al menos 3 caracteres."); return; }
+    if (!email.includes("@")) { alert("Introduce un correo válido."); return; }
+    if (password.length < 6) { alert("La contraseña debe tener mínimo 6 caracteres."); return; }
+    if (password !== confirmPassword) { alert("Las contraseñas no coinciden."); return; }
+
+    // Mostrar overlay de bienvenida
+    showWelcomeAnimation();
+
     try {
-      toggleForm(true);
-      showLoading('Registrando tu cuenta...');
-      
-      const preferences = {
-        juega: playGames,
-        distribuye: distributeContent,
-        boletin: newsletter
-      };
-      
-      const { user } = await registerUser({
-        username,
-        email,
-        password,
-        preferences
+      const res = await fetch("http://localhost:3001/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username,
+          email,
+          password,
+          playGames,
+          distributeContent,
+          newsletter
+        })
       });
-      
-      showAlert(`¡Registro exitoso, ${user.username}! Redirigiendo...`, 'success');
-      
-      // Iniciar sesión automáticamente
-      const token = 'token-' + Math.random().toString(36).substr(2, 9);
-      const appData = getAppData();
-      appData.sessions[token] = {
-        username: username.toLowerCase(),
-        userId: user.id,
-        createdAt: new Date().toISOString()
-      };
-      saveAppData(appData);
-      sessionStorage.setItem('current_token', token);
-      
-      setTimeout(() => {
-        window.location.href = 'index.html';
-      }, 1500);
-      
-    } catch (error) {
-      showAlert(error.message, 'error');
-      
-      if (error.message.includes('nombre de usuario')) {
-        showError(usernameInput, error.message);
-      } else if (error.message.includes('correo electrónico')) {
-        showError(emailInput, error.message);
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.error || "Error al registrarse");
       }
-      
-      toggleForm(false);
+
+    } catch (err) {
+      alert("No se pudo conectar con el servidor.");
+      console.error(err);
     }
   });
 
-  // Validación en tiempo real para otros campos
-  emailInput.addEventListener('input', () => {
-    const error = validateEmail(emailInput.value.trim());
-    if (error) showError(emailInput, error);
-    else hideError(emailInput);
-  });
-  
-  passwordInput.addEventListener('input', () => {
-    const error = validatePassword(passwordInput.value);
-    if (error) showError(passwordInput, error);
-    else hideError(passwordInput);
-  });
-  
-  confirmPasswordInput.addEventListener('input', () => {
-    const error = validateConfirmPassword(passwordInput.value, confirmPasswordInput.value);
-    if (error) showError(confirmPasswordInput, error);
-    else hideError(confirmPasswordInput);
-  });
+  // =========================
+  // 📌 Botón login con Discord OAuth
+  // =========================
+  const discordBtn = document.getElementById("discordBtn");
+  if (discordBtn) {
+    const clientId = "1397287228744532162";
+    const redirectUri = encodeURIComponent("http://localhost:3001/auth/discord/callback");
+    const scope = encodeURIComponent("identify email");
+    const responseType = "code";
 
-  // Botón de Discord
-  discordBtn?.addEventListener('click', e => {
-    e.preventDefault();
-    showAlert('Redirigiendo a Discord para autenticación...', 'info');
-  });
+    const discordAuthUrl = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}`;
+
+    discordBtn.addEventListener("click", () => {
+      window.location.href = discordAuthUrl;
+    });
+  }
+
 });
 </script>
-<script src="../script.js"></script>
 </body>
 </html>

@@ -3,212 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Sube tu Juego - TakumiNet</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
-    <link rel="stylesheet" href="../src/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../src/index.css">
     <link rel="stylesheet" href="../src/nav.css">
-    <style>
-/* Variables base para una personalización fácil */
-:root {
-  --bg-color: #1f1f1f;
-  --primary-color: #15ff00;
-  --accent-color: #09e32d;
-  --text-color: #f5f5f5;
-  --border-color: #444;
-  --error-color: #d63031;
-  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --radius: 10px;
-}
-
-/* Reset básico */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* Contenedor del formulario */
-form {
-  max-width: 900px;
-  margin: 60px auto 20px auto;
-  padding: 2rem;
-  background-color: #2c2c2c;
-  border-radius: var(--radius);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-}
-
-/* Título */
-form h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: var(--primary-color);
-}
-
-/* Etiquetas */
-label {
-  display: block;
-  margin: 1rem 0 0.3rem;
-  font-weight: 600;
-}
-
-/* Campos de entrada */
-.input-field,
-.textarea-field,
-.select-field,
-.file-field,
-.url-field,
-.number-field {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-  background-color: #3a3a3a;
-  color: var(--text-color);
-  font-size: 1rem;
-}
-
-/* Área de texto */
-.textarea-field {
-  min-height: 100px;
-  resize: vertical;
-}
-
-/* Fieldset para secciones agrupadas */
-fieldset {
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-  padding: 1rem;
-  margin-top: 1rem;
-}
-
-/* Leyenda del fieldset */
-legend {
-  padding: 0 0.5rem;
-  font-weight: bold;
-  color: var(--accent-color);
-}
-
-/* Checkbox */
-.checkbox-container {
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
-}
-
-.checkbox-container input {
-  margin-right: 0.5rem;
-}
-
-/* Enlaces */
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Botón de envío */
-.submit-button {
-  width: 100%;
-  margin-top: 2rem;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  background-color: var(--primary-color);
-  color: #fff;
-  border: none;
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.submit-button:hover {
-  background-color: #019170;
-}
-
-/* Párrafos informativos */
-form p {
-  font-size: 0.9rem;
-  color: #bbb;
-  margin-top: 0.3rem;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  form {
-    padding: 1rem;
-  }
-
-  .submit-button {
-    font-size: 1rem;
-  }
-}
-
-
-
-/* Campo para archivos (portada y archivo del juego) */
-.file-field {
-  display: block;
-  width: 100%;
-  padding: 0.65rem;
-  font-size: 1rem;
-  color: #5eff01;
-  background-color: #333333;
-  border: 1px solid #00fc15;
-  border-radius: 8px;
-  margin-top: 0.5rem;
-  transition: border-color 0.3s, background-color 0.3s;
-}
-
-/* Estilo al pasar el mouse */
-.file-field:hover {
-  background-color: rgb(61, 61, 61);
-  border-color: #050505;
-}
-
-/* Estilo al enfocar el input */
-.file-field:focus {
-  outline: none;
-  border-color: #4caf50;
-  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3);
-}
-
-
-
-.terms-container {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background-color: #1e1e1e;
-  border: 1px solid #444;
-  border-radius: 12px;
-  color: #e0e0e0;
-  font-size: 0.95rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.terms-container h3 {
-  margin-bottom: 1rem;
-  color: #4caf50;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.terms-container ul {
-  padding-left: 1.5rem;
-  list-style-type: disc;
-  margin: 0;
-}
-
-.terms-container li {
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
-}
-
-
-
+    <link rel="stylesheet" href="../src/subirjuegos.css">
+<style>
 
 /* Configuración de la barra de navegación */
 .config-navbar {
@@ -245,1297 +44,159 @@ form p {
 
 
 
-
-.campo-form {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 18px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #ffffff;
+/* Contenedor de las opciones */
+.storage-options {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra las opciones */
+    margin-top: 15px;
 }
 
-.campo-form label {
-  margin-bottom: 6px;
-  font-weight: 600;
-  color: #fdfdfd;
-  font-size: 1rem;
+/* Cada opción individual */
+.storage-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
-.campo-form input[type="url"],
-.campo-form textarea {
-  padding: 10px 14px;
-  border: 1.8px solid #04ee3f;
-  border-radius: 6px;
-  font-size: 1rem;
-  color: #ffffff;
-  background-color: #3d3d3d;
-  transition: border-color 0.3s ease;
-  resize: vertical;
+/* Imagen del logo */
+.storage-option img.storage-logo {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease;
 }
 
-.campo-form input[type="url"]:focus,
-.campo-form textarea:focus {
-  outline: none;
-  border-color: #2f7a33; /* verde */
-  background-color: #2e2e2e;
-  box-shadow: 0 0 8px rgba(47, 122, 51, 0.3);
+/* Texto debajo del logo */
+.storage-option div {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
 }
 
-.campo-form textarea {
-  min-height: 100px;
-  line-height: 1.4;
+/* Hover con animación */
+.storage-option:hover {
+    transform: translateY(-5px) scale(1.05);
+    border-color: #999;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
-::placeholder {
-  color: #999;
-  font-style: italic;
-}
-.formulario-desarrollador h3 {
-  margin-bottom: 20px;
-  color: #2f7a33; /* verde oscuro */
-  font-weight: 600;
-  font-size: 1.5rem;
-  text-align: center;
+.storage-option:hover img.storage-logo {
+    transform: scale(1.2) rotate(10deg);
 }
 
-
-
-
-
-/* Animación de entrada suave desde abajo */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.preview-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 10px;
-  padding: 10px;
-  background: #f9f9f9;
-  border: 2px dashed #ccc;
-  border-radius: 10px;
-  animation: fadeInUp 0.5s ease;
-}
-
-.preview-container .thumbnail,
-.preview-container .preview {
-  position: relative;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #fff;
-  padding: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  animation: fadeInUp 0.5s ease;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.preview-container .thumbnail:hover,
-.preview-container .preview:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.preview-container img {
-  max-width: 120px;
-  height: auto;
-  border-radius: 6px;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.preview-container img:hover {
-  transform: scale(1.05);
-}
-
-.preview-container video {
-  max-width: 220px;
-  border-radius: 6px;
-  transition: transform 0.3s ease;
-}
-
-.preview-container video:hover {
-  transform: scale(1.05);
-}
-
-.preview-container a {
-  display: inline-block;
-  padding: 10px;
-  background-color: #eef;
-  color: #003366;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.preview-container a:hover {
-  background-color: #ddeeff;
-  transform: scale(1.05);
-}
-
-.remove-btn {
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  background: #ff4d4d;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 22px;
-  height: 22px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.remove-btn:hover {
-  background-color: #e60000;
-  transform: scale(1.1);
-}
-
-#price-container {
-  margin-top: 10px;
-  display: none;
-  animation: fadeInUp 0.5s ease;
-}
-
-input[type="text"],
-input[type="number"],
-textarea,
-select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 4px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  box-sizing: border-box;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: #00b894;
-  box-shadow: 0 0 5px rgba(0, 184, 148, 0.3);
-}
-
-label {
-  font-weight: bold;
-  margin-top: 12px;
-  display: block;
-  animation: fadeInUp 0.4s ease;
-}
-
-button[type="submit"] {
-  background-color: #00b894;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  animation: fadeInUp 0.6s ease;
-}
-
-button[type="submit"]:hover {
-  background-color: #00997a;
-  transform: scale(1.05);
+/* Opción seleccionada */
+.storage-option.selected {
+    border-color: #007BFF;
+    box-shadow: 0 6px 15px rgba(0,123,255,0.3);
 }
 
 
 
-
-
-/* Estilos para mensajes de error */
-.error-message {
-  display: none;
-  color: #ff4d4d;
-  margin-top: 5px;
-  font-size: 0.8em;
-}
-
-/* Estilos para los toasts */
-.toast {
+/* Modal general */
+.modal {
+  display: none; /* Oculto por defecto */
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 15px 25px;
-  border-radius: 5px;
-  color: white;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.3s ease;
   z-index: 1000;
-  max-width: 300px;
-}
-
-.toast.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.toast-success {
-  background-color: #4CAF50;
-}
-
-.toast-error {
-  background-color: #f44336;
-}
-
-.toast-info {
-  background-color: #2196F3;
-}
-
-/* Estilos para campos inválidos */
-.input-field:invalid, 
-.textarea-field:invalid, 
-.select-field:invalid {
-  border-color: #ff4d4d;
-}
-
-/* Estilos durante la carga */
-.submit-button[disabled] {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-
-
-
-
-
-.form-group {
-  margin-top: 1rem; /* ajusta el valor a lo que necesites */
-  margin-bottom: 1.8rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #f0f0f0;
-  background-color: #3a3a3a;
-  padding: 1.25rem 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Opcional: efecto hover para resaltar el grupo */
-.form-group:hover {
-  background-color: #4a4a4a;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
-}
-
-/* Etiquetas de los inputs */
-.form-group label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  color: white;
-}
-
-/* Pequeños textos explicativos */
-.form-group p small {
-  color: #ccc;
-  font-size: 0.85rem;
-  display: block;
-  margin-top: 0.3rem;
-}
-
-/* --- Portada del juego --- */
-
-.upload_container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Vista previa de la portada */
-.cover_thumb {
-  width: 315px;
-  height: 250px;
-  object-fit: cover;
-  border: 2px solid #666;
-  border-radius: 8px;
-  background-color: #555;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-}
-
-/* Contenedor para los botones de archivo */
-.file_tools {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-/* Botones base (verde) */
-.button {
-  background-color: #27ae60; /* verde */
-  color: white;
-  padding: 0.5rem 1.2rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: background-color 0.3s ease;
-  user-select: none;
-}
-
-/* Hover para botones */
-.button:hover {
-  background-color: #1e8449;
-}
-
-/* Botón secundario (Eliminar) en rojo */
-.button.secondary {
-  background-color: #c0392b;
-}
-
-.button.secondary:hover {
-  background-color: #922b21;
-}
-
-/* --- Capturas de pantalla --- */
-
-.screenshots_drop {
-  margin-top: 0.4rem;
-}
-
-/* Contenedor para thumbnails de capturas */
-.screenshot_list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 0.6rem;
-  min-height: 80px;
-  border: 2px dashed #666;
-  padding: 0.5rem;
-  border-radius: 8px;
-  background-color: #555;
-}
-
-/* Botón para añadir capturas */
-.add_screenshot_btn {
-  background-color: #27ae60;
-}
-
-.add_screenshot_btn:hover {
-  background-color: #1e8449;
-}
-
-/* --- Video del juego --- */
-
-.video_section input.url-field {
-  width: 100%;
-  padding: 0.45rem 0.8rem;
-  font-size: 1rem;
-  border: 1.5px solid #666;
-  border-radius: 6px;
-  background-color: #555;
-  color: white;
-  transition: border-color 0.3s ease;
-  box-sizing: border-box;
-}
-
-.video_section input.url-field::placeholder {
-  color: #ccc;
-}
-
-.video_section input.url-field:focus {
-  border-color: #27ae60;
-  outline: none;
-  box-shadow: 0 0 6px rgba(39,174,96,0.7);
-}
-
-/* --- Archivo del juego --- */
-
-.upload_section {
-  margin-top: 1rem;
-}
-
-/* Label del upload */
-.upload_label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: white;
-}
-
-/* Campo file para juego */
-.file-field {
-  width: 100%;
-  padding: 0.45rem 0.8rem;
-  border: 1.5px solid #666;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  box-sizing: border-box;
-  background-color: #555;
-  color: white;
-  transition: border-color 0.3s ease;
-}
-
-.file-field:hover {
-  border-color: #27ae60;
-}
-
-.file-field:focus {
-  border-color: #27ae60;
-  outline: none;
-  box-shadow: 0 0 6px rgba(39,174,96,0.7);
-}
-
-/* Texto instrucciones upload */
-.upload_instructions {
-  margin-top: 0.5rem;
-  color: #ccc;
-  font-size: 0.9rem;
-}
-
-/* Link de Dropbox */
-.dropbox_drop a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 600;
-  color: #27ae60;
-  text-decoration: none;
-  font-size: 1rem;
-  margin-top: 0.7rem;
-  transition: color 0.3s ease;
-}
-
-.dropbox_drop a:hover {
-  color: #1e8449;
-}
-
-/* Hint butler tip */
-.butler_tip {
-  background-color: #225522;
-  border-left: 4px solid #27ae60;
-  padding: 0.7rem 1rem;
-  margin-top: 1rem;
-  border-radius: 6px;
-  color: #a3dca1;
-  font-size: 0.9rem;
-}
-
-.butler_tip a {
-  color: #b0f0a8;
-  text-decoration: underline;
-}
-
-.butler_tip a:hover {
-  color: #85c97f;
-  text-decoration: none;
-}
-
-
-
-
-.label {
-  font-weight: bold;
-  margin-bottom: 6px;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  color: #ffffff; /* letras blancas */
-  background-color: #2e2e2e00; /* fondo verde oscuro */
-  padding: 4px 8px;
-  border-radius: 4px;
-  max-width: fit-content;
-}
-
-.domain_wrapper {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background-color: #4e4e4e; /* gris claro de fondo */
-  border: 1.5px solid #2afc00; /* borde verde oscuro */
-  border-radius: 5px;
-  padding: 6px 10px;
-  max-width: 400px;
-}
-
-.domain {
-  font-family: monospace;
-  color: #ffffff; /* verde oscuro */
-  user-select: text;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.medium_input.slug_input {
-  flex: 1;
-  border: none;
-  outline: none;
-  font-size: 14px;
-  padding: 6px 8px;
-  border-radius: 3px;
-  background-color: #e0e0e0; /* gris muy claro */
-  box-shadow: inset 0 0 5px #a3bf94; /* sombra verde suave */
-  transition: box-shadow 0.3s ease;
-  color: #ffffff; /* texto verde oscuro */
-}
-
-.medium_input.slug_input::placeholder {
-  color: #000000; /* placeholder verde medio */
-}
-
-.medium_input.slug_input:focus {
-  box-shadow: inset 0 0 6px #171817;
-  background-color: #bdbaba;
-  color: #000000;
-}
-
-
-
-
-
-
-#screenshotPreview {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 12px;
-}
-
-.screenshot-item {
-  position: relative;
-  width: 120px;
-  height: 90px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  background-color: #fafafa;
-  transition: box-shadow 0.3s ease;
-}
-
-.screenshot-item:hover {
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.screenshot-thumb {
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
+  backdrop-filter: blur(3px); /* Suaviza el fondo */
+  transition: opacity 0.3s ease;
 }
 
-.delete-screenshot {
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  background-color: rgba(255, 0, 0, 0.8);
-  border: none;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 16px;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.delete-screenshot:hover {
-  background-color: rgba(255, 0, 0, 1);
-}
-
-
-
-
-.upload_section {
-  display: flex;
-  flex-direction: column;
-  max-width: 400 px;
-  margin: 20px auto;
+/* Contenido del modal */
+.modal-content {
+  background-color: #1e1e2f; /* Color oscuro moderno */
+  margin: 10% auto; /* Centrado vertical */
+  padding: 25px 20px;
+  border-radius: 15px;
+  width: 350px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.3s ease;
+  color: #f1f1f1;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #2f2f2f; /* gris oscuro */
-  padding: 20px;
-  border-radius: 10px;
-  color: #fff; /* texto blanco */
-  position: relative;
 }
 
-/* Detalle verde en la esquina superior derecha */
-.upload_section::before {
-  content: '';
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 15px;
-  height: 15px;
-  background-color: #27ae60; /* verde */
-  border-radius: 3px;
+/* Animación al aparecer */
+@keyframes slideDown {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
-/* Label estilizado */
-.upload_section label {
-  font-weight: 600;
-  margin-bottom: 10px;
-  font-size: 1rem;
+/* Botón cerrar */
+.close {
+  color: #bbb;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
   cursor: pointer;
-  user-select: none;
+  transition: color 0.2s ease;
+}
+.close:hover {
+  color: #ff4d4d;
+}
+
+/* Título del modal */
+.modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
   color: #fff;
-  transition: color 0.3s ease;
 }
 
-.upload_section label:hover {
-  color: #27ae60; /* verde al pasar el mouse */
+/* Input de URL */
+#mediafire-url {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  border: 1px solid #555;
+  background-color: #2b2b3c;
+  color: #fff;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+#mediafire-url:focus {
+  outline: none;
+  border-color: #05f010;
 }
 
-/* Input file oculto */
-.upload_section input[type="file"] {
-  display: none;
-}
-
-/* Botón personalizado para input file */
-.upload_section .file-custom {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #27ae60; /* verde */
-  color: white;
-  font-weight: 600;
-  border-radius: 6px;
-  cursor: pointer;
-  text-align: center;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 4px 8px rgb(39 174 96 / 0.5);
-  user-select: none;
-  margin-top: 5px;
-}
-
-.upload_section .file-custom:hover {
-  background-color: #1e8449; /* verde más oscuro */
-  box-shadow: 0 6px 12px rgb(30 132 73 / 0.7);
-}
-
-/* Texto que muestra el nombre del archivo seleccionado */
-.upload_section .file-name {
-  margin-top: 12px;
-  font-size: 0.9rem;
-  color: #ccc;
-  font-style: italic;
-}
-
-/* Responsive */
-@media (max-width: 450px) {
-  .upload_section {
-    max-width: 90%;
-  }
-}
-
-
-
-.btn-borrar {
-  background-color: #2e2e2e;       /* Gris oscuro */
-  color: #ffffff;                  /* Texto blanco */
-  border: 2px solid transparent;  /* Borde invisible inicial */
-  padding: 12px 24px;              /* Espaciado cómodo */
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  user-select: none;
-  display: inline-block;
-  text-align: center;
-}
-
-.btn-borrar:hover {
-  background-color: transparent;
-  color: #4caf50;                 /* Verde */
-  border-color: #4caf50;
-  box-shadow: 0 0 12px #4caf50aa;
-}
-
-.btn-borrar:active {
-  transform: scale(0.96);
-  box-shadow: 0 0 8px #4caf50cc;
-}
-
-
-
-
-#custom-alert {
-  background-color: #e0f0ff;
-  color: #084298;
-  border: 1px solid #b6d4fe;
-  padding: 1rem 1.5rem;
-  border-radius: 0.5rem;
+/* Botón agregar enlace */
+.modal-content button {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  background-color: #05f010;
+  color: #fff;
   font-size: 1rem;
-  font-weight: 500;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  max-width: 500px;
-  margin: 1rem auto;
-  text-align: center;
-  display: none; /* Mostrar con JS */
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.modal-content button:hover {
+  background-color: #03b10a;
+  transform: translateY(-2px);
 }
 
+</style>
 
-
-
-
- /* Estilos generales del formulario */
-    .input-field, .textarea-field, .select-field, .number-field, .url-field {
-        width: 100%;
-        padding: 12px;
-        margin: 8px 0 16px;
-        border: 1px solid #444;
-        border-radius: 6px;
-        box-sizing: border-box;
-        background-color: #2a2a2a;
-        color: #ffffff;
-        font-size: 16px;
-        transition: border-color 0.3s;
-    }
-    
-    .input-field:focus, .textarea-field:focus, 
-    .select-field:focus, .number-field:focus, 
-    .url-field:focus {
-        border-color: #4CAF50;
-        outline: none;
-    }
-    
-    .textarea-field {
-        min-height: 120px;
-        resize: vertical;
-        line-height: 1.5;
-    }
-    
-    /* Estilos para etiquetas */
-    label {
-        display: block;
-        margin-top: 12px;
-        font-weight: bold;
-        color: #ffffff;
-    }
-    
-    /* Estilos para imágenes */
-    .screenshot-thumb {
-        width: 120px;
-        height: 90px;
-        object-fit: cover;
-        margin-right: 10px;
-        margin-bottom: 10px;
-        border: 2px solid #444;
-        border-radius: 6px;
-        transition: transform 0.2s;
-    }
-    
-    .screenshot-thumb:hover {
-        transform: scale(1.05);
-    }
-    
-    .screenshot_list {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 15px;
-        padding: 10px;
-        background-color: #2a2a2a;
-        border-radius: 6px;
-        min-height: 120px;
-    }
-    
-    /* Estilos para botones */
-    .button {
-        padding: 12px 20px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: all 0.3s;
-        margin-right: 10px;
-        margin-bottom: 10px;
-    }
-    
-    .button:hover {
-        background-color: #45a049;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-    
-    .button.secondary {
-        background-color: #f44336;
-    }
-    
-    .button.secondary:hover {
-        background-color: #d32f2f;
-    }
-    
-    .submit-button {
-        padding: 16px 24px;
-        background-color: #2196F3;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 18px;
-        font-weight: bold;
-        margin-top: 30px;
-        width: 100%;
-        transition: all 0.3s;
-    }
-    
-    .submit-button:hover {
-        background-color: #0b7dda;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    
-    .submit-button:disabled {
-        background-color: #757575;
-        cursor: not-allowed;
-        box-shadow: none;
-    }
-    
-    /* Estilos para la portada */
-    .cover_thumb {
-        max-width: 100%;
-        height: auto;
-        max-height: 300px;
-        margin-bottom: 15px;
-        border: 2px dashed #666;
-        border-radius: 8px;
-        display: block;
-        background-color: #2a2a2a;
-    }
-    
-    .upload_container {
-        margin-bottom: 25px;
-        padding: 15px;
-        background-color: #2a2a2a;
-        border-radius: 8px;
-    }
-    
-    .file_tools {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 10px;
-    }
-    
-    /* Estilos para el nombre del archivo */
-    .file-name {
-        margin: 12px 0;
-        padding: 12px;
-        background-color: #2a2a2a;
-        border-radius: 6px;
-        font-style: italic;
-        color: #ccc;
-        word-break: break-all;
-    }
-    
-    /* Estilos para los requisitos del sistema */
-    fieldset {
-        border: 2px solid #444;
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 25px;
-        background-color: #2a2a2a;
-    }
-    
-    legend {
-        padding: 0 15px;
-        font-weight: bold;
-        color: #ffffff;
-        font-size: 18px;
-    }
-    
-    /* Estilos para los términos y condiciones */
-    .terms-container {
-        background-color: #2a2a2a;
-        padding: 20px;
-        border-radius: 8px;
-        margin: 30px 0;
-    }
-    
-    .terms-container h3 {
-        color: #4CAF50;
-        margin-bottom: 15px;
-    }
-    
-    .terms-container ul {
-        margin: 15px 0;
-        padding-left: 25px;
-    }
-    
-    .terms-container li {
-        margin-bottom: 12px;
-        line-height: 1.6;
-    }
-    
-    /* Estilos para el checkbox de términos */
-    .checkbox-container {
-        margin: 25px 0;
-        display: flex;
-        align-items: center;
-        padding: 15px;
-        background-color: #2a2a2a;
-        border-radius: 8px;
-    }
-    
-    .checkbox-container input[type="checkbox"] {
-        margin-right: 15px;
-        width: 20px;
-        height: 20px;
-    }
-    
-    .checkbox-container label {
-        margin: 0;
-        font-weight: normal;
-    }
-    
-    .checkbox-container a {
-        color: #4CAF50;
-        text-decoration: none;
-    }
-    
-    .checkbox-container a:hover {
-        text-decoration: underline;
-    }
-    
-    /* Estilos responsivos */
-    @media (max-width: 768px) {
-        .file_tools {
-            flex-direction: column;
-        }
-        
-        .button {
-            width: 100%;
-            margin-right: 0;
-        }
-        
-        .input-field, .textarea-field, .select-field, 
-        .number-field, .url-field {
-            padding: 10px;
-            font-size: 14px;
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-    /* Estilos generales del formulario */
-.input-field, .textarea-field, .select-field, .url-field, .number-field {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0 16px;
-    border: 1px solid #444;
-    border-radius: 4px;
-    background-color: #2a2a2a;
-    color: #fff;
-    font-size: 14px;
-}
-
-.input-field:focus, .textarea-field:focus, .select-field:focus {
-    outline: none;
-    border-color: #0078d7;
-    box-shadow: 0 0 0 2px rgba(0, 120, 215, 0.3);
-}
-
-.textarea-field {
-    min-height: 120px;
-    resize: vertical;
-}
-
-/* Estilos para la portada */
-.cover_thumb {
-    max-width: 315px;
-    max-height: 250px;
-    border: 1px dashed #444;
-    margin-bottom: 10px;
-    display: block;
-}
-
-.upload_container {
-    margin-bottom: 16px;
-}
-
-.file_tools {
-    display: flex;
-    gap: 10px;
-}
-
-.button {
-    padding: 8px 16px;
-    background-color: #0078d7;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.button:hover {
-    background-color: #0066b4;
-}
-
-.button.secondary {
-    background-color: #444;
-}
-
-.button.secondary:hover {
-    background-color: #555;
-}
-
-/* Estilos para capturas de pantalla */
-.screenshot_list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.screenshot-item {
-    position: relative;
-    width: 150px;
-    height: 100px;
-}
-
-.screenshot-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border: 1px solid #444;
-    border-radius: 4px;
-}
-
-.remove-screenshot {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background-color: rgba(255, 0, 0, 0.7);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    font-size: 12px;
-    line-height: 1;
-    padding: 0;
-    cursor: pointer;
-}
-
-.add_screenshot_btn {
-    margin-bottom: 16px;
-}
-
-/* Estilos para la sección de archivo */
-.upload_section {
-    margin: 20px 0;
-}
-
-.file-custom {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #0078d7;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-bottom: 8px;
-}
-
-.file-custom:hover {
-    background-color: #0066b4;
-}
-
-.file-name {
-    margin: 8px 0;
-    font-size: 14px;
-    color: #bbb;
-}
-
-.btn-borrar {
-    background-color: #d9534f;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
-.btn-borrar:hover {
-    background-color: #c9302c;
-}
-
-/* Estilos para términos y condiciones */
-.checkbox-container {
-    margin: 20px 0;
-    display: flex;
-    align-items: center;
-}
-
-.checkbox-container input {
-    margin-right: 10px;
-}
-
-.checkbox-container a {
-    color: #0078d7;
-    text-decoration: none;
-}
-
-.checkbox-container a:hover {
-    text-decoration: underline;
-}
-
-/* Botón de envío */
-.submit-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-.submit-button:hover {
-    background-color: #218838;
-}
-
-/* Estilos para los requisitos del sistema */
-fieldset {
-    border: 1px solid #444;
-    border-radius: 4px;
-    padding: 15px;
-    margin-bottom: 20px;
-}
-
-legend {
-    padding: 0 10px;
-    font-weight: bold;
-    color: #fff;
-}
-
-/* Estilos para el hint de butler */
-.hint.butler_tip {
-    background-color: rgba(0, 120, 215, 0.1);
-    border-left: 4px solid #0078d7;
-    padding: 12px;
-    margin: 20px 0;
-    border-radius: 0 4px 4px 0;
-}
-
-.hint.butler_tip a {
-    color: #0078d7;
-    text-decoration: none;
-}
-
-.hint.butler_tip a:hover {
-    text-decoration: underline;
-}
-
-/* Estilos para el límite de archivo */
-.upload_limit {
-    font-size: 12px;
-    color: #bbb;
-    margin: 10px 0;
-}
-
-.upload_limit a {
-    color: #0078d7;
-    text-decoration: none;
-}
-
-.upload_limit a:hover {
-    text-decoration: underline;
-}
-
-
-
-
-/* Animaciones */
-.loading {
-    position: relative;
-    pointer-events: none;
-}
-
-.loading::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 20px;
-    height: 20px;
-    margin: -10px 0 0 -10px;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-radius: 50%;
-    border-top-color: #fff;
-    animation: spin 1s ease-in-out infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-.success {
-    background-color: #4CAF50 !important;
-}
-
-.error {
-    background-color: #f44336 !important;
-}
-
-/* Capturas de pantalla */
-.screenshot-item {
-    position: relative;
-    margin: 10px;
-    display: inline-block;
-    transition: all 0.3s ease;
-}
-
-.delete-screenshot-btn {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    background: rgba(255,0,0,0.7);
-    color: white;
-    border: none;
-    border-radius: 3px;
-    padding: 2px 5px;
-    cursor: pointer;
-}
-
-.delete-screenshot-btn:hover {
-    background: rgba(255,0,0,0.9);
-}
-
-
-        </style>
-        </head>
-</body>
 <nav class="config-navbar">
     <!-- Botón Volver -->
     <a href="Creator Dashboard.html" class="back-btn" title="Volver al Inicio" data-i18n-title="config.backToHome">
@@ -1545,48 +206,51 @@ legend {
     <h1 class="config-title" data-i18n="config.return">Volver</h1>
 </nav>
 
-<form action="/upload-game" method="post" enctype="multipart/form-data">
-    <h2 data-i18n="upload.title">Sube tu Juego Indie</h2>
 
-    <!-- Título del juego -->
-    <label for="title" data-i18n="upload.gameTitle">Título del juego</label>
-    <input class="input-field" type="text" id="title" name="title" required placeholder="Escribe el título" data-i18n-placeholder="upload.gameTitlePlaceholder">
+<form action="http://localhost:3001/api/juegos" method="post" enctype="multipart/form-data" class="upload-form">
+  <div class="upload-container">
 
-    <!-- Nombre del Propietario del Juego -->
-    <div class="domain-wrapper" style="display: flex; align-items: center; gap: 8px; margin: 12px 0;">
-        <div class="domain" id="user-domain" style="
-            font-size: 14px;
-            font-weight: bold;
-            color: #fff;
-            background: #333;
-            padding: 6px 10px;
-            border-radius: 6px;">
-            Usuario
-        </div>
+    <!-- Sección Título -->
+    <div class="form-group">
+      <label for="title" class="form-label">Título del juego</label>
+      <input type="text" id="title" name="title" class="form-input" required placeholder="Escribe el título">
     </div>
-    <p style="font-size: 12px; color: #bbb; margin-top: 4px;">
+
+    <!-- Sección Usuario -->
+    <div class="form-group user-section">
+      <div class="domain-wrapper">
+        <div class="domain" id="user-domain">Usuario</div>
+      </div>
+      <p class="user-info">
         Nombre del propietario: <strong><span id="username">usuario</span></strong><br>
-        ID del usuario: <strong><span id="user-id">cargando...</span></strong>
-    </p>
+        ID del usuario: <strong><span id="user-id-display">cargando...</span></strong>
+      </p>
+      <input type="hidden" id="user-id" name="user_id" value="0">
+    </div>
 
-    <!-- Descripción -->
-    <label for="description" data-i18n="upload.description">Descripción</label>
-    <textarea class="textarea-field" id="description" name="description" required placeholder="Escribe una descripción" data-i18n-placeholder="upload.descriptionPlaceholder"></textarea>
+    <!-- Sección Descripción -->
+    <div class="form-group">
+      <label for="description" class="form-label">Descripción</label>
+      <textarea id="description" name="description" class="form-textarea" required placeholder="Escribe una descripción"></textarea>
+    </div>
 
-    <!-- Categoría -->
-    <label for="category" data-i18n="upload.category">Categoría</label>
-    <select class="select-field" id="category" name="category" required>
-        <option value="aventura" data-i18n="upload.categoryAdventure">Aventura</option>
-        <option value="rpg" data-i18n="upload.categoryRPG">RPG</option>
-        <option value="acción" data-i18n="upload.categoryAction">Acción</option>
-        <option value="puzzle" data-i18n="upload.categoryPuzzle">Puzzle</option>
-        <option value="terror" data-i18n="upload.categoryHorror">Terror</option>
-        <option value="otro" data-i18n="upload.categoryOther">Otro</option>
-    </select>
+    <!-- Sección Categoría -->
+    <div class="form-group">
+      <label for="category" class="form-label">Categoría</label>
+      <select id="category" name="category" class="form-select" required>
+        <option value="aventura">Aventura</option>
+        <option value="rpg">RPG</option>
+        <option value="acción">Acción</option>
+        <option value="puzzle">Puzzle</option>
+        <option value="terror">Terror</option>
+        <option value="otro">Otro</option>
+      </select>
+    </div>
 
-    <!-- Géneros -->
-    <label for="genres" data-i18n="upload.genres">Géneros</label>
-    <select class="select-field" id="genres" name="genres" required>
+    <!-- Sección Géneros -->
+    <div class="form-group">
+      <label for="genres" class="form-label">Géneros</label>
+      <select id="genres" name="genres" class="form-select" required>
         <option value="pixelart">Pixelart</option>
         <option value="retro">Retro</option>
         <option value="historia-corta">Historia corta</option>
@@ -1608,11 +272,13 @@ legend {
         <option value="misterio">Misterio</option>
         <option value="cyberpunk">Cyberpunk</option>
         <option value="anime">Anime</option>
-    </select>
+      </select>
+    </div>
 
-    <!-- Género Principal -->
-    <label for="main-genre" data-i18n="upload.mainGenre">Género Principal</label>
-    <select class="select-field" id="main-genre" name="main-genre" required>
+    <!-- Sección Género Principal -->
+    <div class="form-group">
+      <label for="main_genre" class="form-label">Género Principal</label>
+      <select id="main_genre" name="main_genre" class="form-select" required>
         <option value="no-genero">No género</option>
         <option value="aventura">Aventura</option>
         <option value="rpg">RPG</option>
@@ -1620,599 +286,575 @@ legend {
         <option value="puzzle">Puzzle</option>
         <option value="terror">Terror</option>
         <option value="otro">Otro</option>
-    </select>
+      </select>
+    </div>
 
-    <!-- Requisitos del Sistema -->
-    <fieldset>
-        <legend data-i18n="requirements.title">Requisitos del Sistema</legend>
-        <label for="tipo-requisitos" data-i18n="requirements.selectType"><strong>Selecciona el tipo de requisitos:</strong></label>
-        <select id="tipo-requisitos" class="input-field" onchange="mostrarFormulario()">
-            <option value="">-- Selecciona una opción --</option>
-            <option value="minimos">Requisitos Mínimos</option>
-            <option value="recomendados">Requisitos Recomendados</option>
+    <!-- Sección Requisitos -->
+    <fieldset class="form-fieldset">
+      <legend class="form-legend">Requisitos del Sistema</legend>
+      <div class="form-group">
+        <label for="tipo-requisitos"><strong>Selecciona el tipo de requisitos:</strong></label>
+        <select id="tipo-requisitos" class="form-select" onchange="mostrarFormulario()">
+          <option value="">-- Selecciona una opción --</option>
+          <option value="minimos">Requisitos Mínimos</option>
+          <option value="recomendados">Requisitos Recomendados</option>
         </select>
+      </div>
 
-        <!-- Formulario Requisitos Mínimos -->
-        <div id="form-minimos" style="display: none; margin-top: 1rem;">
-            <h3>Requisitos Mínimos</h3>
-            <label for="min-so">Sistema Operativo:</label>
-            <input class="input-field" type="text" id="min-so" name="min-so" placeholder="Ej: Windows 10, Linux...">
-            <label for="min-procesador">Procesador:</label>
-            <input class="input-field" type="text" id="min-procesador" name="min-procesador" placeholder="Ej: Intel i3, Ryzen 3...">
-            <label for="min-ram">Memoria RAM:</label>
-            <input class="input-field" type="text" id="min-ram" name="min-ram" placeholder="Ej: 4 GB, 8 GB...">
-            <label for="min-gpu">Tarjeta Gráfica:</label>
-            <input class="input-field" type="text" id="min-gpu" name="min-gpu" placeholder="Ej: GPU integrada, GTX 750...">
-            <label for="min-almacenamiento">Almacenamiento:</label>
-            <input class="input-field" type="text" id="min-almacenamiento" name="min-almacenamiento" placeholder="Ej: 2 GB libres...">
-        </div>
+      <div id="form-minimos" class="requirements-form" style="display: none;">
+        <h3>Requisitos Mínimos</h3>
+        <input type="text" id="min_os" name="min_os" class="form-input" placeholder="Sistema Operativo">
+        <input type="text" id="min_cpu" name="min_cpu" class="form-input" placeholder="Procesador">
+        <input type="text" id="min_ram" name="min_ram" class="form-input" placeholder="Memoria RAM">
+        <input type="text" id="min_gpu" name="min_gpu" class="form-input" placeholder="Tarjeta Gráfica">
+        <input type="text" id="min_storage" name="min_storage" class="form-input" placeholder="Almacenamiento">
+      </div>
 
-        <!-- Formulario Requisitos Recomendados -->
-        <div id="form-recomendados" style="display: none; margin-top: 1rem;">
-            <h3>Requisitos Recomendados</h3>
-            <label for="rec-so">Sistema Operativo:</label>
-            <input class="input-field" type="text" id="rec-so" name="rec-so" placeholder="Ej: Windows 11, Ubuntu 22.04...">
-            <label for="rec-procesador">Procesador:</label>
-            <input class="input-field" type="text" id="rec-procesador" name="rec-procesador" placeholder="Ej: Intel i5, Ryzen 5...">
-            <label for="rec-ram">Memoria RAM:</label>
-            <input class="input-field" type="text" id="rec-ram" name="rec-ram" placeholder="Ej: 8 GB, 16 GB...">
-            <label for="rec-gpu">Tarjeta Gráfica:</label>
-            <input class="input-field" type="text" id="rec-gpu" name="rec-gpu" placeholder="Ej: GTX 1660, RTX 2060...">
-            <label for="rec-almacenamiento">Almacenamiento:</label>
-            <input class="input-field" type="text" id="rec-almacenamiento" name="rec-almacenamiento" placeholder="Ej: 4 GB libres, SSD...">
-        </div>
+      <div id="form-recomendados" class="requirements-form" style="display: none;">
+        <h3>Requisitos Recomendados</h3>
+        <input type="text" id="rec_os" name="rec_os" class="form-input" placeholder="Sistema Operativo">
+        <input type="text" id="rec_cpu" name="rec_cpu" class="form-input" placeholder="Procesador">
+        <input type="text" id="rec_ram" name="rec_ram" class="form-input" placeholder="Memoria RAM">
+        <input type="text" id="rec_gpu" name="rec_gpu" class="form-input" placeholder="Tarjeta Gráfica">
+        <input type="text" id="rec_storage" name="rec_storage" class="form-input" placeholder="Almacenamiento">
+      </div>
     </fieldset>
 
-    <!-- Portada del Juego -->
+    <!-- Sección Portada del Juego -->
     <div class="form-group">
-        <label for="cover">Imagen destacada del juego (JPG o PNG)</label>
-        <div class="upload_container">
-            <img id="coverPreview" class="cover_thumb" src="https://via.placeholder.com/315x250?text=Sin+portada" alt="Vista previa de portada">
-            <div class="file_tools">
-                <input type="file" id="cover" name="cover" accept=".jpg,.jpeg,.png" style="display: none;" required>
-                <button type="button" class="button" onclick="document.getElementById('cover').click();">Reemplazar imagen de portada</button>
-                <button type="button" class="button secondary" onclick="removeCover()">Eliminar imagen</button>
-        </div>
-        <p><small>Mínimo: 315x250 píxeles. Recomendado: 630x500 píxeles.</small></p>
+      <label for="cover" class="form-label">Imagen destacada del juego</label>
+      <input type="file" id="cover" name="cover" class="form-file" accept=".jpg,.jpeg,.png" required>
+      <small class="form-text">
+        Recomendado: 1280 × 719 px, formato JPG o PNG, máximo 2 MB
+      </small>
     </div>
 
-    <!-- Capturas del juego -->
+    <div id="preview-container" style="margin-top: 10px; position: relative; width: 640px; max-width: 100%;">
+      <img id="cover-preview" src="" alt="Vista previa de portada" style="width: 100%; height: auto; border-radius: 12px; display: none;">
+      <button id="remove-cover" style="position: absolute; top: 10px; right: 10px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; display: none; font-weight: bold;">X</button>
+    </div>
+
+    <!-- Sección Capturas -->
     <div class="form-group">
-        <label for="screenshots">Capturas del juego (mínimo 5 imágenes JPG, PNG o GIF)</label>
-        <div class="screenshots_drop">
-            <div class="game_edit_screenshots_uploader_widget">
-                <div id="screenshotPreview" class="screenshot_list"></div>
-                <input type="file" id="screenshots" name="screenshots[]" accept=".jpg,.jpeg,.png,.gif" multiple style="display: none;" required>
-                <button type="button" class="button add_screenshot_btn" onclick="document.getElementById('screenshots').click();">Añadir capturas</button>
-            </div>
-        </div>
-        <p><small>Selecciona al menos 5 archivos. Formatos: JPG, PNG, GIF.</small></p>
+      <label for="screenshots" class="form-label">Capturas del juego (mínimo 5)</label>
+      <input type="file" id="screenshots" name="screenshots" class="form-file" accept=".jpg,.jpeg,.png,.gif" multiple required>
     </div>
 
-    <!-- Video del juego -->
-    <div class="form-group video_section">
-        <label for="videoUrl">URL del video del juego</label>
-        <input class="url-field" type="url" id="videoUrl" name="videoUrl" placeholder="https://www.youtube.com/watch?v=5JEaA47sPjQ">
-        <p><small>Agrega un enlace al video promocional.</small></p>
+    <!-- Sección Video -->
+    <div class="form-group">
+      <label for="youtube_url" class="form-label">URL del video del juego</label>
+      <input type="url" id="youtube_url" name="youtube_url" class="form-input" placeholder="https://www.youtube.com/watch?v=XXXXX">
     </div>
 
-    <!-- Archivo del juego -->
-    <div class="upload_section">
-        <button type="button" onclick="borrarArchivo()" class="btn-borrar">Borrar Archivo</button>
-        <label for="game_file">Archivo del juego (ZIP):</label>
-        <input type="file" id="game_file" accept=".zip">
-        <label class="file-custom" for="game_file">Seleccionar archivo</label>
-        <div class="file-name" id="file_name_display">Ningún archivo seleccionado</div>
-        <small>Tamaño mínimo: 1 MB, máximo: 2 GB</small>
-    </div>
-    <p class="upload_limit">Tamaño máximo: 2 GB.</p>
+<!-- Sección Archivo del juego -->
+<div class="form-group">
+  <label for="game_file" class="form-label">
+    Archivo del juego (ZIP)
+  </label>
+  <input type="file" id="game_file" name="game_file" class="form-file" accept=".zip">
+  <small class="form-text">
+    ⚠️ Archivos hasta 1 GB se pueden subir directamente. <br>
+  </small>
+</div>
 
-    <!-- Precio -->
-    <label for="pricing">Precio</label>
-    <select class="select-field" id="pricing" name="pricing" required>
+<!-- Sección Almacenamiento Externo -->
+<div class="form-group">
+  <label class="form-label">Selecciona dónde se alojará tu juego:</label>
+  <small>⚠️Archivos mayores a 1 GB (hasta 5 GB) usa Google Drive, Dropbox o MediaFire.</small>
+  <div class="storage-options">
+    <!-- MediaFire -->
+    <div class="storage-option" data-service="mediafire" onclick="openMediaFireModal()">
+      <img src="https://play-lh.googleusercontent.com/YCYtU9DwQDIX1QbDDqF8sQU1CKlWABF-Sbtr3qH_9z9MJ495HsXNe4KkfxFycK9FyAI" 
+           alt="MediaFire" width="48" height="48" class="storage-logo">
+      <div>MediaFire</div>
+      <input type="hidden" id="mediafire-link" name="mediafire_link">
+    </div>
+  </div>
+</div>
+
+<input type="hidden" id="storage-service" name="storage_service" value="">
+
+<!-- Modal MediaFire -->
+<div id="mediafire-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeMediaFireModal()">&times;</span>
+    <h3>Agregar enlace de MediaFire</h3>
+    <input type="url" id="mediafire-url" placeholder="Pega el enlace ZIP aquí">
+    <button onclick="saveMediaFireLink()">Agregar enlace</button>
+  </div>
+</div>
+
+
+    <!-- Sección Precio -->
+    <div class="form-group">
+      <label for="pricing" class="form-label">Precio</label>
+      <select id="pricing" name="pricing" class="form-select" required>
         <option value="gratis">Gratis</option>
         <option value="pago">Pago</option>
         <option value="donacion">Donación</option>
-    </select>
-    <div id="price-container" style="display:none;">
-        <label for="price">Precio o Donación (USD)</label>
-        <input class="number-field" type="number" id="price" name="price" min="0" step="0.01" placeholder="0.00">
+      </select>
+      <input type="number" id="price" name="price" class="form-input" min="0" step="0.01" placeholder="0.00" style="display:none;">
     </div>
 
     <!-- Términos -->
-    <div class="terms-container">
-        <h3>Términos y Condiciones Adicionales</h3>
-        <ul>
-            <li>Debes ser el autor original del juego.</li>
-            <li>No subir contenido ilegal u ofensivo.</li>
-            <li>Todos los juegos serán revisados.</li>
-            <li>Distribución de ingresos: 70% para ti, 30% para TakumiNet.</li>
-        </ul>
-    </div>
-    <div class="checkbox-container">
-        <input type="checkbox" id="terms" name="terms" required>
-        <label for="terms">Acepto los <a href="/terms" target="_blank">Términos y Condiciones</a></label>
+    <div class="form-group terms-group">
+      <input type="checkbox" id="terms" name="terms" class="form-checkbox" required>
+      <label for="terms" class="form-label">
+        Normas y Pagos de TakumiNet
+        <a href="../pdf/TakumiNet_Terminos_y_Condiciones.pdf" download class="terms-link" target="_blank">Ver Normas y Pagos</a>
+      </label>
     </div>
 
-    <!-- Botón de envío -->
-    <button class="submit-button" type="submit">Subir Juego</button>
+    <!-- Botón de Publicar -->
+    <div class="form-group">
+      <button type="button" class="btn-submit" onclick="subirJuego()">
+        <i class="fas fa-cloud-upload-alt"></i> Publicar Juego
+      </button>
+    </div>
+
+  </div>
 </form>
 
 <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-<script src="../js/i18n.js"></script>
+<script src="../js/userid.js"></script>
 <script src="../preload.js"></script>
 <script src="../js/usario.js"></script>
 <script src="../js/Nombres.js"></script>
-<script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="TU_APP_KEY"></script>
 <script src="https://cdn.jsdelivr.net/npm/aws-sdk@2.1482.0/dist/aws-sdk.min.js"></script>
 <script src="../autoSync.js"></script>
 
-
-</form>
-</body>
-</html>
+<script src="https://apis.google.com/js/api.js"></script>
 
 <script>
-// Hacemos la función removeCover accesible globalmente
-window.removeCover = function() {
-    const coverInput = document.getElementById('cover');
-    const coverPreview = document.getElementById('coverPreview');
-    
-    if (coverInput) coverInput.value = '';
-    if (coverPreview) coverPreview.src = 'https://via.placeholder.com/315x250?text=Sin+portada';
-    
-    // Limpiamos la variable global coverBlob si existe
-    if (typeof coverBlob !== 'undefined') {
-        coverBlob = null;
-    }
-};
-
-// Función para convertir Blob a Base64
-function blobToBase64(blob) {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = reject;
-        reader.readAsDataURL(blob);
-    });
-}
-
-// Función para inicializar la base de datos
-async function initializeDB() {
-    return new Promise((resolve, reject) => {
-        const request = indexedDB.open('GamesDB', 2); // Versión 2 para manejar posibles cambios
-        
-        request.onerror = function(event) {
-            console.error('Error al abrir la base de datos:', event.target.error);
-            reject('Error: No se pudo abrir la base de datos.');
-        };
-        
-        request.onupgradeneeded = function(event) {
-            const db = event.target.result;
-            
-            // Crear object store para metadatos del juego
-            if (!db.objectStoreNames.contains('games')) {
-                const gamesStore = db.createObjectStore('games', { keyPath: 'id' });
-                gamesStore.createIndex('title', 'title', { unique: false });
-                gamesStore.createIndex('category', 'category', { unique: false });
-                gamesStore.createIndex('owner', 'owner', { unique: false });
-                gamesStore.createIndex('ownerId', 'ownerId', { unique: false });
-                gamesStore.createIndex('timestamp', 'timestamp', { unique: false });
-                gamesStore.createIndex('status', 'status', { unique: false });
-            }
-            
-            // Crear object store para archivos del juego
-            if (!db.objectStoreNames.contains('gameFiles')) {
-                db.createObjectStore('gameFiles', { keyPath: 'id' });
-            }
-            
-            // Crear object store para imágenes del juego
-            if (!db.objectStoreNames.contains('gameImages')) {
-                db.createObjectStore('gameImages', { keyPath: 'id' });
-            }
-        };
-        
-        request.onsuccess = function(event) {
-            resolve(event.target.result);
-        };
-    });
-}
-
-// Función para guardar todos los datos del juego
-async function saveGameData(gameData, gameFileData, coverData, screenshotsData) {
-    let db;
-    try {
-        db = await initializeDB();
-        
-        // Iniciar una transacción atómica para todos los datos
-        const transaction = db.transaction(['games', 'gameFiles', 'gameImages'], 'readwrite');
-        
-        return new Promise((resolve, reject) => {
-            transaction.onerror = function(event) {
-                console.error('Error en la transacción:', event.target.error);
-                reject('Error al guardar los datos del juego.');
-            };
-            
-            // Guardar metadatos del juego
-            const gamesStore = transaction.objectStore('games');
-            const gameRequest = gamesStore.put(gameData);
-            
-            gameRequest.onsuccess = function() {
-                // Guardar archivo del juego
-                const filesStore = transaction.objectStore('gameFiles');
-                filesStore.put({
-                    id: gameData.id,
-                    file: gameFileData.file,
-                    fileName: gameFileData.fileName,
-                    fileType: gameFileData.fileType
-                });
-                
-                // Guardar imágenes
-                const imagesStore = transaction.objectStore('gameImages');
-                imagesStore.put({
-                    id: gameData.id,
-                    cover: {
-                        base64: coverData.base64,
-                        name: coverData.name,
-                        type: coverData.type
-                    },
-                    screenshots: screenshotsData.map(screenshot => ({
-                        base64: screenshot.base64,
-                        name: screenshot.name,
-                        type: screenshot.type,
-                        index: screenshot.index
-                    }))
-                });
-            };
-            
-            transaction.oncomplete = function() {
-                console.log('Todos los datos del juego se guardaron correctamente');
-                resolve();
-            };
-        });
-    } catch (error) {
-        console.error('Error en saveGameData:', error);
-        throw error;
-    } finally {
-        if (db) db.close();
-    }
-}
-
+// ========== INICIALIZACIÓN ==========
 document.addEventListener('DOMContentLoaded', function() {
-    // Variables globales
-    let gameFileBlob = null;
-    let coverBlob = null;
-    let screenshotsBlobs = [];
-    
-    // Elementos del DOM
-    const gameFileInput = document.getElementById('game_file');
-    const fileNameDisplay = document.getElementById('file_name_display');
-    const coverInput = document.getElementById('cover');
-    const coverPreview = document.getElementById('coverPreview');
-    const screenshotsInput = document.getElementById('screenshots');
-    const screenshotPreview = document.getElementById('screenshotPreview');
-    const pricingSelect = document.getElementById('pricing');
-    const priceContainer = document.getElementById('price-container');
-    const tipoRequisitosSelect = document.getElementById('tipo-requisitos');
-    const formMinimos = document.getElementById('form-minimos');
-    const formRecomendados = document.getElementById('form-recomendados');
-    const submitButton = document.querySelector('.submit-button');
-    const usernameElement = document.getElementById('username');
-    const userIdElement = document.getElementById('user-id');
-    
-    // Inicialización
-    initEventListeners();
-    loadUserData();
-    
-    function initEventListeners() {
-        // Manejo del archivo del juego
-        gameFileInput.addEventListener('change', handleGameFileChange);
-        
-        // Manejo de la portada
-        coverInput.addEventListener('change', handleCoverChange);
-        
-        // Manejo de capturas de pantalla
-        screenshotsInput.addEventListener('change', handleScreenshotsChange);
-        
-        // Manejo del precio
-        pricingSelect.addEventListener('change', togglePriceField);
-        
-        // Manejo del tipo de requisitos
-        tipoRequisitosSelect.addEventListener('change', mostrarFormulario);
-        
-        // Envío del formulario
-        document.querySelector('form').addEventListener('submit', handleFormSubmit);
-    }
-    
-    function loadUserData() {
-        const userData = JSON.parse(localStorage.getItem('userData')) || {};
-        
-        if (userData.username) {
-            usernameElement.textContent = userData.username;
-        }
-        if (userData.userId) {
-            userIdElement.textContent = userData.userId;
-        }
-    }
-    
-    function handleGameFileChange(event) {
-        const file = event.target.files[0];
-        if (file) {
-            if (file.size > 2 * 1024 * 1024 * 1024) {
-                alert('El archivo es demasiado grande. El tamaño máximo permitido es 2GB.');
-                event.target.value = '';
-                return;
-            }
-            
-            if (!file.name.toLowerCase().endsWith('.zip')) {
-                alert('Por favor, sube un archivo ZIP.');
-                event.target.value = '';
-                return;
-            }
-            
-            fileNameDisplay.textContent = file.name;
-            
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                gameFileBlob = new Blob([e.target.result], { type: file.type });
-            };
-            reader.readAsArrayBuffer(file);
-        }
-    }
-    
-    function handleCoverChange(event) {
-        const file = event.target.files[0];
-        if (file) {
-            if (!file.type.match('image.*')) {
-                alert('Por favor, sube una imagen válida (JPG, PNG).');
-                event.target.value = '';
-                return;
-            }
-            
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                coverPreview.src = e.target.result;
-                coverBlob = {
-                    blob: new Blob([e.target.result], { type: file.type }),
-                    base64: e.target.result,
-                    name: file.name,
-                    type: file.type
-                };
-            };
-            reader.readAsDataURL(file);
-        }
-    }
-    
-    function handleScreenshotsChange(event) {
-        const files = event.target.files;
-        if (files && files.length > 0) {
-            if (files.length < 5) {
-                alert('Debes subir al menos 5 capturas de pantalla.');
-                event.target.value = '';
-                return;
-            }
-            
-            screenshotPreview.innerHTML = '';
-            screenshotsBlobs = [];
-            
-            Array.from(files).forEach((file, index) => {
-                if (!file.type.match('image.*')) {
-                    alert(`El archivo ${file.name} no es una imagen válida. Se omitirá.`);
-                    return;
-                }
-                
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const imgContainer = document.createElement('div');
-                    imgContainer.className = 'screenshot-item';
-                    
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    img.alt = `Captura ${index + 1}`;
-                    
-                    const deleteBtn = document.createElement('button');
-                    deleteBtn.textContent = 'Eliminar';
-                    deleteBtn.className = 'delete-screenshot-btn';
-                    deleteBtn.onclick = () => removeScreenshot(imgContainer, index);
-                    
-                    imgContainer.appendChild(img);
-                    imgContainer.appendChild(deleteBtn);
-                    screenshotPreview.appendChild(imgContainer);
-                    
-                    screenshotsBlobs.push({
-                        blob: new Blob([e.target.result], { type: file.type }),
-                        base64: e.target.result,
-                        name: file.name,
-                        type: file.type,
-                        index: index
-                    });
-                };
-                reader.readAsDataURL(file);
-            });
-        }
-    }
-    
-    function removeScreenshot(container, index) {
-        container.style.transition = 'opacity 0.3s';
-        container.style.opacity = '0';
-        
-        setTimeout(() => {
-            container.remove();
-            screenshotsBlobs.splice(index, 1);
-            updateScreenshotsInput();
-        }, 300);
-    }
-    
-    function updateScreenshotsInput() {
-        const dataTransfer = new DataTransfer();
-        
-        screenshotsBlobs.forEach(blob => {
-            const file = new File([blob.blob], blob.name, { type: blob.type });
-            dataTransfer.items.add(file);
-        });
-        
-        screenshotsInput.files = dataTransfer.files;
-    }
-    
-    function togglePriceField() {
-        const selectedOption = pricingSelect.value;
-        priceContainer.style.display = (selectedOption === 'pago' || selectedOption === 'donacion') ? 'block' : 'none';
-    }
-    
-    function mostrarFormulario() {
-        const tipo = tipoRequisitosSelect.value;
-        formMinimos.style.display = tipo === 'minimos' ? 'block' : 'none';
-        formRecomendados.style.display = tipo === 'recomendados' ? 'block' : 'none';
-    }
-    
-    async function handleFormSubmit(event) {
-        event.preventDefault();
-        
-        // Validaciones
-        if (!validateForm()) return;
-        
-        submitButton.disabled = true;
-        submitButton.textContent = 'Subiendo...';
-        submitButton.classList.add('loading');
-        
-        try {
-            // Generar ID único para el juego
-            const gameId = 'game-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
-            
-            // Convertir el archivo del juego a base64
-            const gameFileBase64 = await blobToBase64(gameFileBlob);
-            
-            // Preparar datos del juego
-            const gameData = prepareGameData(gameId);
-            
-            // Guardar todos los datos
-            await saveGameData(
-                gameData, 
-                {
-                    id: gameId,
-                    file: gameFileBase64,
-                    fileName: gameFileInput.files[0].name,
-                    fileType: gameFileInput.files[0].type
-                }, 
-                coverBlob, 
-                screenshotsBlobs
-            );
-            
-            // Actualizar localStorage
-            updateLocalStorage(gameId, gameData);
-            
-            // Mostrar éxito y redirigir
-            showSuccessAndRedirect();
-            
-        } catch (error) {
-            handleSubmissionError(error);
-        }
-    }
-    
-    function validateForm() {
-        if (!document.getElementById('terms').checked) {
-            alert('Debes aceptar los términos y condiciones para continuar.');
-            return false;
-        }
-        
-        if (!gameFileBlob) {
-            alert('Por favor, sube el archivo ZIP de tu juego.');
-            return false;
-        }
-        
-        if (!coverBlob) {
-            alert('Por favor, sube una imagen de portada para tu juego.');
-            return false;
-        }
-        
-        if (screenshotsBlobs.length < 5) {
-            alert('Por favor, sube al menos 5 capturas de pantalla de tu juego.');
-            return false;
-        }
-        
-        return true;
-    }
-    
-    function prepareGameData(gameId) {
-        return {
-            id: gameId,
-            title: document.getElementById('title').value,
-            description: document.getElementById('description').value,
-            category: document.getElementById('category').value,
-            genres: document.getElementById('genres').value,
-            mainGenre: document.getElementById('main-genre').value,
-            pricing: pricingSelect.value,
-            price: pricingSelect.value !== 'gratis' ? parseFloat(document.getElementById('price').value) : 0,
-            requirements: {
-                min: {
-                    os: document.getElementById('min-so').value,
-                    processor: document.getElementById('min-procesador').value,
-                    ram: document.getElementById('min-ram').value,
-                    gpu: document.getElementById('min-gpu').value,
-                    storage: document.getElementById('min-almacenamiento').value
-                },
-                rec: {
-                    os: document.getElementById('rec-so').value,
-                    processor: document.getElementById('rec-procesador').value,
-                    ram: document.getElementById('rec-ram').value,
-                    gpu: document.getElementById('rec-gpu').value,
-                    storage: document.getElementById('rec-almacenamiento').value
-                }
-            },
-            videoUrl: document.getElementById('videoUrl').value,
-            timestamp: new Date().getTime(),
-            owner: usernameElement.textContent || 'Usuario no identificado',
-            ownerId: userIdElement.textContent || 'ID-no-disponible',
-            status: 'published',
-            downloads: 0,
-            rating: 0,
-            reviews: [],
-            lastUpdated: new Date().toISOString()
-        };
-    }
-    
-    function updateLocalStorage(gameId, gameData) {
-        // Guardar en userGames
-        const userGames = JSON.parse(localStorage.getItem('userGames')) || {};
-        userGames[gameId] = {
-            title: gameData.title,
-            timestamp: gameData.timestamp,
-            status: gameData.status
-        };
-        localStorage.setItem('userGames', JSON.stringify(userGames));
-        
-        // Guardar en publishedGames
-        const publishedGames = JSON.parse(localStorage.getItem('publishedGames')) || [];
-        publishedGames.push(gameId);
-        localStorage.setItem('publishedGames', JSON.stringify(publishedGames));
-        
-        // Guardar referencia rápida
-        localStorage.setItem('lastPublishedGame', gameId);
-    }
-    
-    function showSuccessAndRedirect() {
-        submitButton.classList.remove('loading');
-        submitButton.classList.add('success');
-        submitButton.textContent = '¡Juego publicado con éxito!';
-        
-        setTimeout(() => {
-            window.location.href = 'marketplace.html';
-        }, 1500);
-    }
-    
-    function handleSubmissionError(error) {
-        console.error('Error al guardar el juego:', error);
-        
-        submitButton.classList.remove('loading');
-        submitButton.classList.add('error');
-        submitButton.textContent = 'Error al subir';
-        
-        setTimeout(() => {
-            submitButton.classList.remove('error');
-            submitButton.textContent = 'Subir Juego';
-            submitButton.disabled = false;
-        }, 2000);
-    }
+  inicializarEventListeners();
+  cargarDatosUsuario();
 });
 
+function cargarDatosUsuario() {
+  // Intentar obtener datos del usuario desde localStorage o otras fuentes
+  const usuario = JSON.parse(localStorage.getItem('usuario') || '{}');
+  const userId = localStorage.getItem('userId');
+  
+  if (usuario && usuario.username) {
+    const usernameElement = document.getElementById('username');
+    const userIdDisplayElement = document.getElementById('user-id-display');
+    const userIdInputElement = document.getElementById('user-id');
+    
+    if (usernameElement) usernameElement.textContent = usuario.username;
+    if (userIdDisplayElement && userId) userIdDisplayElement.textContent = userId;
+    if (userIdInputElement && userId) userIdInputElement.value = userId;
+  }
+}
+
+function inicializarEventListeners() {
+  // Precio dinámico
+  const pricingElement = document.getElementById('pricing');
+  if (pricingElement) {
+    pricingElement.addEventListener('change', togglePrecioInput);
+  }
+  
+  // Vista previa de portada
+  const coverElement = document.getElementById('cover');
+  if (coverElement) {
+    coverElement.addEventListener('change', mostrarVistaPreviaPortada);
+  }
+  
+  const removeCoverElement = document.getElementById('remove-cover');
+  if (removeCoverElement) {
+    removeCoverElement.addEventListener('click', eliminarVistaPreviaPortada);
+  }
+  
+  // Modal MediaFire
+  const closeModalElement = document.querySelector('.close');
+  if (closeModalElement) {
+    closeModalElement.addEventListener('click', cerrarModalMediaFire);
+  }
+  
+  const mediafireModal = document.getElementById('mediafire-modal');
+  if (mediafireModal) {
+    mediafireModal.addEventListener('click', function(e) {
+      if (e.target === this) cerrarModalMediaFire();
+    });
+  }
+  
+  // Formulario de requisitos
+  const tipoRequisitos = document.getElementById('tipo-requisitos');
+  if (tipoRequisitos) {
+    tipoRequisitos.addEventListener('change', mostrarFormularioRequisitos);
+  }
+  
+  // Botón de envío
+  const submitButton = document.querySelector('.btn-submit');
+  if (submitButton) {
+    submitButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      subirJuego();
+    });
+  }
+  
+  // Botón de MediaFire
+  const mediafireButton = document.getElementById('save-mediafire');
+  if (mediafireButton) {
+    mediafireButton.addEventListener('click', guardarEnlaceMediaFire);
+  }
+  
+  // Opción de almacenamiento MediaFire
+  const mediafireOption = document.querySelector('.storage-option[data-service="mediafire"]');
+  if (mediafireOption) {
+    mediafireOption.addEventListener('click', function() {
+      seleccionarOpcionAlmacenamiento(this);
+    });
+  }
+}
+
+// ========== FUNCIONES DE INTERFAZ ==========
+function togglePrecioInput() {
+  const tipoPrecio = this.value;
+  const priceInput = document.getElementById('price');
+  if (priceInput) {
+    priceInput.style.display = tipoPrecio === 'pago' ? 'block' : 'none';
+    if (tipoPrecio !== 'pago') priceInput.value = '';
+  }
+}
+
+function mostrarFormularioRequisitos() {
+  const tipo = this.value;
+  const formMinimos = document.getElementById('form-minimos');
+  const formRecomendados = document.getElementById('form-recomendados');
+  
+  if (formMinimos) {
+    formMinimos.style.display = tipo === 'minimos' ? 'block' : 'none';
+  }
+  
+  if (formRecomendados) {
+    formRecomendados.style.display = tipo === 'recomendados' ? 'block' : 'none';
+  }
+}
+
+function mostrarVistaPreviaPortada(event) {
+  const archivo = event.target.files[0];
+  if (!archivo) return;
+  
+  const lector = new FileReader();
+  const vistaPrevia = document.getElementById('cover-preview');
+  const btnEliminar = document.getElementById('remove-cover');
+  
+  lector.onload = function(e) {
+    if (vistaPrevia) {
+      vistaPrevia.src = e.target.result;
+      vistaPrevia.style.display = 'block';
+    }
+    
+    if (btnEliminar) {
+      btnEliminar.style.display = 'block';
+    }
+  };
+  
+  lector.readAsDataURL(archivo);
+}
+
+function eliminarVistaPreviaPortada() {
+  const coverInput = document.getElementById('cover');
+  const vistaPrevia = document.getElementById('cover-preview');
+  const btnEliminar = document.getElementById('remove-cover');
+  
+  if (coverInput) coverInput.value = '';
+  if (vistaPrevia) {
+    vistaPrevia.src = '';
+    vistaPrevia.style.display = 'none';
+  }
+  if (btnEliminar) btnEliminar.style.display = 'none';
+}
+
+// ========== ALMACENAMIENTO EXTERNO (SOLO MEDIAFIRE) ==========
+function seleccionarOpcionAlmacenamiento(elemento) {
+  const servicio = elemento.dataset.service;
+  const storageServiceInput = document.getElementById('storage-service');
+  
+  if (storageServiceInput) {
+    storageServiceInput.value = servicio;
+  }
+  
+  // Quitar selección anterior
+  document.querySelectorAll('.storage-option').forEach(opt => {
+    opt.classList.remove('selected');
+  });
+  
+  // Marcar como seleccionado
+  elemento.classList.add('selected');
+  
+  // Ejecutar acción según servicio (solo MediaFire)
+  if (servicio === 'mediafire') {
+    abrirModalMediaFire();
+  }
+}
+
+// ----- MediaFire -----
+function abrirModalMediaFire() {
+  const modal = document.getElementById('mediafire-modal');
+  if (modal) {
+    modal.style.display = 'block';
+  }
+}
+
+function cerrarModalMediaFire() {
+  const modal = document.getElementById('mediafire-modal');
+  if (modal) {
+    modal.style.display = 'none';
+  }
+}
+
+function guardarEnlaceMediaFire() {
+  const urlInput = document.getElementById('mediafire-url');
+  const url = urlInput ? urlInput.value.trim() : '';
+  
+  if (!url) {
+    alert('Por favor, ingresa un enlace válido de MediaFire.');
+    return;
+  }
+  
+  // Validación mejorada de URL de MediaFire
+  if (!url.startsWith('http')) {
+    alert('Por favor, ingresa una URL válida (debe comenzar con http o https).');
+    return;
+  }
+  
+  // Verificar si es un enlace de MediaFire
+  if (!url.includes('mediafire.com')) {
+    if (!confirm('Este enlace no parece ser de MediaFire. ¿Estás seguro de que quieres continuar?')) {
+      return;
+    }
+  }
+  
+  const mediafireLinkInput = document.getElementById('mediafire-link');
+  if (mediafireLinkInput) {
+    mediafireLinkInput.value = url;
+  }
+  
+  // Actualizar la interfaz para mostrar que MediaFire está seleccionado
+  const mediafireOption = document.querySelector('.storage-option[data-service="mediafire"]');
+  if (mediafireOption) {
+    // Quitar selección anterior
+    document.querySelectorAll('.storage-option').forEach(opt => {
+      opt.classList.remove('selected');
+    });
+    
+    // Marcar como seleccionado
+    mediafireOption.classList.add('selected');
+    
+    // Actualizar el campo de servicio de almacenamiento
+    const storageServiceInput = document.getElementById('storage-service');
+    if (storageServiceInput) {
+      storageServiceInput.value = 'mediafire';
+    }
+  }
+  
+  alert('Enlace de MediaFire guardado correctamente.');
+  cerrarModalMediaFire();
+}
+
+// ========== VALIDACIÓN Y ENVÍO DEL FORMULARIO ==========
+function validarFormulario() {
+  // Limpiar errores previos
+  limpiarErrores();
+  
+  let esValido = true;
+  
+  const titulo = document.getElementById('title') ? document.getElementById('title').value.trim() : '';
+  const descripcion = document.getElementById('description') ? document.getElementById('description').value.trim() : '';
+  const usuarioId = document.getElementById('user-id') ? document.getElementById('user-id').value : '';
+  const portada = document.getElementById('cover') ? document.getElementById('cover').files[0] : null;
+  const capturas = document.getElementById('screenshots') ? document.getElementById('screenshots').files : [];
+  const terminos = document.getElementById('terms') ? document.getElementById('terms').checked : false;
+  
+  // Validaciones básicas
+  if (!titulo) {
+    mostrarError('title', 'Por favor, ingresa un título para el juego.');
+    esValido = false;
+  }
+  
+  if (!descripcion) {
+    mostrarError('description', 'Por favor, ingresa una descripción para el juego.');
+    esValido = false;
+  }
+  
+  if (usuarioId === '0' || !usuarioId) {
+    alert('No se ha detectado un usuario válido. Por favor, inicia sesión nuevamente.');
+    esValido = false;
+  }
+  
+  if (!portada) {
+    mostrarError('cover', 'Debes seleccionar una imagen de portada para el juego.');
+    esValido = false;
+  }
+  
+  if (!capturas || capturas.length < 5) {
+    mostrarError('screenshots', 'Debes subir al menos 5 capturas de pantalla del juego.');
+    esValido = false;
+  }
+  
+  if (!terminos) {
+    mostrarError('terms', 'Debes aceptar los términos y condiciones para publicar un juego.');
+    esValido = false;
+  }
+  
+  // Validar opción de almacenamiento (solo MediaFire)
+  const servicioAlmacenamiento = document.getElementById('storage-service') ? document.getElementById('storage-service').value : '';
+  const enlaceMediafire = document.getElementById('mediafire-link') ? document.getElementById('mediafire-link').value : '';
+  
+  if (!servicioAlmacenamiento) {
+    alert('Debes seleccionar MediaFire como opción de almacenamiento para tu juego.');
+    esValido = false;
+  }
+  
+  if (servicioAlmacenamiento === 'mediafire' && !enlaceMediafire) {
+    alert('Para usar MediaFire, debes proporcionar un enlace válido.');
+    esValido = false;
+  }
+  
+  return esValido;
+}
+
+function subirJuego() {
+  if (!validarFormulario()) return;
+  
+  const formulario = document.querySelector('.upload-form');
+  if (!formulario) return;
+  
+  const formData = new FormData(formulario);
+  const boton = document.querySelector('.btn-submit');
+  
+  // Deshabilitar botón durante la subida
+  if (boton) {
+    boton.disabled = true;
+    boton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subiendo...';
+  }
+  
+  // URL CORREGIDA: http://localhost:3001/api/juegos
+  const url = 'http://localhost:3001/api/juegos?t=' + new Date().getTime();
+  
+  fetch(url, {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Accept': 'application/json',
+    }
+  })
+  .then(async respuesta => {
+    // Verificar si la respuesta es JSON
+    const contentType = respuesta.headers.get('content-type');
+    if (contentType && contentType.includes('application/json')) {
+      const datos = await respuesta.json();
+      
+      if (!respuesta.ok) {
+        throw new Error(datos.message || `Error ${respuesta.status}: ${respuesta.statusText}`);
+      }
+      
+      return datos;
+    } else {
+      const texto = await respuesta.text();
+      if (!respuesta.ok) {
+        throw new Error(texto || `Error ${respuesta.status}: ${respuesta.statusText}`);
+      }
+      
+      // Intentar parsear como JSON aunque el header no lo indique
+      try {
+        return JSON.parse(texto);
+      } catch {
+        return { message: texto };
+      }
+    }
+  })
+  .then(datos => {
+    alert('¡Juego subido correctamente!');
+    console.log('Respuesta del servidor:', datos);
+    
+    // Resetear formulario
+    formulario.reset();
+    
+    // Limpiar vista previa
+    eliminarVistaPreviaPortada();
+    
+    // Limpiar selección de almacenamiento
+    document.querySelectorAll('.storage-option').forEach(opt => {
+      opt.classList.remove('selected');
+    });
+    document.getElementById('storage-service').value = '';
+    document.getElementById('mediafire-link').value = '';
+    
+    // Redirigir a página de éxito después de 2 segundos
+    setTimeout(() => {
+      window.location.href = '/exito.html'; // Cambia por tu URL de éxito
+    }, 2000);
+  })
+  .catch(error => {
+    console.error('Error en la subida:', error);
+    
+    // Mostrar mensaje de error más específico
+    let mensajeError = 'Ocurrió un error al subir el juego.';
+    
+    if (error.message.includes('Failed to fetch')) {
+      mensajeError = 'No se pudo conectar con el servidor. Verifica tu conexión a internet.';
+    } else if (error.message.includes('NetworkError')) {
+      mensajeError = 'Error de red. Verifica tu conexión a internet.';
+    } else if (error.message.includes('CORS')) {
+      mensajeError = 'Error de CORS. El servidor no permite solicitudes desde este origen.';
+    } else {
+      mensajeError = error.message || mensajeError;
+    }
+    
+    alert(mensajeError);
+  })
+  .finally(() => {
+    // Restaurar botón
+    if (boton) {
+      boton.disabled = false;
+      boton.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Publicar Juego';
+    }
+  });
+}
+
+// Función auxiliar para mostrar errores de formulario
+function mostrarError(campo, mensaje) {
+  const elemento = document.getElementById(campo);
+  if (elemento) {
+    elemento.style.borderColor = 'red';
+    
+    // Crear o actualizar mensaje de error
+    let errorElement = document.getElementById(`${campo}-error`);
+    if (!errorElement) {
+      errorElement = document.createElement('div');
+      errorElement.id = `${campo}-error`;
+      errorElement.style.color = 'red';
+      errorElement.style.fontSize = '0.9em';
+      errorElement.style.marginTop = '5px';
+      elemento.parentNode.appendChild(errorElement);
+    }
+    
+    errorElement.textContent = mensaje;
+  }
+}
+
+// Función auxiliar para limpiar errores
+function limpiarErrores() {
+  document.querySelectorAll('[id$="-error"]').forEach(el => el.remove());
+  document.querySelectorAll('.form-input, .form-select, .form-file').forEach(el => {
+    el.style.borderColor = '';
+  });
+}
+
+// Funciones globales para usar en onclick de HTML (si es necesario)
+function openMediaFireModal() {
+  abrirModalMediaFire();
+}
+
+function closeMediaFireModal() {
+  cerrarModalMediaFire();
+}
+
+function saveMediaFireLink() {
+  guardarEnlaceMediaFire();
+}
 </script>

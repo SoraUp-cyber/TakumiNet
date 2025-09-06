@@ -1,0 +1,280 @@
+/* =========================
+  Variables (puedes definirlas en :root si usas var())
+  ========================= */
+/* 
+:root {
+  --color-primary: #4CAF50;
+  --color-primary-dark: #45a049;
+  --color-text: #fff;
+}
+*/
+
+/* =========================
+  Contenedor principal
+  ========================= */
+.upload-form {
+  max-width: 1400px;
+  width: 95%;
+  margin: 2rem auto;
+  padding: 3rem 4rem;
+  background-color: #2d2d2d;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  transition: all 0.3s ease;
+}
+
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* =========================
+  Grupos de formulario
+  ========================= */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  color: #fdfdfd;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* =========================
+  Campos de entrada
+  ========================= */
+.form-input,
+.form-textarea,
+.form-select,
+.form-file {
+  padding: 0.75rem 1rem;
+  border: 1px solid #02ff4e;
+  border-radius: 4px;
+  background-color: #2e2e2e;
+  color: #ffffff;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* =========================
+  Input file personalizado
+  ========================= */
+.form-file {
+  width: 100%;
+  padding: 0.6rem;
+  border: 2px dashed #00ff00;
+  border-radius: 8px;
+  background-color: #272727;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.form-file:hover {
+  border-color: #4CAF50;
+  background-color: #242424;
+}
+
+.form-file::file-selector-button {
+  padding: 0.6rem 1.2rem;
+  margin-right: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--color-primary, #4CAF50);
+  color: var(--color-text, #fff);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.form-file::file-selector-button:hover {
+  background-color: var(--color-primary-dark, #ff0909);
+  transform: translateY(-1px);
+}
+
+.form-file::file-selector-button:active {
+  transform: translateY(0);
+}
+
+/* =========================
+  Sección de usuario
+  ========================= */
+.user-section {
+  background-color: #383838;
+  padding: 1rem;
+  border-radius: 6px;
+  border-left: 4px solid #4CAF50;
+}
+
+.domain-wrapper {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.domain {
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.user-info {
+  color: #cccccc;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.user-info strong {
+  color: #ffffff;
+}
+
+/* =========================
+  Fieldset de requisitos
+  ========================= */
+.form-fieldset {
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.form-legend {
+  color: #ffffff;
+  padding: 0 0.5rem;
+  font-weight: 500;
+}
+
+.requirements-form {
+  background-color: #383838;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.requirements-form h3 {
+  grid-column: span 2;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+}
+
+/* =========================
+  Checkbox de términos
+  ========================= */
+.terms-group {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.form-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #4CAF50;
+}
+
+/* =========================
+  Botón principal de envío (con animación)
+  ========================= */
+.btn-submit {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: var(--color-primary, #4CAF50);
+  color: var(--color-text, #fff);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.btn-submit:hover {
+  background-color: var(--color-primary-dark, #45a049);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* =========================
+  Botón secundario (sin animación)
+  ========================= */
+.btn-secondary {
+  padding: 0.85rem 1.5rem;
+  background-color: #555;
+  color: var(--color-text, #fff);
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #444;
+  transform: translateY(-1px);
+}
+
+/* =========================
+  Mostrar/ocultar formularios de requisitos
+  ========================= */
+#form-minimos,
+#form-recomendados {
+  display: none;
+}
+
+/* =========================
+  Mostrar precio cuando es pago o donación
+  ========================= */
+#price {
+  margin-top: 0.5rem;
+}
+
+/* =========================
+  Responsive
+  ========================= */
+@media (max-width: 768px) {
+  .upload-form {
+    padding: 1rem;
+  }
+  .requirements-form {
+    grid-template-columns: 1fr;
+  }
+  .requirements-form h3 {
+    grid-column: span 1;
+  }
+}

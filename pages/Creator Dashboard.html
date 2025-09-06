@@ -266,7 +266,7 @@
 </head>
 <body>
 
-  <nav class="navbar">
+<nav class="navbar">
     <!-- Sección Izquierda: Logo -->
     <div class="navbar-logo">
         <img src="../assets/img/logo.png" alt="Logo de TakumiNet">
@@ -348,7 +348,7 @@
             <div class="dropdown-group">
               <a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i><span data-i18n="configuracion">Configuración</span></a>
               <a href="perfil-editar.html" class="menu-item"><i class="fas fa-user-edit"></i><span data-i18n="editar_usuario">Editar Usuario</span></a>
-              <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-star"></i><span data-i18n="suscripcion">Suscripción</span></a>
+                <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-money-bill-wave"></i><span data-i18n="pagos">Pagos</span></a>
               <a href="seguidos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="seguidos">Seguidos</span></a>
             </div>
             <hr class="divider">
@@ -361,132 +361,124 @@
     </div>
 </nav>
 
-<div class="dashboard-container">
+ <div class="dashboard-container">
 
-  <!-- Barra de navegación -->
-  <nav class="header_nav_tabs">
-    <a href="subir-juegos.html" class="nav_btn" data-i18n="dashboard.nav.projects">Proyectos</a>
-    <a href="/dashboard/analytics" class="nav_btn" data-i18n="dashboard.nav.analytics">Estadísticas</a>
+    <!-- Barra de navegación -->
+    <nav class="header_nav_tabs">
+      <a href="subir_juegos.html" class="nav_btn" data-i18n="dashboard.nav.projects">Subir Proyectos</a>
+      <a href="estadisticas.html" class="nav_btn" data-i18n="dashboard.nav.analytics">Estadísticas</a>
 
-  <!-- Menú desplegable de Ganancias -->
-<div id="filter_picker_1435253" class="filter_picker_widget base_widget" style="position: relative;">
-  <!-- Botón para abrir menú -->
-  <button class="filter_value" aria-haspopup="true" aria-expanded="false" aria-controls="filter_popup_1435253">
-    <span class="value_label">Ganancias</span>
-    <svg height="18" width="18" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
-      <polyline points="6 9 12 15 18 9"></polyline>
-    </svg>
-  </button>
+      <!-- Menú desplegable de Ganancias -->
+      <div id="filter_picker_1435253" class="filter_picker_widget base_widget" style="position: relative;">
+        <!-- Botón para abrir menú -->
+        <button class="filter_value" aria-haspopup="true" aria-expanded="false" aria-controls="filter_popup_1435253">
+          <span class="value_label">Ganancias</span>
+          <svg height="18" width="18" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
 
-  <!-- Contenedor del menú desplegable -->
-  <div id="filter_popup_1435253" class="filter_popup" role="menu" aria-labelledby="filter_picker_1435253" tabindex="-1" hidden>
-    <div class="filter_options">
-      <a href="pagos-desarrollador.html" class="filter_option" role="menuitem" tabindex="0">Pagos</a>
-      <a href="/dashboard/payouts" class="filter_option" role="menuitem" tabindex="0">Retiros</a>
-    </div>
-  </div>
-</div>
-
-
-    <a href="mis-juegos.html" class="nav_btn" data-i18n="dashboard.nav.publications">Publicaciones</a>
-    <a href="crear-game-jam.html" class="nav_btn active" data-i18n="dashboard.nav.gameJams">Game Jams</a>
-  </nav>
-
-  <!-- Contenido principal -->
-  <main class="main-content">
-
-    <!-- Bienvenida -->
-    <div class="card">
-      <h3 data-i18n="dashboard.welcomeTitle">Bienvenido, Desarrollador</h3>
-      <p data-i18n="dashboard.welcomeDesc">
-        Desde este panel puedes gestionar tus juegos, monitorear el rendimiento y acceder a herramientas exclusivas.
-      </p>
-    </div>
-
-    <!-- Estadísticas -->
-    <div class="card">
-      <h3 data-i18n="dashboard.accountStats">Estadísticas de la Cuenta</h3>
-      <table class="table">
-        <tr>
-          <td>
-            <h4>0</h4>
-            <p data-i18n="dashboard.stats.visits">Visitas</p>
-          </td>
-          <td>
-            <h4>0</h4>
-            <p data-i18n="dashboard.stats.downloads">Descargas</p>
-          </td>
-          <td>
-            <h4>0</h4>
-            <p data-i18n="dashboard.stats.followers">Seguidores</p>
-          </td>
-        </tr>
-      </table>
-    </div>
-
-    <!-- Proyectos y análisis -->
-    <div class="card">
-      <h3 data-i18n="dashboard.projectsAnalysis">Proyectos y Análisis</h3>
-      <table class="table">
-        <tr>
-          <td>
-            <h4 data-i18n="dashboard.projects">Proyectos</h4>
-            <p data-i18n="dashboard.projectsDesc">Gestiona tus juegos publicados</p>
-          </td>
-          <td>
-            <h4 data-i18n="dashboard.analytics">Estadísticas</h4>
-            <p data-i18n="dashboard.analyticsDesc">Datos y métricas clave</p>
-          </td>
-          <td>
-            <h4 data-i18n="dashboard.earnings">Ganancias</h4>
-            <p data-i18n="dashboard.earningsDesc">Rendimiento financiero</p>
-          </td>
-        </tr>
-      </table>
-      <div class="buttons-container"></div>
-    </div>
-
-    <!-- Promociones y publicaciones -->
-    <div class="card">
-      <h3 data-i18n="dashboard.promotionsPublications">Promociones y Publicaciones</h3>
-      <table class="table">
-        <tr>
-          <td>
-            <h4 data-i18n="dashboard.promotions">Promociones</h4>
-            <p data-i18n="dashboard.promotionsDesc">Impulsa la visibilidad de tus juegos</p>
-          </td>
-          <td>
-            <h4 data-i18n="dashboard.publications">Publicaciones</h4>
-            <p data-i18n="dashboard.publicationsDesc">Comparte novedades y actualizaciones</p>
-          </td>
-          <td>
-            <h4 data-i18n="dashboard.gameJams">Game Jams</h4>
-            <p data-i18n="dashboard.gameJamsDesc">Participa en eventos creativos</p>
-          </td>
-        </tr>
-      </table>
-    </div>
-
-    <!-- Integración y llamada a la acción -->
-    <div class="card">
-      <h3 data-i18n="dashboard.integrationConnections">Conexiones e Integración</h3>
-      <p>
-        <strong data-i18n="dashboard.integrationTitle">Integración TakumiNet:</strong>
-        <span data-i18n="dashboard.integrationDesc">
-          Usa tu nombre de usuario para destacar tu perfil dentro de nuestra comunidad.
-        </span>
-      </p>
-
-      <div class="cta-group">
-        <a href="subir_juegos.html" class="cta-button" data-i18n="dashboard.ctaUpload">¿Eres nuevo? Sube tu primer juego</a>
-        <a href="marketplace.html" class="cta-button" data-i18n="dashboard.ctaExplore">Explorar otros juegos</a>
+        <!-- Contenedor del menú desplegable -->
+        <div id="filter_popup_1435253" class="filter_popup" role="menu" aria-labelledby="filter_picker_1435253" tabindex="-1" hidden>
+          <div class="filter_options">
+            <a href="pagos-desarrollador.html" class="filter_option" role="menuitem" tabindex="0">Pagos</a>
+          </div>
+        </div>
       </div>
-    </div>
 
-  </main>
-</div>
+      <a href="mis juegos.html" class="nav_btn" data-i18n="dashboard.nav.publications">Publicaciones</a>
+      <a href="game jam.html" class="nav_btn active" data-i18n="dashboard.nav.gameJams">Game Jams</a>
+    </nav>
 
+    <!-- Contenido principal -->
+    <main class="main-content">
 
+      <!-- Bienvenida -->
+      <div class="card">
+        <h3 data-i18n="dashboard.welcomeTitle">Bienvenido, Desarrollador</h3>
+        <p data-i18n="dashboard.welcomeDesc">
+          Desde este panel puedes gestionar tus juegos, monitorear el rendimiento y acceder a herramientas exclusivas.
+        </p>
+      </div>
+
+      <!-- Estadísticas -->
+      <div class="card">
+        <h3 data-i18n="dashboard.accountStats">Estadísticas de la Cuenta</h3>
+        <table class="table">
+          <tr>
+            <td>
+              <h4>0</h4>
+              <p data-i18n="dashboard.stats.visits">Visitas</p>
+            </td>
+            <td>
+              <h4>0</h4>
+              <p data-i18n="dashboard.stats.downloads">Descargas</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Proyectos y análisis -->
+      <div class="card">
+        <h3 data-i18n="dashboard.projectsAnalysis">Proyectos y Análisis</h3>
+        <table class="table">
+          <tr>
+            <td>
+              <h4 data-i18n="dashboard.projects">Proyectos</h4>
+              <p data-i18n="dashboard.projectsDesc">Gestiona tus juegos publicados</p>
+            </td>
+            <td>
+              <h4 data-i18n="dashboard.analytics">Estadísticas</h4>
+              <p data-i18n="dashboard.analyticsDesc">Datos y métricas clave</p>
+            </td>
+            <td>
+              <h4 data-i18n="dashboard.earnings">Ganancias</h4>
+              <p data-i18n="dashboard.earningsDesc">Rendimiento financiero</p>
+            </td>
+          </tr>
+        </table>
+        <div class="buttons-container"></div>
+      </div>
+
+      <!-- Promociones y publicaciones -->
+      <div class="card">
+        <h3 data-i18n="dashboard.promotionsPublications">Promociones y Publicaciones</h3>
+        <table class="table">
+          <tr>
+            <td>
+              <h4 data-i18n="dashboard.promotions">Promociones</h4>
+              <p data-i18n="dashboard.promotionsDesc">Impulsa la visibilidad de tus juegos</p>
+            </td>
+            <td>
+              <h4 data-i18n="dashboard.publications">Publicaciones</h4>
+              <p data-i18n="dashboard.publicationsDesc">Comparte novedades y actualizaciones</p>
+            </td>
+            <td>
+              <h4 data-i18n="dashboard.gameJams">Game Jams</h4>
+              <p data-i18n="dashboard.gameJamsDesc">Participa en eventos creativos</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Integración y llamada a la acción -->
+      <div class="card">
+        <h3 data-i18n="dashboard.integrationConnections">Conexiones e Integración</h3>
+        <p>
+          <strong data-i18n="dashboard.integrationTitle">Integración TakumiNet:</strong>
+          <span data-i18n="dashboard.integrationDesc">
+            Usa tu nombre de usuario para destacar tu perfil dentro de nuestra comunidad.
+          </span>
+        </p>
+
+        <div class="cta-group">
+          <a href="subir_juegos.html" class="cta-button" data-i18n="dashboard.ctaUpload">¿Eres nuevo? Sube tu primer juego</a>
+          <a href="marketplace.html" class="cta-button" data-i18n="dashboard.ctaExplore">Explorar otros juegos</a>
+        </div>
+      </div>
+
+    </main>
+  </div>
 
 <script src="../js/notificacion.js"></script>
 <script src="../js/carrito.js"></script>
@@ -497,210 +489,40 @@
 <script src="../js/i18n.js"></script>
 <script src="../autoSync.js"></script>
 <script src="../script.js"></script>
+</body>
+</html>
 <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const picker = document.getElementById('filter_picker_1435253');
+  const button = picker.querySelector('button.filter_value');
+  const popup = document.getElementById('filter_popup_1435253');
 
-
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.querySelector('.jam-creation-form form');
-  const imagenPortadaInput = document.getElementById('imagen-portada');
-  
-  // Manejar la conversión de la imagen a Base64
-  imagenPortadaInput.addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function(event) {
-        // Aquí puedes mostrar una vista previa si lo deseas
-        console.log("Imagen convertida a Base64");
-      };
-      reader.readAsDataURL(file);
+  // Alternar visibilidad del menú al hacer click en el botón
+  button.addEventListener('click', () => {
+    const expanded = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', !expanded);
+    popup.hidden = expanded;
+    if (!expanded) {
+      popup.focus();
     }
   });
 
-  // Manejar el envío del formulario
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Convertir la imagen a Base64 si existe
-    const file = imagenPortadaInput.files[0];
-    let imagenBase64 = '';
-    
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function(event) {
-        imagenBase64 = event.target.result;
-        saveJamData(imagenBase64);
-      };
-      reader.readAsDataURL(file);
-    } else {
-      saveJamData(imagenBase64);
+  // Cerrar menú si se hace click fuera
+  document.addEventListener('click', (event) => {
+    if (!picker.contains(event.target)) {
+      button.setAttribute('aria-expanded', 'false');
+      popup.hidden = true;
     }
   });
 
-  function saveJamData(imagenBase64) {
-    // Obtener todos los datos del formulario
-    const formData = {
-      titulo: document.getElementById('titulo').value,
-      descripcionCorta: document.getElementById('descripcion-corta').value,
-      url: document.getElementById('url').value,
-      tipoJam: document.getElementById('tipo-jam').value,
-      quienVota: document.getElementById('quien-vota').value,
-      fechaInicio: document.getElementById('fecha-inicio').value,
-      fechaFin: document.getElementById('fecha-fin').value,
-      fechaVotacion: document.getElementById('fecha-votacion').value,
-      imagenPortada: imagenBase64,
-      contenido: document.getElementById('contenido').value,
-      criterios: document.getElementById('criterios').value,
-      hashtag: document.getElementById('hashtag').value,
-      comunidad: document.getElementById('comunidad').checked,
-      bloquearSubidas: document.getElementById('bloquear-subidas').checked,
-      ocultarResultados: document.getElementById('ocultar-resultados').checked,
-      ocultarSubmisiones: document.getElementById('ocultar-submisiones').checked,
-      visibilidad: document.getElementById('visibilidad').value,
-      fechaCreacion: new Date().toISOString()
-    };
-
-    // Obtener las jams existentes o crear un nuevo array
-    let jams = JSON.parse(localStorage.getItem('jams')) || [];
-    
-    // Agregar la nueva jam
-    jams.push(formData);
-    
-    // Guardar en localStorage
-    localStorage.setItem('jams', JSON.stringify(jams));
-    
-    // Mostrar mensaje de éxito
-    alert('Game Jam creada exitosamente! Redirigiendo...');
-    
-    // Redirigir a game-jam.html después de 1 segundo (para que se vea el alert)
-    setTimeout(function() {
-      window.location.href = 'game-jam.html';
-    }, 1000);
-  }
-});
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Elementos del menú desplegable
-    const filterPicker = document.getElementById('filter_picker_1435253');
-    const filterButton = filterPicker.querySelector('.filter_value');
-    const filterPopup = document.getElementById('filter_popup_1435253');
-    const filterOptions = filterPopup.querySelectorAll('.filter_option');
-    
-    // Estado del menú
-    let isMenuOpen = false;
-    
-    // Animación de apertura/cierre
-    const toggleMenu = (open) => {
-        isMenuOpen = open;
-        filterButton.setAttribute('aria-expanded', String(open));
-        filterPopup.hidden = !open;
-        
-        if (open) {
-            filterPopup.style.opacity = '0';
-            filterPopup.style.transform = 'translateY(10px)';
-            filterPopup.style.display = 'block';
-            
-            // Animación de entrada
-            requestAnimationFrame(() => {
-                filterPopup.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-                filterPopup.style.opacity = '1';
-                filterPopup.style.transform = 'translateY(0)';
-            });
-        } else {
-            // Animación de salida
-            filterPopup.style.transition = 'opacity 0.15s ease, transform 0.15s ease';
-            filterPopup.style.opacity = '0';
-            filterPopup.style.transform = 'translateY(10px)';
-            
-            // Ocultar después de la animación
-            setTimeout(() => {
-                if (!isMenuOpen) {
-                    filterPopup.style.display = 'none';
-                }
-            }, 150);
-        }
-    };
-    
-    // Evento click en el botón
-    filterButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMenu(!isMenuOpen);
-    });
-    
-    // Eventos en las opciones del menú
-    filterOptions.forEach(option => {
-        option.addEventListener('click', () => {
-            // Actualizar el label del botón con la opción seleccionada
-            const selectedText = option.textContent;
-            filterButton.querySelector('.value_label').textContent = selectedText;
-            
-            // Cerrar el menú
-            toggleMenu(false);
-        });
-        
-        // Mejorar accesibilidad con teclado
-        option.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                option.click();
-            }
-        });
-    });
-    
-    // Cerrar al hacer clic fuera
-    document.addEventListener('click', (e) => {
-        if (isMenuOpen && !filterPicker.contains(e.target)) {
-            toggleMenu(false);
-        }
-    });
-    
-    // Navegación con teclado
-    filterButton.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
-            e.preventDefault();
-            toggleMenu(true);
-            
-            // Enfocar la primera opción
-            if (filterOptions.length > 0) {
-                setTimeout(() => filterOptions[0].focus(), 10);
-            }
-        }
-    });
-    
-    filterPopup.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            toggleMenu(false);
-            filterButton.focus();
-        }
-        
-        // Navegación con flechas
-        if (e.key === 'ArrowDown') {
-            e.preventDefault();
-            const currentIndex = Array.from(filterOptions).indexOf(document.activeElement);
-            const nextIndex = (currentIndex + 1) % filterOptions.length;
-            filterOptions[nextIndex].focus();
-        }
-        
-        if (e.key === 'ArrowUp') {
-            e.preventDefault();
-            const currentIndex = Array.from(filterOptions).indexOf(document.activeElement);
-            const prevIndex = (currentIndex - 1 + filterOptions.length) % filterOptions.length;
-            filterOptions[prevIndex].focus();
-            
-            if (prevIndex === filterOptions.length - 1) {
-                e.preventDefault();
-                filterButton.focus();
-                toggleMenu(false);
-            }
-        }
-    });
-    
-    // Inicialización
-    filterPopup.style.display = 'none';
-    filterPopup.style.opacity = '0';
+  // Cerrar menú con tecla Escape
+  popup.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      button.setAttribute('aria-expanded', 'false');
+      popup.hidden = true;
+      button.focus();
+    }
+  });
 });
 
 </script>

@@ -13,7 +13,7 @@
   "mis_juegos": "My Games",
   "favoritos": "Favorites",
   "dashboard": "Dashboard",
-  "subir_juego": "Upload Game",
+
   "biblioteca": "Library",
   "descargas": "Downloads",
   "configuracion": "Settings",
@@ -25,7 +25,7 @@
   "descripcion": "Discover, share, and enjoy the best indie games.",
   "boton-publicar": "Publish Your Game Here",
    "juegos_destacados": "Featured Games",
-  "recomendados": "Recommended",
+
   "juegos_gratis": "Free Games",
   "juegos_pago": "Paid Games",
   "mas_seleccionados": "More Selected Games",
@@ -33,7 +33,6 @@
   "explorar_titulo": "Want to explore more games?",
   "explorar_descripcion": "Visit our full store and discover all available titles.",
   "ver_todos_juegos": "View all games →",
-   "gratis": "Free",
   "pago": "Paid",
   "agregar_favorito": "Add to favorites",
    "acerca": "About",
@@ -44,7 +43,6 @@
   "privacidad": "Privacy",
   "cookies": "Cookies",
     "busqueda": "Search",
-  "placeholder_buscar": "Search games...",
   "categorias": "Categories",
   "seleccionar_todo": "Select All",
   "pixelart": "Pixel Art",
@@ -168,12 +166,10 @@
   "jam.coverImage": "Cover Image",
   "jam.content": "Content",
   "jam.rankingCriteria": "Ranking Criteria",
-  "jam.hashtag": "Social Media Hashtag (optional)",
   "jam.enableCommunity": "Enable community",
   "jam.blockUploads": "Block new submissions during voting",
   "jam.hideResults": "Hide results until the end",
   "jam.hideSubmissions": "Hide submissions before the end",
-  "jam.visibility": "Visibility",
   "jam.published": "Published",
   "jam.unpublished": "Unpublished",
   "jam.createBtn": "Create Event",
@@ -237,7 +233,6 @@
   "dashboard.ctaUpload": "New here? Upload your first game",
   "dashboard.ctaExplore": "Explore other games",
   "dashboard.nav.content": "Content",
-    "config.backToHome": "Back to Home",
   "config.manageDownloads": "Manage Downloads",
     "downloads.noActivities": "No activities available at the moment",
   "downloads.exploreLibrary": "Explore our game library to discover exciting new experiences.",
@@ -259,7 +254,6 @@
    "jam.noTitle": "Untitled Game Jam",
   "jam.description": "Description:",
   "jam.noDescription": "No description",
-  "jam.type": "Type:",
   "jam.notSpecified": "Not specified",
   "jam.dates": "Dates:",
   "jam.voting": "Voting:",
@@ -612,6 +606,5 @@
     "gratis": "Free"
   }
 }
-
 
 

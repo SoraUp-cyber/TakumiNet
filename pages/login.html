@@ -239,31 +239,117 @@
     background: #4752C4;
 }
 
-
-
-
-
-
-#mensaje {
-  display: none;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  margin-top: 15px;
+/* ===== Botón de Discord ===== */
+.auth-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
   font-weight: 600;
-  font-family: Arial, sans-serif;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  color: #fff;
+  margin: 10px 0;
 }
 
-.mensaje-error {
-  color: #f44336; /* rojo */
+/* Botón Discord */
+.discord-button {
+  background: #5865F2; /* Color principal Discord */
+  background: linear-gradient(135deg, #5865F2, #7289DA); /* Degradado */
 }
 
-.mensaje-exito {
-  color: #4caf50; /* verde */
+.discord-button i {
+  margin-right: 10px;
+  font-size: 20px;
+  transition: transform 0.3s ease;
 }
 
-form {
-  transition: opacity 0.5s ease;
+/* Hover */
+.discord-button:hover {
+  background: linear-gradient(135deg, #7289DA, #5865F2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
+
+.discord-button:hover i {
+  transform: rotate(-15deg) scale(1.1);
+}
+
+/* Efecto activo */
+.discord-button:active {
+  transform: translateY(0px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+
+
+
+
+
+.welcome-overlay {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.75);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.welcome-content {
+  text-align:center;
+  background:#1e1e1e;
+  padding:40px;
+  border-radius:12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  opacity:0;
+  transform: scale(0.5);
+  transition: all 0.5s ease;
+  color: #fff;
+}
+
+.welcome-content.animate-in {
+  opacity:1;
+  transform: scale(1);
+}
+
+.welcome-content h1 {
+  font-size:2.2rem;
+  color:#4caf50;
+  margin-bottom:10px;
+}
+
+.welcome-content p {
+  font-size:1.2rem;
+  margin-bottom:20px;
+  color:#ccc;
+}
+
+.progress-container {
+  width:200px;
+  height:12px;
+  background:#444;
+  border-radius:6px;
+  overflow:hidden;
+  margin:0 auto;
+}
+
+.progress-bar {
+  width:0%;
+  height:100%;
+  background: linear-gradient(90deg,#4caf50,#81c784);
+  border-radius:6px;
+  transition:width 0.2s ease;
+}
+
 
     </style>
     
@@ -299,9 +385,10 @@ form {
         <div class="separator">o</div>
 
         <!-- Botón GitHub -->
-     <button id="discordBtn" class="auth-button discord-button">
-      <i class="fab fa-discord"></i> Continuar con Discord
-      </button>
+     <!-- Botón que solo redirige -->
+<button id="discordBtn" class="auth-button discord-button">
+    <i class="fab fa-discord"></i> Continuar con Discord
+</button>
 
 
         <!-- Enlaces -->
@@ -311,199 +398,143 @@ form {
         </div>
     </form>
 </div>
-<script src="../data/usuarios.js" ></script>
+
+
 <script src="../js/i18n.js"></script>
 <script src="../cookies.js"></script>
 <script src="../js/discord.js"></script>
-<script src="../autoSync.js"></script>
+<script src="socket.io.js"></script>
+<script src="../renderer.js"></script>
 <script src="../script.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Elementos del DOM
-  const form = document.querySelector('form');
-  const usernameInput = document.querySelector('input[placeholder="Usuario o Apodo"]');
-  const passwordInput = document.querySelector('input[placeholder="Contraseña"]');
+  const loginForm = document.getElementById('loginForm');
   const discordBtn = document.getElementById('discordBtn');
-  const forgotPasswordLink = document.getElementById('forgotPassword');
+  const mostrarNombre = document.getElementById("mostrarNombre");
+  const avatarDiv = document.querySelector(".avatar");
 
-  // Configuración
-  const STORAGE_KEY = 'takumi_login_system';
-  const LOADING_DELAY = 500; // Reducido de 800ms a 500ms
-  const ALERT_DURATION = 3000; // Reducido de 4000ms a 3000ms
-  
-  // Contenedor para mensajes
-  const feedbackContainer = document.createElement('div');
-  feedbackContainer.id = 'feedback';
-  document.body.appendChild(feedbackContainer);
-
-  // Estilos CSS optimizados
-  const style = document.createElement('style');
-  style.textContent = `
-    /* Estilos simplificados para mejor rendimiento */
-    #feedback {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000;
-      max-width: 90%;
-      width: 400px;
-    }
-    .alert {
-      padding: 12px 20px;
-      margin: 0 auto 10px;
-      border-radius: 8px;
-      font-family: system-ui, sans-serif;
-      font-size: 14px;
-      animation: fadeInOut ${ALERT_DURATION}ms ease;
-      opacity: 0;
-    }
-    @keyframes fadeInOut {
-      0%, 100% { opacity: 0; transform: translateY(-10px); }
-      10%, 90% { opacity: 1; transform: translateY(0); }
-    }
-    .alert-success { background: #d4edda; color: #155724; border-left: 4px solid #28a745; }
-    .alert-error { background: #f8d7da; color: #721c24; border-left: 4px solid #dc3545; }
-    .alert-info { background: #d1ecf1; color: #0c5460; border-left: 4px solid #17a2b8; }
-    .spinner {
-      width: 30px; height: 30px; /* Más pequeño */
-      border: 3px solid rgba(0,0,0,0.1);
-      border-top-color: #09f;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite; /* Más rápido */
-      margin: 0 auto;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .form-disabled { opacity: 0.7; pointer-events: none; }
-    .input-group.error input { border-color: #dc3545; }
-    .input-group.error::after {
-      content: '⚠';
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #dc3545;
-    }
-  `;
-  document.head.appendChild(style);
-
-  // Mostrar alerta optimizada
-  function showAlert(message, type = 'info') {
-    const alert = document.createElement('div');
-    alert.className = `alert alert-${type}`;
-    alert.textContent = message;
-    feedbackContainer.appendChild(alert);
-    
-    // Eliminar automáticamente después de mostrar
-    setTimeout(() => alert.remove(), ALERT_DURATION);
-  }
-
-  // Mostrar carga optimizada
-  function showLoading(message) {
-    feedbackContainer.innerHTML = `
-      <div class="spinner"></div>
-      <div class="alert alert-info">${message}</div>
+  function mostrarBienvenida(username) {
+    const overlay = document.createElement('div');
+    overlay.className = 'welcome-overlay';
+    overlay.innerHTML = `
+      <div class="welcome-content">
+        <h1>🎉 Bienvenido, ${username}!</h1>
+        <p>Has ingresado correctamente a TakumiNet</p>
+        <div class="progress-container">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+      </div>
     `;
-  }
+    document.body.appendChild(overlay);
+    overlay.querySelector('.welcome-content').classList.add('animate-in');
 
-  // Función para deshabilitar/habilitar formulario
-  function toggleForm(disabled) {
-    form.classList.toggle('form-disabled', disabled);
-    form.querySelectorAll('input, button').forEach(el => {
-      disabled ? el.setAttribute('disabled', '') : el.removeAttribute('disabled');
-    });
-  }
-
-  // Verificación de credenciales optimizada
-  function checkCredentials(username, password) {
-    const appData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || { users: {} };
-    const user = appData.users[username.toLowerCase()];
-    
-    if (!user) return { success: false, message: 'Usuario no encontrado' };
-    if (user.password !== password) return { success: false, message: 'Contraseña incorrecta' };
-    
-    return {
-      success: true,
-      user: {
-        username: user.username,
-        email: user.email,
-        preferences: user.preferences || {}
+    let width = 0;
+    const progress = document.getElementById('progressBar');
+    const interval = setInterval(() => {
+      if (width >= 100) {
+        clearInterval(interval);
+        overlay.remove();
+        window.location.href = `index.html`;
+      } else {
+        width += 2;
+        progress.style.width = width + '%';
       }
-    };
+    }, 20);
   }
 
-  // Login optimizado
-  async function apiLogin(username, password) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const result = checkCredentials(username, password);
-        if (result.success) {
-          const token = 'token-' + Date.now().toString(36); // ID más simple
-          const appData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || { users: {}, sessions: {} };
-          
-          appData.sessions[token] = {
-            username: username.toLowerCase(),
-            createdAt: new Date().toISOString()
-          };
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
-          
-          resolve({ token, user: result.user });
-        } else {
-          reject(new Error(result.message));
-        }
-      }, LOADING_DELAY); // Tiempo reducido
-    });
-  }
-
-  // Manejo del formulario optimizado
-  form.addEventListener('submit', async e => {
+  // =========================
+  // LOGIN
+  // =========================
+  loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    const username = usernameInput.value.trim();
-    const password = passwordInput.value;
-    
-    // Validación rápida
+    const username = loginForm.querySelector('input[placeholder="Usuario o Apodo"]').value.trim();
+    const password = loginForm.querySelector('input[placeholder="Contraseña"]').value.trim();
+
     if (!username || !password) {
-      showAlert('Por favor completa ambos campos', 'error');
-      if (!username) usernameInput.focus();
-      else passwordInput.focus();
+      alert("⚠️ Por favor, llena todos los campos");
       return;
     }
-    
+
     try {
-      toggleForm(true);
-      showLoading('Verificando...');
-      
-      const { token, user } = await apiLogin(username, password);
-      sessionStorage.setItem('current_token', token);
-      
-      showAlert(`¡Bienvenido, ${user.username}!`, 'success');
-      setTimeout(() => window.location.href = 'index.html', 1000); // Redirección más rápida
-      
-    } catch (error) {
-      showAlert(error.message, 'error');
-      passwordInput.value = '';
-      passwordInput.focus();
-      toggleForm(false);
+      const res = await fetch('http://localhost:3001/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+      const data = await res.json();
+
+      if (data.ok) {
+        // Guardar en sessionStorage como strings
+        sessionStorage.setItem("userId", String(data.user.id));
+        sessionStorage.setItem("username", data.user.username);
+        sessionStorage.setItem("token", data.token);
+        if (data.user.avatar_base64) {
+          sessionStorage.setItem("avatar", data.user.avatar_base64);
+        }
+
+        console.log("SessionStorage guardado:", {
+          userId: sessionStorage.getItem("userId"),
+          username: sessionStorage.getItem("username"),
+          avatar: sessionStorage.getItem("avatar")
+        });
+
+        mostrarBienvenida(data.user.username);
+
+        // Actualizar menú de usuario
+        mostrarNombre.textContent = data.user.username;
+        if (data.user.avatar_base64 && avatarDiv) {
+          avatarDiv.style.backgroundImage = `url(${data.user.avatar_base64})`;
+          avatarDiv.style.backgroundSize = "cover";
+          avatarDiv.style.backgroundPosition = "center";
+          const icon = avatarDiv.querySelector("i");
+          if (icon) icon.style.display = "none";
+        }
+      } else {
+        alert(data.error || "Usuario o contraseña inválidos");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("❌ Error de conexión con el servidor");
     }
   });
 
-  // Eventos secundarios optimizados
-  discordBtn?.addEventListener('click', e => {
-    e.preventDefault();
-    showAlert('Redirigiendo a Discord...', 'info');
-  });
+  // =========================
+  // LOGIN CON DISCORD
+  // =========================
+  if (discordBtn) {
+    const clientId = "1397287228744532162";
+    const redirectUri = encodeURIComponent("http://localhost:3001/auth/discord/callback");
+    const scope = encodeURIComponent("identify email");
+    const responseType = "code";
 
-  forgotPasswordLink?.addEventListener('click', e => {
-    e.preventDefault();
-    showAlert('Contacta al soporte para recuperar tu contraseña', 'info');
-  });
+    discordBtn.addEventListener("click", () => {
+      const discordAuthUrl = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}`;
+      window.location.href = discordAuthUrl;
+    });
+  }
 
-  // Inicialización mínima
-  if (!localStorage.getItem(STORAGE_KEY)) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ users: {}, sessions: {} }));
+  // =========================
+  // ACTUALIZAR MENÚ DE USUARIO AL RECARGAR
+  // =========================
+  const savedUsername = sessionStorage.getItem("username");
+  const savedAvatar = sessionStorage.getItem("avatar");
+
+  if (savedUsername) {
+    mostrarNombre.textContent = savedUsername;
+    console.log("Nombre cargado desde sessionStorage:", savedUsername);
+  }
+
+  if (savedAvatar && avatarDiv) {
+    avatarDiv.style.backgroundImage = `url(${savedAvatar})`;
+    avatarDiv.style.backgroundSize = "cover";
+    avatarDiv.style.backgroundPosition = "center";
+    const icon = avatarDiv.querySelector("i");
+    if (icon) icon.style.display = "none";
+    console.log("Avatar cargado desde sessionStorage:", savedAvatar);
   }
 });
+
 </script>
+
 </body>
 </html>

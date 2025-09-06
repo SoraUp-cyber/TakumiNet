@@ -12,6 +12,164 @@
   <title>Comunidad de Desarrolladores</title>
   <style>
 
+.forum-section {
+  background-color: #2d2d2d;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px auto;
+  width: 98%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.topic-image-container {
+  width: 240px;   /* Más ancha */
+  height: 140px;  /* Proporcional altura */
+  border-radius: 8px;
+  overflow: hidden;
+  margin-right: 15px;
+  border: 2px solid #4CAF50;
+}
+
+.topic-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+
+
+.topic-card:hover .topic-image {
+  transform: scale(1.05); /* Efecto zoom al pasar el mouse */
+}
+
+/* Ajustamos el layout del header para mejor visualización */
+.topic-header {
+  display: flex;
+  padding: 15px;
+  align-items: center;
+  border-bottom: 1px solid #4CAF50;
+  min-height: 130px; /* Altura mínima para consistencia */
+}
+
+/* Resto del CSS se mantiene igual */
+.topic-info {
+  flex: 1;
+}
+
+.topic-info h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.topic-info h3 a {
+  color: white;
+  text-decoration: none;
+}
+
+.topic-info h3 a:hover {
+  color: #4CAF50;
+}
+
+.topic-meta {
+  font-size: 12px;
+  color: #cccccc;
+  margin-top: 5px;
+}
+
+.topic-content {
+  padding: 15px;
+  flex: 1;
+}
+
+.topic-content p {
+  margin: 0 0 10px 0;
+  line-height: 1.5;
+}
+
+.topic-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.tag {
+  background-color: #4CAF50;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.topic-footer {
+  padding: 10px 15px;
+  background-color: #333333;
+  text-align: right;
+}
+
+.btn-view-topic {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-view-topic:hover {
+  background-color: #45a049;
+}
+
+/* Responsive: ajustamos para móviles */
+@media (max-width: 768px) {
+  .topic-header {
+    flex-direction: column;
+    text-align: center;
+    min-height: auto;
+  }
+  
+  .topic-image-container {
+    margin-right: 0;
+    margin-bottom: 15px;
+    width: 80px;
+    height: 80px;
+  }
+}
+
+
+
+.promo-btn {
+  display: inline-block;
+  background-color: #28a745; /* Verde vibrante */
+  color: #fff;
+  padding: 10px 20px;       /* Tamaño mediano */
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;        /* Tamaño de fuente mediano */
+  text-decoration: none;
+  box-shadow: 0 3px 6px rgba(40, 167, 69, 0.4);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
+  cursor: pointer;
+  margin: 12px 0 24px 0;    /* Baja el botón con margen superior de 12px */
+}
+
+.promo-btn:hover,
+.promo-btn:focus {
+  background-color: #218838; /* Verde más oscuro */
+  box-shadow: 0 5px 10px rgba(33, 136, 56, 0.6);
+  outline: none;
+}
+
+
+
+
+
+ 
   </style>
 </head>
 <body>
@@ -111,56 +269,35 @@
 </nav>
 
 <header class="community-header">
-  <h1 data-i18n="community.title">Comunidad de Desarrolladores - TakumiNet</h1>
-  <p data-i18n="community.subtitle">¡Bienvenido a la comunidad! Comparte, aprende y conecta con otros desarrolladores.</p>
+  <h1>Comunidad de Desarrolladores - TakumiNet</h1>
+  <p>¡Bienvenido a la comunidad! Comparte, aprende y conecta con otros desarrolladores.</p>
 </header>
 
-<!-- Caja de reglas -->
 <section class="foro-rules-box">
-  <button id="toggle-rules" class="toggle-rules-btn" data-i18n="forum.showRules">
+  <button id="toggle-rules" class="toggle-rules-btn">
     Mostrar reglas para crear un foro
   </button>
-
   <div id="rules-content" class="foro-rules-content" style="display: none;">
     <ul class="foro-rules-list">
-      <li><strong data-i18n="forum.rules.clearTitle">Sé claro y específico:</strong>
-        <span data-i18n="forum.rules.clearDesc">Usa un título que resuma el tema de forma directa.</span>
-      </li>
-      <li><strong data-i18n="forum.rules.noSpam">Evita el spam:</strong>
-        <span data-i18n="forum.rules.noSpamDesc">No publiques enlaces irrelevantes o contenido promocional.</span>
-      </li>
-      <li><strong data-i18n="forum.rules.category">Categoriza correctamente:</strong>
-        <span data-i18n="forum.rules.categoryDesc">Selecciona la categoría que mejor se ajuste al tema.</span>
-      </li>
-      <li><strong data-i18n="forum.rules.respect">Respeta a los demás:</strong>
-        <span data-i18n="forum.rules.respectDesc">No se toleran insultos, lenguaje ofensivo o contenido discriminatorio.</span>
-      </li>
-      <li><strong data-i18n="forum.rules.value">Comparte con valor:</strong>
-        <span data-i18n="forum.rules.valueDesc">Intenta que tu descripción aporte algo útil a la comunidad.</span>
-      </li>
-      <li><strong data-i18n="forum.rules.tags">Usa etiquetas:</strong>
-        <span data-i18n="forum.rules.tagsDesc">Añade etiquetas clave para facilitar la búsqueda de tu tema.</span>
-      </li>
-      <li><strong data-i18n="forum.rules.noRepeat">No repitas temas:</strong>
-        <span data-i18n="forum.rules.noRepeatDesc">Antes de crear, revisa si ya existe un foro similar.</span>
-      </li>
+      <li><strong>Sé claro y específico:</strong> Usa un título que resuma el tema de forma directa.</li>
+      <li><strong>Evita el spam:</strong> No publiques enlaces irrelevantes o contenido promocional.</li>
+      <li><strong>Categoriza correctamente:</strong> Selecciona la categoría que mejor se ajuste al tema.</li>
+      <li><strong>Respeta a los demás:</strong> No se toleran insultos, lenguaje ofensivo o contenido discriminatorio.</li>
+      <li><strong>Comparte con valor:</strong> Intenta que tu descripción aporte algo útil a la comunidad.</li>
+      <li><strong>Usa etiquetas:</strong> Añade etiquetas clave para facilitar la búsqueda de tu tema.</li>
+      <li><strong>No repitas temas:</strong> Antes de crear, revisa si ya existe un foro similar.</li>
     </ul>
-    <p class="foro-rules-footer" data-i18n="forum.rules.footer">
+    <p class="foro-rules-footer">
       Cumplir estas reglas ayuda a mantener un espacio sano y útil para todos.
     </p>
   </div>
 </section>
 
-<!-- Sección de foros -->
 <section class="forum-section">
-  <h2 data-i18n="forum.discussionTitle">Foros de Discusión</h2>
-
-  <!-- Botón para crear nuevo tema -->
-  <a href="crear-foro.html" class="promo-btn" data-i18n="forum.createTopic">Crear nuevo tema</a>
-
-  <!-- Contenedor dinámico de foros cargados por JavaScript -->
-  <div class="forum-topic-container">
-    <!-- Se rellena con foros dinámicamente desde localStorage -->
+  <h2>Foros de Discusión</h2>
+  <a href="crear-foro.html" class="promo-btn">Crear nuevo tema</a>
+  <div class="forum-topic-container" id="forum-container">
+    <!-- Foros cargados dinámicamente -->
   </div>
 </section>
 
@@ -170,169 +307,82 @@
 <script src="../js/user.js"></script>
 <script src="../js/desplegar.js"></script>
 <script src="../js/cerrar sesion.js"></script>
-<script src="../js/i18n.js"></script>
+<script src="../js/comunidad.js"></script>
 <script src="../js/usario.js"></script>
 <script src="../autoSync.js"></script>
 <script src="../script.js"></script>
 
-
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const container = document.querySelector('.forum-topic-container');
-  const paginationContainer = document.createElement('div');
-  paginationContainer.classList.add('pagination');
+  const forumContainer = document.getElementById('forum-container');
 
-  // Añadir paginación después del contenedor del foro
-  container.insertAdjacentElement('afterend', paginationContainer);
-
-  const forosGuardados = cargarForosDesdeLocalStorage();
-  const forosPorPagina = 25;
-  let paginaActual = 1;
-
-  mostrarForos(paginaActual);
-
-  // Mostrar u ocultar reglas del foro si existe el botón
-  const toggleBtn = document.getElementById('toggle-rules');
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', () => {
-      const content = document.getElementById('rules-content');
-      if (content) {
-        content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+  fetch('http://localhost:3001/foros')
+    .then(async response => {
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
       }
-    });
-  }
+      return response.json();
+    })
+    .then(foros => {
+      forumContainer.innerHTML = '';
 
-  // 🔄 Cargar foros desde localStorage de forma segura
-  function cargarForosDesdeLocalStorage() {
-    try {
-      const data = JSON.parse(localStorage.getItem('foros')) || [];
-      return Array.isArray(data) ? data : [];
-    } catch (error) {
-      console.error('Error al leer foros:', error);
-      return [];
-    }
-  }
+      if (!Array.isArray(foros)) {
+        forumContainer.innerHTML = '<p>Formato de datos inesperado.</p>';
+        return;
+      }
 
-  // 📄 Mostrar los foros en la página actual
-  function mostrarForos(pagina) {
-    container.innerHTML = '';
-    paginationContainer.innerHTML = '';
+      if (foros.length === 0) {
+        forumContainer.innerHTML = '<p>No hay foros disponibles.</p>';
+        return;
+      }
 
-    // Ordenar por fecha descendente
-    const forosOrdenados = [...forosGuardados].sort(
-      (a, b) => new Date(b.fechaCreacion) - new Date(a.fechaCreacion)
-    );
+      foros.forEach(foro => {
+        const foroCard = document.createElement('div');
+        foroCard.classList.add('topic-card');  // Usa tu clase CSS existente
 
-    const inicio = (pagina - 1) * forosPorPagina;
-    const fin = inicio + forosPorPagina;
-    const forosPagina = forosOrdenados.slice(inicio, fin);
+        // Link con query string para identificar el foro
+        // Usa encodeURIComponent para evitar problemas con caracteres especiales
+        const foroUrl = `chat comunidad.html?id=${encodeURIComponent(foro.id)}`;
 
-    forosPagina.forEach(foro => {
-      const temaDiv = document.createElement('div');
-      temaDiv.classList.add('forum-topic');
-
-      temaDiv.innerHTML = `
-        <div class="topic-header">
-          ${foro.imagen ? `
+        foroCard.innerHTML = `
+          <div class="topic-header">
             <div class="topic-image-container">
-              <img src="${foro.imagen}" alt="${foro.titulo}" class="topic-image">` : `
-            <div class="topic-image-placeholder">
-              <i class="fas fa-comments"></i>`}
+              <img src="${foro.image_base64 || 'default-image.jpg'}" alt="${foro.title}" class="topic-image">
             </div>
-
-          <div class="topic-info">
-            <h3>${foro.titulo}</h3>
-            <div class="topic-meta">
-              <span class="topic-category">${foro.categoria || 'General'}</span>
-              <span class="topic-date">${formatDate(foro.fechaCreacion)}</span>
-              <span class="topic-author">${foro.autor || 'Anónimo'}</span>
+            <div class="topic-info">
+              <h3><a href="${foroUrl}" class="foro-link">${foro.title}</a></h3>
+              <div class="topic-meta">
+                <span><strong>Categoría:</strong> ${foro.category}</span>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="topic-content">
-          <p>${foro.descripcion || ''}</p>
-          ${foro.etiquetas?.length ? `
+          <div class="topic-content">
+            <p>${foro.description}</p>
             <div class="topic-tags">
-              ${foro.etiquetas.map(tag => `<span class="tag">${tag}</span>`).join('')}
-            </div>` : ''}
-        </div>
-
-        <div class="topic-footer">
-          <button class="btn-view-topic" data-i18n="forum.viewTopic">Ver tema</button>
-          <div class="topic-stats">
-            <span><i class="far fa-comment"></i> 0</span>
-            <span><i class="far fa-eye"></i> 0</span>
+              ${foro.tags ? foro.tags.split(',').map(tag => `<span class="tag">${tag.trim()}</span>`).join('') : ''}
+            </div>
           </div>
-        </div>`;
+          <div class="topic-footer">
+            <button class="btn-view-topic" data-id="${foro.id}">Ir al chat</button>
+          </div>
+        `;
 
-      temaDiv.querySelector('.btn-view-topic').addEventListener('click', () => {
-        window.location.href = `chat comunidad.html?id=${foro.id}`;
+        // Evento click para botón que redirige al chat con el ID del foro
+        foroCard.querySelector('.btn-view-topic').addEventListener('click', () => {
+          window.location.href = foroUrl;
+        });
+
+        forumContainer.appendChild(foroCard);
       });
-
-      container.appendChild(temaDiv);
+    })
+    .catch(error => {
+      console.error('Error en fetch:', error);
+      forumContainer.innerHTML = '<p>Error al cargar los foros.</p>';
     });
-
-    crearControlesDePaginacion(pagina, Math.ceil(forosGuardados.length / forosPorPagina));
-  }
-
-  // 🔢 Controles de paginación
-  function crearControlesDePaginacion(pagina, totalPaginas) {
-    if (pagina > 1) {
-      const btnAnterior = crearBotonPaginacion('⟵ Página anterior', () => mostrarForos(pagina - 1));
-      paginationContainer.appendChild(btnAnterior);
-    }
-
-    const indicador = document.createElement('span');
-    indicador.className = 'pagina-actual';
-    indicador.textContent = `Página ${pagina} de ${totalPaginas}`;
-    paginationContainer.appendChild(indicador);
-
-    if (pagina < totalPaginas) {
-      const btnSiguiente = crearBotonPaginacion('Página siguiente ⟶', () => mostrarForos(pagina + 1));
-      paginationContainer.appendChild(btnSiguiente);
-    }
-  }
-
-  // 🧱 Botón de paginación
-  function crearBotonPaginacion(texto, onClick) {
-    const btn = document.createElement('button');
-    btn.textContent = texto;
-    btn.classList.add('pagination-btn');
-    btn.addEventListener('click', onClick);
-    return btn;
-  }
-
-  // 🗓️ Formatear fecha
-  function formatDate(fechaStr) {
-    const date = new Date(fechaStr);
-    return isNaN(date) ? 'Fecha inválida' : date.toLocaleDateString('es-ES', {
-      year: 'numeric', month: 'long', day: 'numeric'
-    });
-  }
-});
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-  const toggleBtn = document.getElementById('toggle-rules');
-  const rulesContent = document.getElementById('rules-content');
-  
-  if(toggleBtn && rulesContent) {
-    toggleBtn.addEventListener('click', function() {
-      rulesContent.classList.toggle('active');
-      document.querySelector('.foro-rules-box').classList.toggle('active');
-      
-      // Cambiar el texto del botón
-      if(rulesContent.classList.contains('active')) {
-        this.textContent = 'Ocultar reglas del foro';
-      } else {
-        this.textContent = 'Mostrar reglas del foro';
-      }
-    });
-  }
-});
+}); 
 </script>
+
 
 </body>
 </html>

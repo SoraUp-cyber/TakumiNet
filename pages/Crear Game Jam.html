@@ -10,204 +10,142 @@
     <link rel="stylesheet" href="../src/nav.css">
   <title>Crear Game Jam - TakumiNet</title>
   <style>
-.jam-creation-container {
-  max-width: 850px;
-  margin: 2rem auto;
-  padding: 2rem;
-  border-radius: 20px;
-  width: 200%;
-  color: #ffffff;
-  background: #1e1e1e;
-  font-family: 'Inter', sans-serif;
-}
-
-.jam-creation-header h1 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #00ff80;
-  color: #00ff80;
-}
-
-.jam-creation-form {
-  display: grid;
-  gap: 1.5rem;
-}
-
-.form-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #b3ffcc;
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.form-input,
-.form-select,
-.form-textarea {
+/* 📦 Contenedor principal */
+.jam-container {
   width: 100%;
-  padding: 0.8rem;
+  max-width: 1200px; /* Más ancho que un formulario normal */
+  margin: 40px auto;
+  background-color: #1e1e1e;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+  animation: fadeIn 0.5s ease-in-out;
+
+}
+
+/* 🏷 Título */
+.jam-container h1 {
+  text-align: center;
+  color: #00ff88;
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+/* 🏷 Etiquetas */
+.jam-container label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #cfcfcf;
+}
+
+/* ✏️ Inputs y Selects */
+.jam-container input[type="text"],
+.jam-container input[type="url"],
+.jam-container input[type="datetime-local"],
+.jam-container input[type="file"],
+.jam-container select,
+.jam-container textarea {
+  width: 100%;
+  padding: 10px 12px;
   border: 1px solid #333;
   border-radius: 8px;
-  background: #2b2b2b;
-  color: #ffffff;
-  transition: all 0.3s ease;
+  background-color: #262626;
+  color: #fff;
+  font-size: 14px;
+  transition: border 0.3s, box-shadow 0.3s;
 }
 
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
-  border-color: #00ff80;
-  box-shadow: 0 0 5px rgb(30, 255, 0);
+.jam-container input:focus,
+.jam-container select:focus,
+.jam-container textarea:focus {
+  border-color: #00ff88;
+  box-shadow: 0 0 6px #00ff88;
   outline: none;
 }
 
-.form-input-file {
-  width: 100%;
-  padding: 1rem;
-  border: 2px dashed #444;
+/* 📄 Textarea */
+.jam-container textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ☑️ Checkboxes */
+.jam-container input[type="checkbox"] {
+  accent-color: #00ff88;
+  transform: scale(1.1);
+  margin-right: 8px;
+}
+
+/* 🖼 Vista previa imagen */
+.preview {
+  display: block;
+  max-width: 200px;
+  margin-top: 10px;
   border-radius: 8px;
-  background: #2a2a2a;
-  color: #ffffff;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  border: 2px solid #00ff88;
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
 }
 
-.form-input-file:hover {
-  background-color: #333;
-  border-color: #00ff80;
-}
-
-.form-checkbox {
-  width: 18px;
-  height: 18px;
-  accent-color: #00ff80;
-  margin-right: 0.5rem;
-  vertical-align: middle;
-}
-
-.form-submit-btn {
-  background: #00ff80;
-  color: #000000;
+/* 🔘 Botón enviar */
+.jam-container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #00ff88;
+  color: #121212;
+  font-weight: bold;
+  font-size: 16px;
   border: none;
-  padding: 1rem 2rem;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: 600;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  width: 100%;
+  transition: background 0.3s, transform 0.2s;
 }
 
-.form-submit-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 255, 128, 0.3);
+.jam-container button:hover {
+  background-color: #00cc6a;
+  transform: scale(1.02);
 }
 
-@media (max-width: 768px) {
-  .jam-creation-container {
-    padding: 1.5rem;
-    margin: 1rem;
+/* 📱 Responsividad */
+@media (max-width: 600px) {
+  .jam-container {
+    padding: 20px;
   }
 
-  .jam-creation-header h1 {
-    font-size: 1.75rem;
-  }
-
-  .jam-creation-form {
-    gap: 1rem;
+  .jam-container h1 {
+    font-size: 1.5rem;
   }
 }
 
-/* Personalización de select */
-select.form-select {
-  appearance: none;
-  background: #2b2b2b;
-  background-image: url("data:image/svg+xml,%3Csvg fill='white' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 1em;
-  padding-right: 3rem;
-}
-
-/* Archivo específico */
-#imagen-portada.form-input-file {
-  max-width: 500px;
-  height: 60px;
-  font-size: 1rem;
-}
-
-#imagen-portada.form-input-file:hover {
-  background-color: #3a3a3a;
-  border-color: #00ff80;
-}
-
-#visibilidad.form-select {
-  border: 1px solid #444;
-  background: #2b2b2b;
-  color: #ffffff;
-}
-
-#visibilidad.form-select:focus {
-  border-color: #00ff80;
-  box-shadow: 0 0 0 3px rgba(0, 255, 128, 0.3);
+/* ✨ Animación */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 
 
-
-/* Animación para el alert de confirmación */
-.alert-success {
+/* ===================== */
+/* Notificaciones flotantes */
+/* ===================== */
+#notificacion {
   position: fixed;
   top: 20px;
   right: 20px;
   padding: 15px 25px;
-  background: linear-gradient(135deg, #4CAF50, #2E7D32);
-  color: white;
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  z-index: 1000;
-  opacity: 0;
-  transform: translateX(100%);
-  animation: slideIn 0.5s forwards, fadeOut 0.5s forwards 3s;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.alert-success::before {
-  content: "✓";
-  font-size: 1.5em;
-}
-
-@keyframes slideIn {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-}
-
-/* Efecto de pulso en el texto del ID */
-.jam-id {
+  color: #fff;
   font-weight: bold;
-  animation: pulseText 1.5s infinite;
-  display: inline-block;
-  margin-left: 5px;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s, transform 0.4s;
+  z-index: 1000;
 }
+#notificacion.exito { background-color: #4caf50; }
+#notificacion.error { background-color: #f44336; }
 
-@keyframes pulseText {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); color: #FFEB3B; }
-  100% { transform: scale(1); }
-}
   </style>
 </head>
 <body>
@@ -293,7 +231,7 @@ select.form-select {
             <div class="dropdown-group">
               <a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i><span data-i18n="configuracion">Configuración</span></a>
               <a href="perfil-editar.html" class="menu-item"><i class="fas fa-user-edit"></i><span data-i18n="editar_usuario">Editar Usuario</span></a>
-              <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-star"></i><span data-i18n="suscripcion">Suscripción</span></a>
+                <a href="pagos-desarrollador.html" class="menu-item"><i class="fas fa-money-bill-wave"></i><span data-i18n="pagos">Pagos</span></a>
               <a href="seguidos.html" class="menu-item"><i class="fas fa-heart"></i><span data-i18n="seguidos">Seguidos</span></a>
             </div>
             <hr class="divider">
@@ -306,188 +244,212 @@ select.form-select {
     </div>
 </nav>
 
- <div class="jam-creation-container">
-  <div class="jam-creation-header">
-    <h1 data-i18n="jam.createTitle">Crear Game Jam</h1>
-  </div>
+<div class="jam-container">
+    <h1>Crear Game Jam</h1>
+    <form id="jamForm">
+      <label for="titulo">Título del Evento</label>
+      <input type="text" id="titulo" name="titulo" required>
 
-  <div class="jam-creation-form">
-    <form action="Crear Game Jam.html" method="POST">
+      <label for="descripcion_corta">Descripción corta</label>
+      <input type="text" id="descripcion_corta" name="descripcion_corta" required>
 
-      <!-- Título del Evento -->
-      <label for="titulo" class="form-label" data-i18n="jam.eventTitle">Título del Evento</label>
-      <input type="text" id="titulo" name="titulo" class="form-input" required>
+      <label for="url">URL del Evento</label>
+      <input type="url" id="url" name="url" required>
 
-      <!-- Descripción corta -->
-      <label for="descripcion-corta" class="form-label" data-i18n="jam.shortDescription">Descripción corta</label>
-      <input type="text" id="descripcion-corta" name="descripcion-corta" class="form-input" required>
-
-      <!-- URL -->
-      <label for="url" class="form-label" data-i18n="jam.eventUrl">URL del Evento</label>
-      <input type="url" id="url" name="url" class="form-input" required>
-
-      <!-- Tipo de Game Jam -->
-      <label for="tipo-jam" class="form-label" data-i18n="jam.type">Tipo de Jam</label>
-      <select id="tipo-jam" name="tipo-jam" class="form-select" required>
-        <option value="no-ranking" data-i18n="jam.noRanking">No clasificado</option>
-        <option value="ranking" data-i18n="jam.ranking">Clasificado</option>
+      <label for="tipo_jam">Tipo de Jam</label>
+      <select id="tipo_jam" name="tipo_jam" required>
+        <option value="no-ranking">No clasificado</option>
+        <option value="ranking">Clasificado</option>
       </select>
 
-      <!-- Configuración de Votación -->
-      <label for="quien-vota" class="form-label" data-i18n="jam.whoVotes">¿Quién puede votar?</label>
-      <select id="quien-vota" name="quien-vota" class="form-select" required>
-        <option value="solo-submisores" data-i18n="jam.onlySubmitters">Solo los submisores</option>
-        <option value="submisores-contribuidores" data-i18n="jam.submittersContributors">Submisores y colaboradores</option>
-        <option value="jueces" data-i18n="jam.judgesOnly">Solo los jueces</option>
-        <option value="publico" data-i18n="jam.everyone">Cualquiera</option>
+      <label for="quien_vota">¿Quién puede votar?</label>
+      <select id="quien_vota" name="quien_vota" required>
+        <option value="solo-submisores">Solo submisores</option>
+        <option value="submisores-contribuidores">Submisores y colaboradores</option>
+        <option value="jueces">Solo jueces</option>
+        <option value="publico">Cualquiera</option>
       </select>
 
-      <!-- Fechas del Evento -->
-      <label for="fecha-inicio" class="form-label" data-i18n="jam.startDate">Fecha de inicio</label>
-      <input type="datetime-local" id="fecha-inicio" name="fecha-inicio" class="form-input" required>
+      <label for="fecha_inicio">Fecha de inicio</label>
+      <input type="datetime-local" id="fecha_inicio" name="fecha_inicio" required>
 
-      <label for="fecha-fin" class="form-label" data-i18n="jam.endDate">Fecha de finalización</label>
-      <input type="datetime-local" id="fecha-fin" name="fecha-fin" class="form-input" required>
+      <label for="fecha_fin">Fecha de finalización</label>
+      <input type="datetime-local" id="fecha_fin" name="fecha_fin" required>
 
-      <label for="fecha-votacion" class="form-label" data-i18n="jam.votingEndDate">Fecha de fin de votación</label>
-      <input type="datetime-local" id="fecha-votacion" name="fecha-votacion" class="form-input" required>
+      <label for="fecha_votacion">Fecha de fin de votación</label>
+      <input type="datetime-local" id="fecha_votacion" name="fecha_votacion" required>
 
-      <!-- Imagen de portada -->
-      <label for="imagen-portada" class="form-label" data-i18n="jam.coverImage">Imagen de portada</label>
-      <input type="file" id="imagen-portada" name="imagen-portada" class="form-input-file" accept="image/*" required>
+      <label for="imagen_portada">Imagen de portada</label>
+      <input type="file" id="imagen_portada" accept="image/*" required>
+      <img id="preview" class="preview" style="display:none;">
 
-      <!-- Contenido del Evento -->
-      <label for="contenido" class="form-label" data-i18n="jam.content">Contenido</label>
-      <textarea id="contenido" name="contenido" class="form-textarea" rows="4" required></textarea>
+      <label for="contenido">Contenido del evento</label>
+      <textarea id="contenido" name="contenido" rows="4" required></textarea>
 
-      <!-- Criterios de Ranking -->
-      <label for="criterios" class="form-label" data-i18n="jam.rankingCriteria">Criterios de clasificación</label>
-      <input type="text" id="criterios" name="criterios" class="form-input">
+      <label for="criterios">Criterios de clasificación</label>
+      <input type="text" id="criterios" name="criterios">
 
-      <!-- Hashtag -->
-      <label for="hashtag" class="form-label" data-i18n="jam.hashtag">Hashtag en redes sociales (opcional)</label>
-      <input type="text" id="hashtag" name="hashtag" class="form-input">
+      <label for="hashtag">Hashtag</label>
+      <input type="text" id="hashtag" name="hashtag">
 
-      <!-- Opciones adicionales -->
-      <label for="comunidad" class="form-label" data-i18n="jam.enableCommunity">Habilitar comunidad</label>
-      <input type="checkbox" id="comunidad" name="comunidad" class="form-checkbox">
+      <label><input type="checkbox" id="comunidad"> Habilitar comunidad</label>
+      <label><input type="checkbox" id="bloquear_subidas"> Bloquear nuevas subidas durante la votación</label>
+      <label><input type="checkbox" id="ocultar_resultados"> Ocultar resultados hasta el final</label>
+      <label><input type="checkbox" id="ocultar_submisiones"> Ocultar submisiones antes de terminar</label>
 
-      <label for="bloquear-subidas" class="form-label" data-i18n="jam.blockUploads">Bloquear nuevas subidas durante la votación</label>
-      <input type="checkbox" id="bloquear-subidas" name="bloquear-subidas" class="form-checkbox">
-
-      <label for="ocultar-resultados" class="form-label" data-i18n="jam.hideResults">Ocultar resultados hasta el final</label>
-      <input type="checkbox" id="ocultar-resultados" name="ocultar-resultados" class="form-checkbox">
-
-      <label for="ocultar-submisiones" class="form-label" data-i18n="jam.hideSubmissions">Ocultar submisiones antes de terminar</label>
-      <input type="checkbox" id="ocultar-submisiones" name="ocultar-submisiones" class="form-checkbox">
-
-      <!-- Visibilidad -->
-      <label for="visibilidad" class="form-label" data-i18n="jam.visibility">Visibilidad</label>
-      <select id="visibilidad" name="visibilidad" class="form-select" required>
-        <option value="publicada" data-i18n="jam.published">Publicado</option>
-        <option value="no-publicada" data-i18n="jam.unpublished">No publicada</option>
+      <label for="visibilidad">Visibilidad</label>
+      <select id="visibilidad" name="visibilidad" required>
+        <option value="publicada">Publicado</option>
+        <option value="no-publicada">No publicada</option>
       </select>
 
-      <!-- Botón -->
-      <button type="submit" class="form-submit-btn" data-i18n="jam.createBtn">Crear Evento</button>
+      <button id="btn-crear-jam">Crear Game Jam</button>
     </form>
   </div>
-</div>
+
 
 <script src="../js/notificacion.js"></script>
 <script src="../js/carrito.js"></script>
 <script src="../js/user.js"></script>
 <script src="../js/desplegar.js"></script>
 <script src="../js/cerrar sesion.js"></script>
-<script src="../cookies.js"></script>
-<script src="../js/usario.js"></script>
-<script src="../js/i18n.js"></script>
-<script src="../autoSync.js"></script>
-<script src="../script.js"></script>
 
 </body>
 </html>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.querySelector('.jam-creation-form form');
-  const imagenPortadaInput = document.getElementById('imagen-portada');
-  
-  imagenPortadaInput.addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function(event) {
-        console.log("Imagen convertida a Base64");
-      };
-      reader.readAsDataURL(file);
-    }
+// =====================
+// Mostrar notificación
+// =====================
+function mostrarNotificacion(mensaje, tipo = 'exito') {
+  const notif = document.getElementById('notificacion');
+  notif.textContent = mensaje;
+  notif.className = tipo;
+  notif.style.display = 'block';
+  notif.style.opacity = 1;
+  notif.style.transform = 'translateY(0)';
+
+  setTimeout(() => {
+    notif.style.opacity = 0;
+    notif.style.transform = 'translateY(-20px)';
+    setTimeout(() => { notif.style.display = 'none'; }, 400);
+  }, 3000);
+}
+
+// =====================
+// Convertir imagen a Base64
+// =====================
+function convertirImagenABase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+    reader.readAsDataURL(file);
   });
+}
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const file = imagenPortadaInput.files[0];
-    let imagenBase64 = '';
-    
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function(event) {
-        imagenBase64 = event.target.result;
-        saveJamData(imagenBase64);
-      };
-      reader.readAsDataURL(file);
-    } else {
-      saveJamData(imagenBase64);
-    }
-  });
+// =====================
+// Obtener ID del usuario desde el backend
+// =====================
+async function obtenerUsuario() {
+  try {
+    const response = await fetch('http://localhost:3001/api/usuario/1'); // Cambiar "1" por sesión real si aplica
+    const result = await response.json();
+    if (result.ok) return result.id;
+    return Math.floor(Math.random() * 1000000) + 1; // fallback
+  } catch (err) {
+    console.error('Error al obtener usuario:', err);
+    return Math.floor(Math.random() * 1000000) + 1; // fallback
+  }
+}
 
-  function saveJamData(imagenBase64) {
-    // Generar ID numérico único para la nueva Jam
-    const jamId = generateNumericId();
-    
-    const formData = {
-      id: jamId, // Ahora será solo número
-      titulo: document.getElementById('titulo').value,
-      descripcionCorta: document.getElementById('descripcion-corta').value,
-      url: document.getElementById('url').value,
-      tipoJam: document.getElementById('tipo-jam').value,
-      quienVota: document.getElementById('quien-vota').value,
-      fechaInicio: document.getElementById('fecha-inicio').value,
-      fechaFin: document.getElementById('fecha-fin').value,
-      fechaVotacion: document.getElementById('fecha-votacion').value,
-      imagenPortada: imagenBase64,
-      contenido: document.getElementById('contenido').value,
-      criterios: document.getElementById('criterios').value,
-      hashtag: document.getElementById('hashtag').value,
-      comunidad: document.getElementById('comunidad').checked,
-      bloquearSubidas: document.getElementById('bloquear-subidas').checked,
-      ocultarResultados: document.getElementById('ocultar-resultados').checked,
-      ocultarSubmisiones: document.getElementById('ocultar-submisiones').checked,
-      visibilidad: document.getElementById('visibilidad').value,
-      fechaCreacion: new Date().toISOString()
-    };
-
-    let jams = JSON.parse(localStorage.getItem('jams')) || [];
-    jams.push(formData);
-    localStorage.setItem('jams', JSON.stringify(jams));
-    
-    const alertElement = document.createElement('div');
-    alertElement.className = 'alert-success';
-    alertElement.innerHTML = `
-      Game Jam creada exitosamente con ID: <span class="jam-id">${jamId}</span>
-    `;
-    document.body.appendChild(alertElement);
-
-    setTimeout(() => {
-      alertElement.remove();
-    }, 3500);
-
-    form.reset();
+// =====================
+// Obtener datos del formulario
+// =====================
+async function obtenerDatosGameJam() {
+  const archivoImagen = document.getElementById('imagen_portada').files[0];
+  let imagen_base64 = null;
+  if (archivoImagen) {
+    imagen_base64 = await convertirImagenABase64(archivoImagen);
   }
 
-  // Función para generar ID numérico único
-  function generateNumericId() {
-    return Date.now(); // Solo usamos el timestamp numérico
+  const userId = await obtenerUsuario();
+
+  return {
+    
+    user_id: userId,
+    titulo: document.getElementById('titulo').value.trim(),
+    descripcion_corta: document.getElementById('descripcion_corta').value.trim(),
+    url: document.getElementById('url').value.trim(),
+    tipo_jam: document.getElementById('tipo_jam').value,
+    quien_vota: document.getElementById('quien_vota').value,
+    fecha_inicio: document.getElementById('fecha_inicio').value,
+    fecha_fin: document.getElementById('fecha_fin').value,
+    fecha_votacion: document.getElementById('fecha_votacion').value,
+    imagen_portada_base64: imagen_base64,
+    contenido: document.getElementById('contenido').value.trim(),
+    criterios: document.getElementById('criterios').value.trim(),
+    hashtag: document.getElementById('hashtag').value.trim(),
+    comunidad: document.getElementById('comunidad').checked ? 1 : 0,
+    bloquear_subidas: document.getElementById('bloquear_subidas').checked ? 1 : 0,
+    ocultar_resultados: document.getElementById('ocultar_resultados').checked ? 1 : 0,
+    ocultar_submisiones: document.getElementById('ocultar_submisiones').checked ? 1 : 0,
+    visibilidad: document.getElementById('visibilidad').value
+  };
+}
+
+// =====================
+// Enviar datos al backend y redirigir
+// =====================
+async function crearGameJam(event) {
+  event.preventDefault();
+  const data = await obtenerDatosGameJam();
+
+  try {
+    const response = await fetch('http://localhost:3001/api/game_jams', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+
+    if (result.ok) {
+      mostrarNotificacion('✅ Game Jam creada con éxito! ID: ' + result.id, 'exito');
+      document.getElementById('jamForm').reset();
+      document.getElementById('preview').style.display = 'none';
+
+      // Redirigir después de 1.5s para que se vea la notificación
+      setTimeout(() => {
+        window.location.href = 'game jams.html';
+      }, 1500);
+    } else {
+      mostrarNotificacion('❌ Error: ' + result.error, 'error');
+    }
+  } catch (err) {
+    console.error('Error al enviar la petición:', err);
+    mostrarNotificacion('❌ Error al subir la Game Jam.', 'error');
+  }
+}
+
+// =====================
+// Preview de imagen
+// =====================
+document.getElementById('imagen_portada').addEventListener('change', function() {
+  const file = this.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const preview = document.getElementById('preview');
+      preview.src = e.target.result;
+      preview.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
   }
 });
+
+// =====================
+// Evento al enviar formulario
+// =====================
+document.getElementById('jamForm').addEventListener('submit', crearGameJam);
 </script>
+

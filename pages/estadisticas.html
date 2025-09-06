@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas - TakumiNet</title>
+    <link rel="stylesheet" href="../src/estadisticas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <nav class="config-navbar">
+        <a href="Creator Dashboard.html" class="back-btn" title="Volver al Inicio">
+            <i class="fas fa-arrow-left"></i>
+            <span class="config-title">Volver</span>
+        </a>
+    </nav>
+
+    <section class="stats-section">
+        <div class="stats-header">
+            <h2>Estadísticas del Juego Indie</h2>
+        </div>
+        <div class="stats-numbers">
+            <div class="stat-card" style="--order: 0">
+                <h3 id="visits-count">0</h3>
+                <p>Visitas</p>
+            </div>
+            <div class="stat-card" style="--order: 1">
+                <h3 id="downloads-count">0</h3>
+                <p>Descargas</p>
+            </div>
+            <div class="stat-card" style="--order: 2">
+                <h3 id="followers-count">0</h3>
+                <p>Seguidores</p>
+            </div>
+        </div>
+        <div class="charts-container">
+            <div class="chart-wrapper">
+                <canvas id="barChart" width="500" height="300" aria-label="Gráfico de barras con visitas y descargas" role="img"></canvas>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="lineChart" width="500" height="300" aria-label="Gráfico de línea con seguidores" role="img"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Animación de contadores
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-card h3');
+            const targets = [12458, 8921, 3567]; // Valores objetivo para visitas, descargas, seguidores
+            const duration = 2000; // Duración en ms
+            const steps = 100; // Número de pasos
+            
+            counters.forEach((counter, index) => {
+                const target = targets[index];
+                const increment = target / steps;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        clearInterval(timer);
+                        counter.textContent = target.toLocaleString();
+                    } else {
+                        counter.textContent = Math.floor(current).toLocaleString();
+                    }
+                }, duration / steps);
+            });
+        }
+        
+        // Configuración de gráficos
+        document.addEventListener('DOMContentLoaded', function() {
+            // Iniciar animación de contadores
+            animateCounters();
+            
+            // Gráfico de barras
+            const barCtx = document.getElementById('barChart').getContext('2d');
+            new Chart(barCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+                    datasets: [
+                        {
+                            label: 'Visitas',
+                            data: [1200, 1900, 1700, 2000, 2500, 3000],
+                            backgroundColor: 'rgba(0, 255, 13, 0.7)',
+                            borderColor: 'rgba(0, 255, 13, 1)',
+                            borderWidth: 1,
+                            borderRadius: 6
+                        },
+                        {
+                            label: 'Descargas',
+                            data: [800, 1200, 1400, 1600, 1800, 2000],
+                            backgroundColor: 'rgba(138, 99, 246, 0.7)',
+                            borderColor: 'rgba(138, 99, 246, 1)',
+                            borderWidth: 1,
+                            borderRadius: 6
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: 'white',
+                                font: {
+                                    size: 14,
+                                    family: 'Inter'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(27, 27, 27, 0.9)',
+                            titleColor: 'white',
+                            bodyColor: 'white',
+                            borderColor: 'rgba(255, 255, 255, 0.1)',
+                            borderWidth: 1,
+                            padding: 12,
+                            usePointStyle: true
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                font: {
+                                    family: 'Inter'
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                font: {
+                                    family: 'Inter'
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Gráfico de líneas
+            const lineCtx = document.getElementById('lineChart').getContext('2d');
+            new Chart(lineCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Seguidores',
+                        data: [500, 1200, 1800, 2400, 3000, 3567],
+                        fill: true,
+                        backgroundColor: 'rgba(138, 99, 246, 0.2)',
+                        borderColor: 'rgba(138, 99, 246, 1)',
+                        tension: 0.4,
+                        pointBackgroundColor: 'rgba(0, 255, 13, 1)',
+                        pointRadius: 5,
+                        pointHoverRadius: 7
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'white',
+                                font: {
+                                    size: 14,
+                                    family: 'Inter'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(27, 27, 27, 0.9)',
+                            titleColor: 'white',
+                            bodyColor: 'white',
+                            borderColor: 'rgba(255, 255, 255, 0.1)',
+                            borderWidth: 1,
+                            padding: 12,
+                            usePointStyle: true
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                font: {
+                                    family: 'Inter'
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                font: {
+                                    family: 'Inter'
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
